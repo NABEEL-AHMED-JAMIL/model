@@ -23,7 +23,7 @@ public class ApplicationDecorator {
     private Object dataBean;
     private String queryTime = "";
     private String apiRequestName = "";
-    private Integer	returnCode;
+    private Integer returnCode;
     private String success = "SUCCESS";
     private String failure = "FAILURE";
     private String apiName;

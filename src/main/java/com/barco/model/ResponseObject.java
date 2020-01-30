@@ -17,7 +17,7 @@ public class ResponseObject {
     private Integer returnCode = 0;
     private String returnMessage = "";
     private Map<?,?> returnData;
-    private String queryTimeInMilli	= "";
+    private String queryTimeInMilli = "";
 
     public ResponseObject() { }
 
