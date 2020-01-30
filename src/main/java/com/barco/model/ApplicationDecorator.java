@@ -19,14 +19,14 @@ public class ApplicationDecorator {
     private Set<String> errors = new HashSet<String>();
     private Map<String, String> info = new HashMap<String, String>();
     private Map<String, Object>	responseMap	= new HashMap<String, Object>();
-    private String	responseMessage	= null;
-    private Object	dataBean;
-    private String	queryTime = "";
-    private String	apiRequestName = "";
+    private String responseMessage = null;
+    private Object dataBean;
+    private String queryTime = "";
+    private String apiRequestName = "";
     private Integer	returnCode;
-    private String	success	= "SUCCESS";
-    private String	failure	= "FAILURE";
-    private String	apiName;
+    private String success = "SUCCESS";
+    private String failure = "FAILURE";
+    private String apiName;
 
     public ApplicationDecorator() { }
 

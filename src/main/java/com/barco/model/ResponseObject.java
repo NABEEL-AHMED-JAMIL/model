@@ -13,9 +13,9 @@ import java.util.Map;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseObject {
 
-    private String	returnType = "";
-    private Integer	returnCode = 0;
-    private String	returnMessage = "";
+    private String returnType = "";
+    private Integer returnCode = 0;
+    private String returnMessage = "";
     private Map<?,?> returnData;
     private String queryTimeInMilli	= "";
 

@@ -26,6 +26,10 @@ public class ModelUtil {
 
     public Logger logger = LogManager.getLogger(ModelUtil.class);
 
+    private final String INFO = "info";
+    private final String ERRORS = "errors";
+    private final String RESPONSE = "response";
+
     @Autowired
     private ReturnConstants returnConstants;
 
@@ -112,7 +116,7 @@ public class ModelUtil {
         ResponseObject responseObject = new ResponseObject();
         if((decorator.getReturnCode() != null && decorator.getReturnCode() == 1005) ||
                 !CollectionUtils.isEmpty(decorator.getErrors())) {
-            decorator.getResponseMap().put("errors", decorator.getErrors());
+            decorator.getResponseMap().put(ERRORS, decorator.getErrors());
             responseObject.setReturnType(decorator.getFailure());
             responseObject.setReturnCode(decorator.getReturnCode());
             responseObject.setReturnMessage(decorator.getResponseMessage());
@@ -120,9 +124,9 @@ public class ModelUtil {
             responseObject.setQueryTimeInMilli(decorator.getQueryTime());
         } else {
             if(decorator.getInfo().size() > 0) {
-                decorator.getResponseMap().put("info", decorator.getInfo());
+                decorator.getResponseMap().put(INFO, decorator.getInfo());
             }
-            decorator.getResponseMap().put("response", decorator.getDataBean());
+            decorator.getResponseMap().put(RESPONSE, decorator.getDataBean());
             responseObject.setReturnType(decorator.getSuccess());
             responseObject.setReturnCode(decorator.getReturnCode());
             responseObject.setReturnMessage(decorator.getResponseMessage());
@@ -131,4 +135,5 @@ public class ModelUtil {
         }
         return responseObject;
     }
+
 }
