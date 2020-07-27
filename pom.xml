@@ -10,11 +10,29 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
+	<licenses>
+		<license>
+			<name>New Barco License</name>
+			<url>https://github.com/NABEEL-AHMED-JAMIL</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<name>NABEEL AHMED JAMIL</name>
+			<email>nabeel.amd93@gmail.com</email>
+			<organization>Barco</organization>
+			<organizationUrl>https://github.com/NABEEL-AHMED-JAMIL</organizationUrl>
+		</developer>
+	</developers>
+
+
 	<groupId>com.barco</groupId>
 	<artifactId>model</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>model</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Barco Crone Model</description>
 
 	<properties>
 		<java.version>1.8</java.version>

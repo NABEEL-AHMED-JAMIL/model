@@ -1,29 +1,38 @@
 package com.barco.model.pojo;
 
+import com.barco.model.enums.UserType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.List;
 
-/**
- * @author Nabeel.amd
- */
+
 @Entity
 @Table(name = "app_user")
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class User extends BaseEntity implements UserDetails, Serializable {
+public class AppUser extends BaseEntity implements UserDetails, Serializable {
 
+    @GenericGenerator(
+        name = "appUserSequenceGenerator",
+        strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+        parameters = {
+            @org.hibernate.annotations.Parameter(name = "sequence_name", value = "appUser_Seq"),
+            @org.hibernate.annotations.Parameter(name = "initial_value", value = "1000"),
+            @org.hibernate.annotations.Parameter(name = "increment_size", value = "1")
+        }
+    )
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(generator = "appUserSequenceGenerator")
     private Long id;
 
     @Column(nullable = false, unique = true)
@@ -34,23 +43,13 @@ public class User extends BaseEntity implements UserDetails, Serializable {
 
     @Size(min = 0, max = 500)
     @Column(nullable = false)
-    private String companyName;
-
-    @Size(min = 0, max = 500)
-    @Column(nullable = false)
     private String firstName;
 
     @Size(min = 0, max = 500)
     @Column(nullable = false)
     private String lastName;
 
-    @Column(nullable = false, unique = true)
-    private String mobile;
-
-    @Column(nullable = false)
-    private String address;
-
-    private String imageUrl;
+    private Timestamp lastLoginAt;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user_authority",
@@ -58,7 +57,10 @@ public class User extends BaseEntity implements UserDetails, Serializable {
         inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
     private List<Authority> authorities;
 
-    public User() { }
+    @Column(nullable = false)
+    private UserType userType;
+
+    public AppUser() {}
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -69,27 +71,21 @@ public class User extends BaseEntity implements UserDetails, Serializable {
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
 
-    public String getCompanyName() { return companyName; }
-    public void setCompanyName(String companyName) { this.companyName = companyName; }
-
     public String getFirstName() { return firstName; }
     public void setFirstName(String firstName) { this.firstName = firstName; }
 
     public String getLastName() { return lastName; }
     public void setLastName(String lastName) { this.lastName = lastName; }
 
-    public String getMobile() { return mobile; }
-    public void setMobile(String mobile) { this.mobile = mobile; }
-
-    public String getAddress() { return address; }
-    public void setAddress(String address) { this.address = address; }
-
-    public String getImageUrl() { return imageUrl; }
-    public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
+    public Timestamp getLastLoginAt() { return lastLoginAt; }
+    public void setLastLoginAt(Timestamp lastLoginAt) { this.lastLoginAt = lastLoginAt; }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() { return this.authorities; }
     public void setAuthorities(List<Authority> authorities) { this.authorities = authorities; }
+
+    public UserType getUserType() { return userType; }
+    public void setUserType(UserType userType) { this.userType = userType; }
 
     // We can add the below fields in the users table. For now, they are hardcoded.
     @Override

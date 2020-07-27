@@ -1,74 +1,80 @@
 package com.barco.model.pojo;
 
-import com.barco.model.enums.Frequency;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 
 import javax.persistence.*;
 import java.sql.Time;
 import java.util.Date;
 
-/**
- * @author Nabeel.amd
- */
+
 @Entity
-@Table(name = "scheduler")
+@Table(name="scheduler")
+@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Scheduler extends BaseEntity {
 
+    @GenericGenerator(
+        name = "schedulerSequenceGenerator",
+        strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+        parameters = {
+			@Parameter(name = "sequence_name", value = "scheduler_Seq"),
+			@Parameter(name = "initial_value", value = "1000"),
+			@Parameter(name = "increment_size", value = "1")
+        }
+    )
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(generator = "schedulerSequenceGenerator")
+    protected Long id;
+    
+	@Temporal(TemporalType.DATE)
+	private Date startDate;
+	
+	@Temporal(TemporalType.DATE)
+	private Date endDate;
+    
+	private Time time;
 
-    // date for the start scheduler
-    @Temporal(TemporalType.DATE)
-    private Date start_date;
+	private String frequency;
+	
+	private String recurrence;
+	
+	private String timeZone;
 
-    // date for the end scheduler
-    @Temporal(TemporalType.DATE)
-    private Date end_date;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "job_id")
+	private Job jobId;
 
-    // time to start the scheduler
-    private Time time;
+	public Scheduler() {}
 
-    // Daily,Weekly,Monthly
-    @Enumerated(EnumType.STRING)
-    private Frequency frequency;
+	public Long getId() { return id; }
+	public void setId(Long id) { this.id = id; }
 
-    private String time_zone;
+	public Date getStartDate() { return startDate; }
+	public void setStartDate(Date startDate) { this.startDate = startDate; }
 
-    @ManyToOne
-    @JoinColumn(name = "batch_job", nullable = false)
-    private BatchJob batchJob;
+	public Date getEndDate() { return endDate; }
+	public void setEndDate(Date endDate) { this.endDate = endDate; }
 
-    @Column(name = "member_id", nullable = false)
-    private Long memberId;
+	public Time getTime() { return time; }
+	public void setTime(Time time) { this.time = time; }
 
-    public Scheduler() { }
+	public String getFrequency() { return frequency; }
+	public void setFrequency(String frequency) { this.frequency = frequency; }
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+	public String getRecurrence() { return recurrence; }
+	public void setRecurrence(String recurrence) { this.recurrence = recurrence; }
 
-    public Date getStart_date() { return start_date; }
-    public void setStart_date(Date start_date) { this.start_date = start_date; }
+	public String getTimeZone() { return timeZone; }
+	public void setTimeZone(String timeZone) { this.timeZone = timeZone; }
 
-    public Date getEnd_date() { return end_date; }
-    public void setEnd_date(Date end_date) { this.end_date = end_date; }
+	public Job getJobId() { return jobId; }
+	public void setJobId(Job jobId) { this.jobId = jobId; }
 
-    public Time getTime() { return time; }
-    public void setTime(Time time) { this.time = time; }
-
-    public Frequency getFrequency() { return frequency; }
-    public void setFrequency(Frequency frequency) { this.frequency = frequency; }
-
-    public String getTime_zone() { return time_zone; }
-    public void setTime_zone(String time_zone) { this.time_zone = time_zone; }
-
-    public BatchJob getBatchJob() { return batchJob; }
-    public void setBatchJob(BatchJob batchJob) { this.batchJob = batchJob; }
-
-    public Long getMemberId() { return memberId; }
-    public void setMemberId(Long memberId) { this.memberId = memberId; }
-
-    @Override
-    public String toString() { return new Gson().toJson(this); }
+	@Override
+	public String toString() { return new Gson().toJson(this); }
 
 }

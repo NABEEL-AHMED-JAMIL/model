@@ -9,9 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import java.sql.Timestamp;
 
-/**
- * @author Nabeel.amd
- */
+
 @MappedSuperclass
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -26,7 +24,7 @@ public abstract class BaseMasterEntity {
     @Column(nullable = false)
     private Status status;
 
-    public BaseMasterEntity() { }
+    public BaseMasterEntity() {}
 
     public Timestamp getCreatedAt() { return createdAt; }
     public void setCreatedAt(Timestamp createdAt) { this.createdAt = createdAt; }
@@ -39,4 +37,5 @@ public abstract class BaseMasterEntity {
 
     @Override
     public String toString() { return new Gson().toJson(this); }
+
 }

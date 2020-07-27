@@ -5,43 +5,41 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
-import org.springframework.security.core.GrantedAuthority;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "authority")
+@Table(name = "task")
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Authority extends BaseEntity implements GrantedAuthority {
+public class Task extends BaseEntity {
 
     @GenericGenerator(
-        name = "authoritySequenceGenerator",
+        name = "triggerSequenceGenerator",
         strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
         parameters = {
-            @Parameter(name = "sequence_name", value = "authority_Seq"),
+            @Parameter(name = "sequence_name", value = "trigger_source_Seq"),
             @Parameter(name = "initial_value", value = "1000"),
             @Parameter(name = "increment_size", value = "1")
         }
     )
     @Id
-    @GeneratedValue(generator = "authoritySequenceGenerator")
-    private Long id;
+    @GeneratedValue(generator = "triggerSequenceGenerator")
+    protected Long id;
 
-    @Column(nullable = false, unique = true)
-    private String role;
+    private String className;
 
-    public Authority() {}
+    public Task() {}
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
-    public String getRole() { return role; }
-    public void setRole(String role) { this.role = role; }
-
-    @Override
-    public String getAuthority() { return getRole(); }
+    public String getClassName() { return className; }
+    public void setClassName(String className) { this.className = className; }
 
     @Override
     public String toString() { return new Gson().toJson(this); }

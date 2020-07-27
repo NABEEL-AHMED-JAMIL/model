@@ -10,9 +10,7 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import java.sql.Timestamp;
 
-/**
- * @author Nabeel.amd
- */
+
 @MappedSuperclass
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -23,7 +21,7 @@ public class BaseEntity extends BaseMasterEntity {
     @Column(name = "modified_by_id")
     private Long modifiedBy;
 
-    public BaseEntity() { }
+    public BaseEntity() {}
 
     public Timestamp getModifiedAt() { return modifiedAt; }
     public void setModifiedAt(Timestamp modifiedAt) { this.modifiedAt = modifiedAt; }
@@ -32,9 +30,7 @@ public class BaseEntity extends BaseMasterEntity {
     public void setModifiedBy(Long modifiedBy) { this.modifiedBy = modifiedBy; }
 
     @PreUpdate
-    protected void onUpdate() {
-        this.modifiedAt = new Timestamp(System.currentTimeMillis());
-    }
+    protected void onUpdate() { this.modifiedAt = new Timestamp(System.currentTimeMillis()); }
 
     @PrePersist
     protected void onCreate() {

@@ -1,54 +1,58 @@
 package com.barco.model.pojo;
 
-import com.barco.model.enums.JobStatus;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.sql.Time;
-import java.sql.Timestamp;
-import java.util.Timer;
-import javax.persistence.*;
 
-/**
- * @author Nabeel.amd
- */
+
 @Entity
 @Table(name = "job_queue")
-public class JobQueue extends BaseEntity {
+@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class JobQueue extends BaseMasterEntity {
 
+    @GenericGenerator(
+        name = "jobQueueSequenceGenerator",
+        strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+        parameters = {
+			@Parameter(name = "sequence_name", value = "job_queue_Seq"),
+			@Parameter(name = "initial_value", value = "1000"),
+			@Parameter(name = "increment_size", value = "1")
+        }
+    )
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(generator = "jobQueueSequenceGenerator")
+    protected Long id;
+    
+    private Long appUserId;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "job_status")
-    private JobStatus jobStatus;
-
-    @ManyToOne
-    @JoinColumn(name = "batch_job")
-    private BatchJob batchJob;
-
-    @ManyToOne
-    @JoinColumn(name = "scheduler_id")
-    private Scheduler scheduler;
+    private Long schedulerId;
+    
     private Time schedulerTime;
+    
+	public JobQueue() {}
 
-    public JobQueue() { }
+	public Long getId() { return id; }
+	public void setId(Long id) { this.id = id; }
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+	public Long getAppUserId() { return appUserId; }
+	public void setAppUserId(Long appUserId) { this.appUserId = appUserId; }
 
-    public JobStatus getJobStatus() { return jobStatus; }
-    public void setJobStatus(JobStatus jobStatus) { this.jobStatus = jobStatus; }
+	public Long getSchedulerId() { return schedulerId; }
+	public void setSchedulerId(Long schedulerId) { this.schedulerId = schedulerId; }
 
-    public BatchJob getBatchJob() { return batchJob; }
-    public void setBatchJob(BatchJob batchJob) { this.batchJob = batchJob; }
+	public Time getSchedulerTime() { return schedulerTime; }
+	public void setSchedulerTime(Time schedulerTime) { this.schedulerTime = schedulerTime; }
 
-    public Scheduler getScheduler() { return scheduler; }
-    public void setScheduler(Scheduler scheduler) { this.scheduler = scheduler; }
+	@Override
+	public String toString() { return new Gson().toJson(this); }
 
-    public Time getSchedulerTime() { return schedulerTime; }
-    public void setSchedulerTime(Time schedulerTime) { this.schedulerTime = schedulerTime; }
-
-    @Override
-    public String toString() { return new Gson().toJson(this); }
 }
