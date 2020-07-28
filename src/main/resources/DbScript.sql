@@ -9,6 +9,8 @@
 --VALUES (2, current_date, 0, 1, current_date, 0, 'WebScrapingProcessTask');
 --INSERT INTO task (id, created_at, created_by_id, status, modified_at, modified_by_id, class_name)
 --VALUES (3, current_date, 0, 1, current_date, 0, 'StockPriceProcessTask');
+--INSERT INTO task (id, created_at, created_by_id, status, modified_at, modified_by_id, class_name)
+--VALUES (4, current_date, 0, 1, current_date, 0, 'PublishArticlesProcessTask');
 
 --http://localhost:8080/signup-success?token=scheduler-72943313861000000000&username=Nabeel%20Ahmed
 -- dander query user only when neeed
