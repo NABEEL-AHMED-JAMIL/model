@@ -28,20 +28,14 @@ public class JsonTypeDescriptor extends AbstractTypeDescriptor<Object> implement
 
     @Override
     public boolean areEqual(Object one, Object another) {
-        if(one == another) {
-            return true;
-        }
-        if(one == null || another == null) {
-            return false;
-        }
+        if(one == another) { return true; }
+        if(one == null || another == null) { return false; }
         return JacksonUtil.toJsonNode(JacksonUtil.toString(one))
-                .equals(JacksonUtil.toJsonNode(JacksonUtil.toString(another)));
+            .equals(JacksonUtil.toJsonNode(JacksonUtil.toString(another)));
     }
 
     @Override
-    public Object fromString(String string) {
-        return JacksonUtil.fromString(string, jsonObjectClass);
-    }
+    public Object fromString(String string) { return JacksonUtil.fromString(string, jsonObjectClass); }
 
     @SuppressWarnings({ "unchecked" })
     @Override
