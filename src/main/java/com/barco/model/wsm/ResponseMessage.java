@@ -1,10 +1,11 @@
-package com.barco.model;
+package com.barco.model.wsm;
 
 import com.google.gson.Gson;
 
 public class ResponseMessage {
 
     private String message;
+
     private String requestRef;
 
     public ResponseMessage() { }

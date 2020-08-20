@@ -1,7 +1,7 @@
-package com.barco.model;
+package com.barco.model.wsm;
+
 
 import com.google.gson.Gson;
-
 
 public class RequestMessage {
 
@@ -9,7 +9,9 @@ public class RequestMessage {
 
     public RequestMessage() { }
 
-    public RequestMessage(String ref) { this.ref = ref; }
+    public RequestMessage(String ref) {
+        this.ref = ref;
+    }
 
     public String getRef() { return ref; }
     public void setRef(String ref) { this.ref = ref; }
