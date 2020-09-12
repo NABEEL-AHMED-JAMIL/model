@@ -33,3 +33,29 @@
 --drop table notification_client;
 --drop table task;
 --drop table app_user;
+
+
+--select * from app_user;
+--select * from public.authority;
+--select * from user_verification;
+--select * from public.user_authority
+--delete from public.app_user where id in (1027,1028,1029,1030,1031,1032);
+--delete from PUBLIC.app_user where parent_user_id = 1026
+--delete from PUBLIC.user_authority where user_id in (1027,1028,1029,1030,1031,1032);
+--delete from PUBLIC.notification_client where app_user_id in (1027,1028,1029,1030,1031,1032);
+--delete from PUBLIC.user_verification where app_user_id in (1027,1028,1029,1030,1031,1032);
+--delete from app_sub_user where app_sub_user.parent_user_id = 1018
+--select * from app_sub_user
+--select * from public.app_sub_user
+--select * from app_user where app_user.created_by_id = 1018 and id not in (1033,1034,1035,1036,1037)
+--select * from public.app_user where app_user.created_by_id = 1018
+--
+--
+--// delete user will not show inactive and pending user can be sow on the table view
+--select ap_us.id, ap_us.first_name || ' ' || ap_us.last_name as full_name, ap_us.username, auth.role, ap_us.status, ap_us.user_type
+--from app_user as ap_us
+--  inner join user_authority as us_auth on ap_us.id = us_auth.user_id
+--  inner join authority as auth on auth.id = us_auth.authority_id
+--  inner join app_sub_user as ap_su on ap_su.parent_user_id = ap_us.created_by_id
+--where ap_su.parent_user_id = 1018 group by ap_us.id, auth.role;
+--

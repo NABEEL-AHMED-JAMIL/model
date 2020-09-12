@@ -14,6 +14,7 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 
 @Entity
@@ -60,6 +61,12 @@ public class AppUser extends BaseEntity implements UserDetails, Serializable {
     @Column(nullable = false)
     private UserType userType;
 
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(name = "app_sub_user",
+        joinColumns = @JoinColumn(name = "parent_user_id"),
+        inverseJoinColumns = @JoinColumn(name = "sub_user_id"))
+    private Set<AppUser> subUser;
+
     public AppUser() {}
 
     public Long getId() { return id; }
@@ -86,6 +93,9 @@ public class AppUser extends BaseEntity implements UserDetails, Serializable {
 
     public UserType getUserType() { return userType; }
     public void setUserType(UserType userType) { this.userType = userType; }
+
+    public Set<AppUser> getSubUser() { return subUser; }
+    public void setSubUser(Set<AppUser> subUser) { this.subUser = subUser; }
 
     // We can add the below fields in the users table. For now, they are hardcoded.
     @Override

@@ -13,6 +13,7 @@ public class AWS {
 
     private String accessKey;
     private String secretKey;
+    private String region;
     private List<String> bucketName;
 
     public AWS() { }
@@ -22,6 +23,9 @@ public class AWS {
 
     public String getSecretKey() { return secretKey; }
     public void setSecretKey(String secretKey) { this.secretKey = secretKey; }
+
+    public String getRegion() { return region; }
+    public void setRegion(String region) { this.region = region; }
 
     public List<String> getBucketName() { return bucketName; }
     public void setBucketName(List<String> bucketName) { this.bucketName = bucketName; }
