@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface TriggerRepository extends JpaRepository<Task, Long> {
+public interface TaskRepository extends JpaRepository<Task, Long> {
 }

@@ -5,11 +5,9 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
+import org.hibernate.annotations.Type;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 @Entity
@@ -31,7 +29,16 @@ public class Task extends BaseEntity {
     @GeneratedValue(generator = "triggerSequenceGenerator")
     protected Long id;
 
+    // class name mean which thread will use this detail
+    // example :- service1, service2, service3
+    @Column(nullable = false)
     private String className;
+
+    // this taskDetailJson will be part of service
+    @Type(type = "jsonb")
+    @Column(columnDefinition = "jsonb")
+    @Basic(fetch = FetchType.LAZY)
+    private Object taskDetailJson;
 
     public Task() {}
 
@@ -40,6 +47,9 @@ public class Task extends BaseEntity {
 
     public String getClassName() { return className; }
     public void setClassName(String className) { this.className = className; }
+
+    public Object getTaskDetailJson() { return taskDetailJson; }
+    public void setTaskDetailJson(Object taskDetailJson) { this.taskDetailJson = taskDetailJson; }
 
     @Override
     public String toString() { return new Gson().toJson(this); }

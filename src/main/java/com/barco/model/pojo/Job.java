@@ -1,5 +1,7 @@
 package com.barco.model.pojo;
 
+import com.barco.model.enums.Execution;
+import com.barco.model.enums.JobStatus;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
@@ -35,12 +37,12 @@ public class Job extends BaseEntity {
     @Column(length = 10000)
     private String description;
 
-    private String executionType;
+    // auto-(auto,manual)
+    @Column(nullable = false)
+    private Execution executionType;
 
-    private String jobStatus;
-
-    @Column(columnDefinition = "boolean default false")
-    private Boolean isDisabled;
+    @Column(nullable = false)
+    private JobStatus jobStatus;
 
     private Date lastJobRun;
 
@@ -65,14 +67,11 @@ public class Job extends BaseEntity {
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
 
-    public String getExecutionType() { return executionType; }
-    public void setExecutionType(String executionType) { this.executionType = executionType; }
+    public Execution getExecutionType() { return executionType; }
+    public void setExecutionType(Execution executionType) { this.executionType = executionType; }
 
-    public String getJobStatus() { return jobStatus; }
-    public void setJobStatus(String jobStatus) { this.jobStatus = jobStatus; }
-
-    public Boolean getDisabled() { return isDisabled; }
-    public void setDisabled(Boolean disabled) { isDisabled = disabled; }
+    public JobStatus getJobStatus() { return jobStatus; }
+    public void setJobStatus(JobStatus jobStatus) { this.jobStatus = jobStatus; }
 
     public Date getLastJobRun() { return lastJobRun; }
     public void setLastJobRun(Date lastJobRun) { this.lastJobRun = lastJobRun; }
