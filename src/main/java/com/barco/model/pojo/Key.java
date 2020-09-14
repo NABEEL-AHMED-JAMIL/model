@@ -41,13 +41,9 @@ public class Key extends BaseEntity {
     @Type(type = "jsonb")
     @Column(columnDefinition = "jsonb")
     @Basic(fetch = FetchType.LAZY)
-    private FTP ftp;
+    private Object taskDetailJson;;
 
-    @Type(type = "jsonb")
-    @Column(columnDefinition = "jsonb")
-    @Basic(fetch = FetchType.LAZY)
-    private AWS aws;
-
+    // efs, aws, ftp
     @Column(nullable = false)
     private KeyType keyType;
 
@@ -59,11 +55,8 @@ public class Key extends BaseEntity {
     public String getKeyName() { return keyName; }
     public void setKeyName(String keyName) { this.keyName = keyName; }
 
-    public FTP getFtp() { return ftp; }
-    public void setFtp(FTP ftp) { this.ftp = ftp; }
-
-    public AWS getAws() { return aws; }
-    public void setAws(AWS aws) { this.aws = aws; }
+    public Object getTaskDetailJson() { return taskDetailJson; }
+    public void setTaskDetailJson(Object taskDetailJson) { this.taskDetailJson = taskDetailJson; }
 
     public KeyType getKeyType() { return keyType; }
     public void setKeyType(KeyType keyType) { this.keyType = keyType; }
