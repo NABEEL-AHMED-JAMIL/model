@@ -28,7 +28,7 @@ public class Scheduler extends BaseEntity {
     )
     @Id
     @GeneratedValue(generator = "schedulerSequenceGenerator")
-    protected Long id;
+	private Long id;
     
 	@Temporal(TemporalType.DATE)
 	private Date startDate;

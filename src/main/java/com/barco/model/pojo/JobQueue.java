@@ -30,7 +30,7 @@ public class JobQueue extends BaseMasterEntity {
     )
     @Id
     @GeneratedValue(generator = "jobQueueSequenceGenerator")
-    protected Long id;
+	private Long id;
     
     private Long appUserId;
 

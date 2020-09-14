@@ -29,7 +29,7 @@ public class Job extends BaseEntity {
     )
     @Id
     @GeneratedValue(generator = "jobSequenceGenerator")
-    protected Long id;
+    private Long id;
 
     @Column(length = 1000,unique=true)
     private String jobName;
