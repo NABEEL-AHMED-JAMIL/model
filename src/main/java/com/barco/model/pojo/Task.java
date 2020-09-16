@@ -29,6 +29,9 @@ public class Task extends BaseEntity {
     @GeneratedValue(generator = "triggerSequenceGenerator")
     private Long id;
 
+    @Column(nullable = false)
+    private String taskName;
+
     // class name mean which thread will use this detail
     // example :- service1, service2, service3
     @Column(nullable = false)
@@ -36,7 +39,7 @@ public class Task extends BaseEntity {
 
     // this taskDetailJson will be part of service
     @Type(type = "jsonb")
-    @Column(unique = true, nullable = false, columnDefinition = "jsonb")
+    @Column(nullable = false, columnDefinition = "jsonb")
     @Basic(fetch = FetchType.LAZY)
     private Object taskDetailJson;
 
@@ -44,6 +47,9 @@ public class Task extends BaseEntity {
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
+
+    public String getTaskName() { return taskName; }
+    public void setTaskName(String taskName) { this.taskName = taskName; }
 
     public String getClassName() { return className; }
     public void setClassName(String className) { this.className = className; }

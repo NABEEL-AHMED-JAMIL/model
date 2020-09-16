@@ -22,12 +22,11 @@ public class QueryServices {
     private QueryUtil queryUtil;
     @Autowired
     private EntityManager entityManager;
-    private Query query;
 
     public List<Object[]> executeQuery(String queryStr){
         logger.info("Execute Query :- " + queryStr);
-        this.query = this.entityManager.createNativeQuery(queryStr);
-        return this.query.getResultList();
+        Query query = this.entityManager.createNativeQuery(queryStr);
+        return query.getResultList();
     }
 
 

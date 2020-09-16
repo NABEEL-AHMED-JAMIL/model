@@ -11,7 +11,8 @@ import java.sql.Timestamp;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class TaskDto {
 
-    protected Long id;
+    private Long id;
+    private String taskName;
     private String className;
     private Object taskDetailJson;
     private Timestamp createdAt;
@@ -22,6 +23,9 @@ public class TaskDto {
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
+
+    public String getTaskName() { return taskName; }
+    public void setTaskName(String taskName) { this.taskName = taskName; }
 
     public String getClassName() { return className; }
     public void setClassName(String className) { this.className = className; }

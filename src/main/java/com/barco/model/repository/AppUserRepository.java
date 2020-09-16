@@ -21,4 +21,6 @@ public interface AppUserRepository extends JpaRepository<AppUser, Long> {
 
      AppUser findByIdAndStatusNot(Long userId, Status status);
 
+     Optional<AppUser> findByIdAndStatus(Long userId, Status status);
+
 }
