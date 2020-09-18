@@ -43,6 +43,10 @@ public class Task extends BaseEntity {
     @Basic(fetch = FetchType.LAZY)
     private Object taskDetailJson;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "storage_id")
+    private StorageDetail storageDetail;
+
     public Task() {}
 
     public Long getId() { return id; }
@@ -56,6 +60,9 @@ public class Task extends BaseEntity {
 
     public Object getTaskDetailJson() { return taskDetailJson; }
     public void setTaskDetailJson(Object taskDetailJson) { this.taskDetailJson = taskDetailJson; }
+
+    public StorageDetail getStorageDetail() { return storageDetail; }
+    public void setStorageDetail(StorageDetail storageDetail) { this.storageDetail = storageDetail; }
 
     @Override
     public String toString() { return new Gson().toJson(this); }

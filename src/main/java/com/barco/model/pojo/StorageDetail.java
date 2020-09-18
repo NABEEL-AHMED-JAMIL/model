@@ -2,8 +2,6 @@ package com.barco.model.pojo;
 
 import com.barco.model.JsonBinaryType;
 import com.barco.model.enums.KeyType;
-import com.barco.model.pojo.ext.AWS;
-import com.barco.model.pojo.ext.FTP;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
@@ -16,11 +14,11 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "key")
+@Table(name = "storage_detail")
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
-public class Key extends BaseEntity {
+public class StorageDetail extends BaseEntity {
 
     @GenericGenerator(
         name = "keySequenceGenerator",
@@ -36,24 +34,24 @@ public class Key extends BaseEntity {
     private Long id;
 
     @Column(nullable = false)
-    private String keyName;
+    private String storageKeyName;
 
     @Type(type = "jsonb")
     @Column(columnDefinition = "jsonb")
     @Basic(fetch = FetchType.LAZY)
     private Object taskDetailJson;;
 
-    // efs, aws, ftp
+    // efs, aws, ftp, db
     @Column(nullable = false)
     private KeyType keyType;
 
-    public Key() {}
+    public StorageDetail() {}
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
-    public String getKeyName() { return keyName; }
-    public void setKeyName(String keyName) { this.keyName = keyName; }
+    public String getStorageKeyName() { return storageKeyName; }
+    public void setStorageKeyName(String storageKeyName) { this.storageKeyName = storageKeyName; }
 
     public Object getTaskDetailJson() { return taskDetailJson; }
     public void setTaskDetailJson(Object taskDetailJson) { this.taskDetailJson = taskDetailJson; }
