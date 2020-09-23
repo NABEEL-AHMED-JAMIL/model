@@ -13,11 +13,11 @@ import java.sql.Timestamp;
 public class StorageDetailDto {
 
     private Long id;
-    private String storageKeyName;
-    private Object taskDetailJson;;
-    private KeyType keyType;
+    private String storageKeyName; // required
+    private Object storageDetailJson;; // required
+    private KeyType keyType; // required
     private Timestamp createdAt;
-    private Long createdBy;
+    private Long createdBy; // required
     private Status status;
 
     public StorageDetailDto() { }
@@ -28,8 +28,8 @@ public class StorageDetailDto {
     public String getStorageKeyName() { return storageKeyName; }
     public void setStorageKeyName(String storageKeyName) { this.storageKeyName = storageKeyName; }
 
-    public Object getTaskDetailJson() { return taskDetailJson; }
-    public void setTaskDetailJson(Object taskDetailJson) { this.taskDetailJson = taskDetailJson; }
+    public Object getStorageDetailJson() { return storageDetailJson; }
+    public void setStorageDetailJson(Object storageDetailJson) { this.storageDetailJson = storageDetailJson; }
 
     public KeyType getKeyType() { return keyType; }
     public void setKeyType(KeyType keyType) { this.keyType = keyType; }

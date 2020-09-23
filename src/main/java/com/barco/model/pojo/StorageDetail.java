@@ -39,7 +39,7 @@ public class StorageDetail extends BaseEntity {
     @Type(type = "jsonb")
     @Column(columnDefinition = "jsonb")
     @Basic(fetch = FetchType.LAZY)
-    private Object taskDetailJson;;
+    private Object storageDetailJson;;
 
     // efs, aws, ftp, db
     @Column(nullable = false)
@@ -53,8 +53,8 @@ public class StorageDetail extends BaseEntity {
     public String getStorageKeyName() { return storageKeyName; }
     public void setStorageKeyName(String storageKeyName) { this.storageKeyName = storageKeyName; }
 
-    public Object getTaskDetailJson() { return taskDetailJson; }
-    public void setTaskDetailJson(Object taskDetailJson) { this.taskDetailJson = taskDetailJson; }
+    public Object getStorageDetailJson() { return storageDetailJson; }
+    public void setStorageDetailJson(Object storageDetailJson) { this.storageDetailJson = storageDetailJson; }
 
     public KeyType getKeyType() { return keyType; }
     public void setKeyType(KeyType keyType) { this.keyType = keyType; }
