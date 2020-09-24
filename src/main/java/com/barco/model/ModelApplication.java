@@ -16,6 +16,7 @@ public class ModelApplication {
 
 	@PostConstruct
 	public void started() {
+		// default system timezone for application what ever the time of server we use this new_york time
 		TimeZone.setDefault(TimeZone.getTimeZone("America/New_York"));
 	}
 

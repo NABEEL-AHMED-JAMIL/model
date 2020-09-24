@@ -12,4 +12,9 @@ import java.util.Optional;
 public interface StorageDetailRepository extends JpaRepository<StorageDetail, Long> {
 
     Optional<StorageDetail> findByStorageKeyNameAndStatus(String storageKeyName, Status status);
+
+    StorageDetail findByIdAndStatus(Long id, Status status);
+
+    Optional<StorageDetail> findByIdAndCreatedByAndStatus(Long storageId, Long appUserId, Status status);
+
 }

@@ -41,7 +41,7 @@ public class StorageDetail extends BaseEntity {
     @Basic(fetch = FetchType.LAZY)
     private Object storageDetailJson;;
 
-    // efs, aws, ftp, db
+    // efs, aws, ftp, db(mysql,pg)
     @Column(nullable = false)
     private KeyType keyType;
 

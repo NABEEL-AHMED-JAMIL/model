@@ -11,19 +11,20 @@ import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
+// first spell for scheduler we use this jobdto with out scheduler
 public class JobDto {
 
     private Long id;
-    private String jobName;
+    private String jobName; // required
     private String description;
-    private Execution executionType;
+    private Execution executionType; // required
     private JobStatus jobStatus;
     private Date lastJobRun;
     private Date nextJobRun;
-    private Long createdBy;
-    private TaskDto task;
-    private List<SchedulerDto> schedulers;
-    private String notification;
+    private Long createdBy; // required
+    private TaskDto task; // required
+    private List<SchedulerDto> schedulers; // optional only 5 schedulers can be add
+    private String notification; // optional
 
     public JobDto() { }
 

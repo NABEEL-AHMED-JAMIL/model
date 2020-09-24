@@ -14,7 +14,7 @@ public class StorageDetailDto {
 
     private Long id;
     private String storageKeyName; // required
-    private Object storageDetailJson;; // required
+    private Object storageDetailJson; // required
     private KeyType keyType; // required
     private Timestamp createdAt;
     private Long createdBy; // required

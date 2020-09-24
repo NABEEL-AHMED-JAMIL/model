@@ -31,7 +31,7 @@ public class Job extends BaseEntity {
     @GeneratedValue(generator = "jobSequenceGenerator")
     private Long id;
 
-    @Column(length = 1000, unique=true)
+    @Column(length = 1000, nullable = false)
     private String jobName;
 
     @Column(length = 10000)
@@ -41,16 +41,12 @@ public class Job extends BaseEntity {
     @Column(nullable = false)
     private Execution executionType;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private JobStatus jobStatus;
 
     private Date lastJobRun;
 
     private Date nextJobRun;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "app_user_id")
-    private AppUser appUser;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "task_id")
@@ -80,9 +76,6 @@ public class Job extends BaseEntity {
 
     public Date getNextJobRun() { return nextJobRun; }
     public void setNextJobRun(Date nextJobRun) { this.nextJobRun = nextJobRun; }
-
-    public AppUser getAppUser() { return appUser; }
-    public void setAppUser(AppUser appUser) { this.appUser = appUser; }
 
     public Task getTask() { return task; }
     public void setTask(Task task) { this.task = task; }

@@ -16,6 +16,4 @@ public interface NotificationClientRepository extends JpaRepository<Notification
 
     Optional<NotificationClient> findByTopicId(String topicId);
 
-    NotificationClient findByAppUser(AppUser appUser);
-
 }
