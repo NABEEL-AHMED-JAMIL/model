@@ -15,6 +15,8 @@ public interface JobRepository extends JpaRepository<Job, Long> {
 
     Optional<Job> findByJobNameAndStatus(String jobName, Status status);
 
+    Optional<Job> findByIdAndStatusNot(Long id, Status status);
+
     Job findByIdAndStatus(Long id, Status status);
 
     Optional<Job> findByIdAndCreatedByAndStatus(Long taskId, Long appUserId, Status status);

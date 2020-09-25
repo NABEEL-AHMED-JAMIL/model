@@ -13,6 +13,8 @@ public interface StorageDetailRepository extends JpaRepository<StorageDetail, Lo
 
     Optional<StorageDetail> findByStorageKeyNameAndStatus(String storageKeyName, Status status);
 
+    Optional<StorageDetail> findByIdAndStatusNot(Long id, Status status);
+
     StorageDetail findByIdAndStatus(Long id, Status status);
 
     Optional<StorageDetail> findByIdAndCreatedByAndStatus(Long storageId, Long appUserId, Status status);
