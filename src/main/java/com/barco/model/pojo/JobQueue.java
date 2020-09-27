@@ -6,10 +6,7 @@ import com.google.gson.Gson;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Time;
 
 
@@ -37,6 +34,10 @@ public class JobQueue extends BaseMasterEntity {
     private Long schedulerId;
     
     private Time schedulerTime;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "job_id")
+    private Job job;
     
 	public JobQueue() {}
 
@@ -51,6 +52,9 @@ public class JobQueue extends BaseMasterEntity {
 
 	public Time getSchedulerTime() { return schedulerTime; }
 	public void setSchedulerTime(Time schedulerTime) { this.schedulerTime = schedulerTime; }
+
+	public Job getJob() { return job; }
+	public void setJob(Job job) { this.job = job; }
 
 	@Override
 	public String toString() { return new Gson().toJson(this); }
