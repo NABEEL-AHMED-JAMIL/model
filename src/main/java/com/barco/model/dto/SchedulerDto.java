@@ -18,7 +18,7 @@ public class SchedulerDto {
     private Time time;
     private String frequency;
     private String recurrence;
-    private String timeZone;
+    private String timeZone = "America/New_York";
 
     public SchedulerDto() { }
 

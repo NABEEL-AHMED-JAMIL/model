@@ -1,4 +1,4 @@
-package com.barco.model.pojo.pagination;
+package com.barco.model.searchspec;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -16,8 +16,12 @@ public class PaginationDetail {
     private Integer page;
     @JsonProperty("size")
     private Integer size;
+    @JsonProperty("sortType")
+    private String sortType;
+    @JsonProperty("sortValue")
+    private String sortValue;
     @JsonProperty("criteria")
-    private String criteria;
+    private String criteria; // search form
     @JsonProperty("filters")
     private List<Filters> filters;
 
@@ -28,6 +32,12 @@ public class PaginationDetail {
 
     public Integer getSize() { return size; }
     public void setSize(Integer size) { this.size = size; }
+
+    public String getSortType() { return sortType; }
+    public void setSortType(String sortType) { this.sortType = sortType; }
+
+    public String getSortValue() { return sortValue; }
+    public void setSortValue(String sortValue) { this.sortValue = sortValue; }
 
     public String getCriteria() { return criteria; }
     public void setCriteria(String criteria) { this.criteria = criteria; }

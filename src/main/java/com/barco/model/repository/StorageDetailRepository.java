@@ -11,9 +11,9 @@ import java.util.Optional;
 @Repository
 public interface StorageDetailRepository extends JpaRepository<StorageDetail, Long> {
 
-    Optional<StorageDetail> findByStorageKeyNameAndStatus(String storageKeyName, Status status);
+    Optional<StorageDetail> findByStorageKeyNameAndCreatedByAndStatus(String storageKeyName, Long appUserId, Status status);
 
-    Optional<StorageDetail> findByIdAndStatusNot(Long id, Status status);
+    Optional<StorageDetail> findByIdAndCreatedByAndStatusNot(Long id, Long appUserId, Status status);
 
     StorageDetail findByIdAndStatus(Long id, Status status);
 

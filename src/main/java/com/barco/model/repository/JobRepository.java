@@ -13,7 +13,7 @@ import java.util.Optional;
 @Repository
 public interface JobRepository extends JpaRepository<Job, Long> {
 
-    Optional<Job> findByJobNameAndStatus(String jobName, Status status);
+    Optional<Job> findByJobNameAndCreatedByAndStatus(String jobName, Long appUserId, Status status);
 
     Optional<Job> findByIdAndStatusNot(Long id, Status status);
 

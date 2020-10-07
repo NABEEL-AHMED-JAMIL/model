@@ -11,7 +11,6 @@ import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-// first spell for scheduler we use this jobdto with out scheduler
 public class JobDto {
 
     private Long id;

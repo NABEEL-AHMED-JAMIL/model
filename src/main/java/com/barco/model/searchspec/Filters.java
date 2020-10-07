@@ -1,5 +1,6 @@
-package com.barco.model.pojo.pagination;
+package com.barco.model.searchspec;
 
+import com.barco.model.enums.SearchOperation;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -14,7 +15,7 @@ public class Filters {
     @JsonProperty("criteria")
     private Object criteria;
     @JsonProperty("expression")
-    private String expression;
+    private SearchOperation expression;
 
     public Filters() {
     }
@@ -25,8 +26,8 @@ public class Filters {
     public Object getCriteria() { return criteria; }
     public void setCriteria(Object criteria) { this.criteria = criteria; }
 
-    public String getExpression() { return expression; }
-    public void setExpression(String expression) { this.expression = expression; }
+    public SearchOperation getExpression() { return expression; }
+    public void setExpression(SearchOperation expression) { this.expression = expression; }
 
     @Override
     public String toString() { return new Gson().toJson(this); }

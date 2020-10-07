@@ -17,7 +17,7 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
 
     Optional<Task> findByIdAndStatusNot(Long id, Status status);
 
-    Optional<Task> findByTaskNameAndStatus(String taskName, Status status);
+    Optional<Task> findByTaskNameAndCreatedByAndStatus(String taskName, Long appUserId, Status status);
 
     Optional<Task> findByIdAndCreatedByAndStatus(Long taskId, Long appUserId, Status status);
 
