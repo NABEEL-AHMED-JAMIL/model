@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.Gson;
 
 import java.util.List;
+import java.util.Set;
 
 
 @JsonIgnoreProperties(ignoreUnknown=true)
@@ -23,7 +24,7 @@ public class PaginationDetail {
     @JsonProperty("criteria")
     private String criteria; // search form
     @JsonProperty("filters")
-    private List<Filters> filters;
+    private Set<Filters> filters;
 
     public PaginationDetail() { }
 
@@ -42,8 +43,8 @@ public class PaginationDetail {
     public String getCriteria() { return criteria; }
     public void setCriteria(String criteria) { this.criteria = criteria; }
 
-    public List<Filters> getFilters() { return filters; }
-    public void setFilters(List<Filters> filters) { this.filters = filters; }
+    public Set<Filters> getFilters() { return filters; }
+    public void setFilters(Set<Filters> filters) { this.filters = filters; }
 
     @Override
     public String toString() { return new Gson().toJson(this); }

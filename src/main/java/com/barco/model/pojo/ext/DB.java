@@ -8,12 +8,13 @@ import com.google.gson.Gson;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class DB {
 
+    // mysql,pg,sql server
     private String dataBaseType;
-    private String driver;
-    private String databaseServer;
-    private Long databasePort;
-    private String databaseName;
-    private DbAuthentication dbAuthentication;
+    private String driver; // driver for db base on mysql
+    private String databaseServer; // ip or else db path
+    private Long databasePort; // port of db
+    private String databaseName; // db name
+    private DbAuthentication dbAuthentication; // db auth detail if need
 
     public DB() { }
 
@@ -37,13 +38,18 @@ public class DB {
 
     private class DbAuthentication {
 
-        private String databaseUserid;
+        private String databaseUser;
         private String databasePassword;
 
         public DbAuthentication() { }
 
-        public String getDatabaseUserid() { return databaseUserid; }
-        public void setDatabaseUserid(String databaseUserid) { this.databaseUserid = databaseUserid; }
+        public DbAuthentication(String databaseUser, String databasePassword) {
+            this.databaseUser = databaseUser;
+            this.databasePassword = databasePassword;
+        }
+
+        public String getDatabaseUser() { return databaseUser; }
+        public void setDatabaseUser(String databaseUser) { this.databaseUser = databaseUser; }
 
         public String getDatabasePassword() { return databasePassword; }
         public void setDatabasePassword(String databasePassword) { this.databasePassword = databasePassword; }

@@ -48,6 +48,8 @@ public class Job extends BaseEntity {
 
     private Date nextJobRun;
 
+    private Date skipJobRun;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "task_id")
     private Task task;
@@ -76,6 +78,9 @@ public class Job extends BaseEntity {
 
     public Date getNextJobRun() { return nextJobRun; }
     public void setNextJobRun(Date nextJobRun) { this.nextJobRun = nextJobRun; }
+
+    public Date getSkipJobRun() { return skipJobRun; }
+    public void setSkipJobRun(Date skipJobRun) { this.skipJobRun = skipJobRun; }
 
     public Task getTask() { return task; }
     public void setTask(Task task) { this.task = task; }

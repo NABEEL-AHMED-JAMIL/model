@@ -2,7 +2,6 @@ package com.barco.model;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 import javax.annotation.PostConstruct;
 import java.util.TimeZone;
 
@@ -16,7 +15,8 @@ public class ModelApplication {
 
 	@PostConstruct
 	public void started() {
-		// default system timezone for application what ever the time of server we use this new_york time
+		// default system timezone for application
+		// what ever the time of server we use this new_york time
 		TimeZone.setDefault(TimeZone.getTimeZone("America/New_York"));
 	}
 

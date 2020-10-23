@@ -3,7 +3,7 @@ package com.barco.model.searchspec;
 public class DataFiledName {
 
     public static final String ID = "id";
-    public static final String JOB_NAME = "job_name";
+    public static final String JOB_NAME = "jobName";
     public static final String DESCRIPTION = "description";
     public static final String EXECUTION_TYPE = "execution_type";
     public static final String JOB_STATUS = "job_status";
