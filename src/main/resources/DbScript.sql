@@ -59,3 +59,26 @@
 --  inner join app_sub_user as ap_su on ap_su.parent_user_id = ap_us.created_by_id
 --where ap_su.parent_user_id = 1018 group by ap_us.id, auth.role;
 --
+
+--select jb.id, jb.job_name, tk.id, tk.task_name, jb.is_disabled,
+--       jb.execution_type, jb.is_disabled, jb.job_status, jb.last_job_run,
+--       jb.next_job_run, jb.skip_job_run
+--from job as jb
+--  left join task as tk on tk.id = jb.task_id
+--where tk.created_by_id = 1018
+--
+--select tk.id, tk.task_name, tk.class_name as service_name,
+--       tk.created_at, tk.modified_at, tk.status, count(jb.id) as jb_attache, sd.storage_key_name
+--from public.task as tk
+--  left join public.job as jb on jb.task_id = tk.id
+--  left join public.storage_detail as sd on sd.id = tk.storage_id
+--where tk.created_by_id = 1018
+--group by tk.id, sd.id
+--
+--select sd.id, sd.key_type, sd.storage_key_name, count(tk.storage_id) as tk_attache,
+--       sd.status, sd.created_at, sd.modified_at
+--from public.storage_detail sd
+--  left join task tk on tk.storage_id = sd.id
+--where sd.created_by_id = 1018
+--group by sd.id
+
