@@ -8,6 +8,9 @@ import org.hibernate.annotations.Parameter;
 
 import javax.persistence.*;
 
+/**
+ * @author Nabeel Ahmed
+ */
 @Entity
 @Table(name = "job_audit_logs")
 @JsonIgnoreProperties(ignoreUnknown=true)

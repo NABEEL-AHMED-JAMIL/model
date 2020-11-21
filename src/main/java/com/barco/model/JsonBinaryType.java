@@ -5,7 +5,9 @@ import org.hibernate.usertype.DynamicParameterizedType;
 
 import java.util.Properties;
 
-
+/**
+ * @author Nabeel Ahmed
+ */
 public class JsonBinaryType extends AbstractSingleColumnStandardBasicType<Object> implements DynamicParameterizedType {
 
     public JsonBinaryType() {

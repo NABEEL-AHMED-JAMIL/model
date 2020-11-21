@@ -9,7 +9,9 @@ import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import java.sql.Timestamp;
 
-
+/**
+ * @author Nabeel Ahmed
+ */
 @MappedSuperclass
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)

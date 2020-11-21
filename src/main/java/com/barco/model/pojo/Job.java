@@ -11,7 +11,9 @@ import org.hibernate.annotations.Parameter;
 import javax.persistence.*;
 import java.util.Date;
 
-
+/**
+ * @author Nabeel Ahmed
+ */
 @Entity
 @Table(name = "job")
 @JsonIgnoreProperties(ignoreUnknown=true)

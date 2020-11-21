@@ -10,7 +10,9 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.*;
 
-
+/**
+ * @author Nabeel Ahmed
+ */
 public class GenericSpecification<T> implements Specification<T> {
 
     private Set<Filters> filters;

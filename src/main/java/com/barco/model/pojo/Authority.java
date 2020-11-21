@@ -9,7 +9,9 @@ import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 
-
+/**
+ * @author Nabeel Ahmed
+ */
 @Entity
 @Table(name = "authority")
 @JsonIgnoreProperties(ignoreUnknown=true)

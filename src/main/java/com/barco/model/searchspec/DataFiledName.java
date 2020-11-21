@@ -1,5 +1,8 @@
 package com.barco.model.searchspec;
 
+/**
+ * @author Nabeel Ahmed
+ */
 public class DataFiledName {
 
     public static final String ID = "id";

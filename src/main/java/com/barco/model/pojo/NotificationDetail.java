@@ -12,7 +12,9 @@ import org.hibernate.annotations.Parameter;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
-
+/**
+ * @author Nabeel Ahmed
+ */
 @Entity
 @Table(name = "notification_detail")
 @JsonIgnoreProperties(ignoreUnknown=true)

@@ -1,5 +1,8 @@
 package com.barco.model.enums;
 
+/**
+ * @author Nabeel Ahmed
+ */
 public enum ApiCode {
     SUCCESS,
     INVALID_REQUEST,

@@ -31,10 +31,6 @@ public class UserVerification extends BaseEntity {
     @Column(nullable = false)
     private String token;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "app_user_id")
-    private AppUser appUser;
-
     private Timestamp expiryDate;
 
     private Boolean passwordAdded;
@@ -50,9 +46,6 @@ public class UserVerification extends BaseEntity {
 
     public String getToken() { return token; }
     public void setToken(String token) { this.token = token; }
-
-    public AppUser getAppUser() { return appUser; }
-    public void setAppUser(AppUser appUser) { this.appUser = appUser; }
 
     public Timestamp getExpiryDate() { return expiryDate; }
     public void setExpiryDate(Timestamp expiryDate) { this.expiryDate = expiryDate; }

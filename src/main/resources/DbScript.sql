@@ -1,40 +1,13 @@
 -- Default Authority Script ---
---insert into authority values(1, current_date, 0, 1, current_date,0,'ROLE_SUPER_ADIM');
---insert into authority values (2, current_date, 0, 1, current_date,0,'ROLE_ADMIN');
---insert into authority values (3, current_date, 0, 1, current_date,0,'ROLE_USER');
----- Default Task Script ---
---INSERT INTO task (id, created_at, created_by_id, status, modified_at, modified_by_id, class_name)
---VALUES (1, current_date, 0, 1, current_date, 0, 'SegmentProcessTask');
---INSERT INTO task (id, created_at, created_by_id, status, modified_at, modified_by_id, class_name)
---VALUES (2, current_date, 0, 1, current_date, 0, 'WebScrapingProcessTask');
---INSERT INTO task (id, created_at, created_by_id, status, modified_at, modified_by_id, class_name)
---VALUES (3, current_date, 0, 1, current_date, 0, 'StockPriceProcessTask');
---INSERT INTO task (id, created_at, created_by_id, status, modified_at, modified_by_id, class_name)
---VALUES (4, current_date, 0, 1, current_date, 0, 'PublishArticlesProcessTask');
---INSERT INTO task (id, created_at, created_by_id, status, modified_at, modified_by_id, class_name)
---VALUES (1, current_date, 0, 1, current_date, 0, 'HelloWordTask');
+--insert into authority values(1000, current_date, 0, 1, current_date,0,'ROLE_SUPER_ADIM');
+--insert into authority values (1001, current_date, 0, 1, current_date,0,'ROLE_ADMIN');
+--insert into authority values (1002, current_date, 0, 1, current_date,0,'ROLE_USER');
+-- Default Acess Service Script
+--insert into access_service values (1000, current_date, 0, 1, current_date, 0, 'Service-1', 'WebScraping');
+--insert into access_service values (1002, current_date, 0, 1, current_date, 0, 'Service-2', 'DataFetch');
+--insert into access_service values (1003, current_date, 0, 1, current_date, 0, 'Service-3', 'FireStream');
 
---http://localhost:8080/signup-success?token=scheduler-72943313861000000000&username=Nabeel%20Ahmed
--- dander query user only when neeed
---drop table user_authority;
---drop table user_verification
---drop table authority;
---drop table batch_file_process;
---drop table batch_job;
---drop table batch_job_logs;
---drop table file_info;
---drop table job_queue;
---drop table key;
---drop table notification_detail;
---drop table scheduler;
---drop table socket_client_info;
---drop table stock_price;
---drop table job;
---drop table notification_client;
---drop table task;
---drop table app_user;
-
-
+--================================Local User Script====================
 --select * from app_user;
 --select * from public.authority;
 --select * from user_verification;

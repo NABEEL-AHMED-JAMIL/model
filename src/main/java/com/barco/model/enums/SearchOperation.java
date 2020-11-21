@@ -2,6 +2,9 @@ package com.barco.model.enums;
 
 import com.google.gson.Gson;
 
+/**
+ * @author Nabeel Ahmed
+ */
 public enum SearchOperation {
 
     OR("or"), AMD("and"),

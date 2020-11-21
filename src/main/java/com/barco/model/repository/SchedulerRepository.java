@@ -7,7 +7,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.List;
 
-
+/**
+ * @author Nabeel Ahmed
+ */
 @Repository
 public interface SchedulerRepository extends JpaRepository<Scheduler, Long> {
 

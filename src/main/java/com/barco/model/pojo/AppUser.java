@@ -16,7 +16,9 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * @author Nabeel Ahmed
+ */
 @Entity
 @Table(name = "app_user")
 @JsonIgnoreProperties(ignoreUnknown=true)
@@ -63,9 +65,15 @@ public class AppUser extends BaseEntity implements UserDetails, Serializable {
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "app_sub_user",
-        joinColumns = @JoinColumn(name = "parent_user_id"),
-        inverseJoinColumns = @JoinColumn(name = "sub_user_id"))
+        joinColumns = @JoinColumn(name = "parent_user_id", referencedColumnName = "id"),
+        inverseJoinColumns = @JoinColumn(name = "sub_user_id", referencedColumnName = "id"))
     private Set<AppUser> subUser;
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(name = "user_access_service",
+        joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+        inverseJoinColumns = @JoinColumn(name = "service_id", referencedColumnName = "id"))
+    private Set<AccessService> accessServices;
 
     public AppUser() {}
 
@@ -96,6 +104,9 @@ public class AppUser extends BaseEntity implements UserDetails, Serializable {
 
     public Set<AppUser> getSubUser() { return subUser; }
     public void setSubUser(Set<AppUser> subUser) { this.subUser = subUser; }
+
+    public Set<AccessService> getAccessServices() { return accessServices; }
+    public void setAccessServices(Set<AccessService> accessServices) { this.accessServices = accessServices; }
 
     // We can add the below fields in the users table. For now, they are hardcoded.
     @Override

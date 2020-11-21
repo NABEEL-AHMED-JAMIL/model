@@ -9,15 +9,19 @@ import com.google.gson.Gson;
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class AuthorityDto {
+public class SuperAdminUserListDto {
 
     private Long id;
+    private String username;
     private String role;
 
-    public AuthorityDto() {}
+    public SuperAdminUserListDto() { }
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
+
+    public String getUsername() { return username; }
+    public void setUsername(String username) { this.username = username; }
 
     public String getRole() { return role; }
     public void setRole(String role) { this.role = role; }

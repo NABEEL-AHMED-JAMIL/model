@@ -5,7 +5,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 
+import java.util.Set;
 
+/**
+ * @author Nabeel Ahmed
+ */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserDTO {
@@ -20,6 +24,7 @@ public class UserDTO {
     private String clientPath;
     private String token;
     private UserType userType;
+    private Set<AccessServiceDto> accessServices;
 
     public UserDTO() { }
 
@@ -56,6 +61,9 @@ public class UserDTO {
     public void setUserType(UserType userType) {
         this.userType = userType;
     }
+
+    public Set<AccessServiceDto> getAccessServices() { return accessServices; }
+    public void setAccessServices(Set<AccessServiceDto> accessServices) { this.accessServices = accessServices; }
 
     @Override
     public String toString() { return new Gson().toJson(this); }

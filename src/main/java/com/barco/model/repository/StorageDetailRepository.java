@@ -7,7 +7,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-
+/**
+ * @author Nabeel Ahmed
+ */
 @Repository
 public interface StorageDetailRepository extends JpaRepository<StorageDetail, Long> {
 

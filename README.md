@@ -1,1 +1,4 @@
-# model
+# Barco Crone
+
+This project base on (Web-scraping, ETL, Bid Data) process on base on scheduler.
+

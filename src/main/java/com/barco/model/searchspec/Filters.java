@@ -8,6 +8,9 @@ import com.google.gson.Gson;
 
 import java.util.Objects;
 
+/**
+ * @author Nabeel Ahmed
+ */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Filters {

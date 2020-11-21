@@ -10,6 +10,9 @@ import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.util.List;
 
+/**
+ * @author Nabeel Ahmed
+ */
 @Service
 @Transactional
 @Scope("prototype")
@@ -25,6 +28,5 @@ public class QueryServices {
         Query query = this.entityManager.createNativeQuery(queryStr);
         return query.getResultList();
     }
-
 
 }

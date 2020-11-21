@@ -12,7 +12,9 @@ import org.hibernate.annotations.TypeDef;
 
 import javax.persistence.*;
 
-
+/**
+ * @author Nabeel Ahmed
+ */
 @Entity
 @Table(name = "storage_detail")
 @JsonIgnoreProperties(ignoreUnknown=true)

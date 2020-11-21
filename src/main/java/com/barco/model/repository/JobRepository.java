@@ -9,7 +9,9 @@ import org.springframework.stereotype.Repository;
 import javax.transaction.Transactional;
 import java.util.Optional;
 
-
+/**
+ * @author Nabeel Ahmed
+ */
 @Repository
 public interface JobRepository extends JpaRepository<Job, Long> {
 

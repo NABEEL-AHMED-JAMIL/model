@@ -10,7 +10,9 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import java.sql.Timestamp;
 
-
+/**
+ * @author Nabeel Ahmed
+ */
 @MappedSuperclass
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -35,7 +37,7 @@ public class BaseEntity extends BaseMasterEntity {
     @PrePersist
     protected void onCreate() {
         super.setCreatedAt(new Timestamp(System.currentTimeMillis()));
-        this.modifiedAt = new Timestamp(System.currentTimeMillis());
+        //this.modifiedAt = new Timestamp(System.currentTimeMillis());
     }
 
     @Override

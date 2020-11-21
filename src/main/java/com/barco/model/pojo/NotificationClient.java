@@ -7,7 +7,9 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 import javax.persistence.*;
 
-
+/**
+ * @author Nabeel Ahmed
+ */
 @Entity
 @Table(name = "notification_client")
 @JsonIgnoreProperties(ignoreUnknown=true)
@@ -35,10 +37,6 @@ public class NotificationClient extends BaseEntity {
     @Column(nullable = false, unique = true)
     private String clientPath;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "app_user_id")
-    private AppUser appUser;
-
     public NotificationClient() {}
 
     public Long getId() { return id; }
@@ -52,9 +50,6 @@ public class NotificationClient extends BaseEntity {
 
     public String getClientPath() { return clientPath; }
     public void setClientPath(String clientPath) { this.clientPath = clientPath; }
-
-    public AppUser getAppUser() { return appUser; }
-    public void setAppUser(AppUser appUser) { this.appUser = appUser; }
 
     @Override
     public String toString() { return new Gson().toJson(this); }

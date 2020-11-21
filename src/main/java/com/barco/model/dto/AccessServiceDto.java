@@ -9,19 +9,24 @@ import com.google.gson.Gson;
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class AuthorityDto {
+public class AccessServiceDto {
 
     private Long id;
-    private String role;
+    private String serviceName;
+    private String internalServiceName;
 
-    public AuthorityDto() {}
+    public AccessServiceDto() { }
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
-    public String getRole() { return role; }
-    public void setRole(String role) { this.role = role; }
+    public String getServiceName() { return serviceName; }
+    public void setServiceName(String serviceName) { this.serviceName = serviceName; }
+
+    public String getInternalServiceName() { return internalServiceName; }
+    public void setInternalServiceName(String internalServiceName) { this.internalServiceName = internalServiceName; }
 
     @Override
     public String toString() { return new Gson().toJson(this); }
+
 }

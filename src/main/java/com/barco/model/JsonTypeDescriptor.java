@@ -7,7 +7,9 @@ import org.hibernate.usertype.DynamicParameterizedType;
 
 import java.util.Properties;
 
-
+/**
+ * @author Nabeel Ahmed
+ */
 public class JsonTypeDescriptor extends AbstractTypeDescriptor<Object> implements DynamicParameterizedType {
 
     private Class<?> jsonObjectClass;

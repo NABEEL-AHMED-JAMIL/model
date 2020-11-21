@@ -10,7 +10,9 @@ import javax.persistence.*;
 import java.sql.Time;
 import java.util.Date;
 
-
+/**
+ * @author Nabeel Ahmed
+ */
 @Entity
 @Table(name="scheduler")
 @JsonIgnoreProperties(ignoreUnknown=true)

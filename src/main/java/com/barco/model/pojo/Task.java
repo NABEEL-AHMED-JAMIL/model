@@ -32,10 +32,10 @@ public class Task extends BaseEntity {
     @Column(nullable = false)
     private String taskName;
 
-    // class name mean which thread will use this detail
-    // example :- service1, service2, service3
-    @Column(nullable = false)
-    private String className;
+    // class name mean which thread will use this detail example :- service1, service2, service3
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "access_service_id", nullable = false)
+    private AccessService accessService; // replace with service class
 
     // this taskDetailJson will be part of service
     @Type(type = "jsonb")
@@ -55,8 +55,8 @@ public class Task extends BaseEntity {
     public String getTaskName() { return taskName; }
     public void setTaskName(String taskName) { this.taskName = taskName; }
 
-    public String getClassName() { return className; }
-    public void setClassName(String className) { this.className = className; }
+    public AccessService getAccessService() { return accessService; }
+    public void setAccessService(AccessService accessService) { this.accessService = accessService; }
 
     public Object getTaskDetailJson() { return taskDetailJson; }
     public void setTaskDetailJson(Object taskDetailJson) { this.taskDetailJson = taskDetailJson; }

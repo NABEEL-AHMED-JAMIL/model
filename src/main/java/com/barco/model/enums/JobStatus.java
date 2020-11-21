@@ -2,6 +2,9 @@ package com.barco.model.enums;
 
 import com.google.gson.Gson;
 
+/**
+ * @author Nabeel Ahmed
+ */
 public enum JobStatus {
 
     Queue("In Queue"), Running("Running"), Success("Success"),

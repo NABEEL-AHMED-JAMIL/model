@@ -10,7 +10,9 @@ import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-
+/**
+ * @author Nabeel Ahmed
+ */
 public class JsonBinarySqlTypeDescriptor extends AbstractJsonSqlTypeDescriptor {
 
     public static final JsonBinarySqlTypeDescriptor INSTANCE = new JsonBinarySqlTypeDescriptor();

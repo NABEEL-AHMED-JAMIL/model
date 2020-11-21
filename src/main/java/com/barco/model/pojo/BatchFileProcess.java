@@ -8,7 +8,9 @@ import org.hibernate.annotations.Parameter;
 
 import javax.persistence.*;
 
-
+/**
+ * @author Nabeel Ahmed
+ */
 @Entity
 @Table(name = "batch_file_process")
 @JsonIgnoreProperties(ignoreUnknown=true)
@@ -32,10 +34,6 @@ public class BatchFileProcess extends BaseMasterEntity {
 
     private byte[] fileContent;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "app_user_id")
-    private AppUser appUser;
-
     public BatchFileProcess(){}
 
     public Long getId() { return id; }
@@ -50,8 +48,6 @@ public class BatchFileProcess extends BaseMasterEntity {
     public byte[] getFileContent() { return fileContent; }
     public void setFileContent(byte[] fileContent) { this.fileContent = fileContent; }
 
-    public AppUser getAppUser() { return appUser; }
-    public void setAppUser(AppUser appUser) { this.appUser = appUser; }
 
     @Override
     public String toString() { return new Gson().toJson(this); }

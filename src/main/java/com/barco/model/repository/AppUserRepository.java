@@ -7,7 +7,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-
+/**
+ * @author Nabeel Ahmed
+ */
 @Repository
 public interface AppUserRepository extends JpaRepository<AppUser, Long> {
 

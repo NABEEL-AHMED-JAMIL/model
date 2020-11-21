@@ -14,6 +14,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+/**
+ * @author Nabeel Ahmed
+ */
 @Service
 @Scope("prototype")
 public class CustomUserDetailsService implements UserDetailsService {

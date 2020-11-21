@@ -9,7 +9,9 @@ import org.hibernate.annotations.Parameter;
 import javax.persistence.*;
 import java.sql.Time;
 
-
+/**
+ * @author Nabeel Ahmed
+ */
 @Entity
 @Table(name = "job_queue")
 @JsonIgnoreProperties(ignoreUnknown=true)

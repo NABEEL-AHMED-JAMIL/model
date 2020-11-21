@@ -8,7 +8,9 @@ import com.google.gson.Gson;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * @author Nabeel Ahmed
+ */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PaginationDetail {
