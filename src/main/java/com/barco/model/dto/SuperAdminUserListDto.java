@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 
+import java.util.Set;
+
 /**
  * @author Nabeel Ahmed
  */
@@ -14,6 +16,7 @@ public class SuperAdminUserListDto {
     private Long id;
     private String username;
     private String role;
+    private Set<AccessServiceDto> accessServices;
 
     public SuperAdminUserListDto() { }
 
@@ -25,6 +28,9 @@ public class SuperAdminUserListDto {
 
     public String getRole() { return role; }
     public void setRole(String role) { this.role = role; }
+
+    public Set<AccessServiceDto> getAccessServices() { return accessServices; }
+    public void setAccessServices(Set<AccessServiceDto> accessServices) { this.accessServices = accessServices; }
 
     @Override
     public String toString() { return new Gson().toJson(this); }
