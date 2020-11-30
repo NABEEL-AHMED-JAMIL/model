@@ -23,7 +23,6 @@ public class PaggingUtil {
     }
        
     public static Object convertEntityToPaggingDTO(Long totalCount, Pageable page, PaggingDto pageDTO) {
-
         PaggingDto  pdto = null;
         if(pageDTO == null) {
             pdto = new PaggingDto();

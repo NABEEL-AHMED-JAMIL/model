@@ -16,6 +16,20 @@ public class PaggingDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    private Long totalRecord;
+    private Long pageSize;
+    private Long currentPage;
+    private String columnName;
+    private String order;
+
+    public PaggingDto() {}
+
+    public PaggingDto(Long totalRecord, Long pageSize, Long currentPage) {
+        this.totalRecord = totalRecord;
+        this.pageSize = pageSize;
+        this.currentPage = currentPage;
+    }
+
     public PaggingDto(Long totalRecord, Long pageSize, Long currentPage, String columnName, String order) {
         this.totalRecord = totalRecord;
         this.pageSize = pageSize;
@@ -24,64 +38,20 @@ public class PaggingDto implements Serializable {
         this.order = order;
     }
 
-    public PaggingDto(Long totalRecord, Long pageSize, Long currentPage) {
-        this.totalRecord = totalRecord;
-        this.pageSize = pageSize;
-        this.currentPage = currentPage;
-    }
+    public String getColumnName() { return columnName; }
+    public void setColumnName(String columnName) { this.columnName = columnName; }
 
-    private Long totalRecord;
+    public String getOrder() { return order; }
+    public void setOrder(String order) { this.order = order; }
 
-    private Long pageSize;
+    public Long getTotalRecord() { return totalRecord; }
+    public void setTotalRecord(Long totalRecord) { this.totalRecord = totalRecord; }
 
-    private Long currentPage;
+    public Long getPageSize() { return pageSize; }
+    public void setPageSize(Long pageSize) { this.pageSize = pageSize; }
 
-    private String columnName;
-
-    public String getColumnName() {
-        return columnName;
-    }
-
-    public void setColumnName(String columnName) {
-        this.columnName = columnName;
-    }
-
-    public String getOrder() {
-        return order;
-    }
-
-    public void setOrder(String order) {
-        this.order = order;
-    }
-
-    private String order;
-
-    public PaggingDto() {
-    }
-
-    public Long getTotalRecord() {
-        return totalRecord;
-    }
-
-    public void setTotalRecord(Long totalRecord) {
-        this.totalRecord = totalRecord;
-    }
-
-    public Long getPageSize() {
-        return pageSize;
-    }
-
-    public void setPageSize(Long pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public Long getCurrentPage() {
-        return currentPage;
-    }
-
-    public void setCurrentPage(Long currentPage) {
-        this.currentPage = currentPage;
-    }
+    public Long getCurrentPage() { return currentPage; }
+    public void setCurrentPage(Long currentPage) { this.currentPage = currentPage; }
 
     @Override
     public String toString() { return new Gson().toJson(this); }
