@@ -1,80 +1,80 @@
-CREATE TABLE IF NOT EXISTS access_service (id BIGINT NOT NULL, created_at TIMESTAMP(6) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
-created_by_id BIGINT, status INTEGER NOT NULL, modified_at TIMESTAMP(6) WITHOUT TIME ZONE, modified_by_id BIGINT,
-internal_service_name CHARACTER VARYING(255) NOT NULL, service_name CHARACTER VARYING(255) NOT NULL, PRIMARY KEY (id),
-CONSTRAINT uk_lcat045s2h30y266futo4od4w UNIQUE (internal_service_name), CONSTRAINT uk_9uomklcnplqo5444p70ncyqgt UNIQUE (service_name));
-
-
-CREATE TABLE IF NOT EXISTS app_sub_user (parent_user_id BIGINT NOT NULL, sub_user_id BIGINT NOT NULL, PRIMARY KEY (parent_user_id, sub_user_id),
-CONSTRAINT fkim7abpy52ad46kb35d7vfc4wn FOREIGN KEY (sub_user_id) REFERENCES "app_user" ("id"), CONSTRAINT fkblhnn8flj9ig8pynydo7yxbd0 FOREIGN KEY 
-(parent_user_id) REFERENCES "app_user" ("id"));
-
-CREATE TABLE IF NOT EXISTS app_user (id BIGINT NOT NULL, created_at TIMESTAMP(6) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
-created_by_id BIGINT, status INTEGER NOT NULL, modified_at TIMESTAMP(6) WITHOUT TIME ZONE, modified_by_id BIGINT, 
-first_name CHARACTER VARYING(500) NOT NULL, last_login_at TIMESTAMP(6) WITHOUT TIME ZONE, last_name CHARACTER VARYING(500) NOT NULL,
-password CHARACTER VARYING(255) NOT NULL, user_type INTEGER NOT NULL,
-username CHARACTER VARYING(255) NOT NULL, PRIMARY KEY (id), CONSTRAINT uk_3k4cplvh82srueuttfkwnylq0 UNIQUE (username));
-
-
-CREATE TABLE IF NOT EXISTS authority (id BIGINT NOT NULL, created_at TIMESTAMP(6) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
-created_by_id BIGINT, status INTEGER NOT NULL, modified_at TIMESTAMP(6) WITHOUT TIME ZONE, modified_by_id BIGINT, role CHARACTER VARYING(255) NOT NULL, PRIMARY KEY (id),
-CONSTRAINT uk_i4snsi2aeu7bp46bo7of23hs0 UNIQUE (role));
-
-CREATE TABLE IF NOT EXISTS batch_file_process (id BIGINT NOT NULL, created_at TIMESTAMP(6) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
-created_by_id BIGINT, status INTEGER NOT NULL, file_content BYTEA, file_name CHARACTER VARYING(255), type CHARACTER VARYING(255), PRIMARY KEY (id));
-
-CREATE TABLE IF NOT EXISTS job (id BIGINT NOT NULL, created_at TIMESTAMP(6) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
-created_by_id BIGINT, status INTEGER NOT NULL, modified_at TIMESTAMP(6) WITHOUT TIME ZONE, modified_by_id BIGINT, description CHARACTER VARYING(10000),
-execution_type INTEGER NOT NULL, job_name CHARACTER VARYING(1000) NOT NULL, job_status INTEGER, last_job_run TIMESTAMP(6) WITHOUT TIME ZONE,
-next_job_run TIMESTAMP(6) WITHOUT TIME ZONE, notification CHARACTER VARYING(255), skip_job_run TIMESTAMP(6) WITHOUT TIME ZONE, task_id BIGINT, PRIMARY KEY (id),
-CONSTRAINT fk254nno87adyfj7u782rofifjp FOREIGN KEY (task_id) REFERENCES "task" ("id"));
-
-CREATE TABLE IF NOT EXISTS job_audit_logs (id BIGINT NOT NULL, created_at TIMESTAMP(6) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
-created_by_id BIGINT, status INTEGER NOT NULL, class_name CHARACTER VARYING(255) NOT NULL, job_name CHARACTER VARYING(1000) NOT NULL,
-logs_detail CHARACTER VARYING(255), task_name CHARACTER VARYING(255) NOT NULL, PRIMARY KEY (id));
-
-
-CREATE TABLE IF NOT EXISTS job_queue (id BIGINT NOT NULL, created_at TIMESTAMP(6) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
-created_by_id BIGINT, status INTEGER NOT NULL, app_user_id BIGINT, scheduler_id BIGINT, scheduler_time TIME(6) WITHOUT TIME ZONE, job_id BIGINT,
-PRIMARY KEY (id), CONSTRAINT fkno8u6m9bf13m0lgbxkul0ds3g FOREIGN KEY (job_id) REFERENCES "job" ("id"));
-
-
-CREATE TABLE IF NOT EXISTS  notification_client (id BIGINT NOT NULL, created_at TIMESTAMP(6) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
-created_by_id BIGINT, status INTEGER NOT NULL, modified_at TIMESTAMP(6) WITHOUT TIME ZONE, modified_by_id BIGINT, client_path CHARACTER VARYING(255) NOT NULL,
-session_id CHARACTER VARYING(255), topic_id CHARACTER VARYING(255) NOT NULL, PRIMARY KEY (id), CONSTRAINT uk_7rocbownsvd07gb884wn0xrwm UNIQUE (client_path),
-CONSTRAINT uk_o2ywbu97errwpes5broujtq55 UNIQUE (topic_id));
-
-
-CREATE TABLE IF NOT EXISTS notification_detail (id BIGINT NOT NULL, created_at TIMESTAMP(6) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
-created_by_id BIGINT, status INTEGER NOT NULL, modified_at TIMESTAMP(6) WITHOUT TIME ZONE, modified_by_id BIGINT, detail CHARACTER VARYING(255),
-flag INTEGER, notification_type INTEGER, send_time TIMESTAMP(6) WITHOUT TIME ZONE, notification_id BIGINT, PRIMARY KEY (id),
-CONSTRAINT fkfcww27a3tqdfihpp9exxj4k9y FOREIGN KEY (notification_id) REFERENCES "notification_client" ("id"));
-
-
-CREATE TABLE IF NOT EXISTS scheduler (id BIGINT NOT NULL, created_at TIMESTAMP(6) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
-created_by_id BIGINT, status INTEGER NOT NULL, modified_at TIMESTAMP(6) WITHOUT TIME ZONE, modified_by_id BIGINT, end_date DATE,
-frequency CHARACTER VARYING(255), recurrence CHARACTER VARYING(255), start_date DATE, time TIME(6) WITHOUT TIME ZONE, time_zone CHARACTER VARYING(255),
-job_id BIGINT, PRIMARY KEY (id), CONSTRAINT fktche2qu0p2aynwrq2v9spceeg FOREIGN KEY (job_id) REFERENCES "job" ("id"));
-
-
-CREATE TABLE IF NOT EXISTS storage_detail (id BIGINT NOT NULL, created_at TIMESTAMP(6) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
-created_by_id BIGINT, status INTEGER NOT NULL, modified_at TIMESTAMP(6) WITHOUT TIME ZONE, modified_by_id BIGINT, key_type INTEGER NOT NULL,
-storage_detail_json JSONB, storage_key_name CHARACTER VARYING(255) NOT NULL, PRIMARY KEY (id));
-
-
-CREATE TABLE IF NOT EXISTS task (id BIGINT NOT NULL, created_at TIMESTAMP(6) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL, created_by_id BIGINT,
-status INTEGER NOT NULL, modified_at TIMESTAMP(6) WITHOUT TIME ZONE, modified_by_id BIGINT, task_detail_json JSONB NOT NULL, task_name CHARACTER VARYING(255) NOT NULL,
-access_service_id BIGINT NOT NULL, storage_id BIGINT, PRIMARY KEY (id), CONSTRAINT fkrw2dllrf0caioctc9jfbcvgp2 FOREIGN KEY (access_service_id) REFERENCES "access_service" ("id"),
-CONSTRAINT fk3m9rrlo5by77u10w4nwt5rmpj FOREIGN KEY (storage_id) REFERENCES "storage_detail" ("id"));
-
-
-CREATE TABLE IF NOT EXISTS user_access_service (user_id BIGINT NOT NULL, service_id BIGINT NOT NULL, PRIMARY KEY (user_id, service_id),
-CONSTRAINT fk8cktm1wfw40umjsmerus3ny1s FOREIGN KEY (service_id) REFERENCES "access_service" ("id"), CONSTRAINT fkc7oe96mfe9sroshglhemqq0sg FOREIGN KEY (user_id) REFERENCES "app_user" ("id"));
-
-
-CREATE TABLE IF NOT EXISTS user_authority (user_id BIGINT NOT NULL, authority_id BIGINT NOT NULL, CONSTRAINT fkgvxjs381k6f48d5d2yi11uh89 FOREIGN KEY (authority_id) REFERENCES "authority" ("id"),
-CONSTRAINT fkeoyor0ywyy3m5xntqmjvah310 FOREIGN KEY (user_id) REFERENCES "app_user" ("id"));
-
-
-CREATE TABLE IF NOT EXISTS user_verification (id BIGINT NOT NULL, created_at TIMESTAMP(6) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
-created_by_id BIGINT, status INTEGER NOT NULL, modified_at TIMESTAMP(6) WITHOUT TIME ZONE, modified_by_id BIGINT, activated_at TIMESTAMP(6) WITHOUT TIME ZONE,
-expiry_date TIMESTAMP(6) WITHOUT TIME ZONE, is_consumed BOOLEAN, password_added BOOLEAN, token CHARACTER VARYING(255) NOT NULL, PRIMARY KEY (id));
+--CREATE TABLE IF NOT EXISTS access_service (id BIGINT NOT NULL, created_at TIMESTAMP(6) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
+--created_by_id BIGINT, status INTEGER NOT NULL, modified_at TIMESTAMP(6) WITHOUT TIME ZONE, modified_by_id BIGINT,
+--internal_service_name CHARACTER VARYING(255) NOT NULL, service_name CHARACTER VARYING(255) NOT NULL, PRIMARY KEY (id),
+--CONSTRAINT uk_lcat045s2h30y266futo4od4w UNIQUE (internal_service_name), CONSTRAINT uk_9uomklcnplqo5444p70ncyqgt UNIQUE (service_name));
+--
+--
+--CREATE TABLE IF NOT EXISTS app_sub_user (parent_user_id BIGINT NOT NULL, sub_user_id BIGINT NOT NULL, PRIMARY KEY (parent_user_id, sub_user_id),
+--CONSTRAINT fkim7abpy52ad46kb35d7vfc4wn FOREIGN KEY (sub_user_id) REFERENCES "app_user" ("id"), CONSTRAINT fkblhnn8flj9ig8pynydo7yxbd0 FOREIGN KEY
+--(parent_user_id) REFERENCES "app_user" ("id"));
+--
+--CREATE TABLE IF NOT EXISTS app_user (id BIGINT NOT NULL, created_at TIMESTAMP(6) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
+--created_by_id BIGINT, status INTEGER NOT NULL, modified_at TIMESTAMP(6) WITHOUT TIME ZONE, modified_by_id BIGINT,
+--first_name CHARACTER VARYING(500) NOT NULL, last_login_at TIMESTAMP(6) WITHOUT TIME ZONE, last_name CHARACTER VARYING(500) NOT NULL,
+--password CHARACTER VARYING(255) NOT NULL, user_type INTEGER NOT NULL,
+--username CHARACTER VARYING(255) NOT NULL, PRIMARY KEY (id), CONSTRAINT uk_3k4cplvh82srueuttfkwnylq0 UNIQUE (username));
+--
+--
+--CREATE TABLE IF NOT EXISTS authority (id BIGINT NOT NULL, created_at TIMESTAMP(6) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
+--created_by_id BIGINT, status INTEGER NOT NULL, modified_at TIMESTAMP(6) WITHOUT TIME ZONE, modified_by_id BIGINT, role CHARACTER VARYING(255) NOT NULL, PRIMARY KEY (id),
+--CONSTRAINT uk_i4snsi2aeu7bp46bo7of23hs0 UNIQUE (role));
+--
+--CREATE TABLE IF NOT EXISTS batch_file_process (id BIGINT NOT NULL, created_at TIMESTAMP(6) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
+--created_by_id BIGINT, status INTEGER NOT NULL, file_content BYTEA, file_name CHARACTER VARYING(255), type CHARACTER VARYING(255), PRIMARY KEY (id));
+--
+--CREATE TABLE IF NOT EXISTS job (id BIGINT NOT NULL, created_at TIMESTAMP(6) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
+--created_by_id BIGINT, status INTEGER NOT NULL, modified_at TIMESTAMP(6) WITHOUT TIME ZONE, modified_by_id BIGINT, description CHARACTER VARYING(10000),
+--execution_type INTEGER NOT NULL, job_name CHARACTER VARYING(1000) NOT NULL, job_status INTEGER, last_job_run TIMESTAMP(6) WITHOUT TIME ZONE,
+--next_job_run TIMESTAMP(6) WITHOUT TIME ZONE, notification CHARACTER VARYING(255), skip_job_run TIMESTAMP(6) WITHOUT TIME ZONE, task_id BIGINT, PRIMARY KEY (id),
+--CONSTRAINT fk254nno87adyfj7u782rofifjp FOREIGN KEY (task_id) REFERENCES "task" ("id"));
+--
+--CREATE TABLE IF NOT EXISTS job_audit_logs (id BIGINT NOT NULL, created_at TIMESTAMP(6) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
+--created_by_id BIGINT, status INTEGER NOT NULL, class_name CHARACTER VARYING(255) NOT NULL, job_name CHARACTER VARYING(1000) NOT NULL,
+--logs_detail CHARACTER VARYING(255), task_name CHARACTER VARYING(255) NOT NULL, PRIMARY KEY (id));
+--
+--
+--CREATE TABLE IF NOT EXISTS job_queue (id BIGINT NOT NULL, created_at TIMESTAMP(6) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
+--created_by_id BIGINT, status INTEGER NOT NULL, app_user_id BIGINT, scheduler_id BIGINT, scheduler_time TIME(6) WITHOUT TIME ZONE, job_id BIGINT,
+--PRIMARY KEY (id), CONSTRAINT fkno8u6m9bf13m0lgbxkul0ds3g FOREIGN KEY (job_id) REFERENCES "job" ("id"));
+--
+--
+--CREATE TABLE IF NOT EXISTS  notification_client (id BIGINT NOT NULL, created_at TIMESTAMP(6) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
+--created_by_id BIGINT, status INTEGER NOT NULL, modified_at TIMESTAMP(6) WITHOUT TIME ZONE, modified_by_id BIGINT, client_path CHARACTER VARYING(255) NOT NULL,
+--session_id CHARACTER VARYING(255), topic_id CHARACTER VARYING(255) NOT NULL, PRIMARY KEY (id), CONSTRAINT uk_7rocbownsvd07gb884wn0xrwm UNIQUE (client_path),
+--CONSTRAINT uk_o2ywbu97errwpes5broujtq55 UNIQUE (topic_id));
+--
+--
+--CREATE TABLE IF NOT EXISTS notification_detail (id BIGINT NOT NULL, created_at TIMESTAMP(6) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
+--created_by_id BIGINT, status INTEGER NOT NULL, modified_at TIMESTAMP(6) WITHOUT TIME ZONE, modified_by_id BIGINT, detail CHARACTER VARYING(255),
+--flag INTEGER, notification_type INTEGER, send_time TIMESTAMP(6) WITHOUT TIME ZONE, notification_id BIGINT, PRIMARY KEY (id),
+--CONSTRAINT fkfcww27a3tqdfihpp9exxj4k9y FOREIGN KEY (notification_id) REFERENCES "notification_client" ("id"));
+--
+--
+--CREATE TABLE IF NOT EXISTS scheduler (id BIGINT NOT NULL, created_at TIMESTAMP(6) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
+--created_by_id BIGINT, status INTEGER NOT NULL, modified_at TIMESTAMP(6) WITHOUT TIME ZONE, modified_by_id BIGINT, end_date DATE,
+--frequency CHARACTER VARYING(255), recurrence CHARACTER VARYING(255), start_date DATE, time TIME(6) WITHOUT TIME ZONE, time_zone CHARACTER VARYING(255),
+--job_id BIGINT, PRIMARY KEY (id), CONSTRAINT fktche2qu0p2aynwrq2v9spceeg FOREIGN KEY (job_id) REFERENCES "job" ("id"));
+--
+--
+--CREATE TABLE IF NOT EXISTS storage_detail (id BIGINT NOT NULL, created_at TIMESTAMP(6) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
+--created_by_id BIGINT, status INTEGER NOT NULL, modified_at TIMESTAMP(6) WITHOUT TIME ZONE, modified_by_id BIGINT, key_type INTEGER NOT NULL,
+--storage_detail_json JSONB, storage_key_name CHARACTER VARYING(255) NOT NULL, PRIMARY KEY (id));
+--
+--
+--CREATE TABLE IF NOT EXISTS task (id BIGINT NOT NULL, created_at TIMESTAMP(6) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL, created_by_id BIGINT,
+--status INTEGER NOT NULL, modified_at TIMESTAMP(6) WITHOUT TIME ZONE, modified_by_id BIGINT, task_detail_json JSONB NOT NULL, task_name CHARACTER VARYING(255) NOT NULL,
+--access_service_id BIGINT NOT NULL, storage_id BIGINT, PRIMARY KEY (id), CONSTRAINT fkrw2dllrf0caioctc9jfbcvgp2 FOREIGN KEY (access_service_id) REFERENCES "access_service" ("id"),
+--CONSTRAINT fk3m9rrlo5by77u10w4nwt5rmpj FOREIGN KEY (storage_id) REFERENCES "storage_detail" ("id"));
+--
+--
+--CREATE TABLE IF NOT EXISTS user_access_service (user_id BIGINT NOT NULL, service_id BIGINT NOT NULL, PRIMARY KEY (user_id, service_id),
+--CONSTRAINT fk8cktm1wfw40umjsmerus3ny1s FOREIGN KEY (service_id) REFERENCES "access_service" ("id"), CONSTRAINT fkc7oe96mfe9sroshglhemqq0sg FOREIGN KEY (user_id) REFERENCES "app_user" ("id"));
+--
+--
+--CREATE TABLE IF NOT EXISTS user_authority (user_id BIGINT NOT NULL, authority_id BIGINT NOT NULL, CONSTRAINT fkgvxjs381k6f48d5d2yi11uh89 FOREIGN KEY (authority_id) REFERENCES "authority" ("id"),
+--CONSTRAINT fkeoyor0ywyy3m5xntqmjvah310 FOREIGN KEY (user_id) REFERENCES "app_user" ("id"));
+--
+--
+--CREATE TABLE IF NOT EXISTS user_verification (id BIGINT NOT NULL, created_at TIMESTAMP(6) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
+--created_by_id BIGINT, status INTEGER NOT NULL, modified_at TIMESTAMP(6) WITHOUT TIME ZONE, modified_by_id BIGINT, activated_at TIMESTAMP(6) WITHOUT TIME ZONE,
+--expiry_date TIMESTAMP(6) WITHOUT TIME ZONE, is_consumed BOOLEAN, password_added BOOLEAN, token CHARACTER VARYING(255) NOT NULL, PRIMARY KEY (id));

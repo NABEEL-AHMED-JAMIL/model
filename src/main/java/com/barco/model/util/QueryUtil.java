@@ -32,12 +32,6 @@ public class QueryUtil {
                 "where us_as.user_id = %d";
     }
 
-
-    public static void main(String args[]) {
-        QueryUtil queryUtil = new QueryUtil();
-        System.out.println(String.format(queryUtil.fetchSuperAdminUserListQuery(), 1026, 1026));
-    }
-
     public static String adminUsersList(boolean isCount) {
         String selectPortion = "";
         if(isCount) {
@@ -52,5 +46,10 @@ public class QueryUtil {
                 "  inner join app_sub_user as ap_su on ap_su.parent_user_id = ap_us.created_by_id\n" +
                 "where ap_su.parent_user_id = ? group by ap_us.id, auth.role;";
         return query;
+    }
+
+    public static void main(String args[]) {
+        QueryUtil queryUtil = new QueryUtil();
+        System.out.println(String.format(queryUtil.fetchSuperAdminUserListQuery(), 1026, 1026));
     }
 }
