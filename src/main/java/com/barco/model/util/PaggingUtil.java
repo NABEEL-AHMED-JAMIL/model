@@ -44,10 +44,14 @@ public class PaggingUtil {
     public static PaggingDto ApplyPaggingAndSorting(String orderBy, String columnName, Long page, Long limit) {
         PaggingDto  pdto = new PaggingDto();
         pdto.setColumnName(columnName);
-        if (orderBy.equals("ASC")) {
-            pdto.setOrder(orderBy);
+        if(orderBy != null ) {
+            if (orderBy.equals("ASC")) {
+                pdto.setOrder(orderBy);
+            } else {
+                pdto.setOrder(orderBy);
+            }
         } else {
-            pdto.setOrder(orderBy);
+            pdto.setOrder("ASC");
         }
 
         if(page == null) {
@@ -57,7 +61,7 @@ public class PaggingUtil {
             limit = DEFAULT_MAX_NO_OF_ROWS ;
         }
         pdto.setPageSize(limit);
-        pdto.setCurrentPage(page + 1);
+        pdto.setCurrentPage(page);
         return pdto;
     }
     

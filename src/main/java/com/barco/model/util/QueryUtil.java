@@ -44,7 +44,10 @@ public class QueryUtil {
                 "  inner join user_authority as us_auth on ap_us.id = us_auth.user_id\n" +
                 "  inner join authority as auth on auth.id = us_auth.authority_id\n" +
                 "  inner join app_sub_user as ap_su on ap_su.parent_user_id = ap_us.created_by_id\n" +
-                "where ap_su.parent_user_id = ? group by ap_us.id, auth.role;";
+                "where ap_su.parent_user_id = ? ";
+        if(!isCount) {
+            query +=" group by ap_us.id, auth.role   limit ? OFFSET ?";
+        }
         return query;
     }
 
