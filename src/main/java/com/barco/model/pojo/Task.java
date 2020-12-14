@@ -9,7 +9,9 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 
-
+/**
+ * @author Nabeel Ahmed
+ */
 @Entity
 @Table(name = "task")
 @JsonIgnoreProperties(ignoreUnknown=true)

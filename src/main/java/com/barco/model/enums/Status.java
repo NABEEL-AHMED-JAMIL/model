@@ -4,12 +4,9 @@ package com.barco.model.enums;
  * @author Nabeel Ahmed
  */
 public enum Status {
-    Inactive(0),
-    Active(1),
-    Pending(2),
-    Delete(3),
-    Process(4),
-    Fail(5),
+    Inactive(0), Active(1),
+    Pending(2), Delete(3),
+    Process(4), Fail(5),
     Not_Found(6);
 
     public Integer value; // int value of each status

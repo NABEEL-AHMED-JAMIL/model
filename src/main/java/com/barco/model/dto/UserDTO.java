@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -19,7 +20,7 @@ public class UserDTO {
     private String firstName;
     private String username;
     private String password;
-    private String role;
+    private List<AuthorityDto> roles;
     private String topicId;
     private String clientPath;
     private String token;
@@ -43,8 +44,8 @@ public class UserDTO {
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
 
-    public String getRole() { return role; }
-    public void setRole(String role) { this.role = role; }
+    public List<AuthorityDto> getRoles() { return roles; }
+    public void setRoles(List<AuthorityDto> roles) { this.roles = roles; }
 
     public String getTopicId() { return topicId; }
     public void setTopicId(String topicId) { this.topicId = topicId; }

@@ -10,6 +10,9 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 
+/**
+ * @author Nabeel Ahmed
+ */
 @Entity
 @Table(name = "user_verification")
 @JsonIgnoreProperties(ignoreUnknown=true)

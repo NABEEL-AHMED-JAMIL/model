@@ -28,8 +28,10 @@ public class AccessService extends BaseEntity {
     @Id
     @GeneratedValue(generator = "accessServiceSequenceGenerator")
     private Long id;
+
     @Column(nullable = false, unique = true)
     private String serviceName;
+
     @Column(nullable = false, unique = true)
     private String internalServiceName;
 

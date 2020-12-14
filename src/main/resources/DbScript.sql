@@ -4,8 +4,8 @@
 --insert into authority values (1002, current_date, 0, 1, current_date,0,'ROLE_USER');
 -- Default Acess Service Script
 --insert into access_service values (1000, current_date, 0, 1, current_date, 0, 'Service-1', 'WebScraping');
---insert into access_service values (1002, current_date, 0, 1, current_date, 0, 'Service-2', 'DataFetch');
---insert into access_service values (1003, current_date, 0, 1, current_date, 0, 'Service-3', 'FireStream');
+--insert into access_service values (1001, current_date, 0, 1, current_date, 0, 'Service-2', 'DataFetch');
+--insert into access_service values (1002, current_date, 0, 1, current_date, 0, 'Service-3', 'FireStream');
 
 --================================Local User Script====================
 --select * from app_user;
