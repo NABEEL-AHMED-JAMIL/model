@@ -16,7 +16,7 @@ public class JsonTypeDescriptor extends AbstractTypeDescriptor<Object> implement
 
     @Override
     public void setParameterValues(Properties parameters) {
-        jsonObjectClass = ((ParameterType)parameters.get(PARAMETER_TYPE)).getReturnedClass();
+        this.jsonObjectClass = ((ParameterType)parameters.get(PARAMETER_TYPE)).getReturnedClass();
     }
 
     public JsonTypeDescriptor() {
@@ -30,19 +30,27 @@ public class JsonTypeDescriptor extends AbstractTypeDescriptor<Object> implement
 
     @Override
     public boolean areEqual(Object one, Object another) {
-        if(one == another) { return true; }
-        if(one == null || another == null) { return false; }
+        if(one == another) {
+            return true;
+        }
+        if(one == null || another == null) {
+            return false;
+        }
         return JacksonUtil.toJsonNode(JacksonUtil.toString(one))
             .equals(JacksonUtil.toJsonNode(JacksonUtil.toString(another)));
     }
 
     @Override
-    public Object fromString(String string) { return JacksonUtil.fromString(string, jsonObjectClass); }
+    public Object fromString(String string) {
+        return JacksonUtil.fromString(string, this.jsonObjectClass);
+    }
 
     @SuppressWarnings({ "unchecked" })
     @Override
     public <X> X unwrap(Object value, Class<X> type, WrapperOptions options) {
-        if(value == null) { return null; }
+        if(value == null) {
+            return null;
+        }
         if(String.class.isAssignableFrom(type)) {
             return (X) toString(value);
         }
@@ -54,7 +62,9 @@ public class JsonTypeDescriptor extends AbstractTypeDescriptor<Object> implement
 
     @Override
     public <X> Object wrap(X value, WrapperOptions options) {
-        if(value == null) { return null; }
+        if(value == null) {
+            return null;
+        }
         return fromString(value.toString());
     }
 

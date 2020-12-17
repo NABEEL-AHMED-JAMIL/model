@@ -27,34 +27,70 @@ public class UserDTO {
     private UserType userType;
     private Set<AccessServiceDto> accessServices;
 
-    public UserDTO() { }
+    public UserDTO() {}
 
-    public Long getAppUserId() { return appUserId; }
-    public void setAppUserId(Long appUserId) { this.appUserId = appUserId; }
+    public Long getAppUserId() {
+        return appUserId;
+    }
+    public void setAppUserId(Long appUserId) {
+        this.appUserId = appUserId;
+    }
 
-    public String getLastName() { return lastName; }
-    public void setLastName(String lastName) { this.lastName = lastName; }
+    public String getLastName() {
+        return lastName;
+    }
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-    public String getFirstName() { return firstName; }
-    public void setFirstName(String firstName) { this.firstName = firstName; }
+    public String getFirstName() {
+        return firstName;
+    }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-    public String getUsername() { return username; }
-    public void setUsername(String username) { this.username = username; }
+    public String getUsername() {
+        return username;
+    }
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-    public String getPassword() { return password; }
-    public void setPassword(String password) { this.password = password; }
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-    public List<AuthorityDto> getRoles() { return roles; }
-    public void setRoles(List<AuthorityDto> roles) { this.roles = roles; }
+    public List<AuthorityDto> getRoles() {
+        return roles;
+    }
+    public void setRoles(List<AuthorityDto> roles) {
+        this.roles = roles;
+    }
 
-    public String getTopicId() { return topicId; }
-    public void setTopicId(String topicId) { this.topicId = topicId; }
+    public String getTopicId() {
+        return topicId;
+    }
+    public void setTopicId(String topicId) {
+        this.topicId = topicId;
+    }
 
-    public String getClientPath() { return clientPath; }
-    public void setClientPath(String clientPath) { this.clientPath = clientPath; }
+    public String getClientPath() {
+        return clientPath;
+    }
+    public void setClientPath(String clientPath) {
+        this.clientPath = clientPath;
+    }
 
-    public String getToken() { return token; }
-    public void setToken(String token) { this.token = token; }
+    public String getToken() {
+        return token;
+    }
+    public void setToken(String token) {
+        this.token = token;
+    }
 
     public UserType getUserType() {
         return userType;
@@ -63,10 +99,16 @@ public class UserDTO {
         this.userType = userType;
     }
 
-    public Set<AccessServiceDto> getAccessServices() { return accessServices; }
-    public void setAccessServices(Set<AccessServiceDto> accessServices) { this.accessServices = accessServices; }
+    public Set<AccessServiceDto> getAccessServices() {
+        return accessServices;
+    }
+    public void setAccessServices(Set<AccessServiceDto> accessServices) {
+        this.accessServices = accessServices;
+    }
 
     @Override
-    public String toString() { return new Gson().toJson(this); }
+    public String toString() {
+        return new Gson().toJson(this);
+    }
 
 }

@@ -2,9 +2,17 @@ package com.barco.model.dto;
 
 import com.barco.model.enums.Status;
 import com.barco.model.enums.UserType;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.google.gson.Gson;
 
 import java.util.Set;
 
+/**
+ * @author Nabeel Ahmed
+ */
+@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserListingDto {
 
     private Long id;
@@ -13,11 +21,13 @@ public class UserListingDto {
     private String lastLoginAt;
     private String role;
     private Status status;
+    private UserType userType;
+
+    public UserListingDto() {}
 
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
@@ -25,7 +35,6 @@ public class UserListingDto {
     public String getFullName() {
         return fullName;
     }
-
     public void setFullName(String fullName) {
         this.fullName = fullName;
     }
@@ -33,7 +42,6 @@ public class UserListingDto {
     public String getUsername() {
         return username;
     }
-
     public void setUsername(String username) {
         this.username = username;
     }
@@ -41,7 +49,6 @@ public class UserListingDto {
     public String getLastLoginAt() {
         return lastLoginAt;
     }
-
     public void setLastLoginAt(String lastLoginAt) {
         this.lastLoginAt = lastLoginAt;
     }
@@ -49,7 +56,6 @@ public class UserListingDto {
     public String getRole() {
         return role;
     }
-
     public void setRole(String role) {
         this.role = role;
     }
@@ -57,7 +63,6 @@ public class UserListingDto {
     public Status getStatus() {
         return status;
     }
-
     public void setStatus(Status status) {
         this.status = status;
     }
@@ -65,11 +70,13 @@ public class UserListingDto {
     public UserType getUserType() {
         return userType;
     }
-
     public void setUserType(UserType userType) {
         this.userType = userType;
     }
 
-    private UserType userType;
+    @Override
+    public String toString() {
+        return new Gson().toJson(this);
+    }
 
 }

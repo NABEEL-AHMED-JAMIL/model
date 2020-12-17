@@ -25,14 +25,24 @@ public class BaseEntity extends BaseMasterEntity {
 
     public BaseEntity() {}
 
-    public Timestamp getModifiedAt() { return modifiedAt; }
-    public void setModifiedAt(Timestamp modifiedAt) { this.modifiedAt = modifiedAt; }
+    public Timestamp getModifiedAt() {
+        return modifiedAt;
+    }
+    public void setModifiedAt(Timestamp modifiedAt) {
+        this.modifiedAt = modifiedAt;
+    }
 
-    public Long getModifiedBy() { return modifiedBy; }
-    public void setModifiedBy(Long modifiedBy) { this.modifiedBy = modifiedBy; }
+    public Long getModifiedBy() {
+        return modifiedBy;
+    }
+    public void setModifiedBy(Long modifiedBy) {
+        this.modifiedBy = modifiedBy;
+    }
 
     @PreUpdate
-    protected void onUpdate() { this.modifiedAt = new Timestamp(System.currentTimeMillis()); }
+    protected void onUpdate() {
+        this.modifiedAt = new Timestamp(System.currentTimeMillis());
+    }
 
     @PrePersist
     protected void onCreate() {
@@ -41,6 +51,8 @@ public class BaseEntity extends BaseMasterEntity {
     }
 
     @Override
-    public String toString() { return new Gson().toJson(this); }
+    public String toString() {
+        return new Gson().toJson(this);
+    }
 
 }

@@ -18,13 +18,13 @@ import javax.persistence.*;
 public class JobAuditLogs extends BaseMasterEntity {
 
     @GenericGenerator(
-            name = "jobAuditLogsSequenceGenerator",
-            strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
-            parameters = {
-                    @Parameter(name = "sequence_name", value = "job_audit_logs_source_Seq"),
-                    @Parameter(name = "initial_value", value = "1000"),
-                    @Parameter(name = "increment_size", value = "1")
-            }
+        name = "jobAuditLogsSequenceGenerator",
+        strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+        parameters = {
+            @Parameter(name = "sequence_name", value = "job_audit_logs_source_Seq"),
+            @Parameter(name = "initial_value", value = "1000"),
+            @Parameter(name = "increment_size", value = "1")
+        }
     )
     @Id
     @GeneratedValue(generator = "jobAuditLogsSequenceGenerator")
@@ -43,22 +43,44 @@ public class JobAuditLogs extends BaseMasterEntity {
 
     public JobAuditLogs() { }
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public String getJobName() { return jobName; }
-    public void setJobName(String jobName) { this.jobName = jobName; }
+    public String getJobName() {
+        return jobName;
+    }
+    public void setJobName(String jobName) {
+        this.jobName = jobName;
+    }
 
-    public String getTaskName() { return taskName; }
-    public void setTaskName(String taskName) { this.taskName = taskName; }
+    public String getTaskName() {
+        return taskName;
+    }
+    public void setTaskName(String taskName) {
+        this.taskName = taskName;
+    }
 
-    public String getClassName() { return className; }
-    public void setClassName(String className) { this.className = className; }
+    public String getClassName() {
+        return className;
+    }
+    public void setClassName(String className) {
+        this.className = className;
+    }
 
-    public String getLogsDetail() { return logsDetail; }
-    public void setLogsDetail(String logsDetail) { this.logsDetail = logsDetail; }
+    public String getLogsDetail() {
+        return logsDetail;
+    }
+    public void setLogsDetail(String logsDetail) {
+        this.logsDetail = logsDetail;
+    }
 
     @Override
-    public String toString() { return new Gson().toJson(this); }
+    public String toString() {
+        return new Gson().toJson(this);
+    }
 
 }

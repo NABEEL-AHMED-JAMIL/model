@@ -17,10 +17,14 @@ import java.sql.Types;
 public abstract class AbstractJsonSqlTypeDescriptor implements SqlTypeDescriptor {
 
     @Override
-    public int getSqlType() { return Types.OTHER; }
+    public int getSqlType() {
+        return Types.OTHER;
+    }
 
     @Override
-    public boolean canBeRemapped() { return true; }
+    public boolean canBeRemapped() {
+        return true;
+    }
 
     @Override
     public <X> ValueExtractor<X> getExtractor(final JavaTypeDescriptor<X> javaTypeDescriptor) {

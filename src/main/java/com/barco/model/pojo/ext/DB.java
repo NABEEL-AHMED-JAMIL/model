@@ -1,5 +1,7 @@
 package com.barco.model.pojo.ext;
 
+import com.barco.model.enums.DbDriver;
+import com.barco.model.util.EncryptUtil;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
@@ -12,8 +14,7 @@ import com.google.gson.Gson;
 public class DB {
 
     // mysql,pg,sql server
-    private String dataBaseType;
-    private String driver; // driver for db base on mysql
+    private DbDriver driver; // driver for db base on mysql
     private String databaseServer; // ip or else db path
     private Long databasePort; // port of db
     private String databaseName; // db name
@@ -21,23 +22,40 @@ public class DB {
 
     public DB() { }
 
-    public String getDataBaseType() { return dataBaseType; }
-    public void setDataBaseType(String dataBaseType) { this.dataBaseType = dataBaseType; }
+    public DbDriver getDriver() {
+        return driver;
+    }
+    public void setDriver(DbDriver driver) {
+        this.driver = driver;
+    }
 
-    public String getDriver() { return driver; }
-    public void setDriver(String driver) { this.driver = driver; }
+    public String getDatabaseServer() {
+        return EncryptUtil.decrypt(databaseServer);
+    }
+    public void setDatabaseServer(String databaseServer) {
+        this.databaseServer = EncryptUtil.encrypt(databaseServer);
+    }
 
-    public String getDatabaseServer() { return databaseServer; }
-    public void setDatabaseServer(String databaseServer) { this.databaseServer = databaseServer; }
+    public Long getDatabasePort() {
+        return databasePort;
+    }
+    public void setDatabasePort(Long databasePort) {
+        this.databasePort = databasePort;
+    }
 
-    public Long getDatabasePort() { return databasePort; }
-    public void setDatabasePort(Long databasePort) { this.databasePort = databasePort; }
+    public String getDatabaseName() {
+        return databaseName;
+    }
+    public void setDatabaseName(String databaseName) {
+        this.databaseName = databaseName;
+    }
 
-    public String getDatabaseName() { return databaseName; }
-    public void setDatabaseName(String databaseName) { this.databaseName = databaseName; }
-
-    public DbAuthentication getDbAuthentication() { return dbAuthentication; }
-    public void setDbAuthentication(DbAuthentication dbAuthentication) { this.dbAuthentication = dbAuthentication; }
+    public DbAuthentication getDbAuthentication() {
+        return dbAuthentication;
+    }
+    public void setDbAuthentication(DbAuthentication dbAuthentication) {
+        this.dbAuthentication = dbAuthentication;
+    }
 
     private class DbAuthentication {
 
@@ -51,16 +69,30 @@ public class DB {
             this.databasePassword = databasePassword;
         }
 
-        public String getDatabaseUser() { return databaseUser; }
-        public void setDatabaseUser(String databaseUser) { this.databaseUser = databaseUser; }
+        public String getDatabaseUser() {
+            return EncryptUtil.decrypt(databaseUser);
+        }
+        public void setDatabaseUser(String databaseUser) {
+            this.databaseUser = EncryptUtil.encrypt(databaseUser);
+        }
 
-        public String getDatabasePassword() { return databasePassword; }
-        public void setDatabasePassword(String databasePassword) { this.databasePassword = databasePassword; }
+        public String getDatabasePassword() {
+            return EncryptUtil.decrypt(databasePassword);
+        }
+        public void setDatabasePassword(String databasePassword) {
+            this.databasePassword = EncryptUtil.encrypt(databasePassword);
+        }
 
         @Override
-        public String toString() { return new Gson().toJson(this); }
+        public String toString() {
+            return new Gson().toJson(this);
+        }
+
     }
 
     @Override
-    public String toString() { return new Gson().toJson(this); }
+    public String toString() {
+        return new Gson().toJson(this);
+    }
+
 }

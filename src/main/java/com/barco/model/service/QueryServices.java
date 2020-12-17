@@ -21,11 +21,11 @@ public class QueryServices {
     public Logger logger = LogManager.getLogger(QueryServices.class);
 
     @Autowired
-    private EntityManager entityManager;
+    private EntityManager _em;
 
     public List<Object[]> executeQuery(String queryStr){
         logger.info("Execute Query :- " + queryStr);
-        Query query = this.entityManager.createNativeQuery(queryStr);
+        Query query = this._em.createNativeQuery(queryStr);
         return query.getResultList();
     }
 

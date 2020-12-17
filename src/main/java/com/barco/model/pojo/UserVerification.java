@@ -44,25 +44,50 @@ public class UserVerification extends BaseEntity {
 
     public UserVerification() {}
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public String getToken() { return token; }
-    public void setToken(String token) { this.token = token; }
+    public String getToken() {
+        return token;
+    }
+    public void setToken(String token) {
+        this.token = token;
+    }
 
-    public Timestamp getExpiryDate() { return expiryDate; }
-    public void setExpiryDate(Timestamp expiryDate) { this.expiryDate = expiryDate; }
+    public Timestamp getExpiryDate() {
+        return expiryDate;
+    }
+    public void setExpiryDate(Timestamp expiryDate) {
+        this.expiryDate = expiryDate;
+    }
 
-    public Boolean getPasswordAdded() { return passwordAdded; }
-    public void setPasswordAdded(Boolean passwordAdded) { this.passwordAdded = passwordAdded; }
+    public Boolean getPasswordAdded() {
+        return passwordAdded;
+    }
+    public void setPasswordAdded(Boolean passwordAdded) {
+        this.passwordAdded = passwordAdded;
+    }
 
-    public Boolean getConsumed() { return isConsumed; }
-    public void setConsumed(Boolean consumed) { isConsumed = consumed; }
+    public Boolean getConsumed() {
+        return isConsumed;
+    }
+    public void setConsumed(Boolean consumed) {
+        isConsumed = consumed;
+    }
 
-    public Timestamp getActivatedAt() { return activatedAt; }
-    public void setActivatedAt(Timestamp activatedAt) { this.activatedAt = activatedAt; }
+    public Timestamp getActivatedAt() {
+        return activatedAt;
+    }
+    public void setActivatedAt(Timestamp activatedAt) {
+        this.activatedAt = activatedAt;
+    }
 
     @Override
-    public String toString() { return new Gson().toJson(this); }
-
+    public String toString() {
+        return new Gson().toJson(this);
+    }
 }

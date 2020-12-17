@@ -23,29 +23,59 @@ public class StorageDetailDto {
     private Long createdBy; // required
     private Status status;
 
-    public StorageDetailDto() { }
+    public StorageDetailDto() {}
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public String getStorageKeyName() { return storageKeyName; }
-    public void setStorageKeyName(String storageKeyName) { this.storageKeyName = storageKeyName; }
+    public String getStorageKeyName() {
+        return storageKeyName;
+    }
+    public void setStorageKeyName(String storageKeyName) {
+        this.storageKeyName = storageKeyName;
+    }
 
-    public Object getStorageDetailJson() { return storageDetailJson; }
-    public void setStorageDetailJson(Object storageDetailJson) { this.storageDetailJson = storageDetailJson; }
+    public Object getStorageDetailJson() {
+        return storageDetailJson;
+    }
+    public void setStorageDetailJson(Object storageDetailJson) {
+        this.storageDetailJson = storageDetailJson;
+    }
 
-    public KeyType getKeyType() { return keyType; }
-    public void setKeyType(KeyType keyType) { this.keyType = keyType; }
+    public KeyType getKeyType() {
+        return keyType;
+    }
+    public void setKeyType(KeyType keyType) {
+        this.keyType = keyType;
+    }
 
-    public Timestamp getCreatedAt() { return createdAt; }
-    public void setCreatedAt(Timestamp createdAt) { this.createdAt = createdAt; }
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
+    }
 
-    public Long getCreatedBy() { return createdBy; }
-    public void setCreatedBy(Long createdBy) { this.createdBy = createdBy; }
+    public Long getCreatedBy() {
+        return createdBy;
+    }
+    public void setCreatedBy(Long createdBy) {
+        this.createdBy = createdBy;
+    }
 
-    public Status getStatus() { return status; }
-    public void setStatus(Status status) { this.status = status; }
+    public Status getStatus() {
+        return status;
+    }
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 
     @Override
-    public String toString() { return new Gson().toJson(this); }
+    public String toString() {
+        return new Gson().toJson(this);
+    }
 }

@@ -49,19 +49,37 @@ public class StorageDetail extends BaseEntity {
 
     public StorageDetail() {}
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public String getStorageKeyName() { return storageKeyName; }
-    public void setStorageKeyName(String storageKeyName) { this.storageKeyName = storageKeyName; }
+    public String getStorageKeyName() {
+        return storageKeyName;
+    }
+    public void setStorageKeyName(String storageKeyName) {
+        this.storageKeyName = storageKeyName;
+    }
 
-    public Object getStorageDetailJson() { return storageDetailJson; }
-    public void setStorageDetailJson(Object storageDetailJson) { this.storageDetailJson = storageDetailJson; }
+    public Object getStorageDetailJson() {
+        return storageDetailJson;
+    }
+    public void setStorageDetailJson(Object storageDetailJson) {
+        this.storageDetailJson = storageDetailJson;
+    }
 
-    public KeyType getKeyType() { return keyType; }
-    public void setKeyType(KeyType keyType) { this.keyType = keyType; }
+    public KeyType getKeyType() {
+        return keyType;
+    }
+    public void setKeyType(KeyType keyType) {
+        this.keyType = keyType;
+    }
 
     @Override
-    public String toString() { return new Gson().toJson(this); }
+    public String toString() {
+        return new Gson().toJson(this);
+    }
 
 }

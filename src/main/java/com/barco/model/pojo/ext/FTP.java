@@ -1,5 +1,6 @@
 package com.barco.model.pojo.ext;
 
+import com.barco.model.util.EncryptUtil;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
@@ -23,22 +24,44 @@ public class FTP {
 
     public FTP() { }
 
-    public String getHost() { return host; }
-    public void setHost(String host) { this.host = host; }
+    public String getHost() {
+        return EncryptUtil.decrypt(host);
+    }
+    public void setHost(String host) {
+        this.host = EncryptUtil.encrypt(host);
+    }
 
-    public Integer getPort() { return port; }
-    public void setPort(Integer port) { this.port = port; }
+    public Integer getPort() {
+        return port;
+    }
+    public void setPort(Integer port) {
+        this.port = port;
+    }
 
-    public String getUser() { return user; }
-    public void setUser(String user) { this.user = user; }
+    public String getUser() {
+        return EncryptUtil.decrypt(user);
+    }
+    public void setUser(String user) {
+        this.user = EncryptUtil.encrypt(user);
+    }
 
-    public String getPassword() { return password; }
-    public void setPassword(String password) { this.password = password; }
+    public String getPassword() {
+        return EncryptUtil.decrypt(password);
+    }
+    public void setPassword(String password) {
+        this.password = EncryptUtil.encrypt(password);
+    }
 
-    public Map<String, String> getFolder() { return folder; }
-    public void setFolder(Map<String, String> folder) { this.folder = folder; }
+    public Map<String, String> getFolder() {
+        return folder;
+    }
+    public void setFolder(Map<String, String> folder) {
+        this.folder = folder;
+    }
 
     @Override
-    public String toString() { return new Gson().toJson(this); }
+    public String toString() {
+        return new Gson().toJson(this);
+    }
 
 }

@@ -37,15 +37,29 @@ public class AccessService extends BaseEntity {
 
     public AccessService() { }
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public String getServiceName() { return serviceName; }
-    public void setServiceName(String serviceName) { this.serviceName = serviceName; }
+    public String getServiceName() {
+        return serviceName;
+    }
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
+    }
 
-    public String getInternalServiceName() { return internalServiceName; }
-    public void setInternalServiceName(String internalServiceName) { this.internalServiceName = internalServiceName; }
+    public String getInternalServiceName() {
+        return internalServiceName;
+    }
+    public void setInternalServiceName(String internalServiceName) {
+        this.internalServiceName = internalServiceName;
+    }
 
     @Override
-    public String toString() { return new Gson().toJson(this); }
+    public String toString() {
+        return new Gson().toJson(this);
+    }
 }

@@ -14,11 +14,18 @@ public class SearchTextDto {
 
     private String itemName;
 
-    public SearchTextDto() { }
+    public SearchTextDto() {}
 
-    public String getItemName() { return itemName; }
-    public void setItemName(String itemName) { this.itemName = itemName; }
+    public String getItemName() {
+        return itemName;
+    }
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
 
     @Override
-    public String toString() { return new Gson().toJson(this); }
+    public String toString() {
+        return new Gson().toJson(this);
+    }
+
 }

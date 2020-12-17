@@ -43,22 +43,44 @@ public class JobQueue extends BaseMasterEntity {
     
 	public JobQueue() {}
 
-	public Long getId() { return id; }
-	public void setId(Long id) { this.id = id; }
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-	public Long getAppUserId() { return appUserId; }
-	public void setAppUserId(Long appUserId) { this.appUserId = appUserId; }
+	public Long getAppUserId() {
+		return appUserId;
+	}
+	public void setAppUserId(Long appUserId) {
+		this.appUserId = appUserId;
+	}
 
-	public Long getSchedulerId() { return schedulerId; }
-	public void setSchedulerId(Long schedulerId) { this.schedulerId = schedulerId; }
+	public Long getSchedulerId() {
+		return schedulerId;
+	}
+	public void setSchedulerId(Long schedulerId) {
+		this.schedulerId = schedulerId;
+	}
 
-	public Time getSchedulerTime() { return schedulerTime; }
-	public void setSchedulerTime(Time schedulerTime) { this.schedulerTime = schedulerTime; }
+	public Time getSchedulerTime() {
+		return schedulerTime;
+	}
+	public void setSchedulerTime(Time schedulerTime) {
+		this.schedulerTime = schedulerTime;
+	}
 
-	public Job getJob() { return job; }
-	public void setJob(Job job) { this.job = job; }
+	public Job getJob() {
+		return job;
+	}
+	public void setJob(Job job) {
+		this.job = job;
+	}
 
 	@Override
-	public String toString() { return new Gson().toJson(this); }
+	public String toString() {
+		return new Gson().toJson(this);
+	}
 
 }

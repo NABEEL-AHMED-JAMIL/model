@@ -20,32 +20,62 @@ public class SchedulerDto {
     private Time time;
     private String frequency;
     private String recurrence;
-    private String timeZone = "America/New_York";
+    private String timeZone;
 
     public SchedulerDto() { }
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public Date getStartDate() { return startDate; }
-    public void setStartDate(Date startDate) { this.startDate = startDate; }
+    public Date getStartDate() {
+        return startDate;
+    }
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
 
-    public Date getEndDate() { return endDate; }
-    public void setEndDate(Date endDate) { this.endDate = endDate; }
+    public Date getEndDate() {
+        return endDate;
+    }
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
 
-    public Time getTime() { return time; }
-    public void setTime(Time time) { this.time = time; }
+    public Time getTime() {
+        return time;
+    }
+    public void setTime(Time time) {
+        this.time = time;
+    }
 
-    public String getFrequency() { return frequency; }
-    public void setFrequency(String frequency) { this.frequency = frequency; }
+    public String getFrequency() {
+        return frequency;
+    }
+    public void setFrequency(String frequency) {
+        this.frequency = frequency;
+    }
 
-    public String getRecurrence() { return recurrence; }
-    public void setRecurrence(String recurrence) { this.recurrence = recurrence; }
+    public String getRecurrence() {
+        return recurrence;
+    }
+    public void setRecurrence(String recurrence) {
+        this.recurrence = recurrence;
+    }
 
-    public String getTimeZone() { return timeZone; }
-    public void setTimeZone(String timeZone) { this.timeZone = timeZone; }
+    public String getTimeZone() {
+        return timeZone;
+    }
+    public void setTimeZone(String timeZone) {
+        this.timeZone = timeZone;
+    }
 
     @Override
-    public String toString() { return new Gson().toJson(this); }
+    public String toString() {
+        return new Gson().toJson(this);
+    }
 
 }

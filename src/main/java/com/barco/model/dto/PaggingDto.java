@@ -38,21 +38,44 @@ public class PaggingDto implements Serializable {
         this.order = order;
     }
 
-    public String getColumnName() { return columnName; }
-    public void setColumnName(String columnName) { this.columnName = columnName; }
+    public String getColumnName() {
+        return columnName;
+    }
+    public void setColumnName(String columnName) {
+        this.columnName = columnName;
+    }
 
-    public String getOrder() { return order; }
-    public void setOrder(String order) { this.order = order; }
+    public String getOrder() {
+        return order;
+    }
+    public void setOrder(String order) {
+        this.order = order;
+    }
 
-    public Long getTotalRecord() { return totalRecord; }
-    public void setTotalRecord(Long totalRecord) { this.totalRecord = totalRecord; }
+    public Long getTotalRecord() {
+        return totalRecord;
+    }
+    public void setTotalRecord(Long totalRecord) {
+        this.totalRecord = totalRecord;
+    }
 
-    public Long getPageSize() { return pageSize; }
-    public void setPageSize(Long pageSize) { this.pageSize = pageSize; }
+    public Long getPageSize() {
+        return pageSize;
+    }
+    public void setPageSize(Long pageSize) {
+        this.pageSize = pageSize;
+    }
 
-    public Long getCurrentPage() { return currentPage; }
-    public void setCurrentPage(Long currentPage) { this.currentPage = currentPage; }
+    public Long getCurrentPage() {
+        return currentPage;
+    }
+    public void setCurrentPage(Long currentPage) {
+        this.currentPage = currentPage;
+    }
 
     @Override
-    public String toString() { return new Gson().toJson(this); }
+    public String toString() {
+        return new Gson().toJson(this);
+    }
+
 }

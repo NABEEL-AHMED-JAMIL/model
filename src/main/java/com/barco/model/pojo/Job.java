@@ -60,37 +60,79 @@ public class Job extends BaseEntity {
 
     public Job() {}
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public String getJobName() { return jobName; }
-    public void setJobName(String jobName) { this.jobName = jobName; }
+    public String getJobName() {
+        return jobName;
+    }
+    public void setJobName(String jobName) {
+        this.jobName = jobName;
+    }
 
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-    public Execution getExecutionType() { return executionType; }
-    public void setExecutionType(Execution executionType) { this.executionType = executionType; }
+    public Execution getExecutionType() {
+        return executionType;
+    }
+    public void setExecutionType(Execution executionType) {
+        this.executionType = executionType;
+    }
 
-    public JobStatus getJobStatus() { return jobStatus; }
-    public void setJobStatus(JobStatus jobStatus) { this.jobStatus = jobStatus; }
+    public JobStatus getJobStatus() {
+        return jobStatus;
+    }
+    public void setJobStatus(JobStatus jobStatus) {
+        this.jobStatus = jobStatus;
+    }
 
-    public Date getLastJobRun() { return lastJobRun; }
-    public void setLastJobRun(Date lastJobRun) { this.lastJobRun = lastJobRun; }
+    public Date getLastJobRun() {
+        return lastJobRun;
+    }
+    public void setLastJobRun(Date lastJobRun) {
+        this.lastJobRun = lastJobRun;
+    }
 
-    public Date getNextJobRun() { return nextJobRun; }
-    public void setNextJobRun(Date nextJobRun) { this.nextJobRun = nextJobRun; }
+    public Date getNextJobRun() {
+        return nextJobRun;
+    }
+    public void setNextJobRun(Date nextJobRun) {
+        this.nextJobRun = nextJobRun;
+    }
 
-    public Date getSkipJobRun() { return skipJobRun; }
-    public void setSkipJobRun(Date skipJobRun) { this.skipJobRun = skipJobRun; }
+    public Date getSkipJobRun() {
+        return skipJobRun;
+    }
+    public void setSkipJobRun(Date skipJobRun) {
+        this.skipJobRun = skipJobRun;
+    }
 
-    public Task getTask() { return task; }
-    public void setTask(Task task) { this.task = task; }
+    public Task getTask() {
+        return task;
+    }
+    public void setTask(Task task) {
+        this.task = task;
+    }
 
-    public String getNotification() { return notification; }
-    public void setNotification(String notification) { this.notification = notification; }
+    public String getNotification() {
+        return notification;
+    }
+    public void setNotification(String notification) {
+        this.notification = notification;
+    }
 
     @Override
-    public String toString() { return new Gson().toJson(this); }
+    public String toString() {
+        return new Gson().toJson(this);
+    }
 
 }

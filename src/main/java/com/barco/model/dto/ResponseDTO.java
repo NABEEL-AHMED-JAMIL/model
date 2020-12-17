@@ -42,19 +42,37 @@ public class ResponseDTO {
         this.paging = paging;
     }
 
-    public ApiCode getStatus() { return status; }
-    public void setStatus(ApiCode status) { this.status = status; }
+    public ApiCode getStatus() {
+        return status;
+    }
+    public void setStatus(ApiCode status) {
+        this.status = status;
+    }
 
-    public String getMessage() { return message; }
-    public void setMessage(String message) { this.message = message; }
+    public String getMessage() {
+        return message;
+    }
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
-    public Object getData() { return data; }
-    public void setData(Object data) { this.data = data; }
+    public Object getData() {
+        return data;
+    }
+    public void setData(Object data) {
+        this.data = data;
+    }
 
-    public Object getPaging() { return paging; }
-    public void setPaging(Object paging) { this.paging = paging; }
+    public Object getPaging() {
+        return paging;
+    }
+    public void setPaging(Object paging) {
+        this.paging = paging;
+    }
 
     @Override
-    public String toString() { return new Gson().toJson(this); }
+    public String toString() {
+        return new Gson().toJson(this);
+    }
 
 }

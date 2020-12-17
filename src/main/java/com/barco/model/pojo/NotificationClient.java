@@ -39,19 +39,37 @@ public class NotificationClient extends BaseEntity {
 
     public NotificationClient() {}
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public String getSessionId() { return sessionId; }
-    public void setSessionId(String sessionId) { this.sessionId = sessionId; }
+    public String getSessionId() {
+        return sessionId;
+    }
+    public void setSessionId(String sessionId) {
+        this.sessionId = sessionId;
+    }
 
-    public String getTopicId() { return topicId; }
-    public void setTopicId(String topicId) { this.topicId = topicId; }
+    public String getTopicId() {
+        return topicId;
+    }
+    public void setTopicId(String topicId) {
+        this.topicId = topicId;
+    }
 
-    public String getClientPath() { return clientPath; }
-    public void setClientPath(String clientPath) { this.clientPath = clientPath; }
+    public String getClientPath() {
+        return clientPath;
+    }
+    public void setClientPath(String clientPath) {
+        this.clientPath = clientPath;
+    }
 
     @Override
-    public String toString() { return new Gson().toJson(this); }
+    public String toString() {
+        return new Gson().toJson(this);
+    }
 
 }

@@ -6,6 +6,25 @@
 --insert into access_service values (1000, current_date, 0, 1, current_date, 0, 'Service-1', 'WebScraping');
 --insert into access_service values (1001, current_date, 0, 1, current_date, 0, 'Service-2', 'DataFetch');
 --insert into access_service values (1002, current_date, 0, 1, current_date, 0, 'Service-3', 'FireStream');
+-- Default Storage detai after the user added
+--INSERT INTO storage_detail (id, created_at, created_by_id, status, modified_at, modified_by_id, key_type, storage_detail_json, storage_key_name)
+--VALUES ((select max(id) + 1 from storage_detail), CURRENT_TIMESTAMP, 1000, 1, null, null, 0, '{"region": "us-east-1", "accessKey": "AKIAWGCIEX", "secretKey": "I1jCOIPI/iebkuBcCp+qh"}', 'Nabeel-AWS');
+--
+--INSERT INTO storage_detail (id, created_at, created_by_id, status, modified_at, modified_by_id, key_type, storage_detail_json, storage_key_name)
+--VALUES ((select max(id) + 1 from storage_detail), CURRENT_TIMESTAMP, 1000, 1, null, null, 1, '{"region": "us-east-1", "accessKey": "AKIAWGCIEX", "secretKey": "I1jCOIPI/iebkuBcCp+qh"}', 'Nabeel-AWS');
+
+--INSERT INTO task (id, created_at, created_by_id, status, modified_at, modified_by_id, task_detail_json, task_name, access_service_id, storage_id)
+--VALUES ((select max(id) + 1 from task), CURRENT_TIMESTAMP, 1000, 1, null, null, '{"region": "us-east-1", "accessKey": "AKIAWGCIEX", "secretKey": "I1jCOIPI/iebkuBcCp+qh"}', 'Nabeel-AWS', 1000, null);
+--
+--INSERT INTO task (id, created_at, created_by_id, status, modified_at, modified_by_id, task_detail_json, task_name, access_service_id, storage_id)
+--VALUES ((select max(id) + 1 from task), CURRENT_TIMESTAMP, 1000, 1, null, null, '{"region": "us-east-1", "accessKey": "AKIAWGCIEX", "secretKey": "I1jCOIPI/iebkuBcCp+qh"}', 'Nabeel-AWS', 1001, null);
+--
+--INSERT INTO task (id, created_at, created_by_id, status, modified_at, modified_by_id, task_detail_json, task_name, access_service_id, storage_id)
+--VALUES ((select max(id) + 1 from task), CURRENT_TIMESTAMP, 1000, 1, null, null, '{"region": "us-east-1", "accessKey": "AKIAWGCIEX", "secretKey": "I1jCOIPI/iebkuBcCp+qh"}', 'Nabeel-AWS', 1002, null);
+
+--Random data string
+--SELECT string_agg (substr('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', ceil (random() * 62)::integer, 1), '') FROM generate_series(1, 20)
+
 
 --================================Local User Script====================
 --select * from app_user;

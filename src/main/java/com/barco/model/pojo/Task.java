@@ -51,22 +51,44 @@ public class Task extends BaseEntity {
 
     public Task() {}
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public String getTaskName() { return taskName; }
-    public void setTaskName(String taskName) { this.taskName = taskName; }
+    public String getTaskName() {
+        return taskName;
+    }
+    public void setTaskName(String taskName) {
+        this.taskName = taskName;
+    }
 
-    public AccessService getAccessService() { return accessService; }
-    public void setAccessService(AccessService accessService) { this.accessService = accessService; }
+    public AccessService getAccessService() {
+        return accessService;
+    }
+    public void setAccessService(AccessService accessService) {
+        this.accessService = accessService;
+    }
 
-    public Object getTaskDetailJson() { return taskDetailJson; }
-    public void setTaskDetailJson(Object taskDetailJson) { this.taskDetailJson = taskDetailJson; }
+    public Object getTaskDetailJson() {
+        return taskDetailJson;
+    }
+    public void setTaskDetailJson(Object taskDetailJson) {
+        this.taskDetailJson = taskDetailJson;
+    }
 
-    public StorageDetail getStorageDetail() { return storageDetail; }
-    public void setStorageDetail(StorageDetail storageDetail) { this.storageDetail = storageDetail; }
+    public StorageDetail getStorageDetail() {
+        return storageDetail;
+    }
+    public void setStorageDetail(StorageDetail storageDetail) {
+        this.storageDetail = storageDetail;
+    }
 
     @Override
-    public String toString() { return new Gson().toJson(this); }
+    public String toString() {
+        return new Gson().toJson(this);
+    }
 
 }
