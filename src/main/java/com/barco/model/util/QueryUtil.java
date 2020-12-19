@@ -1,5 +1,6 @@
 package com.barco.model.util;
 
+import com.barco.model.dto.SearchTextDto;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -9,6 +10,11 @@ import org.springframework.stereotype.Component;
 @Component
 @Scope("prototype")
 public class QueryUtil {
+
+    private String ID = "id";
+    private String CREATED_AT = "created_at";
+    private String STORAGE_KEY_NAME = "storage_key_name";
+    private String KEY_TYPE = "key_type";
 
     public String fetchSuperAdminUserListQuery() {
         return "select id,username,role from (\n" +
@@ -32,7 +38,35 @@ public class QueryUtil {
                 "where us_as.user_id = %d";
     }
 
-    public static String adminUsersList(boolean isCount) {
+    public String adminStoreList(boolean isCount, Long adminId, String startDate, String endDate,
+        SearchTextDto searchTextDto) {
+        String selectPortion = "";
+        if (isCount) {
+            selectPortion = "select count(*) as result";
+        } else {
+            selectPortion = "select id, created_at, storage_key_name, key_type";
+        }
+        String query = selectPortion + String.format(" from storage_detail where created_by_id = %d and status not in (2,3,4,5,6)", adminId);
+        if ((startDate  != null && !startDate.isEmpty()) || (endDate != null && !endDate.isEmpty())) {
+            if ((startDate != null && !startDate.isEmpty()) && (endDate != null && !endDate.isEmpty())) {
+                query += String.format(" and cast(created_at as date) between '%s' and '%s'", startDate, endDate);
+            } else if (startDate != null && !startDate.isEmpty()) {
+                query += String.format(" and cast(created_at as date) >= '%s'", startDate);
+            } else if (endDate != null && !endDate.isEmpty()) {
+                query += String.format(" and cast(created_at as date) <= '%s'", endDate);
+            }
+        }
+        if (searchTextDto != null && (searchTextDto.getItemName() != null && searchTextDto.getItemValue() != null)) {
+            if (searchTextDto.getItemName().equalsIgnoreCase(ID)) {
+                query += String.format(" and cast(id as as char) like ('%%s%')", searchTextDto.getItemValue());
+            } else if (searchTextDto.getItemName().equalsIgnoreCase(STORAGE_KEY_NAME)) {
+                query += String.format(" and upper(storage_key_name) like upper('%%s%')", searchTextDto.getItemValue());
+            }
+        }
+        return query;
+    }
+
+    public String adminUsersList(boolean isCount) {
         String selectPortion = "";
         if(isCount) {
             selectPortion = "select count(*), 'count' as result\n";
@@ -46,13 +80,9 @@ public class QueryUtil {
                 "  inner join app_sub_user as ap_su on ap_su.parent_user_id = ap_us.created_by_id\n" +
                 "where ap_su.parent_user_id = ? ";
         if(!isCount) {
-            query +=" group by ap_us.id, auth.role   limit ? OFFSET ?";
+            query +=" group by ap_us.id, auth.role limit ? OFFSET ?";
         }
         return query;
     }
 
-    public static void main(String args[]) {
-        QueryUtil queryUtil = new QueryUtil();
-        System.out.println(String.format(queryUtil.fetchSuperAdminUserListQuery(), 1026, 1026));
-    }
 }

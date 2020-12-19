@@ -1,61 +1,55 @@
 package com.barco.model.util;
 
-import com.barco.model.dto.PaggingDto;
+import com.barco.model.dto.PagingDto;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- *
- * @author Adeel.Asghar
+ * @author Nabeel Ahmed
  */
 public class PagingUtil {
 
+    private static final String ID = "id";
     private static final Long DEFAULT_PAGE_NUMBER = 0l;
-    private static final Long DEFAULT_MAX_NO_OF_ROWS  = 10l;
-    
+    private static final Long DEFAULT_MAX_NO_OF_ROWS = 10l;
+
     public static Object convertEntityToPagingDTO(Long totalCount, Pageable page) {
-        PaggingDto pdto = new PaggingDto();
+        PagingDto pdto = new PagingDto();
         pdto.setPageSize(new Long(page.getPageSize()));
-        pdto.setCurrentPage(new Long(page.getPageNumber() +1) );
+        pdto.setCurrentPage(new Long(page.getPageNumber()+1));
         pdto.setTotalRecord(totalCount);
         return pdto;
     }
-       
-    public static Object convertEntityToPagingDTO(Long totalCount, Pageable page, PaggingDto pageDTO) {
-        PaggingDto  pdto = null;
-        if(pageDTO == null) {
-            pdto = new PaggingDto();
-        } else {
-            pdto = pageDTO;
-        }
-        pdto.setPageSize(new Long(page.getPageSize()));
-        pdto.setCurrentPage(new Long(page.getPageNumber() +1) );
-        pdto.setTotalRecord(totalCount);
-        return pdto;
-    }
-    
+
     /* Page = current page And size is Limit*/
-    public static PaggingDto ApplyPaging(Long page, Long limit, String orderBy, String columnName) {
-        return ApplyPagingAndSorting(orderBy,columnName, page != null ? page -1 : 0l , limit);
+    public static Pageable ApplyPaging(Long page, Long limit) {
+        return ApplyPagingAndSorting("", "", page != null ? page - 1 : 0l, limit);
     }
 
     /* Apply If Needed */
-    public static PaggingDto ApplyPagingAndSorting(String orderBy, String columnName, Long page, Long limit) {
-        PaggingDto pdto = new PaggingDto();
-        pdto.setColumnName(columnName);
-        if(orderBy != null ) {
-            if (orderBy.equals("ASC")) {
-                pdto.setOrder(orderBy);
-            } else {
-                pdto.setOrder(orderBy);
-            }
-        } else {
-            pdto.setOrder("ASC");
+    public static Pageable ApplyPagingAndSorting(String orderBy, String direction, Long page, Long limit) {
+        List<Sort.Order> orders = new ArrayList<>();
+        orders.add(new Sort.Order(getSortDirection(direction), orderBy != null ? orderBy: ID));
+        if (page == null) {
+            page = DEFAULT_PAGE_NUMBER;
         }
-        if(page == null) { page = DEFAULT_PAGE_NUMBER; }
-        if(limit == null) { limit = DEFAULT_MAX_NO_OF_ROWS ; }
-        pdto.setPageSize(limit);
-        pdto.setCurrentPage(page);
-        return pdto;
+        if (limit == null) {
+            limit = DEFAULT_MAX_NO_OF_ROWS;
+        }
+        return PageRequest.of(page.intValue(), limit.intValue(), Sort.by(orders));
     }
-    
+
+    private static Sort.Direction getSortDirection(String direction) {
+        if (direction.equalsIgnoreCase("asc")) {
+            return Sort.Direction.ASC;
+        } else if (direction.equalsIgnoreCase("desc")) {
+            return Sort.Direction.DESC;
+        }
+        return Sort.Direction.ASC;
+    }
+
 }

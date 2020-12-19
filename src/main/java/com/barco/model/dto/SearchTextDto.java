@@ -13,6 +13,7 @@ import com.google.gson.Gson;
 public class SearchTextDto {
 
     private String itemName;
+    private Object itemValue;
 
     public SearchTextDto() {}
 
@@ -21,6 +22,14 @@ public class SearchTextDto {
     }
     public void setItemName(String itemName) {
         this.itemName = itemName;
+    }
+
+    public Object getItemValue() {
+        return itemValue;
+    }
+
+    public void setItemValue(Object itemValue) {
+        this.itemValue = itemValue;
     }
 
     @Override

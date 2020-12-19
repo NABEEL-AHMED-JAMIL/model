@@ -12,7 +12,7 @@ import com.google.gson.Gson;
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class PaggingDto implements Serializable {
+public class PagingDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -22,15 +22,15 @@ public class PaggingDto implements Serializable {
     private String columnName;
     private String order;
 
-    public PaggingDto() {}
+    public PagingDto() {}
 
-    public PaggingDto(Long totalRecord, Long pageSize, Long currentPage) {
+    public PagingDto(Long totalRecord, Long pageSize, Long currentPage) {
         this.totalRecord = totalRecord;
         this.pageSize = pageSize;
         this.currentPage = currentPage;
     }
 
-    public PaggingDto(Long totalRecord, Long pageSize, Long currentPage, String columnName, String order) {
+    public PagingDto(Long totalRecord, Long pageSize, Long currentPage, String columnName, String order) {
         this.totalRecord = totalRecord;
         this.pageSize = pageSize;
         this.currentPage = currentPage;
