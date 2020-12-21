@@ -16,20 +16,26 @@ public enum Status {
         this.value = value;
     }
 
-    public Status getStatus(Integer v) {
-        switch (v) {
-            case 0: return Status.Inactive;
-            case 1: return Status.Active;
-            case 2: return Status.Pending;
-            case 3: return Status.Delete;
-            case 4: return Status.Process;
-            case 5: return Status.Fail;
-            case 6: return Status.Not_Found;
+    public static Status getStatus(Long v) {
+        if (v == 0) {
+            return Status.Inactive;
+        } else if (v == 1) {
+            return Status.Active;
+        } else if (v == 2) {
+            return Status.Pending;
+        } else if (v == 3) {
+            return Status.Delete;
+        } else if (v == 4) {
+            return Status.Process;
+        } else if (v == 5) {
+            return Status.Fail;
+        } else if (v == 6) {
+            return Status.Not_Found;
         }
         return null;
     }
 
-    public Integer getStatus(String v) {
+    public static Integer getStatus(String v) {
         switch (v) {
             case "inactive": return 0;
             case "active": return 1;
