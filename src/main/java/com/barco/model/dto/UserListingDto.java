@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 
+import java.sql.Timestamp;
 import java.util.Set;
 
 /**
@@ -16,9 +17,10 @@ import java.util.Set;
 public class UserListingDto {
 
     private Long id;
+    private Timestamp createdAt;
     private String fullName;
     private String username;
-    private String lastLoginAt;
+    private Timestamp lastLoginAt;
     private String role;
     private Status status;
     private UserType userType;
@@ -30,6 +32,13 @@ public class UserListingDto {
     }
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
     }
 
     public String getFullName() {
@@ -46,10 +55,10 @@ public class UserListingDto {
         this.username = username;
     }
 
-    public String getLastLoginAt() {
+    public Timestamp getLastLoginAt() {
         return lastLoginAt;
     }
-    public void setLastLoginAt(String lastLoginAt) {
+    public void setLastLoginAt(Timestamp lastLoginAt) {
         this.lastLoginAt = lastLoginAt;
     }
 

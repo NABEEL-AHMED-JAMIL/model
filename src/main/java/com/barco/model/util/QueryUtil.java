@@ -17,21 +17,23 @@ public class QueryUtil {
     private String KEY_TYPE = "key_type";
     private String SERVICE_NAME = "service_name";
     private String TASK_NAME = "task_name";
+    private String FULL_NAME = "full_name";
+    private String USERNAME = "username";
 
-    public String fetchSuperAdminUserListQuery() {
-        return "select id,username,role from (\n" +
-                "select ap_us.id, ap_us.username, auth.role from app_user as ap_us\n" +
-                "inner join user_authority as us_auth on ap_us.id = us_auth.user_id\n" +
-                "inner join authority as auth on auth.id = us_auth.authority_id\n" +
-                "where ap_us.id = %d and ap_us.status not in(0,2,3)\n" +
-                "union\n" +
-                "select ap_us.id, ap_us.username, auth.role from app_user as ap_us\n" +
-                "inner join user_authority as us_auth on ap_us.id = us_auth.user_id\n" +
-                "inner join authority as auth on auth.id = us_auth.authority_id\n" +
-                "inner join app_sub_user as ap_su on ap_su.parent_user_id = ap_us.created_by_id\n" +
-                "where ap_su.parent_user_id = %d and ap_us.status not in(0,2,3) and auth.role not in ('ROLE_USER')\n" +
-                "group by ap_us.id, auth.role)\n" +
-                "as result order by id asc;\n";
+    public String fetchSuperAdminUserListQuery(Long adminId) {
+        String query = "select id,username,role from (\n" +
+            "select ap_us.id, ap_us.username, auth.role from app_user as ap_us\n" +
+            "inner join user_authority as us_auth on ap_us.id = us_auth.user_id\n" +
+            "inner join authority as auth on auth.id = us_auth.authority_id\n" +
+            String.format("where ap_us.id = %d and ap_us.status not in(0,2,3)\n", adminId) +
+            "union\n" +
+            "select ap_us.id, ap_us.username, auth.role from app_user as ap_us\n" +
+            "inner join user_authority as us_auth on ap_us.id = us_auth.user_id\n" +
+            "inner join authority as auth on auth.id = us_auth.authority_id\n" +
+            "inner join app_sub_user as ap_su on ap_su.parent_user_id = ap_us.created_by_id\n" +
+            String.format("\"where ap_su.parent_user_id = %d and ap_us.status not in(0,2,3) and auth.role not in ('ROLE_USER')\n", adminId) +
+            "group by ap_us.id, auth.role) as result order by id asc;";
+        return query;
     }
 
     public String fetchSuperAdminAccessService() {
@@ -101,21 +103,36 @@ public class QueryUtil {
         return query;
     }
 
-    public String adminUsersList(boolean isCount) {
+    public String adminUsersList(boolean isCount, Long adminId, String startDate, String endDate, SearchTextDto searchTextDto) {
         String selectPortion = "";
         if(isCount) {
-            selectPortion = "select count(*), 'count' as result\n";
+            selectPortion = "select count(*) as result";
         } else {
-            selectPortion = "select ap_us.id, ap_us.first_name || ' ' || ap_us.last_name as full_name, ap_us.username, ap_us.last_login_at,\n" +
+            selectPortion = "select ap_us.id, , task.created_at, ap_us.first_name || ' ' || ap_us.last_name as full_name, ap_us.username, ap_us.last_login_at, " +
                     " auth.role, ap_us.status, ap_us.user_type";
         }
-        String query  = selectPortion + " from app_user as ap_us\n" +
-                "  inner join user_authority as us_auth on ap_us.id = us_auth.user_id\n" +
-                "  inner join authority as auth on auth.id = us_auth.authority_id\n" +
-                "  inner join app_sub_user as ap_su on ap_su.parent_user_id = ap_us.created_by_id\n" +
-                "where ap_su.parent_user_id = ? ";
-        if(!isCount) {
-            query +=" group by ap_us.id, auth.role limit ? OFFSET ?";
+        String query  = selectPortion + " from app_user as ap_us" +
+                "  inner join user_authority as us_auth on ap_us.id = us_auth.user_id" +
+                "  inner join authority as auth on auth.id = us_auth.authority_id" +
+                "  inner join app_sub_user as ap_su on ap_su.parent_user_id = ap_us.created_by_id" +
+                String.format("  where ap_su.parent_user_id = %d  and ap_us.status not in (3,4,5,6)", adminId);
+        if ((startDate  != null && !startDate.isEmpty()) || (endDate != null && !endDate.isEmpty())) {
+            if ((startDate != null && !startDate.isEmpty()) && (endDate != null && !endDate.isEmpty())) {
+                query += String.format(" and cast(ap_us.created_at as date) between '%s' and '%s'", startDate, endDate);
+            } else if (startDate != null && !startDate.isEmpty()) {
+                query += String.format(" and cast(ap_us.created_at as date) >= '%s'", startDate);
+            } else if (endDate != null && !endDate.isEmpty()) {
+                query += String.format(" and cast(ap_us.created_at as date) <= '%s'", endDate);
+            }
+        }
+        if (searchTextDto != null && (searchTextDto.getItemName() != null && searchTextDto.getItemValue() != null)) {
+            if (searchTextDto.getItemName().equalsIgnoreCase(ID)) {
+                query += String.format(" and cast(ap_us.id as as char) like ('%%s%')", searchTextDto.getItemValue());
+            } else if (searchTextDto.getItemName().equalsIgnoreCase(FULL_NAME)) {
+                query += String.format(" and upper(ap_us.first_name || ' ' || ap_us.last_name) like upper('%%s%')", searchTextDto.getItemValue());
+            } else if (searchTextDto.getItemName().equalsIgnoreCase(USERNAME)) {
+                query += String.format(" and upper(ap_us.username) like upper('%%s%')", searchTextDto.getItemValue());
+            }
         }
         return query;
     }
