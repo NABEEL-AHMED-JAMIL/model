@@ -31,13 +31,7 @@ public class JobAuditLogs extends BaseMasterEntity {
     private Long id;
 
     @Column(length = 1000, nullable = false)
-    private String jobName;
-
-    @Column(nullable = false)
-    private String taskName;
-
-    @Column(nullable = false)
-    private String className;
+    private Long jobId;
 
     private String logsDetail;
 
@@ -50,25 +44,11 @@ public class JobAuditLogs extends BaseMasterEntity {
         this.id = id;
     }
 
-    public String getJobName() {
-        return jobName;
+    public Long getJobId() {
+        return jobId;
     }
-    public void setJobName(String jobName) {
-        this.jobName = jobName;
-    }
-
-    public String getTaskName() {
-        return taskName;
-    }
-    public void setTaskName(String taskName) {
-        this.taskName = taskName;
-    }
-
-    public String getClassName() {
-        return className;
-    }
-    public void setClassName(String className) {
-        this.className = className;
+    public void setJobId(Long jobId) {
+        this.jobId = jobId;
     }
 
     public String getLogsDetail() {

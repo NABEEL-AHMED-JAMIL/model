@@ -3,10 +3,12 @@ package com.barco.model.pojo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * @author Nabeel Ahmed
@@ -33,7 +35,13 @@ public class BatchFileProcess extends BaseMasterEntity {
 
     private String fileName;
 
-    private byte[] fileContent;
+    private String filePath;
+
+    @Temporal(TemporalType.DATE)
+    @Column(nullable = true)
+    private Date schedulerDate;
+
+    private String timeZone;
 
     public BatchFileProcess(){}
 
@@ -58,11 +66,25 @@ public class BatchFileProcess extends BaseMasterEntity {
         this.fileName = fileName;
     }
 
-    public byte[] getFileContent() {
-        return fileContent;
+    public String getFilePath() {
+        return filePath;
     }
-    public void setFileContent(byte[] fileContent) {
-        this.fileContent = fileContent;
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
+    }
+
+    public Date getSchedulerDate() {
+        return schedulerDate;
+    }
+    public void setSchedulerDate(Date schedulerDate) {
+        this.schedulerDate = schedulerDate;
+    }
+
+    public String getTimeZone() {
+        return timeZone;
+    }
+    public void setTimeZone(String timeZone) {
+        this.timeZone = timeZone;
     }
 
     @Override

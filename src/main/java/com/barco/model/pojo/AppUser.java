@@ -52,6 +52,8 @@ public class AppUser extends BaseEntity implements UserDetails, Serializable {
     @Column(nullable = false)
     private String lastName;
 
+    private String profilePath;
+
     private Timestamp lastLoginAt;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -117,6 +119,13 @@ public class AppUser extends BaseEntity implements UserDetails, Serializable {
     }
     public void setLastLoginAt(Timestamp lastLoginAt) {
         this.lastLoginAt = lastLoginAt;
+    }
+
+    public String getProfilePath() {
+        return profilePath;
+    }
+    public void setProfilePath(String profilePath) {
+        this.profilePath = profilePath;
     }
 
     @Override
