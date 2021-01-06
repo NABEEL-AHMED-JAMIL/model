@@ -11,7 +11,7 @@ import java.util.List;
 public enum DbDriver {
 
     MYSQL("MYSQL","com.mysql.jdbc.Driver",3306L),
-    POSTGRE("POSTGRE","org.postgresql.Driver",5432L),
+    POSTGRES("POSTGRES","org.postgresql.Driver",5432L),
     SQL_SERVER("SQL SERVER","com.microsoft.sqlserver.jdbc.SQLServerDriver",1434L);
 
     public String dataBaseType;
@@ -51,8 +51,8 @@ public enum DbDriver {
             case "MYSQL":
                 driver = MYSQL;
                 break;
-            case "POSTGRE":
-                driver = POSTGRE;
+            case "POSTGRES":
+                driver = POSTGRES;
                 break;
             case "SQL SERVER":
                 driver = SQL_SERVER;

@@ -3,7 +3,6 @@ package com.barco.model.pojo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
@@ -35,6 +34,7 @@ public class BatchFileProcess extends BaseMasterEntity {
 
     private String fileName;
 
+    // file save to bucket
     private String filePath;
 
     @Temporal(TemporalType.DATE)
