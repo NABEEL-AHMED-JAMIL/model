@@ -12,6 +12,7 @@ import javax.persistence.*;
 
 /**
  * @author Nabeel Ahmed
+ * form access only for main-super admin who create form
  */
 @Entity
 @Table(name = "access_screen_form")
@@ -32,7 +33,7 @@ public class AccessScreenForm extends BaseEntity {
     @GeneratedValue(generator = "accessScreenFormSequenceGenerator")
     private Long id;
 
-    @Column(length = 250, nullable = false)
+    @Column(length = 250, nullable = false, unique = true)
     private String formName;
 
     @Type(type = "jsonb")

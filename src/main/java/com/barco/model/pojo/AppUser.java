@@ -77,6 +77,12 @@ public class AppUser extends BaseEntity implements UserDetails, Serializable {
         inverseJoinColumns = @JoinColumn(name = "service_id", referencedColumnName = "id"))
     private Set<AccessService> accessServices;
 
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(name = "user_access_screens",
+        joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+        inverseJoinColumns = @JoinColumn(name = "screens_id", referencedColumnName = "id"))
+    private List<AccessScreen> accessScreens;
+
     public AppUser() {}
 
     public Long getId() {
@@ -155,6 +161,13 @@ public class AppUser extends BaseEntity implements UserDetails, Serializable {
     }
     public void setAccessServices(Set<AccessService> accessServices) {
         this.accessServices = accessServices;
+    }
+
+    public List<AccessScreen> getAccessScreens() {
+        return accessScreens;
+    }
+    public void setAccessScreens(List<AccessScreen> accessScreens) {
+        this.accessScreens = accessScreens;
     }
 
     // We can add the below fields in the users table. For now, they are hardcoded.

@@ -1,6 +1,5 @@
 package com.barco.model.pojo;
 
-import com.barco.model.enums.Status;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
@@ -12,31 +11,30 @@ import javax.persistence.*;
  * @author Nabeel Ahmed
  */
 @Entity
-@Table(name = "access_screen")
+@Table(name = "app_setting")
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class AccessScreen {
+public class AppSetting {
 
     @GenericGenerator(
-        name = "accessScreenSequenceGenerator",
+        name = "appSettingSequenceGenerator",
         strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
         parameters = {
-            @org.hibernate.annotations.Parameter(name = "sequence_name", value = "accessScreen_Seq"),
+            @org.hibernate.annotations.Parameter(name = "sequence_name", value = "appSetting_Seq"),
             @org.hibernate.annotations.Parameter(name = "initial_value", value = "1000"),
             @org.hibernate.annotations.Parameter(name = "increment_size", value = "1")
         }
     )
     @Id
-    @GeneratedValue(generator = "accessScreenSequenceGenerator")
+    @GeneratedValue(generator = "appSettingSequenceGenerator")
     private Long id;
 
     @Column(nullable = false, unique = true)
-    private String screenName;
+    private String settingKey;
 
-    @Column(nullable = false)
-    private Status status;
+    private String settingValue;
 
-    public AccessScreen() { }
+    public AppSetting() {}
 
     public Long getId() {
         return id;
@@ -45,18 +43,18 @@ public class AccessScreen {
         this.id = id;
     }
 
-    public String getScreenName() {
-        return screenName;
+    public String getSettingKey() {
+        return settingKey;
     }
-    public void setScreenName(String screenName) {
-        this.screenName = screenName;
+    public void setSettingKey(String settingKey) {
+        this.settingKey = settingKey;
     }
 
-    public Status getStatus() {
-        return status;
+    public String getSettingValue() {
+        return settingValue;
     }
-    public void setStatus(Status status) {
-        this.status = status;
+    public void setSettingValue(String settingValue) {
+        this.settingValue = settingValue;
     }
 
     @Override

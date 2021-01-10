@@ -3,18 +3,9 @@ package com.barco.model.util;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.tomcat.util.codec.binary.Base64;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-
-import javax.annotation.PostConstruct;
 import javax.crypto.Cipher;
-import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-import java.io.UnsupportedEncodingException;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
 
 
 /**
@@ -22,7 +13,7 @@ import java.security.NoSuchAlgorithmException;
  */
 public class EncryptUtil {
 
-    private Logger logger = LogManager.getLogger(EncryptUtil.class);
+    private static Logger logger = LogManager.getLogger(EncryptUtil.class);
 
     private static String CIPHER = "AES/CBC/PKCS5PADDING";
     private static String appEncryptionKey = "2Fa38BxhVeBDnxJ3";
@@ -39,7 +30,10 @@ public class EncryptUtil {
             byte[] encrypted = cipher.doFinal(value.getBytes());
             return Base64.encodeBase64String(encrypted);
         } catch (Exception ex) {
-            ex.printStackTrace();
+            logger.error("Exception " + ex.getLocalizedMessage());
+            if (logger.isDebugEnabled()) {
+                ex.printStackTrace();
+            }
         }
         return value;
     }
@@ -53,7 +47,10 @@ public class EncryptUtil {
             byte[] original = cipher.doFinal(Base64.decodeBase64(encrypted));
             return new String(original);
         } catch (Exception ex) {
-            ex.printStackTrace();
+            logger.error("Exception " + ex.getLocalizedMessage());
+            if (logger.isDebugEnabled()) {
+                ex.printStackTrace();
+            }
         }
         return encrypted;
     }

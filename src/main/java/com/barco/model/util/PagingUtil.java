@@ -14,6 +14,8 @@ import java.util.List;
 public class PagingUtil {
 
     private static final String ID = "id";
+    private static final String ASC = "asc";
+    private static final String DESC = "desc";
     private static final Long DEFAULT_PAGE_NUMBER = 0l;
     private static final Long DEFAULT_MAX_NO_OF_ROWS = 10l;
 
@@ -44,9 +46,9 @@ public class PagingUtil {
     }
 
     private static Sort.Direction getSortDirection(String direction) {
-        if (direction.equalsIgnoreCase("asc")) {
+        if (direction.equalsIgnoreCase(ASC)) {
             return Sort.Direction.ASC;
-        } else if (direction.equalsIgnoreCase("desc")) {
+        } else if (direction.equalsIgnoreCase(DESC)) {
             return Sort.Direction.DESC;
         }
         return Sort.Direction.ASC;

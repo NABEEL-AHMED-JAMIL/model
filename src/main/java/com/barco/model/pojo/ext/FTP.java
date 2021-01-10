@@ -25,10 +25,10 @@ public class FTP {
     public FTP() { }
 
     public String getHost() {
-        return EncryptUtil.decrypt(host);
+        return host;
     }
     public void setHost(String host) {
-        this.host = EncryptUtil.encrypt(host);
+        this.host = host;
     }
 
     public Integer getPort() {
@@ -39,17 +39,17 @@ public class FTP {
     }
 
     public String getUser() {
-        return EncryptUtil.decrypt(user);
+        return user;
     }
     public void setUser(String user) {
-        this.user = EncryptUtil.encrypt(user);
+        this.user = user;
     }
 
     public String getPassword() {
-        return EncryptUtil.decrypt(password);
+        return password;
     }
     public void setPassword(String password) {
-        this.password = EncryptUtil.encrypt(password);
+        this.password = password;
     }
 
     public Map<String, String> getFolder() {

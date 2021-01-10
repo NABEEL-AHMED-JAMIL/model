@@ -30,10 +30,10 @@ public class DB {
     }
 
     public String getDatabaseServer() {
-        return EncryptUtil.decrypt(databaseServer);
+        return databaseServer;
     }
     public void setDatabaseServer(String databaseServer) {
-        this.databaseServer = EncryptUtil.encrypt(databaseServer);
+        this.databaseServer = databaseServer;
     }
 
     public Long getDatabasePort() {
@@ -70,17 +70,17 @@ public class DB {
         }
 
         public String getDatabaseUser() {
-            return EncryptUtil.decrypt(databaseUser);
+            return databaseUser;
         }
         public void setDatabaseUser(String databaseUser) {
-            this.databaseUser = EncryptUtil.encrypt(databaseUser);
+            this.databaseUser = databaseUser;
         }
 
         public String getDatabasePassword() {
-            return EncryptUtil.decrypt(databasePassword);
+            return databasePassword;
         }
         public void setDatabasePassword(String databasePassword) {
-            this.databasePassword = EncryptUtil.encrypt(databasePassword);
+            this.databasePassword = databasePassword;
         }
 
         @Override

@@ -23,17 +23,17 @@ public class AWS {
     public AWS() { }
 
     public String getAccessKey() {
-        return EncryptUtil.decrypt(accessKey);
+        return accessKey;
     }
     public void setAccessKey(String accessKey) {
-        this.accessKey = EncryptUtil.encrypt(accessKey);
+        this.accessKey = accessKey;
     }
 
     public String getSecretKey() {
-        return EncryptUtil.decrypt(secretKey);
+        return secretKey;
     }
     public void setSecretKey(String secretKey) {
-        this.secretKey = EncryptUtil.encrypt(secretKey);
+        this.secretKey = secretKey;
     }
 
     public String getRegion() {

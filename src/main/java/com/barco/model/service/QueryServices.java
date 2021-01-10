@@ -25,13 +25,13 @@ public class QueryServices {
     private EntityManager _em;
 
     public List<Object[]> executeQuery(String queryStr) {
-        logger.info("Execute Query :- " + queryStr);
+        logger.debug("Execute Query :- " + queryStr);
         Query query = this._em.createNativeQuery(queryStr);
         return query.getResultList();
     }
 
     public List<Object[]> executeQuery(String queryStr, Pageable paging) {
-        logger.info("Execute Query :- " + queryStr);
+        logger.debug("Execute Query :- " + queryStr);
         Query query = this._em.createNativeQuery(queryStr);
         if (paging != null) {
             query.setFirstResult(paging.getPageNumber() * paging.getPageSize());
@@ -41,7 +41,7 @@ public class QueryServices {
     }
 
     public Object executeQueryForSingleResult(String queryStr) {
-        logger.info("Execute Query :- " + queryStr);
+        logger.debug("Execute Query :- " + queryStr);
         Query query = this._em.createNativeQuery(queryStr);
         return query.getSingleResult();
     }
