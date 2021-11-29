@@ -5,10 +5,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
-
 import javax.persistence.*;
-import java.sql.Time;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 /**
  * @author Nabeel Ahmed
@@ -19,36 +19,42 @@ import java.util.Date;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Scheduler extends BaseEntity {
 
-    @GenericGenerator(
-        name = "schedulerSequenceGenerator",
-        strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
-        parameters = {
-			@Parameter(name = "sequence_name", value = "scheduler_Seq"),
-			@Parameter(name = "initial_value", value = "1000"),
+	@GenericGenerator(
+		name = "schedulerSequenceGenerator",
+		strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+		parameters = {
+			@Parameter(name = "sequence_name", value = "scheduler_source_Seq"),
+			@Parameter(name = "initial_value", value = "1001"),
 			@Parameter(name = "increment_size", value = "1")
-        }
-    )
-    @Id
-    @GeneratedValue(generator = "schedulerSequenceGenerator")
+		}
+	)
+	@Id
+	@GeneratedValue(generator = "schedulerSequenceGenerator")
 	private Long id;
-    
-	@Temporal(TemporalType.DATE)
-	private Date startDate;
-	
-	@Temporal(TemporalType.DATE)
-	private Date endDate;
-    
-	private Time time;
 
+	@Column(nullable = false,
+	columnDefinition = "DATE")
+	private LocalDate startDate;
+
+	@Column(columnDefinition = "DATE")
+	private LocalDate endDate;
+
+	@Column(nullable = false,
+	columnDefinition = "TIME")
+	private LocalTime startTime;
+
+	// mint,hr,daily,weekly,monthly
+	@Column(nullable = false)
 	private String frequency;
-	
+
+	// mint, hr entry
 	private String recurrence;
-	
-	private String timeZone;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "job_id")
-	private Job jobId;
+	private Job job;
+
+	private LocalDateTime recurrenceTime;
 
 	public Scheduler() {}
 
@@ -59,25 +65,25 @@ public class Scheduler extends BaseEntity {
 		this.id = id;
 	}
 
-	public Date getStartDate() {
+	public LocalDate getStartDate() {
 		return startDate;
 	}
-	public void setStartDate(Date startDate) {
+	public void setStartDate(LocalDate startDate) {
 		this.startDate = startDate;
 	}
 
-	public Date getEndDate() {
+	public LocalDate getEndDate() {
 		return endDate;
 	}
-	public void setEndDate(Date endDate) {
+	public void setEndDate(LocalDate endDate) {
 		this.endDate = endDate;
 	}
 
-	public Time getTime() {
-		return time;
+	public LocalTime getStartTime() {
+		return startTime;
 	}
-	public void setTime(Time time) {
-		this.time = time;
+	public void setStartTime(LocalTime startTime) {
+		this.startTime = startTime;
 	}
 
 	public String getFrequency() {
@@ -94,23 +100,24 @@ public class Scheduler extends BaseEntity {
 		this.recurrence = recurrence;
 	}
 
-	public String getTimeZone() {
-		return timeZone;
+	public Job getJob() {
+		return job;
 	}
-	public void setTimeZone(String timeZone) {
-		this.timeZone = timeZone;
+	public void setJob(Job job) {
+		this.job = job;
 	}
 
-	public Job getJobId() {
-		return jobId;
+	public LocalDateTime getRecurrenceTime() {
+		return recurrenceTime;
 	}
-	public void setJobId(Job jobId) {
-		this.jobId = jobId;
+	public void setRecurrenceTime(LocalDateTime recurrenceTime) {
+		this.recurrenceTime = recurrenceTime;
 	}
 
 	@Override
 	public String toString() {
 		return new Gson().toJson(this);
 	}
+
 
 }

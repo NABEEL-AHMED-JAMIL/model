@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 
 /**
@@ -30,10 +29,9 @@ public class AccessService extends BaseEntity {
     private Long id;
 
     @Column(nullable = false, unique = true)
-    private String serviceName;
+    private String name;
 
-    @Column(nullable = false, unique = true)
-    private String internalServiceName;
+    private String description;
 
     public AccessService() { }
 
@@ -44,18 +42,18 @@ public class AccessService extends BaseEntity {
         this.id = id;
     }
 
-    public String getServiceName() {
-        return serviceName;
+    public String getName() {
+        return name;
     }
-    public void setServiceName(String serviceName) {
-        this.serviceName = serviceName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getInternalServiceName() {
-        return internalServiceName;
+    public String getDescription() {
+        return description;
     }
-    public void setInternalServiceName(String internalServiceName) {
-        this.internalServiceName = internalServiceName;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override

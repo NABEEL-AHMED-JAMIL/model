@@ -39,12 +39,13 @@ public class StorageDetail extends BaseEntity {
     private String storageKeyName;
 
     @Type(type = "jsonb")
-    @Column(columnDefinition = "jsonb")
+    @Column(nullable = false, columnDefinition = "jsonb")
     @Basic(fetch = FetchType.LAZY)
     private Object storageDetailJson;;
 
-    // aws, ftp, db(mysql,pg)
+    // aws, ftp, db(mysql,pg,sql-server)
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private KeyType keyType;
 
     public StorageDetail() {}

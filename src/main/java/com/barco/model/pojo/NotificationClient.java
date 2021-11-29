@@ -31,12 +31,6 @@ public class NotificationClient extends BaseEntity {
 
     private String sessionId;
 
-    @Column(nullable = false, unique = true)
-    private String topicId;
-
-    @Column(nullable = false, unique = true)
-    private String clientPath;
-
     public NotificationClient() {}
 
     public Long getId() {
@@ -51,20 +45,6 @@ public class NotificationClient extends BaseEntity {
     }
     public void setSessionId(String sessionId) {
         this.sessionId = sessionId;
-    }
-
-    public String getTopicId() {
-        return topicId;
-    }
-    public void setTopicId(String topicId) {
-        this.topicId = topicId;
-    }
-
-    public String getClientPath() {
-        return clientPath;
-    }
-    public void setClientPath(String clientPath) {
-        this.clientPath = clientPath;
     }
 
     @Override

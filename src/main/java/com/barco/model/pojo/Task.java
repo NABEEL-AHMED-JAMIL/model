@@ -1,12 +1,13 @@
 package com.barco.model.pojo;
 
+import com.barco.model.JsonBinaryType;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 import org.hibernate.annotations.Type;
-
+import org.hibernate.annotations.TypeDef;
 import javax.persistence.*;
 
 /**
@@ -16,30 +17,29 @@ import javax.persistence.*;
 @Table(name = "task")
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 public class Task extends BaseEntity {
 
     @GenericGenerator(
-        name = "triggerSequenceGenerator",
+        name = "taskSequenceGenerator",
         strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
         parameters = {
-            @Parameter(name = "sequence_name", value = "trigger_source_Seq"),
+            @Parameter(name = "sequence_name", value = "task_source_Seq"),
             @Parameter(name = "initial_value", value = "1000"),
             @Parameter(name = "increment_size", value = "1")
         }
     )
     @Id
-    @GeneratedValue(generator = "triggerSequenceGenerator")
+    @GeneratedValue(generator = "taskSequenceGenerator")
     private Long id;
 
     @Column(nullable = false)
     private String taskName;
 
-    // class name mean which thread will use this detail example :- service1, service2, service3
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "access_service_id", nullable = false)
-    private AccessService accessService; // replace with service class
+    private AccessService accessService;
 
-    // this taskDetailJson will be part of service
     @Type(type = "jsonb")
     @Column(nullable = false, columnDefinition = "jsonb")
     @Basic(fetch = FetchType.LAZY)

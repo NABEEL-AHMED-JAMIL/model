@@ -7,9 +7,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
-
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  * @author Nabeel Ahmed
@@ -41,22 +40,22 @@ public class Job extends BaseEntity {
 
     // auto-(auto,manual)
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private Execution executionType;
 
-    @Column(nullable = true)
     private JobStatus jobStatus;
 
-    private Date lastJobRun;
+    private LocalDateTime lastJobRun;
 
-    private Date nextJobRun;
-
-    private Date skipJobRun;
+    private LocalDateTime nextJobRun;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "task_id")
     private Task task;
 
-    private String notification;
+    private String timeZone;
+
+    private Boolean isNotification;
 
     public Job() {}
 
@@ -95,25 +94,18 @@ public class Job extends BaseEntity {
         this.jobStatus = jobStatus;
     }
 
-    public Date getLastJobRun() {
+    public LocalDateTime getLastJobRun() {
         return lastJobRun;
     }
-    public void setLastJobRun(Date lastJobRun) {
+    public void setLastJobRun(LocalDateTime lastJobRun) {
         this.lastJobRun = lastJobRun;
     }
 
-    public Date getNextJobRun() {
+    public LocalDateTime getNextJobRun() {
         return nextJobRun;
     }
-    public void setNextJobRun(Date nextJobRun) {
+    public void setNextJobRun(LocalDateTime nextJobRun) {
         this.nextJobRun = nextJobRun;
-    }
-
-    public Date getSkipJobRun() {
-        return skipJobRun;
-    }
-    public void setSkipJobRun(Date skipJobRun) {
-        this.skipJobRun = skipJobRun;
     }
 
     public Task getTask() {
@@ -123,11 +115,18 @@ public class Job extends BaseEntity {
         this.task = task;
     }
 
-    public String getNotification() {
-        return notification;
+    public String getTimeZone() {
+        return timeZone;
     }
-    public void setNotification(String notification) {
-        this.notification = notification;
+    public void setTimeZone(String timeZone) {
+        this.timeZone = timeZone;
+    }
+
+    public Boolean getNotification() {
+        return isNotification;
+    }
+    public void setNotification(Boolean notification) {
+        isNotification = notification;
     }
 
     @Override

@@ -5,36 +5,38 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
-import org.springframework.security.core.GrantedAuthority;
+
 import javax.persistence.*;
 
 /**
  * @author Nabeel Ahmed
  */
 @Entity
-@Table(name = "authority")
+@Table(name = "portal_permission")
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Authority extends BaseEntity implements GrantedAuthority {
+public class PortalPermission extends BaseEntity {
 
     @GenericGenerator(
-        name = "authoritySequenceGenerator",
+        name = "portalPermissionSequenceGenerator",
         strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
         parameters = {
-            @Parameter(name = "sequence_name", value = "authority_Seq"),
+            @Parameter(name = "sequence_name", value = "portal_permission_Seq"),
             @Parameter(name = "initial_value", value = "1000"),
             @Parameter(name = "increment_size", value = "1")
         }
     )
     @Id
-    @GeneratedValue(generator = "authoritySequenceGenerator")
+    @GeneratedValue(generator = "portalPermissionSequenceGenerator")
     private Long id;
 
     @Column(nullable = false,
     unique = true, length = 50)
-    private String role;
+    private String name;
 
-    public Authority() {}
+    private String description;
+
+    public PortalPermission() { }
 
     public Long getId() {
         return id;
@@ -43,21 +45,22 @@ public class Authority extends BaseEntity implements GrantedAuthority {
         this.id = id;
     }
 
-    public String getRole() {
-        return role;
+    public String getName() {
+        return name;
     }
-    public void setRole(String role) {
-        this.role = role;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    @Override
-    public String getAuthority() {
-        return getRole();
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
     public String toString() {
         return new Gson().toJson(this);
     }
-
 }

@@ -1,6 +1,7 @@
 package com.barco.model.pojo;
 
-import com.barco.model.enums.Flag;
+import com.barco.model.JsonBinaryType;
+import com.barco.model.enums.NotificationFlag;
 import com.barco.model.enums.NotificationType;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -8,6 +9,8 @@ import com.google.gson.Gson;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
+import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -19,6 +22,7 @@ import java.sql.Timestamp;
 @Table(name = "notification_detail")
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 public class NotificationDetail extends BaseEntity {
 
     @GenericGenerator(
@@ -34,18 +38,18 @@ public class NotificationDetail extends BaseEntity {
     @GeneratedValue(generator = "notificationDetailSequenceGenerator")
     private Long id;
 
-    // detail.class will store as json in notification detail
-    private String detail;
+    @Type(type = "jsonb")
+    @Column(nullable = false, columnDefinition = "jsonb")
+    @Basic(fetch = FetchType.LAZY)
+    private Object detail;
 
-    private Flag flag;
+    @Enumerated(EnumType.STRING)
+    private NotificationFlag notificationFlag;
 
     private Timestamp sendTime;
 
+    @Enumerated(EnumType.STRING)
     private NotificationType notificationType;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "notification_id")
-    private NotificationClient notificationClient;
 
     public NotificationDetail() {}
 
@@ -56,18 +60,18 @@ public class NotificationDetail extends BaseEntity {
         this.id = id;
     }
 
-    public String getDetail() {
+    public Object getDetail() {
         return detail;
     }
-    public void setDetail(String detail) {
+    public void setDetail(Object detail) {
         this.detail = detail;
     }
 
-    public Flag getFlag() {
-        return flag;
+    public NotificationFlag getNotificationFlag() {
+        return notificationFlag;
     }
-    public void setFlag(Flag flag) {
-        this.flag = flag;
+    public void setNotificationFlag(NotificationFlag notificationFlag) {
+        this.notificationFlag = notificationFlag;
     }
 
     public Timestamp getSendTime() {
@@ -82,13 +86,6 @@ public class NotificationDetail extends BaseEntity {
     }
     public void setNotificationType(NotificationType notificationType) {
         this.notificationType = notificationType;
-    }
-
-    public NotificationClient getNotificationClient() {
-        return notificationClient;
-    }
-    public void setNotificationClient(NotificationClient notificationClient) {
-        this.notificationClient = notificationClient;
     }
 
     @Override

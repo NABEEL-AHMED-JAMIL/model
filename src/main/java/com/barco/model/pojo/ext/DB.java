@@ -1,7 +1,5 @@
 package com.barco.model.pojo.ext;
 
-import com.barco.model.enums.DbDriver;
-import com.barco.model.util.EncryptUtil;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
@@ -13,19 +11,27 @@ import com.google.gson.Gson;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class DB {
 
+    private String dbType;
     // mysql,pg,sql server
-    private DbDriver driver; // driver for db base on mysql
-    private String databaseServer; // ip or else db path
-    private Long databasePort; // port of db
-    private String databaseName; // db name
+    private String driver;
+    private String databaseServer;
+    private Long databasePort;
+    private String databaseName;
     private DbAuthentication dbAuthentication; // db auth detail if need
 
     public DB() { }
 
-    public DbDriver getDriver() {
+    public String getDbType() {
+        return dbType;
+    }
+    public void setDbType(String dbType) {
+        this.dbType = dbType;
+    }
+
+    public String getDriver() {
         return driver;
     }
-    public void setDriver(DbDriver driver) {
+    public void setDriver(String driver) {
         this.driver = driver;
     }
 

@@ -23,7 +23,17 @@ public class BaseEntity extends BaseMasterEntity {
     @Column(name = "modified_by_id")
     private Long modifiedBy;
 
-    public BaseEntity() {}
+    public BaseEntity() { }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.modifiedAt = new Timestamp(System.currentTimeMillis());
+    }
+
+    @PrePersist
+    protected void onCreate() {
+        super.setCreatedAt(new Timestamp(System.currentTimeMillis()));
+    }
 
     public Timestamp getModifiedAt() {
         return modifiedAt;
@@ -39,20 +49,8 @@ public class BaseEntity extends BaseMasterEntity {
         this.modifiedBy = modifiedBy;
     }
 
-    @PreUpdate
-    protected void onUpdate() {
-        this.modifiedAt = new Timestamp(System.currentTimeMillis());
-    }
-
-    @PrePersist
-    protected void onCreate() {
-        super.setCreatedAt(new Timestamp(System.currentTimeMillis()));
-        //this.modifiedAt = new Timestamp(System.currentTimeMillis());
-    }
-
     @Override
     public String toString() {
         return new Gson().toJson(this);
     }
-
 }

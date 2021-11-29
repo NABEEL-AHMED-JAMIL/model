@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 
 /**
@@ -14,7 +13,7 @@ import javax.persistence.*;
 @Table(name = "app_setting")
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class AppSetting {
+public class AppSetting extends BaseEntity {
 
     @GenericGenerator(
         name = "appSettingSequenceGenerator",
@@ -33,6 +32,8 @@ public class AppSetting {
     private String settingKey;
 
     private String settingValue;
+
+    private String description;
 
     public AppSetting() {}
 
@@ -55,6 +56,13 @@ public class AppSetting {
     }
     public void setSettingValue(String settingValue) {
         this.settingValue = settingValue;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override

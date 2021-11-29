@@ -1,11 +1,8 @@
 package com.barco.model.pojo.ext;
 
-import com.barco.model.util.EncryptUtil;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
-
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -19,8 +16,8 @@ public class FTP {
     private Integer port;
     private String user;
     private String password;
-    private Map<String, String> folder; // bucket name, here key, pair
-    // key is the folder name and the value is the active or disable
+    private Map<String, String> folder;
+    // key => bucket name value => bucket folder pattern
 
     public FTP() { }
 

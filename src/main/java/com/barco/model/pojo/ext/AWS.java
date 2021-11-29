@@ -1,6 +1,5 @@
 package com.barco.model.pojo.ext;
 
-import com.barco.model.util.EncryptUtil;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
@@ -13,12 +12,15 @@ import java.util.Map;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AWS {
 
-    private String accessKey; // access key of aws
-    private String secretKey; // secret key of aws
-    private String region; // region for s3 bucket
+    // access key of aws
+    private String accessKey;
+    // secret key of aws
+    private String secretKey;
+    // region for s3 bucket
+    private String region;
     // bucket name with path
-    private Map<String, String> bucketName; // bucket name, here key, pair
-    // key => bucket name value => which bucket active to push data
+    private Map<String, String> bucketName;
+    // key => bucket name value => bucket folder pattern
 
     public AWS() { }
 

@@ -1,13 +1,13 @@
 package com.barco.model.pojo;
 
+import com.barco.model.enums.JobStatus;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
-
 import javax.persistence.*;
-import java.sql.Time;
+import java.time.LocalDateTime;
 
 /**
  * @author Nabeel Ahmed
@@ -16,31 +16,36 @@ import java.sql.Time;
 @Table(name = "job_queue")
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class JobQueue extends BaseMasterEntity {
+public class JobQueue extends BaseEntity {
 
-    @GenericGenerator(
-        name = "jobQueueSequenceGenerator",
-        strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
-        parameters = {
+	@GenericGenerator(
+		name = "jobQueueSequenceGenerator",
+		strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+		parameters = {
 			@Parameter(name = "sequence_name", value = "job_queue_Seq"),
 			@Parameter(name = "initial_value", value = "1000"),
 			@Parameter(name = "increment_size", value = "1")
-        }
-    )
-    @Id
-    @GeneratedValue(generator = "jobQueueSequenceGenerator")
+		}
+	)
+	@Id
+	@GeneratedValue(generator = "jobQueueSequenceGenerator")
 	private Long id;
-    
-    private Long appUserId;
 
-    private Long schedulerId;
-    
-    private Time schedulerTime;
+	@Column(columnDefinition = "TIMESTAMP")
+	private LocalDateTime startTime;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "job_id")
-    private Job job;
-    
+	@Column(columnDefinition = "TIMESTAMP")
+	private LocalDateTime endTime;
+
+	@Column(nullable = false)
+	private JobStatus jobStatus;
+
+	private Long jobId;
+
+	private String jobStatusMessage;
+
+	private Boolean isNotification;
+
 	public JobQueue() {}
 
 	public Long getId() {
@@ -50,32 +55,46 @@ public class JobQueue extends BaseMasterEntity {
 		this.id = id;
 	}
 
-	public Long getAppUserId() {
-		return appUserId;
+	public LocalDateTime getStartTime() {
+		return startTime;
 	}
-	public void setAppUserId(Long appUserId) {
-		this.appUserId = appUserId;
-	}
-
-	public Long getSchedulerId() {
-		return schedulerId;
-	}
-	public void setSchedulerId(Long schedulerId) {
-		this.schedulerId = schedulerId;
+	public void setStartTime(LocalDateTime startTime) {
+		this.startTime = startTime;
 	}
 
-	public Time getSchedulerTime() {
-		return schedulerTime;
+	public LocalDateTime getEndTime() {
+		return endTime;
 	}
-	public void setSchedulerTime(Time schedulerTime) {
-		this.schedulerTime = schedulerTime;
+	public void setEndTime(LocalDateTime endTime) {
+		this.endTime = endTime;
 	}
 
-	public Job getJob() {
-		return job;
+	public JobStatus getJobStatus() {
+		return jobStatus;
 	}
-	public void setJob(Job job) {
-		this.job = job;
+	public void setJobStatus(JobStatus jobStatus) {
+		this.jobStatus = jobStatus;
+	}
+
+	public Long getJobId() {
+		return jobId;
+	}
+	public void setJobId(Long jobId) {
+		this.jobId = jobId;
+	}
+
+	public String getJobStatusMessage() {
+		return jobStatusMessage;
+	}
+	public void setJobStatusMessage(String jobStatusMessage) {
+		this.jobStatusMessage = jobStatusMessage;
+	}
+
+	public Boolean getNotification() {
+		return isNotification;
+	}
+	public void setNotification(Boolean notification) {
+		isNotification = notification;
 	}
 
 	@Override

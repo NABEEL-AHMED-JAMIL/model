@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
-
 import javax.persistence.*;
 
 /**
@@ -15,7 +14,7 @@ import javax.persistence.*;
 @Table(name = "job_audit_logs")
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class JobAuditLogs extends BaseMasterEntity {
+public class JobAuditLogs extends BaseEntity {
 
     @GenericGenerator(
         name = "jobAuditLogsSequenceGenerator",
@@ -30,12 +29,16 @@ public class JobAuditLogs extends BaseMasterEntity {
     @GeneratedValue(generator = "jobAuditLogsSequenceGenerator")
     private Long id;
 
-    @Column(length = 1000, nullable = false)
+    @Column(nullable = false)
     private Long jobId;
 
+    @Column(nullable = false)
+    private Long jobHistoryId;
+
+    @Column(nullable = false)
     private String logsDetail;
 
-    public JobAuditLogs() { }
+    public JobAuditLogs() {}
 
     public Long getId() {
         return id;
@@ -51,6 +54,13 @@ public class JobAuditLogs extends BaseMasterEntity {
         this.jobId = jobId;
     }
 
+    public Long getJobHistoryId() {
+        return jobHistoryId;
+    }
+    public void setJobHistoryId(Long jobHistoryId) {
+        this.jobHistoryId = jobHistoryId;
+    }
+
     public String getLogsDetail() {
         return logsDetail;
     }
@@ -62,5 +72,6 @@ public class JobAuditLogs extends BaseMasterEntity {
     public String toString() {
         return new Gson().toJson(this);
     }
+
 
 }

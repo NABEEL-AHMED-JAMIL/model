@@ -8,7 +8,8 @@ import java.util.Properties;
 /**
  * @author Nabeel Ahmed
  */
-public class JsonBinaryType extends AbstractSingleColumnStandardBasicType<Object> implements DynamicParameterizedType {
+public class JsonBinaryType extends AbstractSingleColumnStandardBasicType<Object>
+    implements DynamicParameterizedType {
 
     public JsonBinaryType() {
         super(JsonBinarySqlTypeDescriptor.INSTANCE, new JsonTypeDescriptor());

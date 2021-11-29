@@ -1,6 +1,5 @@
 package com.barco.model.pojo;
 
-import com.barco.model.enums.UserType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -9,7 +8,6 @@ import org.hibernate.annotations.GenericGenerator;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
-import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Collection;
@@ -44,26 +42,15 @@ public class AppUser extends BaseEntity implements UserDetails, Serializable {
     @Column(nullable = false)
     private String password;
 
-    @Size(min = 0, max = 500)
-    @Column(nullable = false)
+    @Column(nullable = false, length = 50)
     private String firstName;
 
-    @Size(min = 0, max = 500)
-    @Column(nullable = false)
+    @Column(nullable = false, length = 50)
     private String lastName;
 
     private String profilePath;
 
     private Timestamp lastLoginAt;
-
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name = "user_authority",
-        joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-        inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
-    private List<Authority> authorities;
-
-    @Column(nullable = false)
-    private UserType userType;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "app_sub_user",
@@ -77,11 +64,15 @@ public class AppUser extends BaseEntity implements UserDetails, Serializable {
         inverseJoinColumns = @JoinColumn(name = "service_id", referencedColumnName = "id"))
     private Set<AccessService> accessServices;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinTable(name = "user_access_screens",
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "user_authority",
         joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-        inverseJoinColumns = @JoinColumn(name = "screens_id", referencedColumnName = "id"))
-    private List<AccessScreen> accessScreens;
+        inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
+    private List<Authority> authorities;
+
+    @ManyToOne
+    @JoinColumn(name="portalProfile", nullable=false)
+    private PortalProfile portalProfile;
 
     public AppUser() {}
 
@@ -134,21 +125,6 @@ public class AppUser extends BaseEntity implements UserDetails, Serializable {
         this.profilePath = profilePath;
     }
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.authorities;
-    }
-    public void setAuthorities(List<Authority> authorities) {
-        this.authorities = authorities;
-    }
-
-    public UserType getUserType() {
-        return userType;
-    }
-    public void setUserType(UserType userType) {
-        this.userType = userType;
-    }
-
     public Set<AppUser> getSubUser() {
         return subUser;
     }
@@ -156,21 +132,21 @@ public class AppUser extends BaseEntity implements UserDetails, Serializable {
         this.subUser = subUser;
     }
 
-    public Set<AccessService> getAccessServices() {
-        return accessServices;
+    public void setAuthorities(List<Authority> authorities) {
+        this.authorities = authorities;
     }
-    public void setAccessServices(Set<AccessService> accessServices) {
-        this.accessServices = accessServices;
-    }
-
-    public List<AccessScreen> getAccessScreens() {
-        return accessScreens;
-    }
-    public void setAccessScreens(List<AccessScreen> accessScreens) {
-        this.accessScreens = accessScreens;
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return this.authorities;
     }
 
-    // We can add the below fields in the users table. For now, they are hardcoded.
+    public PortalProfile getPortalProfile() {
+        return portalProfile;
+    }
+    public void setPortalProfile(PortalProfile portalProfile) {
+        this.portalProfile = portalProfile;
+    }
+
     @Override
     @JsonIgnore
     public boolean isAccountNonExpired() {
