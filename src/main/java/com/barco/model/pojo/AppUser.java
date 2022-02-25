@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
@@ -27,60 +28,68 @@ public class AppUser extends BaseEntity implements UserDetails, Serializable {
         name = "appUserSequenceGenerator",
         strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
         parameters = {
-            @org.hibernate.annotations.Parameter(name = "sequence_name", value = "appUser_Seq"),
-            @org.hibernate.annotations.Parameter(name = "initial_value", value = "1000"),
-            @org.hibernate.annotations.Parameter(name = "increment_size", value = "1")
+            @Parameter(name = "sequence_name", value = "appUser_Seq"),
+            @Parameter(name = "initial_value", value = "1000"),
+            @Parameter(name = "increment_size", value = "1")
         }
     )
     @Id
     @GeneratedValue(generator = "appUserSequenceGenerator")
-    private Long id;
+    private Long appUserId;
 
-    @Column(nullable = false, unique = true)
+    @Column(name = "username", nullable = false, unique = true)
     private String username;
 
-    @Column(nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(nullable = false, length = 50)
+    @Column(name = "firstName", nullable = false, length = 50)
     private String firstName;
 
-    @Column(nullable = false, length = 50)
+    @Column(name = "lastName", nullable = false, length = 50)
     private String lastName;
 
-    private String profilePath;
+    @Column(name = "profile_img_path")
+    private String profileImgPath;
 
+    @Column(name = "last_login_at")
     private Timestamp lastLoginAt;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "app_sub_user",
-        joinColumns = @JoinColumn(name = "parent_user_id", referencedColumnName = "id"),
-        inverseJoinColumns = @JoinColumn(name = "sub_user_id", referencedColumnName = "id"))
+        joinColumns = @JoinColumn(name = "parent_user_id", referencedColumnName = "appUserId"),
+        inverseJoinColumns = @JoinColumn(name = "sub_user_id", referencedColumnName = "appUserId"))
     private Set<AppUser> subUser;
-
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinTable(name = "user_access_service",
-        joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-        inverseJoinColumns = @JoinColumn(name = "service_id", referencedColumnName = "id"))
-    private Set<AccessService> accessServices;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user_authority",
-        joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-        inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
+        joinColumns = @JoinColumn(name = "app_user_id", referencedColumnName = "appUserId"),
+        inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "authorityId"))
     private List<Authority> authorities;
+
+    @ManyToOne
+    @JoinColumn(name="accessServices", nullable=false)
+    private AccessService accessServices;
+
+    @ManyToOne
+    @JoinColumn(name="company", nullable=false)
+    private Company company;
 
     @ManyToOne
     @JoinColumn(name="portalProfile", nullable=false)
     private PortalProfile portalProfile;
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "address_id")
+    private Address address;
+
     public AppUser() {}
 
-    public Long getId() {
-        return id;
+    public Long getAppUserId() {
+        return appUserId;
     }
-    public void setId(Long id) {
-        this.id = id;
+    public void setAppUserId(Long appUserId) {
+        this.appUserId = appUserId;
     }
 
     public String getUsername() {
@@ -118,11 +127,11 @@ public class AppUser extends BaseEntity implements UserDetails, Serializable {
         this.lastLoginAt = lastLoginAt;
     }
 
-    public String getProfilePath() {
-        return profilePath;
+    public String getProfileImgPath() {
+        return profileImgPath;
     }
-    public void setProfilePath(String profilePath) {
-        this.profilePath = profilePath;
+    public void setProfileImgPath(String profileImgPath) {
+        this.profileImgPath = profileImgPath;
     }
 
     public Set<AppUser> getSubUser() {
@@ -140,11 +149,32 @@ public class AppUser extends BaseEntity implements UserDetails, Serializable {
         return this.authorities;
     }
 
+    public AccessService getAccessServices() {
+        return accessServices;
+    }
+    public void setAccessServices(AccessService accessServices) {
+        this.accessServices = accessServices;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
     public PortalProfile getPortalProfile() {
         return portalProfile;
     }
     public void setPortalProfile(PortalProfile portalProfile) {
         this.portalProfile = portalProfile;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override

@@ -13,9 +13,9 @@ import java.sql.Timestamp;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AccessServiceDto {
 
-    private Long id;
+    private Long serviceId;
     private String serviceName;
-    private String internalServiceName;
+    private String description;
     private Timestamp modifiedAt;
     private Long modifiedBy;
     private Timestamp createdAt;
@@ -24,11 +24,11 @@ public class AccessServiceDto {
 
     public AccessServiceDto() { }
 
-    public Long getId() {
-        return id;
+    public Long getServiceId() {
+        return serviceId;
     }
-    public void setId(Long id) {
-        this.id = id;
+    public void setServiceId(Long serviceId) {
+        this.serviceId = serviceId;
     }
 
     public String getServiceName() {
@@ -38,11 +38,11 @@ public class AccessServiceDto {
         this.serviceName = serviceName;
     }
 
-    public String getInternalServiceName() {
-        return internalServiceName;
+    public String getDescription() {
+        return description;
     }
-    public void setInternalServiceName(String internalServiceName) {
-        this.internalServiceName = internalServiceName;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Timestamp getModifiedAt() {

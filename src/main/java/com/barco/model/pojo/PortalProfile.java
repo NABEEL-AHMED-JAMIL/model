@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
-
 import javax.persistence.*;
 
 /**
@@ -28,28 +27,29 @@ public class PortalProfile extends BaseEntity {
     )
     @Id
     @GeneratedValue(generator = "portalProfileSequenceGenerator")
-    private Long id;
+    private Long profileId;
 
-    @Column(nullable = false,
-    unique = true, length = 50)
-    private String name;
+    @Column(name = "profileName", nullable = false,
+        unique = true, length = 50)
+    private String profileName;
 
+    @Column(name = "description")
     private String description;
 
     public PortalProfile() { }
 
-    public Long getId() {
-        return id;
+    public Long getProfileId() {
+        return profileId;
     }
-    public void setId(Long id) {
-        this.id = id;
+    public void setProfileId(Long profileId) {
+        this.profileId = profileId;
     }
 
-    public String getName() {
-        return name;
+    public String getProfileName() {
+        return profileName;
     }
-    public void setName(String name) {
-        this.name = name;
+    public void setProfileName(String profileName) {
+        this.profileName = profileName;
     }
 
     public String getDescription() {
@@ -63,4 +63,5 @@ public class PortalProfile extends BaseEntity {
     public String toString() {
         return new Gson().toJson(this);
     }
+
 }

@@ -5,8 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 
 /**
- *
- * @author Adeel.Asghar
+ * @author Nabeel Ahmed
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -27,7 +26,6 @@ public class SearchTextDto {
     public Object getItemValue() {
         return itemValue;
     }
-
     public void setItemValue(Object itemValue) {
         this.itemValue = itemValue;
     }

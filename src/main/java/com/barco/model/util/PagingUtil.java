@@ -4,7 +4,6 @@ import com.barco.model.dto.PagingDto;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,8 +27,8 @@ public class PagingUtil {
     }
 
     /* Page = current page And size is Limit*/
-    public static Pageable ApplyPaging(Long page, Long limit) {
-        return ApplyPagingAndSorting("", "", page != null ? page - 1 : 0l, limit);
+    public static Pageable ApplyPaging(String orderBy, String direction, Long page, Long limit) {
+        return ApplyPagingAndSorting(orderBy, direction, page != null ? page - 1 : 0l, limit);
     }
 
     /* Apply If Needed */

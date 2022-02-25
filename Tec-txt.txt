@@ -1,6 +1,0 @@
-Java
-Spring-Framwork
-Spring-Security
-Docker
-Jenkin
-Kubernetes

@@ -1,5 +1,6 @@
 package com.barco.model.pojo;
 
+import com.barco.model.enums.Status;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
@@ -10,6 +11,7 @@ import javax.persistence.*;
 
 /**
  * @author Nabeel Ahmed
+ * this class help to handle the auth process on api side
  */
 @Entity
 @Table(name = "authority")
@@ -28,19 +30,24 @@ public class Authority extends BaseEntity implements GrantedAuthority {
     )
     @Id
     @GeneratedValue(generator = "authoritySequenceGenerator")
-    private Long id;
+    private Long authorityId;
 
-    @Column(nullable = false,
-    unique = true, length = 50)
+    @Column(name = "role", nullable = false,
+            unique = true, length = 50)
     private String role;
 
     public Authority() {}
 
-    public Long getId() {
-        return id;
+    public Authority(Long createdBy, Status status, String role) {
+        super(createdBy, status);
+        this.role = role;
     }
-    public void setId(Long id) {
-        this.id = id;
+
+    public Long getAuthorityId() {
+        return authorityId;
+    }
+    public void setAuthorityId(Long authorityId) {
+        this.authorityId = authorityId;
     }
 
     public String getRole() {

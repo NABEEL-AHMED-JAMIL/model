@@ -1,53 +1,37 @@
-package com.barco.model.pojo;
+package com.barco.model.dto;
 
 import com.barco.model.enums.Status;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Parameter;
-import javax.persistence.*;
+import java.sql.Timestamp;
 
 /**
  * @author Nabeel Ahmed
  */
-@Entity
-@Table(name = "app_setting")
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class AppSetting extends BaseEntity {
+public class AppSettingDto {
 
-    @GenericGenerator(
-        name = "appSettingSequenceGenerator",
-        strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
-        parameters = {
-            @Parameter(name = "sequence_name", value = "appSetting_Seq"),
-            @Parameter(name = "initial_value", value = "1000"),
-            @Parameter(name = "increment_size", value = "1")
-        }
-    )
-    @Id
-    @GeneratedValue(generator = "appSettingSequenceGenerator")
     private Long appSettingId;
-
-    @Column(name = "setting_key",
-        nullable = false, unique = true)
     private String settingKey;
-
-    @Column(name = "setting_value", nullable = false)
     private String settingValue;
-
-    @Column(name = "description")
     private String description;
+    private Timestamp modifiedAt;
+    private Long modifiedBy;
+    private Timestamp createdAt;
+    private Long createdBy;
+    private Status status;
 
-    public AppSetting() {}
+    public AppSettingDto() {}
 
-    public AppSetting(Long createdBy, Status status, String settingKey,
-        String settingValue, String description) {
-        super(createdBy, status);
+    public AppSettingDto(String settingKey, String settingValue, String description,
+        Long createdBy, Status status) {
         this.settingKey = settingKey;
         this.settingValue = settingValue;
         this.description = description;
+        this.createdBy = createdBy;
+        this.status = status;
     }
 
     public Long getAppSettingId() {
@@ -76,6 +60,41 @@ public class AppSetting extends BaseEntity {
     }
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Timestamp getModifiedAt() {
+        return modifiedAt;
+    }
+    public void setModifiedAt(Timestamp modifiedAt) {
+        this.modifiedAt = modifiedAt;
+    }
+
+    public Long getModifiedBy() {
+        return modifiedBy;
+    }
+    public void setModifiedBy(Long modifiedBy) {
+        this.modifiedBy = modifiedBy;
+    }
+
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Long getCreatedBy() {
+        return createdBy;
+    }
+    public void setCreatedBy(Long createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     @Override

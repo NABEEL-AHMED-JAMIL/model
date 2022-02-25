@@ -1,9 +1,11 @@
 package com.barco.model.pojo;
 
+import com.barco.model.enums.Status;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 import javax.persistence.*;
 
 /**
@@ -19,34 +21,42 @@ public class AccessService extends BaseEntity {
         name = "accessServiceSequenceGenerator",
         strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
         parameters = {
-            @org.hibernate.annotations.Parameter(name = "sequence_name", value = "accessService_Seq"),
-            @org.hibernate.annotations.Parameter(name = "initial_value", value = "1000"),
-            @org.hibernate.annotations.Parameter(name = "increment_size", value = "1")
+            @Parameter(name = "sequence_name", value = "accessService_Seq"),
+            @Parameter(name = "initial_value", value = "1000"),
+            @Parameter(name = "increment_size", value = "1")
         }
     )
     @Id
     @GeneratedValue(generator = "accessServiceSequenceGenerator")
-    private Long id;
+    private Long serviceId;
 
-    @Column(nullable = false, unique = true)
-    private String name;
+    @Column(name = "service_name", nullable = false, unique = true)
+    private String serviceName;
 
+    @Column(name = "description")
     private String description;
 
-    public AccessService() { }
+    public AccessService() {}
 
-    public Long getId() {
-        return id;
-    }
-    public void setId(Long id) {
-        this.id = id;
+    public AccessService(Long createdBy, Status status,
+        String serviceName, String description) {
+        super(createdBy, status);
+        this.serviceName = serviceName;
+        this.description = description;
     }
 
-    public String getName() {
-        return name;
+    public Long getServiceId() {
+        return serviceId;
     }
-    public void setName(String name) {
-        this.name = name;
+    public void setServiceId(Long serviceId) {
+        this.serviceId = serviceId;
+    }
+
+    public String getServiceName() {
+        return serviceName;
+    }
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
     }
 
     public String getDescription() {
@@ -60,4 +70,5 @@ public class AccessService extends BaseEntity {
     public String toString() {
         return new Gson().toJson(this);
     }
+
 }

@@ -1,57 +1,25 @@
 package com.barco.model.util;
 
 import com.barco.model.dto.SearchTextDto;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 /**
  * @author Nabeel Ahmed
  */
 @Component
-@Scope("prototype")
 public class QueryUtil {
 
-    private String ID = "id";
-    private String CREATED_AT = "created_at";
-    private String STORAGE_KEY_NAME = "storage_key_name";
-    private String KEY_TYPE = "key_type";
-    private String SERVICE_NAME = "service_name";
-    private String TASK_NAME = "task_name";
-    private String FULL_NAME = "full_name";
-    private String USERNAME = "username";
-
-    public String fetchSuperAdminUserListQuery(Long adminId) {
-        String query = "select id,username,role from (\n" +
-            "select ap_us.id, ap_us.username, auth.role from app_user as ap_us\n" +
-            "inner join user_authority as us_auth on ap_us.id = us_auth.user_id\n" +
-            "inner join authority as auth on auth.id = us_auth.authority_id\n" +
-            String.format("where ap_us.id = %d and ap_us.status not in(0,2,3)\n", adminId) +
-            "union\n" +
-            "select ap_us.id, ap_us.username, auth.role from app_user as ap_us\n" +
-            "inner join user_authority as us_auth on ap_us.id = us_auth.user_id\n" +
-            "inner join authority as auth on auth.id = us_auth.authority_id\n" +
-            "inner join app_sub_user as ap_su on ap_su.parent_user_id = ap_us.created_by_id\n" +
-            String.format("\"where ap_su.parent_user_id = %d and ap_us.status not in(0,2,3) and auth.role not in ('ROLE_USER')\n", adminId) +
-            "group by ap_us.id, auth.role) as result order by id asc;";
-        return query;
-    }
-
-    public String fetchSuperAdminAccessService() {
-        return "select ass.id, ass.service_name from access_service as ass\n" +
-                "inner join user_access_service as us_as on us_as.service_id = ass.id\n" +
-                "where us_as.user_id = %d";
-    }
-
-    public String adminStoreList(boolean isCount, Long adminId, String startDate, String endDate,
-        SearchTextDto searchTextDto) {
+    public String findAllAppSettingByAppUserIdInPagination(boolean isCount, Long appUserId,
+        String startDate, String endDate, SearchTextDto searchTextDto) {
         String selectPortion = "";
         if (isCount) {
             selectPortion = "select count(*) as result";
         } else {
-            selectPortion = "select id, created_at, storage_key_name, key_type, status";
+            selectPortion = "select app_setting_id, created_at, created_by_id, " +
+                "modified_at, modified_by_id, status, description, setting_key, setting_value";
         }
-        String query = selectPortion + String.format(" from storage_detail where created_by_id = %d and status not in (2,3,4,5,6)", adminId);
-        if ((startDate  != null && !startDate.isEmpty()) || (endDate != null && !endDate.isEmpty())) {
+        String query = selectPortion + String.format(" from app_setting where created_by_id = %d and status not in ('Pending', 'Delete')", appUserId);
+        if ((startDate != null && !startDate.isEmpty()) || (endDate != null && !endDate.isEmpty())) {
             if ((startDate != null && !startDate.isEmpty()) && (endDate != null && !endDate.isEmpty())) {
                 query += String.format(" and cast(created_at as date) between '%s' and '%s'", startDate, endDate);
             } else if (startDate != null && !startDate.isEmpty()) {
@@ -61,80 +29,22 @@ public class QueryUtil {
             }
         }
         if (searchTextDto != null && (searchTextDto.getItemName() != null && searchTextDto.getItemValue() != null)) {
-            if (searchTextDto.getItemName().equalsIgnoreCase(ID)) {
-                query += String.format(" and cast(id as as char) like ('%%s%')", searchTextDto.getItemValue());
-            } else if (searchTextDto.getItemName().equalsIgnoreCase(STORAGE_KEY_NAME)) {
-                query += String.format(" and upper(storage_key_name) like upper('%%s%')", searchTextDto.getItemValue());
+            if (searchTextDto.getItemName().equalsIgnoreCase("app_setting_id")) {
+                query += " and cast(app_setting_id as varchar) like ('%" + searchTextDto.getItemValue() + "%')";
+            } else if (searchTextDto.getItemName().equalsIgnoreCase("setting_key")) {
+                query += " and upper(setting_key) like upper('%" + searchTextDto.getItemValue() + "%')";
             }
         }
         return query;
     }
 
-    public String taskList(boolean isCount, Long adminId, String startDate, String endDate, SearchTextDto searchTextDto) {
-        String selectPortion = "";
-        if (isCount) {
-            selectPortion = "select count(*) as result";
-        } else {
-            selectPortion = "select task.id, task.created_at, task.task_name, task.status, access_service.id as service_id, " +
-            "access_service.service_name, storage_detail.id as store_id, storage_detail.storage_key_name";
-        }
-        String query = selectPortion + String.format(" from task inner join access_service on access_service.id = task.access_service_id " +
-        "left join storage_detail on storage_detail.id = task.storage_id where task.created_by_id = %d and task.status not in (2,3,4,5,6)", adminId);
-        if ((startDate  != null && !startDate.isEmpty()) || (endDate != null && !endDate.isEmpty())) {
-            if ((startDate != null && !startDate.isEmpty()) && (endDate != null && !endDate.isEmpty())) {
-                query += String.format(" and cast(task.created_at as date) between '%s' and '%s'", startDate, endDate);
-            } else if (startDate != null && !startDate.isEmpty()) {
-                query += String.format(" and cast(task.created_at as date) >= '%s'", startDate);
-            } else if (endDate != null && !endDate.isEmpty()) {
-                query += String.format(" and cast(task.created_at as date) <= '%s'", endDate);
-            }
-        }
-        if (searchTextDto != null && (searchTextDto.getItemName() != null && searchTextDto.getItemValue() != null)) {
-            if (searchTextDto.getItemName().equalsIgnoreCase(ID)) {
-                query += String.format(" and cast(task.id as as char) like ('%%s%')", searchTextDto.getItemValue());
-            } else if (searchTextDto.getItemName().equalsIgnoreCase(TASK_NAME)) {
-                query += String.format(" and upper(task.task_name) like upper('%%s%')", searchTextDto.getItemValue());
-            } else if (searchTextDto.getItemName().equalsIgnoreCase(SERVICE_NAME)) {
-                query += String.format(" and upper(access_service.service_name) like upper('%%s%')", searchTextDto.getItemValue());
-            } else if (searchTextDto.getItemName().equalsIgnoreCase(STORAGE_KEY_NAME)) {
-                query += String.format(" and upper(storage_detail.storage_key_name) like upper('%%s%')", searchTextDto.getItemValue());
-            }
-        }
-        return query;
-    }
-
-    public String adminUsersList(boolean isCount, Long adminId, String startDate, String endDate, SearchTextDto searchTextDto) {
-        String selectPortion = "";
-        if(isCount) {
-            selectPortion = "select count(*) as result";
-        } else {
-            selectPortion = "select ap_us.id, , task.created_at, ap_us.first_name || ' ' || ap_us.last_name as full_name, ap_us.username, ap_us.last_login_at, " +
-                    " auth.role, ap_us.status, ap_us.user_type";
-        }
-        String query  = selectPortion + " from app_user as ap_us" +
-                "  inner join user_authority as us_auth on ap_us.id = us_auth.user_id" +
-                "  inner join authority as auth on auth.id = us_auth.authority_id" +
-                "  inner join app_sub_user as ap_su on ap_su.parent_user_id = ap_us.created_by_id" +
-                String.format("  where ap_su.parent_user_id = %d  and ap_us.status not in (3,4,5,6)", adminId);
-        if ((startDate  != null && !startDate.isEmpty()) || (endDate != null && !endDate.isEmpty())) {
-            if ((startDate != null && !startDate.isEmpty()) && (endDate != null && !endDate.isEmpty())) {
-                query += String.format(" and cast(ap_us.created_at as date) between '%s' and '%s'", startDate, endDate);
-            } else if (startDate != null && !startDate.isEmpty()) {
-                query += String.format(" and cast(ap_us.created_at as date) >= '%s'", startDate);
-            } else if (endDate != null && !endDate.isEmpty()) {
-                query += String.format(" and cast(ap_us.created_at as date) <= '%s'", endDate);
-            }
-        }
-        if (searchTextDto != null && (searchTextDto.getItemName() != null && searchTextDto.getItemValue() != null)) {
-            if (searchTextDto.getItemName().equalsIgnoreCase(ID)) {
-                query += String.format(" and cast(ap_us.id as as char) like ('%%s%')", searchTextDto.getItemValue());
-            } else if (searchTextDto.getItemName().equalsIgnoreCase(FULL_NAME)) {
-                query += String.format(" and upper(ap_us.first_name || ' ' || ap_us.last_name) like upper('%%s%')", searchTextDto.getItemValue());
-            } else if (searchTextDto.getItemName().equalsIgnoreCase(USERNAME)) {
-                query += String.format(" and upper(ap_us.username) like upper('%%s%')", searchTextDto.getItemValue());
-            }
-        }
-        return query;
+    public static void main(String[] args) {
+        QueryUtil queryUtil = new QueryUtil();
+        SearchTextDto searchTextDto = new SearchTextDto();
+        searchTextDto.setItemName("app_setting_id");
+        searchTextDto.setItemValue("1000");
+        System.out.println(queryUtil.findAllAppSettingByAppUserIdInPagination(true, 0L,
+                "2021-12-30 11:07:38", "2021-12-30 11:07:38", searchTextDto));
     }
 
 }

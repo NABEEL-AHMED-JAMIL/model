@@ -1,9 +1,9 @@
 package com.barco.model.pojo;
 
+import com.barco.model.enums.Status;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
-
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.PrePersist;
@@ -18,12 +18,18 @@ import java.sql.Timestamp;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class BaseEntity extends BaseMasterEntity {
 
+    @Column(name = "modified_at")
     private Timestamp modifiedAt;
 
     @Column(name = "modified_by_id")
     private Long modifiedBy;
 
     public BaseEntity() { }
+
+    public BaseEntity(Long createdBy, Status status) {
+        super(createdBy, status);
+        this.modifiedBy = createdBy;
+    }
 
     @PreUpdate
     protected void onUpdate() {
@@ -53,4 +59,5 @@ public class BaseEntity extends BaseMasterEntity {
     public String toString() {
         return new Gson().toJson(this);
     }
+
 }

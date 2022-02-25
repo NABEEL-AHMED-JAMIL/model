@@ -3,7 +3,6 @@ package com.barco.model.service;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import javax.persistence.EntityManager;
@@ -16,7 +15,6 @@ import java.util.List;
  */
 @Service
 @Transactional
-@Scope("prototype")
 public class QueryServices {
 
     public Logger logger = LogManager.getLogger(QueryServices.class);
@@ -25,13 +23,13 @@ public class QueryServices {
     private EntityManager _em;
 
     public List<Object[]> executeQuery(String queryStr) {
-        logger.debug("Execute Query :- " + queryStr);
+        logger.info("Execute Query :- " + queryStr);
         Query query = this._em.createNativeQuery(queryStr);
         return query.getResultList();
     }
 
     public List<Object[]> executeQuery(String queryStr, Pageable paging) {
-        logger.debug("Execute Query :- " + queryStr);
+        logger.info("Execute Query :- " + queryStr);
         Query query = this._em.createNativeQuery(queryStr);
         if (paging != null) {
             query.setFirstResult(paging.getPageNumber() * paging.getPageSize());
@@ -41,7 +39,7 @@ public class QueryServices {
     }
 
     public Object executeQueryForSingleResult(String queryStr) {
-        logger.debug("Execute Query :- " + queryStr);
+        logger.info("Execute Query :- " + queryStr);
         Query query = this._em.createNativeQuery(queryStr);
         return query.getSingleResult();
     }

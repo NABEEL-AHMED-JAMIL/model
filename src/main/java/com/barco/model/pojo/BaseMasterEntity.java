@@ -18,17 +18,23 @@ import java.sql.Timestamp;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class BaseMasterEntity {
 
-    @Column(columnDefinition = "timestamp default CURRENT_TIMESTAMP", nullable = false)
+    @Column(name = "created_at", nullable = false,
+        columnDefinition = "timestamp default CURRENT_TIMESTAMP")
     private Timestamp createdAt;
 
     @Column(name = "created_by_id")
     private Long createdBy;
 
-    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
+    @Column(name = "status", nullable = false)
     private Status status;
 
     public BaseMasterEntity() { }
+
+    public BaseMasterEntity(Long createdBy, Status status) {
+        this.createdBy = createdBy;
+        this.status = status;
+    }
 
     public Timestamp getCreatedAt() {
         return createdAt;
@@ -55,4 +61,5 @@ public class BaseMasterEntity {
     public String toString() {
         return new Gson().toJson(this);
     }
+
 }

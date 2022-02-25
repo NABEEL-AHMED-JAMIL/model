@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
-
 import javax.persistence.*;
 
 /**
@@ -28,23 +27,23 @@ public class PortalProfilePermission extends BaseEntity {
     )
     @Id
     @GeneratedValue(generator = "portalProfilePermissionSequenceGenerator")
-    private Long id;
+    private Long profilePermissionId;
 
     @ManyToOne
-    @JoinColumn(name="portalProfile", nullable=false)
+    @JoinColumn(name="portal_profile", nullable=false)
     private PortalProfile portalProfile;
 
     @ManyToOne
-    @JoinColumn(name="portalProfilePermission", nullable=false)
-    private PortalProfilePermission portalProfilePermission;
+    @JoinColumn(name="portal_permission", nullable=false)
+    private PortalPermission portalPermission;
 
     public PortalProfilePermission() { }
 
-    public Long getId() {
-        return id;
+    public Long getProfilePermissionId() {
+        return profilePermissionId;
     }
-    public void setId(Long id) {
-        this.id = id;
+    public void setProfilePermissionId(Long profilePermissionId) {
+        this.profilePermissionId = profilePermissionId;
     }
 
     public PortalProfile getPortalProfile() {
@@ -54,15 +53,16 @@ public class PortalProfilePermission extends BaseEntity {
         this.portalProfile = portalProfile;
     }
 
-    public PortalProfilePermission getPortalProfilePermission() {
-        return portalProfilePermission;
+    public PortalPermission getPortalPermission() {
+        return portalPermission;
     }
-    public void setPortalProfilePermission(PortalProfilePermission portalProfilePermission) {
-        this.portalProfilePermission = portalProfilePermission;
+    public void setPortalPermission(PortalPermission portalPermission) {
+        this.portalPermission = portalPermission;
     }
 
     @Override
     public String toString() {
         return new Gson().toJson(this);
     }
+
 }

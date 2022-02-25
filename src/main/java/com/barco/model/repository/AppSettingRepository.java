@@ -2,8 +2,9 @@ package com.barco.model.repository;
 
 import com.barco.model.pojo.AppSetting;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
 
 /**
  * @author Nabeel Ahmed
@@ -11,7 +12,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AppSettingRepository extends JpaRepository<AppSetting, Long> {
 
-    @Query(value = "SELECT settingValue FROM AppSetting", nativeQuery = true)
-    public String findBySettingKey(String settingKey);
+    public Optional<AppSetting> findBySettingKey(String settingKey);
 
 }

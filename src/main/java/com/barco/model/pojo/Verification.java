@@ -1,5 +1,6 @@
 package com.barco.model.pojo;
 
+import com.barco.model.enums.VerificationType;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
@@ -8,46 +9,51 @@ import org.hibernate.annotations.Parameter;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
-
 /**
  * @author Nabeel Ahmed
  */
 @Entity
-@Table(name = "user_verification")
+@Table(name = "verification")
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class UserVerification extends BaseEntity {
+public class Verification extends BaseEntity {
 
     @GenericGenerator(
-        name = "userVerificationGenerator",
+        name = "verificationGenerator",
         strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator", parameters = {
-            @Parameter(name = "sequence_name", value = "user_verification_seq"),
+            @Parameter(name = "sequence_name", value = "verification_seq"),
             @Parameter(name = "initial_value", value = "1000"),
             @Parameter(name = "increment_size", value = "1")
         }
     )
     @Id
-    @GeneratedValue(generator = "userVerificationGenerator")
-    private Long id;
+    @GeneratedValue(generator = "verificationGenerator")
+    private Long verificationId;
 
-    @Column(nullable = false)
+    @Column(name = "token", nullable = false)
     private String token;
 
+    @Column(name = "expiry_data")
     private Timestamp expiryDate;
 
-    private Boolean passwordAdded;
-
+    @Column(name = "is_consumed")
     private Boolean isConsumed;
 
-    private Timestamp activatedAt;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "verification_type", nullable = false)
+    private VerificationType verificationType;
 
-    public UserVerification() {}
+    @Lob
+    @Column(name = "payload")
+    private String payload;
 
-    public Long getId() {
-        return id;
+    public Verification() {}
+
+    public Long getVerificationId() {
+        return verificationId;
     }
-    public void setId(Long id) {
-        this.id = id;
+    public void setVerificationId(Long verificationId) {
+        this.verificationId = verificationId;
     }
 
     public String getToken() {
@@ -64,13 +70,6 @@ public class UserVerification extends BaseEntity {
         this.expiryDate = expiryDate;
     }
 
-    public Boolean getPasswordAdded() {
-        return passwordAdded;
-    }
-    public void setPasswordAdded(Boolean passwordAdded) {
-        this.passwordAdded = passwordAdded;
-    }
-
     public Boolean getConsumed() {
         return isConsumed;
     }
@@ -78,11 +77,18 @@ public class UserVerification extends BaseEntity {
         isConsumed = consumed;
     }
 
-    public Timestamp getActivatedAt() {
-        return activatedAt;
+    public VerificationType getVerificationType() {
+        return verificationType;
     }
-    public void setActivatedAt(Timestamp activatedAt) {
-        this.activatedAt = activatedAt;
+    public void setVerificationType(VerificationType verificationType) {
+        this.verificationType = verificationType;
+    }
+
+    public String getPayload() {
+        return payload;
+    }
+    public void setPayload(String payload) {
+        this.payload = payload;
     }
 
     @Override

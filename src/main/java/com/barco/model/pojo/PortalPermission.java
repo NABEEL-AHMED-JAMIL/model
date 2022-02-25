@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
-
 import javax.persistence.*;
 
 /**
@@ -28,28 +27,29 @@ public class PortalPermission extends BaseEntity {
     )
     @Id
     @GeneratedValue(generator = "portalPermissionSequenceGenerator")
-    private Long id;
+    private Long permissionId;
 
-    @Column(nullable = false,
-    unique = true, length = 50)
-    private String name;
+    @Column(name = "permission_name", nullable = false,
+        unique = true, length = 50)
+    private String permissionName;
 
+    @Column(name = "description")
     private String description;
 
     public PortalPermission() { }
 
-    public Long getId() {
-        return id;
+    public Long getPermissionId() {
+        return permissionId;
     }
-    public void setId(Long id) {
-        this.id = id;
+    public void setPermissionId(Long permissionId) {
+        this.permissionId = permissionId;
     }
 
-    public String getName() {
-        return name;
+    public String getPermissionName() {
+        return permissionName;
     }
-    public void setName(String name) {
-        this.name = name;
+    public void setPermissionName(String permissionName) {
+        this.permissionName = permissionName;
     }
 
     public String getDescription() {
@@ -63,4 +63,5 @@ public class PortalPermission extends BaseEntity {
     public String toString() {
         return new Gson().toJson(this);
     }
+
 }
