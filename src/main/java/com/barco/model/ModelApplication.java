@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 import javax.annotation.PostConstruct;
 import java.util.TimeZone;
 
@@ -11,6 +12,7 @@ import java.util.TimeZone;
  * @author Nabeel Ahmed
  */
 @SpringBootApplication
+@ComponentScan(basePackages = { "com.barco.*" })
 public class ModelApplication {
 
 	public Logger logger = LogManager.getLogger(ModelApplication.class);
@@ -21,7 +23,6 @@ public class ModelApplication {
 
 	@PostConstruct
 	public void started() {
-		// default system timezone for application
 		TimeZone.setDefault(TimeZone.getTimeZone("America/New_York"));
 	}
 
