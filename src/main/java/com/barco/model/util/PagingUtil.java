@@ -1,6 +1,6 @@
 package com.barco.model.util;
 
-import com.barco.model.dto.PagingDto;
+import com.barco.model.dto.response.PagingResponse;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -19,11 +19,11 @@ public class PagingUtil {
     private static final Long DEFAULT_MAX_NO_OF_ROWS = 10l;
 
     public static Object convertEntityToPagingDTO(Long totalCount, Pageable page) {
-        PagingDto pdto = new PagingDto();
-        pdto.setPageSize(new Long(page.getPageSize()));
-        pdto.setCurrentPage(new Long(page.getPageNumber()+1));
-        pdto.setTotalRecord(totalCount);
-        return pdto;
+        PagingResponse pagingResponse = new PagingResponse();
+        pagingResponse.setPageSize(new Long(page.getPageSize()));
+        pagingResponse.setCurrentPage(new Long(page.getPageNumber()+1));
+        pagingResponse.setTotalRecord(totalCount);
+        return pagingResponse;
     }
 
     /* Page = current page And size is Limit*/
