@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * @author Nabeel Ahmed
@@ -19,6 +20,9 @@ public class Groups extends BaseEntity {
 
     @Column(name = "description")
     private String description;
+
+    @OneToMany(mappedBy = "groups", fetch = FetchType.LAZY)
+    private List<UserGroup> userGroups;
 
     public Groups() {
     }
@@ -37,6 +41,14 @@ public class Groups extends BaseEntity {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<UserGroup> getUserGroups() {
+        return userGroups;
+    }
+
+    public void setUserGroups(List<UserGroup> userGroups) {
+        this.userGroups = userGroups;
     }
 
     @Override

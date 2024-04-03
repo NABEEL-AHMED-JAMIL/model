@@ -69,6 +69,13 @@ public class AppUser extends BaseEntity {
     @OneToMany(mappedBy = "appUser", fetch = FetchType.LAZY)
     private List<AppUserEnv> appUserEnvs;
 
+    @OneToMany(mappedBy = "appUser", fetch = FetchType.LAZY)
+    private List<UserGroup> userGroups;
+
+    @OneToMany(mappedBy = "appUserParent", fetch = FetchType.LAZY)
+    private List<SubAppUser> subAppUsers;
+
+
     public AppUser() {
     }
 
@@ -174,6 +181,18 @@ public class AppUser extends BaseEntity {
 
     public void setAppUserEnvs(List<AppUserEnv> appUserEnvs) {
         this.appUserEnvs = appUserEnvs;
+    }
+
+    public List<UserGroup> getUserGroups() {
+        return userGroups;
+    }
+
+    public void setUserGroups(List<UserGroup> userGroups) {
+        this.userGroups = userGroups;
+    }
+
+    public List<SubAppUser> getSubAppUsers() {
+        return subAppUsers;
     }
 
     @Override

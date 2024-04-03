@@ -22,6 +22,7 @@ public interface MessageUtil {
     public static final String DATA_FETCH_SUCCESSFULLY = "Data fetch successfully.";
     public static final String USERNAME_MISSING = "Username missing.";
     public static final String EMAIL_MISSING = "Email missing.";
+    public static final String IP_ADDRESS_MISSING = "IP address missing.";
     public static final String PASSWORD_MISSING = "Password missing.";
     public static final String FIRST_NAME_MISSING = "Firstname missing";
     public static final String LAST_NAME_MISSING = "Lastname missing";
@@ -60,11 +61,14 @@ public interface MessageUtil {
     public static final String PERMISSION_TYPE_ALREADY_USE_AT_ROW = "Permission %s already in use at row %s.<br>";
     public static final String EVARIABLE_TYPE_ALREADY_USE_AT_ROW = "EVariable %s already in use at row %s.<br>";
     public static final String TOTAL_INVALID = "Total %d invalid.";
+
+    public static final String ROLE_MISSING = "Role missing.";
     public static final String ROLE_ID_MISSING = "Role id missing.";
     public static final String ROLE_NAME_MISSING = "Role name missing.";
     public static final String ROLE_DESCRIPTION_MISSING = "Role description missing.";
     public static final String ROLE_ALREADY_EXIST = "Role already exist.";
     public static final String ROLE_NOT_FOUND_WITH_ID = "Role not found with id %s.";
+    public static final String PROFILE_MISSING = "Profile missing.";
     public static final String PROFILE_ID_MISSING = "Profile id missing.";
     public static final String PROFILE_NAME_MISSING = "Profile name missing.";
     public static final String PROFILE_ALREADY_EXIST = "Profile already exist.";

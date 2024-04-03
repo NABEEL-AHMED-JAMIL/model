@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,8 +22,8 @@ public class Role extends BaseEntity {
     @Column(name = "description")
     private String description;
 
-    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<AppUserRoleAccess> roleAccesses = new ArrayList<>();
+    @OneToMany(mappedBy = "role", fetch = FetchType.LAZY)
+    private List<AppUserRoleAccess> roleAccesses;
 
     public Role() {}
 

@@ -11,10 +11,20 @@ import com.google.gson.Gson;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class GroupResponse extends BaseEntity {
 
+    private String avatar;
     private String name;
     private String description;
+    private AppUserResponse teamLead;
 
     public GroupResponse() {
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     public String getName() {
@@ -31,6 +41,14 @@ public class GroupResponse extends BaseEntity {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public AppUserResponse getTeamLead() {
+        return teamLead;
+    }
+
+    public void setTeamLead(AppUserResponse teamLead) {
+        this.teamLead = teamLead;
     }
 
     @Override

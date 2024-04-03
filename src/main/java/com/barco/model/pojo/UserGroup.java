@@ -24,7 +24,7 @@ public class UserGroup extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY,
         cascade = { CascadeType.ALL })
     @JoinColumn(name="group_id", nullable = false)
-    private Groups groupId;
+    private Groups groups;
 
     @Column(name = "user_type", nullable = false)
     private GROUP_USER_TYPE userType;
@@ -32,9 +32,9 @@ public class UserGroup extends BaseEntity {
     public UserGroup() {
     }
 
-    public UserGroup(AppUser appUser, Groups groupId) {
+    public UserGroup(AppUser appUser, Groups groups) {
         this.appUser = appUser;
-        this.groupId = groupId;
+        this.groups = groups;
     }
 
     public AppUser getAppUser() {
@@ -45,12 +45,12 @@ public class UserGroup extends BaseEntity {
         this.appUser = appUser;
     }
 
-    public Groups getGroupId() {
-        return groupId;
+    public Groups getGroups() {
+        return groups;
     }
 
-    public void setGroupId(Groups groupId) {
-        this.groupId = groupId;
+    public void setGroups(Groups groups) {
+        this.groups = groups;
     }
 
     public GROUP_USER_TYPE getUserType() {

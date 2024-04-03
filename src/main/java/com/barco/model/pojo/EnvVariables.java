@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,8 +21,8 @@ public class EnvVariables extends BaseEntity {
     @Column(name = "description")
     private String description;
 
-    @OneToMany(mappedBy = "envVariables", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<AppUserEnv> appUserEnvs = new ArrayList<>();
+    @OneToMany(mappedBy = "envVariables", fetch = FetchType.LAZY)
+    private List<AppUserEnv> appUserEnvs;
 
     public EnvVariables() {
     }

@@ -23,6 +23,7 @@ public class AppUserRequest {
     private String ipAddress;
     private SessionUser sessionUser;
     private Set<String> assignRole;
+    private Long profile;
 
     public AppUserRequest() {
     }
@@ -113,6 +114,14 @@ public class AppUserRequest {
 
     public void setAssignRole(Set<String> assignRole) {
         this.assignRole = assignRole;
+    }
+
+    public Long getProfile() {
+        return profile;
+    }
+
+    public void setProfile(Long profile) {
+        this.profile = profile;
     }
 
     @Override

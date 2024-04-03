@@ -1,6 +1,5 @@
 package com.barco.model.pojo;
 
-import com.barco.model.util.lookup.EMAIL_TEMPLATE;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;

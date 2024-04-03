@@ -19,6 +19,10 @@ public class RoleResponse extends BaseEntity {
     public RoleResponse() {
     }
 
+    public RoleResponse(String name) {
+        this.name = name;
+    }
+
     public Long getId() {
         return id;
     }
