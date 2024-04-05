@@ -16,14 +16,6 @@ public enum NOTIFICATION_STATUS {
         this.lookupCode = lookupCode;
     }
 
-    public Long getLookupCode() {
-        return lookupCode;
-    }
-
-    public void setLookupCode(Long lookupCode) {
-        this.lookupCode = lookupCode;
-    }
-
     public static String getName() {
         return NOTIFICATION_STATUS.class.getSimpleName();
     }
@@ -35,6 +27,14 @@ public enum NOTIFICATION_STATUS {
             return READ;
         }
         throw new RuntimeException(MessageUtil.NOTIFICATION_STATUS_NOT_FOUND);
+    }
+
+    public Long getLookupCode() {
+        return lookupCode;
+    }
+
+    public void setLookupCode(Long lookupCode) {
+        this.lookupCode = lookupCode;
     }
 
     @Override

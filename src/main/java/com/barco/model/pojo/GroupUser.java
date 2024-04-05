@@ -10,10 +10,10 @@ import javax.persistence.*;
  * @author Nabeel Ahmed
  */
 @Entity
-@Table(name = "user_group")
+@Table(name = "group_user")
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class UserGroup extends BaseEntity {
+public class GroupUser extends BaseEntity {
 
     // user id for user-group
     @ManyToOne(fetch = FetchType.LAZY,
@@ -29,10 +29,10 @@ public class UserGroup extends BaseEntity {
     @Column(name = "user_type", nullable = false)
     private GROUP_USER_TYPE userType;
 
-    public UserGroup() {
+    public GroupUser() {
     }
 
-    public UserGroup(AppUser appUser, Groups groups) {
+    public GroupUser(AppUser appUser, Groups groups) {
         this.appUser = appUser;
         this.groups = groups;
     }

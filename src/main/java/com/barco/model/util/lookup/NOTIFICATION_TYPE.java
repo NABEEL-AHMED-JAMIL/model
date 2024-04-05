@@ -17,14 +17,6 @@ public enum NOTIFICATION_TYPE {
         this.lookupCode = lookupCode;
     }
 
-    public Long getLookupCode() {
-        return lookupCode;
-    }
-
-    public void setLookupCode(Long lookupCode) {
-        this.lookupCode = lookupCode;
-    }
-
     public static String getName() {
         return NOTIFICATION_TYPE.class.getSimpleName();
     }
@@ -36,6 +28,14 @@ public enum NOTIFICATION_TYPE {
             return OTHER_NOTIFICATION;
         }
         throw new RuntimeException(MessageUtil.NOTIFICATION_TYPE_NOT_FOUND);
+    }
+
+    public Long getLookupCode() {
+        return lookupCode;
+    }
+
+    public void setLookupCode(Long lookupCode) {
+        this.lookupCode = lookupCode;
     }
 
     @Override

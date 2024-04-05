@@ -22,6 +22,7 @@ public class AppUserResponse extends BaseEntity {
     private CompanyResponse company;
     private List<String> roles;
     private ProfileResponse profile;
+    private Integer totalSubUser;
 
     public AppUserResponse() {
     }
@@ -104,6 +105,14 @@ public class AppUserResponse extends BaseEntity {
 
     public void setProfile(ProfileResponse profile) {
         this.profile = profile;
+    }
+
+    public Integer getTotalSubUser() {
+        return totalSubUser;
+    }
+
+    public void setTotalSubUser(Integer totalSubUser) {
+        this.totalSubUser = totalSubUser;
     }
 
     @Override

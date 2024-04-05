@@ -14,11 +14,13 @@ public class LinkRPUResponse {
 
     private Long id;
     private String email;
+    private String username;
     private String fullName;
     private String profileImg;
     private String linkData;
     private GLookup linkStatus;
     private Boolean linked = false;
+    private String envValue;
     private ProfileResponse profile;
 
     public LinkRPUResponse() {
@@ -38,6 +40,14 @@ public class LinkRPUResponse {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getFullName() {
@@ -78,6 +88,14 @@ public class LinkRPUResponse {
 
     public void setLinked(Boolean linked) {
         this.linked = linked;
+    }
+
+    public String getEnvValue() {
+        return envValue;
+    }
+
+    public void setEnvValue(String envValue) {
+        this.envValue = envValue;
     }
 
     public ProfileResponse getProfile() {

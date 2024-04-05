@@ -28,16 +28,16 @@ public enum EMAIL_TEMPLATE {
         this.lookupCode = lookupCode;
     }
 
+    public static String getName() {
+        return EMAIL_TEMPLATE.class.getSimpleName();
+    }
+
     public Long getLookupCode() {
         return lookupCode;
     }
 
     public void setLookupCode(Long lookupCode) {
         this.lookupCode = lookupCode;
-    }
-
-    public static String getName() {
-        return EMAIL_TEMPLATE.class.getSimpleName();
     }
 
     @Override

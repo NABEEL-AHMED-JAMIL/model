@@ -5,20 +5,19 @@ import com.google.gson.Gson;
 /**
  * @author Nabeel Ahmed
  */
-public enum GROUP_USER_TYPE {
+public enum FORM_TYPE {
 
-    MANAGER(0l), EMPLOYEE(1l), CLIENT(2l),
-    GUEST(3l);
-
+    SERVICE_FORM(0l),
+    QUERY_FORM(1l);
 
     private Long lookupCode;
 
-    GROUP_USER_TYPE(Long lookupCode) {
+    FORM_TYPE(Long lookupCode) {
         this.lookupCode = lookupCode;
     }
 
     public static String getName() {
-        return EMAIL_TEMPLATE.class.getSimpleName();
+        return FORM_TYPE.class.getSimpleName();
     }
 
     public Long getLookupCode() {
@@ -33,4 +32,5 @@ public enum GROUP_USER_TYPE {
     public String toString() {
         return new Gson().toJson(this);
     }
+
 }

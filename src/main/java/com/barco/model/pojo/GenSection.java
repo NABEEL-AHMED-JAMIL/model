@@ -4,35 +4,30 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import javax.persistence.*;
-import java.util.List;
 
 /**
  * @author Nabeel Ahmed
  */
 @Entity
-@Table(name = "groups")
+@Table(name = "gen_section")
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Groups extends BaseEntity {
+public class GenSection extends BaseEntity {
 
-    @Column(name = "name", nullable=false)
-    private String name;
+    @Column(name = "section_name")
+    private String sectionName;
 
-    @Column(name = "description")
+    @Column(name = "description", nullable = false)
     private String description;
 
-    @OneToMany(mappedBy = "groups", fetch = FetchType.LAZY)
-    private List<GroupUser> groupUsers;
+    public GenSection() {}
 
-    public Groups() {
+    public String getSectionName() {
+        return sectionName;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setSectionName(String sectionName) {
+        this.sectionName = sectionName;
     }
 
     public String getDescription() {
@@ -43,16 +38,9 @@ public class Groups extends BaseEntity {
         this.description = description;
     }
 
-    public List<GroupUser> getGroupUsers() {
-        return groupUsers;
-    }
-
-    public void setGroupUsers(List<GroupUser> groupUsers) {
-        this.groupUsers = groupUsers;
-    }
-
     @Override
     public String toString() {
         return new Gson().toJson(this);
     }
+
 }

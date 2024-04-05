@@ -14,6 +14,7 @@ public class GroupResponse extends BaseEntity {
     private String avatar;
     private String name;
     private String description;
+    private Long totalUser;
     private AppUserResponse teamLead;
 
     public GroupResponse() {
@@ -41,6 +42,14 @@ public class GroupResponse extends BaseEntity {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Long getTotalUser() {
+        return totalUser;
+    }
+
+    public void setTotalUser(Long totalUser) {
+        this.totalUser = totalUser;
     }
 
     public AppUserResponse getTeamLead() {

@@ -2,7 +2,6 @@ package com.barco.model.pojo;
 
 import com.google.gson.Gson;
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -70,7 +69,7 @@ public class AppUser extends BaseEntity {
     private List<AppUserEnv> appUserEnvs;
 
     @OneToMany(mappedBy = "appUser", fetch = FetchType.LAZY)
-    private List<UserGroup> userGroups;
+    private List<GroupUser> groupUsers;
 
     @OneToMany(mappedBy = "appUserParent", fetch = FetchType.LAZY)
     private List<SubAppUser> subAppUsers;
@@ -183,16 +182,20 @@ public class AppUser extends BaseEntity {
         this.appUserEnvs = appUserEnvs;
     }
 
-    public List<UserGroup> getUserGroups() {
-        return userGroups;
+    public List<GroupUser> getGroupUsers() {
+        return groupUsers;
     }
 
-    public void setUserGroups(List<UserGroup> userGroups) {
-        this.userGroups = userGroups;
+    public void setGroupUsers(List<GroupUser> groupUsers) {
+        this.groupUsers = groupUsers;
     }
 
     public List<SubAppUser> getSubAppUsers() {
         return subAppUsers;
+    }
+
+    public void setSubAppUsers(List<SubAppUser> subAppUsers) {
+        this.subAppUsers = subAppUsers;
     }
 
     @Override

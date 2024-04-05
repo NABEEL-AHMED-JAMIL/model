@@ -51,11 +51,11 @@ public enum APPLICATION_STATUS {
     }
 
     public static APPLICATION_STATUS getByLookupCode(Long lookupCode) {
-        if (lookupCode == 0) {
+        if (lookupCode.equals(INACTIVE.lookupCode)) {
             return INACTIVE;
-        } else if (lookupCode == 1) {
+        } else if (lookupCode.equals(ACTIVE.lookupCode)) {
             return ACTIVE;
-        } else if (lookupCode == 2) {
+        } else if (lookupCode.equals(DELETE.lookupCode)) {
             return DELETE;
         }
         throw new RuntimeException(MessageUtil.NOTIFICATION_TYPE_NOT_FOUND);
