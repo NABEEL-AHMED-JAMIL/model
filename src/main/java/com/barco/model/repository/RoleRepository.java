@@ -5,6 +5,7 @@ import com.barco.model.util.lookup.APPLICATION_STATUS;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Stream;
@@ -22,6 +23,8 @@ public interface RoleRepository extends CrudRepository<Role, Long> {
 	public Optional<Role> findByNameAndStatus(String name, APPLICATION_STATUS status);
 
 	public Set<Role> findAllByNameInAndStatus(Set<String> names, APPLICATION_STATUS status);
+
+	public List<Role> findAllByIdIn(List<Long> ids);
 
 	public static <T> Stream<T> asStream(Iterator<T> sourceIterator) {
 		return asStream(sourceIterator, false);

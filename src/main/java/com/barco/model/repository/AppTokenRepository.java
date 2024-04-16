@@ -16,6 +16,6 @@ public interface AppTokenRepository extends CrudRepository<RefreshToken, Long> {
 
     public Optional<RefreshToken> findByTokenAndStatus(String token, APPLICATION_STATUS status);
 
-    public List<RefreshToken> findByDateCreatedBetweenAndStatus(Date startDate, Date endDate, APPLICATION_STATUS status);
+    public List<RefreshToken> findByDateCreatedBetweenAndStatusNot(Date startDate, Date endDate, APPLICATION_STATUS status);
 
 }

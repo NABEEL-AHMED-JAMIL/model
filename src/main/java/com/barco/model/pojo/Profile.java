@@ -11,20 +11,22 @@ import java.util.List;
  */
 @Entity
 @Table(name = "profile")
-@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Profile extends BaseEntity {
 
-    @Column(name="profile_name", nullable=false)
+    @Column(name = "profile_name", nullable = false)
     private String profileName;
 
     @Column(name = "description")
     private String description;
 
-    @OneToMany(mappedBy = "profile", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "profile", fetch = FetchType.LAZY,
+        cascade = CascadeType.ALL)
     private List<ProfilePermission> profilePermissions;
 
-    @OneToMany(mappedBy = "profile", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "profile", fetch = FetchType.LAZY,
+        cascade = CascadeType.ALL)
     private List<AppUserProfileAccess> profileAccesses;
 
     public Profile() { }

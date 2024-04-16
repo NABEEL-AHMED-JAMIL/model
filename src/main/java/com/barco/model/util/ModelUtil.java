@@ -1,5 +1,7 @@
 package com.barco.model.util;
 
+import java.sql.Timestamp;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.regex.Pattern;
 import javax.servlet.http.HttpServletRequest;
@@ -136,5 +138,15 @@ public class ModelUtil {
         }
         logger.info(String.format("Header Name Remote-Address & Header Value %s.", request.getRemoteAddr()));
         return request.getRemoteAddr();
+    }
+
+    /**
+     * Method use to add days into timestamp
+     * */
+    public static Timestamp addDays(Timestamp date, Long days) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.DATE, days.intValue());
+        return new Timestamp(cal.getTime().getTime());
     }
 }

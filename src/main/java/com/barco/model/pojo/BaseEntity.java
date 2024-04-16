@@ -12,7 +12,7 @@ import com.google.gson.Gson;
  * @author Nabeel Ahmed
  */
 @MappedSuperclass
-@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class BaseEntity implements Serializable {
 
@@ -28,11 +28,11 @@ public class BaseEntity implements Serializable {
     private Timestamp dateUpdated;
 
     @ManyToOne
-    @JoinColumn(name="created_by_id")
+    @JoinColumn(name = "created_by_id")
     private AppUser createdBy;
 
     @ManyToOne
-    @JoinColumn(name="updated_by_id")
+    @JoinColumn(name = "updated_by_id")
     private AppUser updatedBy;
 
     @Column(name = "status")

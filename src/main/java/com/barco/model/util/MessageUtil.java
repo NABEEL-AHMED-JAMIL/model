@@ -1,25 +1,38 @@
 package com.barco.model.util;
 
+import com.barco.model.util.lookup.IS_DEFAULT;
+
 /**
  * @author Nabeel Ahmed
  */
 public interface MessageUtil {
 
-    public static final String NOTIFICATION_TYPE_NOT_FOUND = "No notification type found";
-    public static final String NOTIFICATION_STATUS_NOT_FOUND = "No notification type found";
-    public static final String EMAIL_TEMPLATE_NOT_FOUND = "No email template status found";
-    public static final String APPLICATION_STATUS_NOT_FOUND = "No application status found";
-    public static final String USER_NOT_FOUND = "User not found with username : %s ";
+    public static final String IS_DEFAULT_NOT_FOUND = "No Default found.";
+    public static final String CREDENTIAL_TYPE_NOT_FOUND = "No credential type found.";
+    public static final String FILED_TYPE_NOT_FOUND = "No filed type found";
+    public static final String FORM_TYPE_NOT_FOUND = "No form type found";
+    public static final String GROUP_USER_TYPE_NOT_FOUND = "No group user type found";
+    public static final String REQUEST_METHOD_NOT_FOUND = "No request method found.";
+    public static final String UI_LOOKUP_NOT_FOUND = "No ui lookup found.";
+    public static final String TASK_TYPE_NOT_FOUND = "No task type found.";
+    public static final String NOTIFICATION_TYPE_NOT_FOUND = "No notification type found.";
+    public static final String NOTIFICATION_STATUS_NOT_FOUND = "No notification status found.";
+    public static final String EMAIL_TEMPLATE_NOT_FOUND = "No email template status found.";
+    public static final String APPLICATION_STATUS_NOT_FOUND = "No application status found.";
+    public static final String USER_NOT_FOUND = "User not found with username : %s .";
     public static final String REFRESH_TOKEN_EXPIRED = "Refresh token expired. Please make a new signing request.";
     public static final String REFRESH_TOKEN_VALID = "Token valid and can be use.";
     public static final String REFRESH_TOKEN_DELETED = "Token deleted.";
     public static final String REFRESH_TOKEN_NOT_FOUND = "Refresh token not found.";
     public static final String USER_SUCCESSFULLY_AUTHENTICATE = "User successfully authenticate.";
     public static final String USER_SUCCESSFULLY_REGISTER = "User successfully register %s.";
-    public static final String WRONG_INPUT = "Wrong Input";
+    public static final String WRONG_INPUT = "Wrong Input.";
     public static final String ONLY_SELECT_QUERY_EXECUTE = "Only select query execute.";
     public static final String QUERY_MISSING = "Query missing.";
     public static final String DATA_FETCH_SUCCESSFULLY = "Data fetch successfully.";
+    public static final String OLD_PASSWORD_NOT_MATCH = "Old password not match.";
+    public static final String OLD_PASSWORD_MISSING = "OldPassword missing.";
+    public static final String NEW_PASSWORD_MISSING = "NewPassword missing.";
     public static final String USERNAME_MISSING = "Username missing.";
     public static final String EMAIL_MISSING = "Email missing.";
     public static final String IP_ADDRESS_MISSING = "IP address missing.";
@@ -27,13 +40,14 @@ public interface MessageUtil {
     public static final String FIRST_NAME_MISSING = "Firstname missing";
     public static final String LAST_NAME_MISSING = "Lastname missing";
     public static final String APPUSER_NOT_FOUND = "AppUser not found.";
+    public static final String IDS_MISSING = "Ids missing.";
     public static final String ID_MISSING = "Id missing.";
     public static final String APP_USER_ID_MISSING = "AppUser Id missing.";
     public static final String TEMPLATE_NAME_MISSING = "TemplateName missing.";
     public static final String TEMPLATE_TYPE_MISSING = "TemplateType missing.";
     public static final String TEMPLATE_CONTENT_MISSING = "TemplateContent missing.";
     public static final String TEMPLATE_REG_NOT_FOUND = "TemplateReg not found.";
-    public static final String TEMPLATE_REG_ALREADY_EXIST = "TemplateReg already exist";
+    public static final String TEMPLATE_REG_ALREADY_EXIST = "TemplateReg already exist.";
     public static final String DATA_SAVED = "Data save with %s.";
     public static final String DATA_UPDATE = "Data update with %s.";
     public static final String DATA_DELETED = "Data deleted with %s.";
@@ -43,10 +57,10 @@ public interface MessageUtil {
     public static final String LOOKUP_DATA_LOOKUP_TYPE_MISSING = "LookupData lookupType missing.";
     public static final String LOOKUP_DATA_DESCRIPTION_MISSING = "LookupData description missing.";
     public static final String LOOKUP_DATA_UI_LOOKUP_MISSING = "LookupData ui lookup missing.";
-    public static final String PARENT_LOOKUP_NOT_FOUND = "ParentLookup not found";
+    public static final String PARENT_LOOKUP_NOT_FOUND = "ParentLookup not found.";
     public static final String LOOKUP_DATA_ALREADY_EXIST = "LookupData already exist.";
     public static final String XLSX_FILE_ONLY = "You can upload only .xlsx extension file.";
-    public static final String REFRESH_TOKEN = "Refresh token";
+    public static final String REFRESH_TOKEN = "Refresh token.";
     public static final String ACCOUNT_NOT_EXIST = "Account not exist.";
     public static final String EMAIL_NOT_SEND_CONTACT_WITH_SUPPORT = "Email not send contact with support.";
     public static final String EMAIL_SEND_SUCCESSFULLY = "Email send successfully.";
@@ -61,7 +75,6 @@ public interface MessageUtil {
     public static final String PERMISSION_TYPE_ALREADY_USE_AT_ROW = "Permission %s already in use at row %s.<br>";
     public static final String EVARIABLE_TYPE_ALREADY_USE_AT_ROW = "EVariable %s already in use at row %s.<br>";
     public static final String TOTAL_INVALID = "Total %d invalid.";
-
     public static final String ROLE_MISSING = "Role missing.";
     public static final String ROLE_ID_MISSING = "Role id missing.";
     public static final String ROLE_NAME_MISSING = "Role name missing.";
@@ -79,7 +92,7 @@ public interface MessageUtil {
     public static final String PERMISSION_ALREADY_EXIST = "Permission already exist.";
     public static final String PERMISSION_DESCRIPTION_MISSING = "Permission description missing.";
     public static final String PERMISSION_NOT_FOUND_WITH_ID = "Permission not found with id %s.";
-    public static final String LINKED_MISSING = "Linked missing";
+    public static final String LINKED_MISSING = "Linked missing.";
     public static final String USERNAME_ALREADY_TAKEN = "Username is already taken.";
     public static final String EMAIL_ALREADY_IN_USE = "Email is already in use.";
     public static final String ENV_KEYID_REQUIRED = "Env keyId required.";
@@ -89,7 +102,46 @@ public interface MessageUtil {
     public static final String GROUP_ID_REQUIRED = "Group Id required.";
     public static final String GROUP_NAME_MISSING = "Group name missing.";
     public static final String GROUP_NOT_FOUND = "Group not found.";
+    public static final String CREDENTIAL_ID_MISSING = "Credential Id missing.";
+    public static final String CREDENTIAL_NAME_MISSING = "Credential Name missing.";
+    public static final String CREDENTIAL_TYPE_MISSING = "Credential Type missing.";
+    public static final String CREDENTIAL_CONTENT_MISSING = "Credential Content missing.";
+    public static final String CREDENTIAL_NOT_FOUND = "Credential not found.";
     public static final String GROUP_NOT_FOUND_WITH_ID = "Group not found with id %s.";
-    public static final String REFRESH_TOKEN_IDS_MISSING = "Refresh Token ids missing";
+    public static final String REFRESH_TOKEN_IDS_MISSING = "Refresh Token ids missing.";
+    public static final String COMPANY_NAME_MISSING = "Company name missing.";
+    public static final String COMPANY_EMAIL_MISSING = "Company email missing.";
+    public static final String NOTIFY_ID_MISSING = "NotifyId missing.";
+    public static final String NOTIFICATION_AUDIT_NOT_FOUND = "Notification audit not found.";
+    public static final String FORM_ID_MISSING = "Form Id missing.";
+    public static final String FORM_NAME_MISSING = "Form name missing.";
+    public static final String FORM_DESCRIPTION_MISSING = "Form description missing.";
+    public static final String FORM_TYPE_MISSING = "Form Type missing.";
+    public static final String FORM_NOT_FOUND = "Form not found.";
+    public static final String SECTION_ID_MISSING = "Section id missing.";
+    public static final String SECTION_NAME_MISSING = "Section name missing.";
+    public static final String SECTION_DESCRIPTION_MISSING = "Section description missing.";
+    public static final String SECTION_NOT_FOUND = "Section not found.";
+    public static final String CONTROL_ID_MISSING = "Control id missing.";
+    public static final String CONTROL_FIELD_TYPE_MISSING = "Control field type missing.";
+    public static final String CONTROL_NAME_MISSING = "Control name missing.";
+    public static final String CONTROL_DESCRIPTION_MISSING = "Control description missing.";
+    public static final String CONTROL_FIELD_NAME_MISSING = "Control field name missing.";
+    public static final String CONTROL_FIELD_TITLE_MISSING = "Control field title missing.";
+    public static final String CONTROL_FIELD_WIDTH_MISSING = "Control field width missing.";
+    public static final String CONTROL_MANDATORY_MISSING = "Control mandatory missing.";
+    public static final String CONTROL_NOT_FOUND = "Control not found.";
+    public static final String APP_USER_ENV_NOT_FOUND = "AppUserEnv not found.";
+
+    public static final String ACCOUNT_STATUS = "Account Status";
+    public static final String ACCOUNT_ENABLED = "Account Enabled";
+    public static final String ACCOUNT_DISABLED = "Account Disabled";
+    public static final String NEW_ACCOUNT_ADDED = "New Account Added";
+    public static final String FORGOT_PASSWORD = "Forgot Password";
+    public static final String RESET_PASSWORD = "Reset Password";
+    public static final String RESET_EMAIL_SEND_TO_YOUR_EMAIL = "Reset Email Send To Your Email";
+    public static final String FORGOT_EMAIL_SEND_TO_YOUR_EMAIL = "Forgot Email Send To Your Email";
+    public static final String REQUESTED_FOR_NEW_ACCOUNT = "Requested For New Account";
+    public static final String NEW_USER_REGISTER_WITH_ID = "New User Register With Id(%d)";
 
 }

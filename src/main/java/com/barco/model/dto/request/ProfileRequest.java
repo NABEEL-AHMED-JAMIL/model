@@ -9,7 +9,7 @@ import com.google.gson.Gson;
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ProfileRequest {
+public class ProfileRequest extends RequestFilter {
 
     private Long id;
     private String profileName;

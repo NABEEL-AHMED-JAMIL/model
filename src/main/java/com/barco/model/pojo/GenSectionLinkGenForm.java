@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import javax.persistence.*;
-
+import java.util.List;
 
 /**
  * @author Nabeel Ahmed
@@ -25,6 +25,9 @@ public class GenSectionLinkGenForm extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "form_id", nullable = false)
     private GenForm genForm;
+
+    @OneToMany(mappedBy = "genControl")
+    private List<GenControlLinkGenSection> genControlLinkGenSections;
 
     public GenSectionLinkGenForm() {
     }
@@ -51,6 +54,14 @@ public class GenSectionLinkGenForm extends BaseEntity {
 
     public void setGenForm(GenForm genForm) {
         this.genForm = genForm;
+    }
+
+    public List<GenControlLinkGenSection> getGenControlLinkGenSections() {
+        return genControlLinkGenSections;
+    }
+
+    public void setGenControlLinkGenSections(List<GenControlLinkGenSection> genControlLinkGenSections) {
+        this.genControlLinkGenSections = genControlLinkGenSections;
     }
 
     @Override

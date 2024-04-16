@@ -13,18 +13,9 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class TokenRefreshRequest extends RequestFilter {
 
-    private List<Long> ids;
     private String refreshToken;
 
     public TokenRefreshRequest() {
-    }
-
-    public List<Long> getIds() {
-        return ids;
-    }
-
-    public void setIds(List<Long> ids) {
-        this.ids = ids;
     }
 
     public String getRefreshToken() {

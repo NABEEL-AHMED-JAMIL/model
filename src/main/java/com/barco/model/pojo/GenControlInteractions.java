@@ -11,7 +11,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "gc_interaction")
-@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class GenControlInteractions extends BaseEntity {
 
@@ -30,6 +30,38 @@ public class GenControlInteractions extends BaseEntity {
     private String visiblePattern;
 
     public GenControlInteractions() {
+    }
+
+    public GenSectionLinkGenForm getGenSectionLinkGenForm() {
+        return genSectionLinkGenForm;
+    }
+
+    public void setGenSectionLinkGenForm(GenSectionLinkGenForm genSectionLinkGenForm) {
+        this.genSectionLinkGenForm = genSectionLinkGenForm;
+    }
+
+    public GenControl getGenControl() {
+        return genControl;
+    }
+
+    public void setGenControl(GenControl genControl) {
+        this.genControl = genControl;
+    }
+
+    public String getDisabledPattern() {
+        return disabledPattern;
+    }
+
+    public void setDisabledPattern(String disabledPattern) {
+        this.disabledPattern = disabledPattern;
+    }
+
+    public String getVisiblePattern() {
+        return visiblePattern;
+    }
+
+    public void setVisiblePattern(String visiblePattern) {
+        this.visiblePattern = visiblePattern;
     }
 
     @Override

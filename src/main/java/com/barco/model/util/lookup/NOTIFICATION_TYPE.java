@@ -9,7 +9,7 @@ import com.google.gson.Gson;
 public enum NOTIFICATION_TYPE {
 
     USER_NOTIFICATION(0l),
-    OTHER_NOTIFICATION(1l);
+    JOB_NOTIFICATION(1l);
 
     private Long lookupCode;
 
@@ -22,10 +22,10 @@ public enum NOTIFICATION_TYPE {
     }
 
     public static NOTIFICATION_TYPE getByLookupCode(Long lookupCode) throws RuntimeException {
-        if (lookupCode == 0) {
+        if (lookupCode.equals(USER_NOTIFICATION.lookupCode)) {
             return USER_NOTIFICATION;
-        } else if (lookupCode == 1) {
-            return OTHER_NOTIFICATION;
+        } else if (lookupCode.equals(JOB_NOTIFICATION.lookupCode)) {
+            return JOB_NOTIFICATION;
         }
         throw new RuntimeException(MessageUtil.NOTIFICATION_TYPE_NOT_FOUND);
     }

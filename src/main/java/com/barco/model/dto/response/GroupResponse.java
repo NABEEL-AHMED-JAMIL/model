@@ -64,4 +64,5 @@ public class GroupResponse extends BaseEntity {
     public String toString() {
         return new Gson().toJson(this);
     }
+
 }

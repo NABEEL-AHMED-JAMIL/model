@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
  */
 @Entity
 @Table(name = "app_user")
-@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AppUser extends BaseEntity {
 
@@ -39,11 +39,11 @@ public class AppUser extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY,
         cascade = { CascadeType.ALL })
-    @JoinColumn(name="company_id")
+    @JoinColumn(name = "company_id")
     private Company company;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="profile_id", nullable=false)
+    @JoinColumn(name = "profile_id", nullable = false)
     private Profile profile;
 
     @Column(name = "ip_address")

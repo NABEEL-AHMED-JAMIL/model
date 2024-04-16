@@ -13,7 +13,7 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table(name = "notification_audit")
-@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class NotificationAudit extends BaseEntity  {
 
@@ -24,16 +24,16 @@ public class NotificationAudit extends BaseEntity  {
     @Column(name = "message", nullable = false)
     private String message;
 
-    @Enumerated(EnumType.ORDINAL)
     @Column(name = "notify_type", nullable = false)
+    @Enumerated(EnumType.ORDINAL)
     private NOTIFICATION_TYPE notifyType;
 
     // base on look-up
     @Column(name = "expire_time", nullable = false)
     private Timestamp expireTime;
 
-    @Enumerated(EnumType.ORDINAL)
     @Column(name = "message_state", nullable = false)
+    @Enumerated(EnumType.ORDINAL)
     private NOTIFICATION_STATUS messageStatus;
 
     public NotificationAudit() {}

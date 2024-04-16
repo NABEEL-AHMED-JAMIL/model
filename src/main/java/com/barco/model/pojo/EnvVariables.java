@@ -11,7 +11,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "env_variables")
-@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class EnvVariables extends BaseEntity {
 
@@ -21,7 +21,8 @@ public class EnvVariables extends BaseEntity {
     @Column(name = "description")
     private String description;
 
-    @OneToMany(mappedBy = "envVariables", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "envVariables",
+        fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<AppUserEnv> appUserEnvs;
 
     public EnvVariables() {

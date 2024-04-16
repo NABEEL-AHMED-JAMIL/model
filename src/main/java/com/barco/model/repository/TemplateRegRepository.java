@@ -1,11 +1,11 @@
 package com.barco.model.repository;
 
 import com.barco.model.pojo.TemplateReg;
-import com.barco.model.util.lookup.EMAIL_TEMPLATE;
 import com.barco.model.util.lookup.APPLICATION_STATUS;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,14 +17,17 @@ public interface TemplateRegRepository extends CrudRepository<TemplateReg, Long>
 
 	String FIND_BY_TEMPLATE_ID_AND_USERNAME = "SELECT templateReg FROM TemplateReg templateReg " +
 		"WHERE templateReg.id = ?1 AND templateReg.createdBy.username = ?2";
-	String FIND_ALL_BY_USERNAME = "SELECT templateReg FROM TemplateReg templateReg WHERE templateReg.createdBy.username = ?1";
+	String FIND_ALL_BY_DATE_CREATED_BETWEEN_AND_USERNAME = "SELECT templateReg FROM TemplateReg templateReg WHERE " +
+		"templateReg.dateCreated BETWEEN ?1 AND ?2 AND templateReg.createdBy.username = ?3 ";
 
 	public Optional<TemplateReg> findFirstByTemplateNameAndStatusNot(String templateName, APPLICATION_STATUS status);
 
 	@Query(value = FIND_BY_TEMPLATE_ID_AND_USERNAME)
 	public Optional<TemplateReg> findByIdAndUsername(Long id, String username);
 
-	@Query(value = FIND_ALL_BY_USERNAME)
-	public List<TemplateReg> findAllByUsername(String username);
+	@Query(value = FIND_ALL_BY_DATE_CREATED_BETWEEN_AND_USERNAME)
+	public List<TemplateReg> findAllByDateCreatedBetweenAndUsername(Date startDate, Date endDate, String username);
+
+	public List<TemplateReg> findAllByIdIn(List<Long> ids);
 
 }

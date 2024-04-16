@@ -9,7 +9,7 @@ import com.google.gson.Gson;
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class PermissionRequest {
+public class PermissionRequest extends RequestFilter {
 
     private Long id;
     private String permissionName;

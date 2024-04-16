@@ -13,10 +13,18 @@ import com.google.gson.Gson;
 public class EnVariablesResponse extends BaseEntity {
 
     private String envKey;
+    private String envValue;
     private String description;
     private SessionUser sessionUser;
 
     public EnVariablesResponse() {
+    }
+
+    public EnVariablesResponse(Long id, String envKey, String envValue, String description) {
+        super(id);
+        this.envKey = envKey;
+        this.envValue = envValue;
+        this.description = description;
     }
 
     public String getEnvKey() {
@@ -25,6 +33,14 @@ public class EnVariablesResponse extends BaseEntity {
 
     public void setEnvKey(String envKey) {
         this.envKey = envKey;
+    }
+
+    public String getEnvValue() {
+        return envValue;
+    }
+
+    public void setEnvValue(String envValue) {
+        this.envValue = envValue;
     }
 
     public String getDescription() {

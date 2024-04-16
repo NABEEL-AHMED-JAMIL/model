@@ -6,6 +6,7 @@ package com.barco.model.util.lookup;
 public interface LookupUtil {
 
     // Lookup
+    public static String NOTIFICATION_DISAPPEAR_TIME = "NOTIFICATION_DISAPPEAR_TIME";
     public static String UPLOAD_LIMIT = "UPLOAD_LIMIT";
     public static String DOWNLOAD_LIMIT = "DOWNLOAD_LIMIT";
     public static String UI_LOOKUP = "UI_LOOKUP";

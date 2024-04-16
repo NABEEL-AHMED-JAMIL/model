@@ -1,10 +1,12 @@
 package com.barco.model.pojo;
 
 import com.barco.model.util.lookup.FILED_TYPE;
+import com.barco.model.util.lookup.IS_DEFAULT;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * @author Nabeel Ahmed
@@ -13,7 +15,7 @@ import javax.persistence.*;
 @Table(name = "gen_control")
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class GenControl extends BaseEntity  {
+public class GenControl extends BaseEntity {
 
     @Column(name = "control_name", nullable=false)
     private String controlName;
@@ -50,21 +52,26 @@ public class GenControl extends BaseEntity  {
     private String fieldLkValue;
 
     @Column(name = "mandatory")
-    private Boolean mandatory;
+    @Enumerated(EnumType.ORDINAL)
+    private IS_DEFAULT mandatory;
 
-    @Column(name = "disabled",
-        columnDefinition = "boolean default false")
-    private Boolean disabled;
+    @Column(name = "disabled")
+    @Enumerated(EnumType.ORDINAL)
+    private IS_DEFAULT disabled;
 
-    @Column(name = "is_default",
-        columnDefinition = "boolean default false")
-    private Boolean isDefault;
+    @Column(name = "is_default")
+    @Enumerated(EnumType.ORDINAL)
+    private IS_DEFAULT isDefault;
 
     @Column(name = "default_val")
     private String defaultValue;
 
     @Column(name = "pattern")
     private String pattern;
+
+    @OneToMany(mappedBy="genControl")
+    private List<GenControlLinkGenSection> genControlLinkGenSections;
+
 
     public GenControl() {
     }
@@ -149,28 +156,28 @@ public class GenControl extends BaseEntity  {
         this.fieldLkValue = fieldLkValue;
     }
 
-    public Boolean getMandatory() {
+    public IS_DEFAULT getMandatory() {
         return mandatory;
     }
 
-    public void setMandatory(Boolean mandatory) {
+    public void setMandatory(IS_DEFAULT mandatory) {
         this.mandatory = mandatory;
     }
 
-    public Boolean getDisabled() {
+    public IS_DEFAULT getDisabled() {
         return disabled;
     }
 
-    public void setDisabled(Boolean disabled) {
+    public void setDisabled(IS_DEFAULT disabled) {
         this.disabled = disabled;
     }
 
-    public Boolean getDefault() {
+    public IS_DEFAULT getIsDefault() {
         return isDefault;
     }
 
-    public void setDefault(Boolean aDefault) {
-        isDefault = aDefault;
+    public void setIsDefault(IS_DEFAULT isDefault) {
+        this.isDefault = isDefault;
     }
 
     public String getDefaultValue() {
@@ -187,6 +194,14 @@ public class GenControl extends BaseEntity  {
 
     public void setPattern(String pattern) {
         this.pattern = pattern;
+    }
+
+    public List<GenControlLinkGenSection> getGenControlLinkGenSections() {
+        return genControlLinkGenSections;
+    }
+
+    public void setGenControlLinkGenSections(List<GenControlLinkGenSection> genControlLinkGenSections) {
+        this.genControlLinkGenSections = genControlLinkGenSections;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.barco.model.util.lookup;
 
+import com.barco.model.util.MessageUtil;
 import com.google.gson.Gson;
 
 /**
@@ -7,9 +8,10 @@ import com.google.gson.Gson;
  */
 public enum GROUP_USER_TYPE {
 
-    MANAGER(0l), EMPLOYEE(1l), CLIENT(2l),
+    MANAGER(0l),
+    EMPLOYEE(1l),
+    CLIENT(2l),
     GUEST(3l);
-
 
     private Long lookupCode;
 
@@ -18,7 +20,20 @@ public enum GROUP_USER_TYPE {
     }
 
     public static String getName() {
-        return EMAIL_TEMPLATE.class.getSimpleName();
+        return GROUP_USER_TYPE.class.getSimpleName();
+    }
+
+    public static GROUP_USER_TYPE getByLookupCode(Long lookupCode) throws RuntimeException {
+        if (lookupCode.equals(MANAGER.getLookupCode())) {
+            return MANAGER;
+        } else if (lookupCode.equals(EMPLOYEE.getLookupCode())) {
+            return EMPLOYEE;
+        } else if (lookupCode.equals(CLIENT.getLookupCode())) {
+            return CLIENT;
+        } else if (lookupCode.equals(GUEST.getLookupCode())) {
+            return GUEST;
+        }
+        throw new RuntimeException(MessageUtil.GROUP_USER_TYPE_NOT_FOUND);
     }
 
     public Long getLookupCode() {

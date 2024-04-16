@@ -36,12 +36,12 @@ public enum UI_LOOKUP {
     }
 
     public static UI_LOOKUP getByLookupCode(Long lookupCode) throws RuntimeException {
-        if (lookupCode == 0) {
+        if (lookupCode.equals(FALSE.getLookupCode())) {
             return FALSE;
-        } else if (lookupCode == 1) {
+        } else if (lookupCode.equals(TRUE.getLookupCode())) {
             return TRUE;
         }
-        throw new RuntimeException(MessageUtil.NOTIFICATION_TYPE_NOT_FOUND);
+        throw new RuntimeException(MessageUtil.UI_LOOKUP_NOT_FOUND);
     }
 
     public String getLookupType() {

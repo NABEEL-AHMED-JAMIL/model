@@ -23,6 +23,8 @@ public class AppUserResponse extends BaseEntity {
     private List<String> roles;
     private ProfileResponse profile;
     private Integer totalSubUser;
+    private List<GroupResponse> groups;
+    private List<EnVariablesResponse> enVariables;
 
     public AppUserResponse() {
     }
@@ -113,6 +115,22 @@ public class AppUserResponse extends BaseEntity {
 
     public void setTotalSubUser(Integer totalSubUser) {
         this.totalSubUser = totalSubUser;
+    }
+
+    public List<GroupResponse> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(List<GroupResponse> groups) {
+        this.groups = groups;
+    }
+
+    public List<EnVariablesResponse> getEnVariables() {
+        return enVariables;
+    }
+
+    public void setEnVariables(List<EnVariablesResponse> enVariables) {
+        this.enVariables = enVariables;
     }
 
     @Override

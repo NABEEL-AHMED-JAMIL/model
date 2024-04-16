@@ -23,16 +23,16 @@ public enum APPLICATION_STATUS {
     }
 
     public static String getName() {
-        return UI_LOOKUP.class.getSimpleName();
+        return APPLICATION_STATUS.class.getSimpleName();
     }
 
     public static GLookup getStatusByLookupType(String lookupType) {
         APPLICATION_STATUS applicationStatus = null;
-        if (lookupType.equals(INACTIVE.lookupType)) {
+        if (lookupType.equals(INACTIVE.getLookupType())) {
             applicationStatus = INACTIVE;
-        } else if (lookupType.equals(ACTIVE.lookupType)) {
+        } else if (lookupType.equals(ACTIVE.getLookupType())) {
             applicationStatus = ACTIVE;
-        } else if (lookupType.equals(DELETE.lookupType)) {
+        } else if (lookupType.equals(DELETE.getLookupType())) {
             applicationStatus = DELETE;
         }
         return new GLookup(applicationStatus.lookupType, applicationStatus.lookupCode, applicationStatus.lookupValue);
@@ -40,11 +40,11 @@ public enum APPLICATION_STATUS {
 
     public static GLookup getStatusByLookupCode(Long lookupCode) {
         APPLICATION_STATUS applicationStatus = null;
-        if (lookupCode.equals(INACTIVE.lookupCode)) {
+        if (lookupCode.equals(INACTIVE.getLookupCode())) {
             applicationStatus = INACTIVE;
-        } else if (lookupCode.equals(ACTIVE.lookupCode)) {
+        } else if (lookupCode.equals(ACTIVE.getLookupCode())) {
             applicationStatus = ACTIVE;
-        } else if (lookupCode.equals(DELETE.lookupCode)) {
+        } else if (lookupCode.equals(DELETE.getLookupCode())) {
             applicationStatus = DELETE;
         }
         return new GLookup(applicationStatus.lookupType, applicationStatus.lookupCode, applicationStatus.lookupValue);
@@ -58,7 +58,7 @@ public enum APPLICATION_STATUS {
         } else if (lookupCode.equals(DELETE.lookupCode)) {
             return DELETE;
         }
-        throw new RuntimeException(MessageUtil.NOTIFICATION_TYPE_NOT_FOUND);
+        throw new RuntimeException(MessageUtil.APPLICATION_STATUS_NOT_FOUND);
     }
 
     public String getLookupType() {

@@ -1,5 +1,6 @@
 package com.barco.model.util.lookup;
 
+import com.barco.model.util.MessageUtil;
 import com.google.gson.Gson;
 
 /**
@@ -34,7 +35,50 @@ public enum FILED_TYPE {
     }
 
     public static String getName() {
-        return FORM_TYPE.class.getSimpleName();
+        return FILED_TYPE.class.getSimpleName();
+    }
+
+    public static FILED_TYPE getByLookupCode(Long lookupCode) throws RuntimeException {
+        if (lookupCode.equals(WEEK.getLookupCode())) {
+            return WEEK;
+        } else if (lookupCode.equals(RANGE.getLookupCode())) {
+            return RANGE;
+        } else if (lookupCode.equals(FILE.getLookupCode())) {
+            return FILE;
+        } else if (lookupCode.equals(DATE.getLookupCode())) {
+            return DATE;
+        } else if (lookupCode.equals(EMAIL.getLookupCode())) {
+            return EMAIL;
+        } else if (lookupCode.equals(TEL.getLookupCode())) {
+            return TEL;
+        } else if (lookupCode.equals(MONTH.getLookupCode())) {
+            return MONTH;
+        } else if (lookupCode.equals(PASSWORD.getLookupCode())) {
+            return PASSWORD;
+        } else if (lookupCode.equals(URL.getLookupCode())) {
+            return URL;
+        } else if (lookupCode.equals(DATETIME_LOCAL.getLookupCode())) {
+            return DATETIME_LOCAL;
+        } else if (lookupCode.equals(NUMBER.getLookupCode())) {
+            return NUMBER;
+        } else if (lookupCode.equals(RADIO.getLookupCode())) {
+            return RADIO;
+        } else if (lookupCode.equals(CHECKBOX.getLookupCode())) {
+            return CHECKBOX;
+        } else if (lookupCode.equals(COLOR.getLookupCode())) {
+            return COLOR;
+        } else if (lookupCode.equals(TIME.getLookupCode())) {
+            return TIME;
+        } else if (lookupCode.equals(TEXT.getLookupCode())) {
+            return TEXT;
+        } else if (lookupCode.equals(TEXTAREA.getLookupCode())) {
+            return TEXTAREA;
+        } else if (lookupCode.equals(SELECT.getLookupCode())) {
+            return SELECT;
+        } else if (lookupCode.equals(MULTI_SELECT.getLookupCode())) {
+            return MULTI_SELECT;
+        }
+        throw new RuntimeException(MessageUtil.FILED_TYPE_NOT_FOUND);
     }
 
     public Long getLookupCode() {
@@ -49,4 +93,5 @@ public enum FILED_TYPE {
     public String toString() {
         return new Gson().toJson(this);
     }
+
 }

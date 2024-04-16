@@ -12,7 +12,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "lookup_data")
-@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class LookupData extends BaseEntity {
 

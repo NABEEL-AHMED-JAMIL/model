@@ -9,10 +9,11 @@ import com.google.gson.Gson;
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class EnVariablesRequest {
+public class EnVariablesRequest extends RequestFilter {
 
     private Long id;
     private String envKey;
+    private String envValue;
     private String description;
     private Long status;
     private SessionUser sessionUser;
@@ -34,6 +35,14 @@ public class EnVariablesRequest {
 
     public void setEnvKey(String envKey) {
         this.envKey = envKey;
+    }
+
+    public String getEnvValue() {
+        return envValue;
+    }
+
+    public void setEnvValue(String envValue) {
+        this.envValue = envValue;
     }
 
     public String getDescription() {

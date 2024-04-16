@@ -12,18 +12,19 @@ import java.util.List;
  */
 @Entity
 @Table(name = "permission")
-@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Permission extends BaseEntity  {
 
-    @Column(name="permission_name", nullable=false)
+    @Column(name = "permission_name", nullable = false)
     private String permissionName;
 
     @Column(name = "description")
     private String description;
 
-    @OneToMany(mappedBy = "permission", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<ProfilePermission> profilePermissions = new ArrayList<>();
+    @OneToMany(mappedBy = "permission", fetch = FetchType.LAZY,
+        cascade = CascadeType.ALL)
+    private List<ProfilePermission> profilePermissions;
 
     public Permission() {}
 

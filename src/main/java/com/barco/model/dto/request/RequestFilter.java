@@ -3,6 +3,7 @@ package com.barco.model.dto.request;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
+import java.util.List;
 
 /**
  * @author Nabeel Ahmed
@@ -16,6 +17,7 @@ public class RequestFilter {
 	private String textSearch;
 	private String startDate;
 	private String endDate;
+	private List<Long> ids;
 
 	public RequestFilter() {
 	}
@@ -58,6 +60,14 @@ public class RequestFilter {
 
 	public void setEndDate(String endDate) {
 		this.endDate = endDate;
+	}
+
+	public List<Long> getIds() {
+		return ids;
+	}
+
+	public void setIds(List<Long> ids) {
+		this.ids = ids;
 	}
 
 	@Override

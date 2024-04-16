@@ -4,6 +4,7 @@ import com.barco.model.pojo.EnvVariables;
 import com.barco.model.util.lookup.APPLICATION_STATUS;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,5 +18,9 @@ public interface EnvVariablesRepository extends CrudRepository<EnvVariables, Lon
 
     public Optional<EnvVariables> findByEnvKeyAndStatusNot(String envKey, APPLICATION_STATUS status);
 
-    public List<EnvVariables> findAllByStatusNot(APPLICATION_STATUS status);
+    public List<EnvVariables> findAllByDateCreatedBetweenAndStatusNot(Date startDate, Date endDate, APPLICATION_STATUS status);
+
+    public List<EnvVariables> findAllByDateCreatedBetweenAndIdInAndStatusNot(Date startDate, Date endDate, List<Long> ids, APPLICATION_STATUS status);
+
+    public List<EnvVariables> findAllByIdIn(List<Long> ids);
 }

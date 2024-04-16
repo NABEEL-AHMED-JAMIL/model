@@ -10,16 +10,16 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "profile_permission")
-@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ProfilePermission extends BaseEntity  {
 
     @ManyToOne
-    @JoinColumn(name="profile_id", nullable=false)
+    @JoinColumn(name = "profile_id", nullable = false)
     private Profile profile;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="permission_id", nullable=false)
+    @JoinColumn(name = "permission_id", nullable = false)
     private Permission permission;
 
     public ProfilePermission() { }

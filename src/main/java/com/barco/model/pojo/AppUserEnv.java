@@ -10,7 +10,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "app_user_env")
-@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AppUserEnv extends BaseEntity {
 
@@ -18,9 +18,8 @@ public class AppUserEnv extends BaseEntity {
     @JoinColumn(name = "env_key_id", nullable = false)
     private EnvVariables envVariables;
 
-    @ManyToOne(fetch = FetchType.LAZY,
-        cascade = { CascadeType.ALL })
-    @JoinColumn(name="app_user_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "app_user_id", nullable = false)
     private AppUser appUser;
 
     @Column(name = "env_value")

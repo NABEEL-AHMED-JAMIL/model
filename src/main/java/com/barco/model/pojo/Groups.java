@@ -11,7 +11,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "groups")
-@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Groups extends BaseEntity {
 
@@ -23,6 +23,9 @@ public class Groups extends BaseEntity {
 
     @OneToMany(mappedBy = "groups", fetch = FetchType.LAZY)
     private List<GroupUser> groupUsers;
+
+    @OneToMany(mappedBy="groups")
+    private List<GroupsLinkSourceTaskType> groupsLinkSourceTaskTypes;
 
     public Groups() {
     }
@@ -49,6 +52,14 @@ public class Groups extends BaseEntity {
 
     public void setGroupUsers(List<GroupUser> groupUsers) {
         this.groupUsers = groupUsers;
+    }
+
+    public List<GroupsLinkSourceTaskType> getGroupsLinkSourceTaskTypes() {
+        return groupsLinkSourceTaskTypes;
+    }
+
+    public void setGroupsLinkSourceTaskTypes(List<GroupsLinkSourceTaskType> groupsLinkSourceTaskTypes) {
+        this.groupsLinkSourceTaskTypes = groupsLinkSourceTaskTypes;
     }
 
     @Override

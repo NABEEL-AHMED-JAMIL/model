@@ -4,13 +4,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * @author Nabeel Ahmed
  */
 @Entity
 @Table(name = "gen_section")
-@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class GenSection extends BaseEntity {
 
@@ -19,6 +20,9 @@ public class GenSection extends BaseEntity {
 
     @Column(name = "description", nullable = false)
     private String description;
+
+    @OneToMany(mappedBy="genSection")
+    private List<GenSectionLinkGenForm> genSectionLinkGenForms;
 
     public GenSection() {}
 
@@ -36,6 +40,14 @@ public class GenSection extends BaseEntity {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<GenSectionLinkGenForm> getGenSectionLinkGenForms() {
+        return genSectionLinkGenForms;
+    }
+
+    public void setGenSectionLinkGenForms(List<GenSectionLinkGenForm> genSectionLinkGenForms) {
+        this.genSectionLinkGenForms = genSectionLinkGenForms;
     }
 
     @Override

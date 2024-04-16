@@ -9,7 +9,7 @@ import com.google.gson.Gson;
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class GroupRequest {
+public class GroupRequest extends RequestFilter {
 
     private Long id;
     private String name;

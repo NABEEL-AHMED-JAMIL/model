@@ -21,9 +21,9 @@ public enum NOTIFICATION_STATUS {
     }
 
     public static NOTIFICATION_STATUS getByLookupCode(Long lookupCode) throws RuntimeException {
-        if (lookupCode == 0) {
+        if (lookupCode.equals(UNREAD.getLookupCode())) {
             return UNREAD;
-        } else if (lookupCode == 1) {
+        } else if (lookupCode.equals(READ.getLookupCode())) {
             return READ;
         }
         throw new RuntimeException(MessageUtil.NOTIFICATION_STATUS_NOT_FOUND);

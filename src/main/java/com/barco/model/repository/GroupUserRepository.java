@@ -16,9 +16,9 @@ import java.util.Optional;
 @Repository
 public interface GroupUserRepository extends CrudRepository<GroupUser, Long> {
 
-    public Optional<GroupUser> findByAppUserAndGroupsAndUserTypeAndStatus(
+    public Optional<GroupUser> findByAppUserAndGroupsAndUserTypeAndStatusNot(
         AppUser appUser, Groups groups, GROUP_USER_TYPE userType, APPLICATION_STATUS status);
 
-    public List<GroupUser> findByGroupsAndUserTypeAndStatus(
+    public List<GroupUser> findByGroupsAndUserTypeAndStatusNot(
         Groups groups, GROUP_USER_TYPE userType, APPLICATION_STATUS status);
 }

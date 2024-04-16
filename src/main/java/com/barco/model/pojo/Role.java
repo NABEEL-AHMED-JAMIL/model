@@ -11,18 +11,19 @@ import java.util.List;
  */
 @Entity
 @Table(name = "role")
-@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Role extends BaseEntity {
 
     @Column(name = "name",
-        unique=true, nullable=false)
+        unique = true, nullable = false)
     private String name;
 
     @Column(name = "description")
     private String description;
 
-    @OneToMany(mappedBy = "role", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "role", fetch = FetchType.LAZY,
+        cascade = CascadeType.ALL)
     private List<AppUserRoleAccess> roleAccesses;
 
     public Role() {}
