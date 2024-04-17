@@ -26,7 +26,7 @@ public class GenFormLinkSourceTaskType extends BaseEntity {
     @JoinColumn(name = "stt_id", nullable = false)
     private SourceTaskType sourceTaskType;
 
-    @OneToMany(mappedBy = "genSection")
+    @OneToMany(mappedBy = "genSection", fetch = FetchType.LAZY)
     private List<GenSectionLinkGenForm> genSectionLinkGenForms;
 
     public GenFormLinkSourceTaskType() {

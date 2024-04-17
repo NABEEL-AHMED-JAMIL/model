@@ -30,6 +30,24 @@ public enum IS_DEFAULT {
         throw new RuntimeException(MessageUtil.IS_DEFAULT_NOT_FOUND);
     }
 
+    public static boolean isFormType(String name) {
+        for (IS_DEFAULT lookup : IS_DEFAULT.values()) {
+            if (lookup.name().equals(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static IS_DEFAULT findEnumByName(String name) {
+        for (IS_DEFAULT lookup : IS_DEFAULT.values()) {
+            if (lookup.name().equals(name)) {
+                return lookup;
+            }
+        }
+        return null;
+    }
+
     public Long getLookupCode() {
         return lookupCode;
     }

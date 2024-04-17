@@ -30,6 +30,24 @@ public enum FORM_TYPE {
         throw new RuntimeException(MessageUtil.FORM_TYPE_NOT_FOUND);
     }
 
+    public static boolean isFormType(String name) {
+        for (FORM_TYPE lookup : FORM_TYPE.values()) {
+            if (lookup.name().equals(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static FORM_TYPE findEnumByName(String name) {
+        for (FORM_TYPE lookup : FORM_TYPE.values()) {
+            if (lookup.name().equals(name)) {
+                return lookup;
+            }
+        }
+        return null;
+    }
+
     public Long getLookupCode() {
         return lookupCode;
     }

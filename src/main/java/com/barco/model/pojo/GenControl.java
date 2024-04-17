@@ -69,7 +69,7 @@ public class GenControl extends BaseEntity {
     @Column(name = "pattern")
     private String pattern;
 
-    @OneToMany(mappedBy="genControl")
+    @OneToMany(mappedBy="genControl", fetch = FetchType.LAZY)
     private List<GenControlLinkGenSection> genControlLinkGenSections;
 
 

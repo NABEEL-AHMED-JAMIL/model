@@ -26,7 +26,7 @@ public class GenSectionLinkGenForm extends BaseEntity {
     @JoinColumn(name = "form_id", nullable = false)
     private GenForm genForm;
 
-    @OneToMany(mappedBy = "genControl")
+    @OneToMany(mappedBy = "genControl", fetch = FetchType.LAZY)
     private List<GenControlLinkGenSection> genControlLinkGenSections;
 
     public GenSectionLinkGenForm() {

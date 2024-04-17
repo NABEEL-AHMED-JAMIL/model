@@ -33,6 +33,9 @@ public class GenForm extends BaseEntity {
     private FORM_TYPE formType;
 
     @OneToMany(mappedBy="genForm")
+    private List<GenSectionLinkGenForm> genSectionLinkGenForms;
+
+    @OneToMany(mappedBy="genForm")
     private List<GenFormLinkSourceTaskType> genFormLinkSourceTaskTypes;
 
     public GenForm() {
@@ -76,6 +79,14 @@ public class GenForm extends BaseEntity {
 
     public void setFormType(FORM_TYPE formType) {
         this.formType = formType;
+    }
+
+    public List<GenSectionLinkGenForm> getGenSectionLinkGenForms() {
+        return genSectionLinkGenForms;
+    }
+
+    public void setGenSectionLinkGenForms(List<GenSectionLinkGenForm> genSectionLinkGenForms) {
+        this.genSectionLinkGenForms = genSectionLinkGenForms;
     }
 
     public List<GenFormLinkSourceTaskType> getGenFormLinkSourceTaskTypes() {

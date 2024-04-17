@@ -81,6 +81,24 @@ public enum FILED_TYPE {
         throw new RuntimeException(MessageUtil.FILED_TYPE_NOT_FOUND);
     }
 
+    public static boolean isFormType(String name) {
+        for (FILED_TYPE lookup : FILED_TYPE.values()) {
+            if (lookup.name().equals(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static FILED_TYPE findEnumByName(String name) {
+        for (FILED_TYPE lookup : FILED_TYPE.values()) {
+            if (lookup.name().equals(name)) {
+                return lookup;
+            }
+        }
+        return null;
+    }
+
     public Long getLookupCode() {
         return lookupCode;
     }

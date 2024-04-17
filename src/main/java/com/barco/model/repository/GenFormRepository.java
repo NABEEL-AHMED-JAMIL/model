@@ -15,8 +15,13 @@ import java.util.Optional;
 @Repository
 public interface GenFormRepository extends CrudRepository<GenForm, Long> {
 
+    public List<GenForm> findAllByIdIn(List<Long> ids);
+
     public Optional<GenForm> findByIdAndCreatedByAndStatusNot(Long id, AppUser createdBy, APPLICATION_STATUS status);
 
     public List<GenForm> findAllByDateCreatedBetweenAndCreatedByAndStatusNot(Date startDate, Date endDate, AppUser createdBy, APPLICATION_STATUS status);
+
+    public List<GenForm> findAllByDateCreatedBetweenAndCreatedByAndIdInAndStatusNot(
+        Date startDate, Date endDate, AppUser createdBy, List<Long> ids, APPLICATION_STATUS status);
 
 }

@@ -21,8 +21,11 @@ public class GenSection extends BaseEntity {
     @Column(name = "description", nullable = false)
     private String description;
 
-    @OneToMany(mappedBy="genSection")
+    @OneToMany(mappedBy="genSection", fetch = FetchType.LAZY)
     private List<GenSectionLinkGenForm> genSectionLinkGenForms;
+
+    @OneToMany(mappedBy="genSection", fetch = FetchType.LAZY)
+    private List<GenControlLinkGenSection> genControlLinkGenSections;
 
     public GenSection() {}
 
@@ -48,6 +51,14 @@ public class GenSection extends BaseEntity {
 
     public void setGenSectionLinkGenForms(List<GenSectionLinkGenForm> genSectionLinkGenForms) {
         this.genSectionLinkGenForms = genSectionLinkGenForms;
+    }
+
+    public List<GenControlLinkGenSection> getGenControlLinkGenSections() {
+        return genControlLinkGenSections;
+    }
+
+    public void setGenControlLinkGenSections(List<GenControlLinkGenSection> genControlLinkGenSections) {
+        this.genControlLinkGenSections = genControlLinkGenSections;
     }
 
     @Override

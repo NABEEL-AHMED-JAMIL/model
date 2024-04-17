@@ -41,9 +41,11 @@ public class SourceTaskType extends BaseEntity {
     @OneToMany(mappedBy = "sourceTaskType", fetch = FetchType.LAZY)
     private List<SourceTask> sourceTasks;
 
-    @OneToMany(mappedBy="sourceTaskType")
+    @OneToMany(mappedBy="sourceTaskType", fetch = FetchType.LAZY)
     private List<GroupsLinkSourceTaskType> groupsLinkSourceTaskTypes;
 
+    @OneToMany(mappedBy="sourceTaskType", fetch = FetchType.LAZY)
+    private List<GenFormLinkSourceTaskType> genFormLinkSourceTaskTypes;
 
     public SourceTaskType() {}
 
@@ -109,6 +111,14 @@ public class SourceTaskType extends BaseEntity {
 
     public void setGroupsLinkSourceTaskTypes(List<GroupsLinkSourceTaskType> groupsLinkSourceTaskTypes) {
         this.groupsLinkSourceTaskTypes = groupsLinkSourceTaskTypes;
+    }
+
+    public List<GenFormLinkSourceTaskType> getGenFormLinkSourceTaskTypes() {
+        return genFormLinkSourceTaskTypes;
+    }
+
+    public void setGenFormLinkSourceTaskTypes(List<GenFormLinkSourceTaskType> genFormLinkSourceTaskTypes) {
+        this.genFormLinkSourceTaskTypes = genFormLinkSourceTaskTypes;
     }
 
     @Override

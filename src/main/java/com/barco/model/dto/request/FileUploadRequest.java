@@ -18,12 +18,9 @@ public class FileUploadRequest<T> {
 
     @JsonProperty("file")
     private MultipartFile file;
-
     @JsonProperty("files")
     private List<MultipartFile> files;
-
     private Map<String, MultipartFile> uniqueFiles;
-
     @JsonRawValue
     @JsonProperty("data")
     private T data;
