@@ -10,7 +10,6 @@ public interface MessageUtil {
     public static final String CREDENTIAL_TYPE_NOT_FOUND = "No credential type found.";
     public static final String FILED_TYPE_NOT_FOUND = "No filed type found";
     public static final String FORM_TYPE_NOT_FOUND = "No form type found";
-    public static final String GROUP_USER_TYPE_NOT_FOUND = "No group user type found";
     public static final String REQUEST_METHOD_NOT_FOUND = "No request method found.";
     public static final String UI_LOOKUP_NOT_FOUND = "No ui lookup found.";
     public static final String TASK_TYPE_NOT_FOUND = "No task type found.";
@@ -100,15 +99,11 @@ public interface MessageUtil {
     public static final String ENV_ENVKEY_REQUIRED = "Env envKey required.";
     public static final String ENV_ENVKEY_ALREADY_EXIST = "Env envKey already exist.";
     public static final String ENV_NOT_FOUND_WITH_ID = "Env not found with id %s.";
-    public static final String GROUP_ID_REQUIRED = "Group id required.";
-    public static final String GROUP_NAME_MISSING = "Group name missing.";
-    public static final String GROUP_NOT_FOUND = "Group not found.";
     public static final String CREDENTIAL_ID_MISSING = "Credential id missing.";
     public static final String CREDENTIAL_NAME_MISSING = "Credential name missing.";
     public static final String CREDENTIAL_TYPE_MISSING = "Credential type missing.";
     public static final String CREDENTIAL_CONTENT_MISSING = "Credential content missing.";
     public static final String CREDENTIAL_NOT_FOUND = "Credential not found.";
-    public static final String GROUP_NOT_FOUND_WITH_ID = "Group not found with id %s.";
     public static final String REFRESH_TOKEN_IDS_MISSING = "Refresh token ids missing.";
     public static final String COMPANY_NAME_MISSING = "Company name missing.";
     public static final String COMPANY_EMAIL_MISSING = "Company email missing.";

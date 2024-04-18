@@ -3,35 +3,34 @@ package com.barco.model.pojo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
-
 import javax.persistence.*;
 
 /**
  * @author Nabeel Ahmed
  */
 @Entity
-@Table(name = "group_link_stt")
+@Table(name = "app_link_stt")
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class GroupsLinkSourceTaskType extends BaseEntity {
+public class AppUserLinkSourceTaskType extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "group_id", nullable = false)
-    private Groups groups;
+    @JoinColumn(name = "app_id", nullable = false)
+    private AppUser appUser;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "stt_id", nullable = false)
     private SourceTaskType sourceTaskType;
 
-    public GroupsLinkSourceTaskType() {
+    public AppUserLinkSourceTaskType() {
     }
 
-    public Groups getGroups() {
-        return groups;
+    public AppUser getAppUser() {
+        return appUser;
     }
 
-    public void setGroups(Groups groups) {
-        this.groups = groups;
+    public void setAppUser(AppUser appUser) {
+        this.appUser = appUser;
     }
 
     public SourceTaskType getSourceTaskType() {

@@ -5,6 +5,4 @@
 ---Root-Permission---
 ---Root-ProfilePermission---
 ---Root-Lookup---
----Root-Group---
----Root-UserGroup---
 ---Root-Template----
