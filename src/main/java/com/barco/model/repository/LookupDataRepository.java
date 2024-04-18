@@ -14,7 +14,7 @@ import java.util.Optional;
 public interface LookupDataRepository extends CrudRepository<LookupData, Long> {
 
     String FIND_ALL_PARENT_LOOKUP_BY_USERNAME = "SELECT lkd FROM LookupData lkd " +
-        "WHERE lkd.createdBy.username = ?1 AND lkd.parentLookup.id IS NULL";
+        "WHERE lkd.createdBy.username = ?1 AND lkd.parentLookup.id IS NULL ORDER BY lkd.dateCreated DESC";
     String FIND_ONE_BY_PARENT_LOOKUP_ID_AND_USERNAME = "SELECT lkd FROM LookupData lkd " +
         "WHERE lkd.id = ?1 AND lkd.createdBy.username = ?2";
 
@@ -23,7 +23,7 @@ public interface LookupDataRepository extends CrudRepository<LookupData, Long> {
     public List<LookupData> findByParentLookupIsNull();
 
     @Query(value = FIND_ALL_PARENT_LOOKUP_BY_USERNAME)
-    public List<LookupData> findAllParentLookupByUsername(String username);
+    public List<LookupData> findAllParentLookupByUsernameOrderByDateCreatedDesc(String username);
 
     @Query(value = FIND_ONE_BY_PARENT_LOOKUP_ID_AND_USERNAME)
     public Optional<LookupData> findOneByParentLookupIdAndUsername(Long parentLookupId, String username);

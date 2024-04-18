@@ -18,7 +18,7 @@ public interface TemplateRegRepository extends CrudRepository<TemplateReg, Long>
 	String FIND_BY_TEMPLATE_ID_AND_USERNAME = "SELECT templateReg FROM TemplateReg templateReg " +
 		"WHERE templateReg.id = ?1 AND templateReg.createdBy.username = ?2";
 	String FIND_ALL_BY_DATE_CREATED_BETWEEN_AND_USERNAME = "SELECT templateReg FROM TemplateReg templateReg WHERE " +
-		"templateReg.dateCreated BETWEEN ?1 AND ?2 AND templateReg.createdBy.username = ?3 ";
+		"templateReg.dateCreated BETWEEN ?1 AND ?2 AND templateReg.createdBy.username = ?3 ORDER BY templateReg.dateCreated DESC";
 
 	public Optional<TemplateReg> findFirstByTemplateNameAndStatusNot(String templateName, APPLICATION_STATUS status);
 
@@ -26,7 +26,7 @@ public interface TemplateRegRepository extends CrudRepository<TemplateReg, Long>
 	public Optional<TemplateReg> findByIdAndUsername(Long id, String username);
 
 	@Query(value = FIND_ALL_BY_DATE_CREATED_BETWEEN_AND_USERNAME)
-	public List<TemplateReg> findAllByDateCreatedBetweenAndUsername(Date startDate, Date endDate, String username);
+	public List<TemplateReg> findAllByDateCreatedBetweenAndUsernameOrderByDateCreatedDesc(Date startDate, Date endDate, String username);
 
 	public List<TemplateReg> findAllByIdIn(List<Long> ids);
 

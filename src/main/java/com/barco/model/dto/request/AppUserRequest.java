@@ -10,7 +10,7 @@ import java.util.Set;
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class AppUserRequest {
+public class AppUserRequest extends RequestFilter {
 
     private Long id;
     private Long status;

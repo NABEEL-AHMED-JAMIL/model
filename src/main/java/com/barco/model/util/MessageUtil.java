@@ -157,6 +157,8 @@ public interface MessageUtil {
     public static final String FORGOT_EMAIL_SEND_TO_YOUR_EMAIL = "Forgot email send to your email";
     public static final String REQUESTED_FOR_NEW_ACCOUNT = "Requested for new account";
     public static final String NEW_USER_REGISTER_WITH_ID = "New user register with id(%d)";
+    public static final String PASSWORD_UPDATED = "Password updated";
+    public static final String PASSWORD_UPDATE_MESSAGE = "Dear user, your password update successfully.";
     public static final String DOWNLOAD_TYPE_MISSING = "Download type missing.";
     public static final String DATA_NOT_FOUND_XLSX = "Date not found.";
     public static final String UPLOAD_TYPE_MISSING = "Upload type missing.";

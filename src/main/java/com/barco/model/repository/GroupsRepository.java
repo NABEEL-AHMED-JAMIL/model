@@ -23,10 +23,10 @@ public interface GroupsRepository extends CrudRepository<Groups, Long> {
 
     public List<Groups> findAllByIdInAndStatusNot(List<Long> ids, APPLICATION_STATUS status);
 
-    public List<Groups> findAllByDateCreatedBetweenAndCreatedByAndStatusNot(
+    public List<Groups> findAllByDateCreatedBetweenAndCreatedByAndStatusNotOrderByDateCreatedDesc(
         Date startDate, Date endDate, AppUser createdBy, APPLICATION_STATUS status);
 
-    public List<Groups> findAllByDateCreatedBetweenAndCreatedByAndIdInAndStatusNot(
+    public List<Groups> findAllByDateCreatedBetweenAndCreatedByAndIdInAndStatusNotOrderByDateCreatedDesc(
         Date startDate, Date endDate, AppUser createdBy, List<Long> ids, APPLICATION_STATUS status);
 
 }

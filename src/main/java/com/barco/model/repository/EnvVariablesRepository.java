@@ -18,9 +18,9 @@ public interface EnvVariablesRepository extends CrudRepository<EnvVariables, Lon
 
     public Optional<EnvVariables> findByEnvKeyAndStatusNot(String envKey, APPLICATION_STATUS status);
 
-    public List<EnvVariables> findAllByDateCreatedBetweenAndStatusNot(Date startDate, Date endDate, APPLICATION_STATUS status);
+    public List<EnvVariables> findAllByDateCreatedBetweenAndStatusNotOrderByDateCreatedDesc(Date startDate, Date endDate, APPLICATION_STATUS status);
 
-    public List<EnvVariables> findAllByDateCreatedBetweenAndIdInAndStatusNot(Date startDate, Date endDate, List<Long> ids, APPLICATION_STATUS status);
+    public List<EnvVariables> findAllByDateCreatedBetweenAndIdInAndStatusNotOrderByDateCreatedDesc(Date startDate, Date endDate, List<Long> ids, APPLICATION_STATUS status);
 
     public List<EnvVariables> findAllByIdIn(List<Long> ids);
 }
