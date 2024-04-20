@@ -1,6 +1,6 @@
 package com.barco.model.util.validation;
 
-import com.barco.model.util.lookup.FILED_TYPE;
+import com.barco.model.util.lookup.FIELD_TYPE;
 import com.barco.model.util.lookup.IS_DEFAULT;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -175,7 +175,7 @@ public class STTCValidation {
             }
             if (this.isNull(this.fieldType)) {
                 this.setErrorMsg(String.format("FieldType should not be empty at row %s.<br>", rowCounter));
-            } else if (!FILED_TYPE.isFormType(this.fieldType)) {
+            } else if (!FIELD_TYPE.isFormType(this.fieldType)) {
                 this.setErrorMsg(String.format("FieldType type not correct at row %s.<br>", rowCounter));
             }
             if (this.isNull(this.required)) {

@@ -1,7 +1,10 @@
 package com.barco.model.dto.request;
 
+import com.barco.model.util.lookup.ACTION;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+
+import java.util.List;
 
 /**
  * @author Nabeel Ahmed
@@ -15,6 +18,11 @@ public class SectionRequest extends RequestFilter {
     private String description;
     private Long status;
     private SessionUser sessionUser;
+    //
+    private ACTION action; // delete|insert
+    private List<Long> controlId;
+    private List<Long> sectionLinkControl;
+    private Long controlOrder;
 
     public SectionRequest() {
     }
@@ -53,6 +61,38 @@ public class SectionRequest extends RequestFilter {
 
     public SessionUser getSessionUser() {
         return sessionUser;
+    }
+
+    public ACTION getAction() {
+        return action;
+    }
+
+    public void setAction(ACTION action) {
+        this.action = action;
+    }
+
+    public List<Long> getControlId() {
+        return controlId;
+    }
+
+    public void setControlId(List<Long> controlId) {
+        this.controlId = controlId;
+    }
+
+    public List<Long> getSectionLinkControl() {
+        return sectionLinkControl;
+    }
+
+    public void setSectionLinkControl(List<Long> sectionLinkControl) {
+        this.sectionLinkControl = sectionLinkControl;
+    }
+
+    public Long getControlOrder() {
+        return controlOrder;
+    }
+
+    public void setControlOrder(Long controlOrder) {
+        this.controlOrder = controlOrder;
     }
 
     public void setSessionUser(SessionUser sessionUser) {

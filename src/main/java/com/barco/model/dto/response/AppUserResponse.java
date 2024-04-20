@@ -19,7 +19,6 @@ public class AppUserResponse extends BaseEntity {
     private String password;
     private String profileImg;
     private String ipAddress;
-    private CompanyResponse company;
     private List<String> roles;
     private ProfileResponse profile;
     private Integer totalSubUser;
@@ -82,14 +81,6 @@ public class AppUserResponse extends BaseEntity {
 
     public void setIpAddress(String ipAddress) {
         this.ipAddress = ipAddress;
-    }
-
-    public CompanyResponse getCompany() {
-        return company;
-    }
-
-    public void setCompany(CompanyResponse company) {
-        this.company = company;
     }
 
     public List<String> getRoles() {

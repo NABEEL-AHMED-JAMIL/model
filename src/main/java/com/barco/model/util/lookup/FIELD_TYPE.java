@@ -6,7 +6,7 @@ import com.google.gson.Gson;
 /**
  * @author Nabeel Ahmed
  */
-public enum FILED_TYPE {
+public enum FIELD_TYPE {
 
     WEEK(0l),
     RANGE(1l),
@@ -30,15 +30,15 @@ public enum FILED_TYPE {
 
     private Long lookupCode;
 
-    FILED_TYPE(Long lookupCode) {
+    FIELD_TYPE(Long lookupCode) {
         this.lookupCode = lookupCode;
     }
 
     public static String getName() {
-        return FILED_TYPE.class.getSimpleName();
+        return FIELD_TYPE.class.getSimpleName();
     }
 
-    public static FILED_TYPE getByLookupCode(Long lookupCode) throws RuntimeException {
+    public static FIELD_TYPE getByLookupCode(Long lookupCode) throws RuntimeException {
         if (lookupCode.equals(WEEK.getLookupCode())) {
             return WEEK;
         } else if (lookupCode.equals(RANGE.getLookupCode())) {
@@ -82,7 +82,7 @@ public enum FILED_TYPE {
     }
 
     public static boolean isFormType(String name) {
-        for (FILED_TYPE lookup : FILED_TYPE.values()) {
+        for (FIELD_TYPE lookup : FIELD_TYPE.values()) {
             if (lookup.name().equals(name)) {
                 return true;
             }
@@ -90,8 +90,8 @@ public enum FILED_TYPE {
         return false;
     }
 
-    public static FILED_TYPE findEnumByName(String name) {
-        for (FILED_TYPE lookup : FILED_TYPE.values()) {
+    public static FIELD_TYPE findEnumByName(String name) {
+        for (FIELD_TYPE lookup : FIELD_TYPE.values()) {
             if (lookup.name().equals(name)) {
                 return lookup;
             }

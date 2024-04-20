@@ -17,6 +17,8 @@ public interface GenSectionRepository extends CrudRepository<GenSection, Long> {
 
     public List<GenSection> findAllByIdIn(List<Long> ids);
 
+    public List<GenSection> findAllByIdInAndStatusNot(List<Long> ids, APPLICATION_STATUS status);
+
     public Optional<GenSection> findByIdAndCreatedByAndStatusNot(Long id, AppUser createdBy, APPLICATION_STATUS status);
 
     public List<GenSection> findAllByDateCreatedBetweenAndCreatedByAndStatusNot(Date startDate, Date endDate, AppUser createdBy, APPLICATION_STATUS status);

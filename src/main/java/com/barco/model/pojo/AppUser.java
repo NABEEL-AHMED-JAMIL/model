@@ -37,11 +37,6 @@ public class AppUser extends BaseEntity {
     @Column(name = "img")
     private String img;
 
-    @ManyToOne(fetch = FetchType.LAZY,
-        cascade = { CascadeType.ALL })
-    @JoinColumn(name = "company_id")
-    private Company company;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "profile_id", nullable = false)
     private Profile profile;
@@ -121,14 +116,6 @@ public class AppUser extends BaseEntity {
 
     public void setImg(String img) {
         this.img = img;
-    }
-
-    public Company getCompany() {
-        return company;
-    }
-
-    public void setCompany(Company company) {
-        this.company = company;
     }
 
     public Profile getProfile() {

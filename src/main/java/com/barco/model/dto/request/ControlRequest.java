@@ -1,8 +1,10 @@
 package com.barco.model.dto.request;
 
+import com.barco.model.util.lookup.ACTION;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
+import java.util.List;
 
 /**
  * @author Nabeel Ahmed
@@ -29,6 +31,11 @@ public class ControlRequest extends RequestFilter {
     private String pattern;
     private Long status;
     private SessionUser sessionUser;
+    //
+    private ACTION action; // delete|insert
+    private List<Long> sectionId;
+    private List<Long> controlLinkSection;
+    private Long controlOrder;
 
     public ControlRequest() {
     }
@@ -175,6 +182,38 @@ public class ControlRequest extends RequestFilter {
 
     public void setSessionUser(SessionUser sessionUser) {
         this.sessionUser = sessionUser;
+    }
+
+    public ACTION getAction() {
+        return action;
+    }
+
+    public void setAction(ACTION action) {
+        this.action = action;
+    }
+
+    public List<Long> getSectionId() {
+        return sectionId;
+    }
+
+    public void setSectionId(List<Long> sectionId) {
+        this.sectionId = sectionId;
+    }
+
+    public List<Long> getControlLinkSection() {
+        return controlLinkSection;
+    }
+
+    public void setControlLinkSection(List<Long> controlLinkSection) {
+        this.controlLinkSection = controlLinkSection;
+    }
+
+    public Long getControlOrder() {
+        return controlOrder;
+    }
+
+    public void setControlOrder(Long controlOrder) {
+        this.controlOrder = controlOrder;
     }
 
     @Override

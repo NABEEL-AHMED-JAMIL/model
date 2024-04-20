@@ -1,6 +1,6 @@
 package com.barco.model.pojo;
 
-import com.barco.model.util.lookup.FILED_TYPE;
+import com.barco.model.util.lookup.FIELD_TYPE;
 import com.barco.model.util.lookup.IS_DEFAULT;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -26,7 +26,7 @@ public class GenControl extends BaseEntity {
     // select,multiple select, need the lookup value
     @Column(name = "field_type")
     @Enumerated(EnumType.ORDINAL)
-    private FILED_TYPE fieldType;
+    private FIELD_TYPE fieldType;
 
     // label name
     @Column(name = "field_title", nullable = false)
@@ -92,11 +92,11 @@ public class GenControl extends BaseEntity {
         this.description = description;
     }
 
-    public FILED_TYPE getFieldType() {
+    public FIELD_TYPE getFieldType() {
         return fieldType;
     }
 
-    public void setFieldType(FILED_TYPE fieldType) {
+    public void setFieldType(FIELD_TYPE fieldType) {
         this.fieldType = fieldType;
     }
 
