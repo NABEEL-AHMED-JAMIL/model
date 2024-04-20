@@ -17,11 +17,12 @@ public interface GenFormRepository extends CrudRepository<GenForm, Long> {
 
     public List<GenForm> findAllByIdIn(List<Long> ids);
 
+    public List<GenForm> findAllByIdInAndStatusNot(List<Long> ids, APPLICATION_STATUS status);
     public Optional<GenForm> findByIdAndCreatedByAndStatusNot(Long id, AppUser createdBy, APPLICATION_STATUS status);
 
-    public List<GenForm> findAllByDateCreatedBetweenAndCreatedByAndStatusNot(Date startDate, Date endDate, AppUser createdBy, APPLICATION_STATUS status);
+    public List<GenForm> findAllByDateCreatedBetweenAndCreatedByAndStatusNotOrderByDateCreatedDesc(Date startDate, Date endDate, AppUser createdBy, APPLICATION_STATUS status);
 
-    public List<GenForm> findAllByDateCreatedBetweenAndCreatedByAndIdInAndStatusNot(
+    public List<GenForm> findAllByDateCreatedBetweenAndCreatedByAndIdInAndStatusNotOrderByDateCreatedDesc(
         Date startDate, Date endDate, AppUser createdBy, List<Long> ids, APPLICATION_STATUS status);
 
 }

@@ -9,6 +9,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * @author Nabeel Ahmed
  */
@@ -21,6 +23,8 @@ public interface GenSectionLinkGenFormRepository extends CrudRepository<GenSecti
     public Long countByGenFormAndStatusNot(GenForm genForm, APPLICATION_STATUS status);
 
     public Long countByGenSectionAndStatusNot(GenSection genSection, APPLICATION_STATUS status);
+
+    public List<GenSectionLinkGenForm> findAllByIdInAndStatusNot(List<Long> ids, APPLICATION_STATUS status);
 
     @Modifying
     @Query(DELETE_ALL_BY_STATUS_AND_FORM_ID_AND_APP_USER_ID)

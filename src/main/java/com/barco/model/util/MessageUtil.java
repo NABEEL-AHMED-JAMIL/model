@@ -115,7 +115,9 @@ public interface MessageUtil {
     public static final String ACTION_MISSING = "Action missing.";
     public static final String CONTROL_LINK_SECTION_MISSING = "Control link section missing.";
     public static final String SECTION_LINK_CONTROL_MISSING = "Section link control missing.";
+    public static final String SECTION_LINK_FORM_MISSING = "Section link form missing.";
     public static final String CONTROL_LINK_SECTION_ORDER_MISSING = "Control link section order missing.";
+    public static final String SECTION_LINK_FORM_ORDER_MISSING = "Section link form order missing.";
     public static final String SECTION_ID_MISSING = "Section id missing.";
     public static final String SECTION_NAME_MISSING = "Section name missing.";
     public static final String SECTION_DESCRIPTION_MISSING = "Section description missing.";

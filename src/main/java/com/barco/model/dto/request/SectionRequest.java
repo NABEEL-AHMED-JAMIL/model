@@ -23,6 +23,10 @@ public class SectionRequest extends RequestFilter {
     private List<Long> controlId;
     private List<Long> sectionLinkControl;
     private Long controlOrder;
+    //
+    private List<Long> formId;
+    private List<Long> sectionLinkForm;
+    private Long sectionOrder;
 
     public SectionRequest() {
     }
@@ -93,6 +97,30 @@ public class SectionRequest extends RequestFilter {
 
     public void setControlOrder(Long controlOrder) {
         this.controlOrder = controlOrder;
+    }
+
+    public List<Long> getFormId() {
+        return formId;
+    }
+
+    public void setFormId(List<Long> formId) {
+        this.formId = formId;
+    }
+
+    public List<Long> getSectionLinkForm() {
+        return sectionLinkForm;
+    }
+
+    public void setSectionLinkForm(List<Long> sectionLinkForm) {
+        this.sectionLinkForm = sectionLinkForm;
+    }
+
+    public Long getSectionOrder() {
+        return sectionOrder;
+    }
+
+    public void setSectionOrder(Long sectionOrder) {
+        this.sectionOrder = sectionOrder;
     }
 
     public void setSessionUser(SessionUser sessionUser) {

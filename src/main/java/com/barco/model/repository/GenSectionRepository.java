@@ -21,8 +21,8 @@ public interface GenSectionRepository extends CrudRepository<GenSection, Long> {
 
     public Optional<GenSection> findByIdAndCreatedByAndStatusNot(Long id, AppUser createdBy, APPLICATION_STATUS status);
 
-    public List<GenSection> findAllByDateCreatedBetweenAndCreatedByAndStatusNot(Date startDate, Date endDate, AppUser createdBy, APPLICATION_STATUS status);
+    public List<GenSection> findAllByDateCreatedBetweenAndCreatedByAndStatusNotOrderByDateCreatedDesc(Date startDate, Date endDate, AppUser createdBy, APPLICATION_STATUS status);
 
-    public List<GenSection> findAllByDateCreatedBetweenAndCreatedByAndIdInAndStatusNot(
+    public List<GenSection> findAllByDateCreatedBetweenAndCreatedByAndIdInAndStatusNotOrderByDateCreatedDesc(
         Date startDate, Date endDate, AppUser createdBy, List<Long> ids, APPLICATION_STATUS status);
 }
