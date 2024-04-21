@@ -1,5 +1,6 @@
-package com.barco.model.dto.request;
+package com.barco.model.dto.response;
 
+import com.barco.model.util.lookup.GLookup;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
@@ -9,27 +10,18 @@ import com.google.gson.Gson;
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class STTRequest extends RequestFilter {
+public class SourceTaskTypeResponse extends BaseEntity {
 
-    private Long id;
     private String description; // yes
     private String serviceName; // yes
-    private Long status;
-    private Long taskType; // yes
+    private GLookup taskType; // yes
     private Long credentialId;
-    private KafkaTaskTypeRequest kafkaTaskType; // base on task type
-    private ApiTaskTypeRequest apiTaskType; // base on task type
-    private SessionUser sessionUser;
+    // base on task type
+    private KafkaTaskTypeResponse kafkaTaskType;
+    // base on task type
+    private ApiTaskTypeResponse apiTaskType;
 
-    public STTRequest() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public SourceTaskTypeResponse() {
     }
 
     public String getDescription() {
@@ -48,19 +40,11 @@ public class STTRequest extends RequestFilter {
         this.serviceName = serviceName;
     }
 
-    public Long getStatus() {
-        return status;
-    }
-
-    public void setStatus(Long status) {
-        this.status = status;
-    }
-
-    public Long getTaskType() {
+    public GLookup getTaskType() {
         return taskType;
     }
 
-    public void setTaskType(Long taskType) {
+    public void setTaskType(GLookup taskType) {
         this.taskType = taskType;
     }
 
@@ -72,33 +56,24 @@ public class STTRequest extends RequestFilter {
         this.credentialId = credentialId;
     }
 
-    public KafkaTaskTypeRequest getKafkaTaskType() {
+    public KafkaTaskTypeResponse getKafkaTaskType() {
         return kafkaTaskType;
     }
 
-    public void setKafkaTaskType(KafkaTaskTypeRequest kafkaTaskType) {
+    public void setKafkaTaskType(KafkaTaskTypeResponse kafkaTaskType) {
         this.kafkaTaskType = kafkaTaskType;
     }
 
-    public ApiTaskTypeRequest getApiTaskType() {
+    public ApiTaskTypeResponse getApiTaskType() {
         return apiTaskType;
     }
 
-    public void setApiTaskType(ApiTaskTypeRequest apiTaskType) {
+    public void setApiTaskType(ApiTaskTypeResponse apiTaskType) {
         this.apiTaskType = apiTaskType;
-    }
-
-    public SessionUser getSessionUser() {
-        return sessionUser;
-    }
-
-    public void setSessionUser(SessionUser sessionUser) {
-        this.sessionUser = sessionUser;
     }
 
     @Override
     public String toString() {
         return new Gson().toJson(this);
     }
-
 }

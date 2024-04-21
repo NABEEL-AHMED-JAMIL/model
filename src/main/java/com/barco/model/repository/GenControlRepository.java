@@ -19,10 +19,10 @@ public interface GenControlRepository extends CrudRepository<GenControl, Long> {
 
     public List<GenControl> findAllByIdInAndStatusNot(List<Long> ids, APPLICATION_STATUS status);
 
-
     Optional<GenControl> findByIdAndCreatedByAndStatusNot(Long id, AppUser createdBy, APPLICATION_STATUS status);
 
-    public List<GenControl> findAllByDateCreatedBetweenAndCreatedByAndStatusNotOrderByDateCreatedDesc(Date startDate, Date endDate, AppUser createdBy, APPLICATION_STATUS status);
+    public List<GenControl> findAllByDateCreatedBetweenAndCreatedByAndStatusNotOrderByDateCreatedDesc(
+        Date startDate, Date endDate, AppUser createdBy, APPLICATION_STATUS status);
 
     public List<GenControl> findAllByDateCreatedBetweenAndCreatedByAndIdInAndStatusNotOrderByDateCreatedDesc(
         Date startDate, Date endDate, AppUser createdBy, List<Long> ids, APPLICATION_STATUS status);
