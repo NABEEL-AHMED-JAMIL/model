@@ -1,5 +1,6 @@
 package com.barco.model.dto.response;
 
+import com.barco.model.util.lookup.GLookup;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
@@ -14,7 +15,7 @@ public class ApiTaskTypeResponse {
 
     private Long apiTaskTypeId;
     private String apiUrl; // yes
-    private HttpMethod httpMethod; // yes
+    private GLookup httpMethod; // yes
 
     public ApiTaskTypeResponse() {
     }
@@ -35,11 +36,11 @@ public class ApiTaskTypeResponse {
         this.apiUrl = apiUrl;
     }
 
-    public HttpMethod getHttpMethod() {
+    public GLookup getHttpMethod() {
         return httpMethod;
     }
 
-    public void setHttpMethod(HttpMethod httpMethod) {
+    public void setHttpMethod(GLookup httpMethod) {
         this.httpMethod = httpMethod;
     }
 

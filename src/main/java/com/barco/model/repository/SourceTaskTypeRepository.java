@@ -15,6 +15,7 @@ import java.util.Optional;
 @Repository
 public interface SourceTaskTypeRepository extends CrudRepository<SourceTaskType, Long> {
 
+    public List<SourceTaskType> findAllByIdInAndStatusNot(List<Long> ids, APPLICATION_STATUS status);
     public List<SourceTaskType> findAllByIdIn(List<Long> ids);
 
     public Optional<SourceTaskType> findByIdAndCreatedByAndStatusNot(Long id, AppUser appUser, APPLICATION_STATUS status);

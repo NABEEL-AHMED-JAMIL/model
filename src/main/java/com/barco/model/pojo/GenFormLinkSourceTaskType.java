@@ -15,9 +15,6 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class GenFormLinkSourceTaskType extends BaseEntity {
 
-    @Column(name = "form_order", nullable = false)
-    private Long formOrder;
-
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "form_id", nullable = false)
     private GenForm genForm;
@@ -30,14 +27,6 @@ public class GenFormLinkSourceTaskType extends BaseEntity {
     private List<GenSectionLinkGenForm> genSectionLinkGenForms;
 
     public GenFormLinkSourceTaskType() {
-    }
-
-    public Long getFormOrder() {
-        return formOrder;
-    }
-
-    public void setFormOrder(Long formOrder) {
-        this.formOrder = formOrder;
     }
 
     public GenForm getGenForm() {

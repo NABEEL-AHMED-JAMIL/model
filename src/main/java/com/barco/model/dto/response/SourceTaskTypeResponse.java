@@ -15,7 +15,7 @@ public class SourceTaskTypeResponse extends BaseEntity {
     private String description; // yes
     private String serviceName; // yes
     private GLookup taskType; // yes
-    private Long credentialId;
+    private CredentialResponse credential;
     // base on task type
     private KafkaTaskTypeResponse kafkaTaskType;
     // base on task type
@@ -48,12 +48,12 @@ public class SourceTaskTypeResponse extends BaseEntity {
         this.taskType = taskType;
     }
 
-    public Long getCredentialId() {
-        return credentialId;
+    public CredentialResponse getCredential() {
+        return credential;
     }
 
-    public void setCredentialId(Long credentialId) {
-        this.credentialId = credentialId;
+    public void setCredential(CredentialResponse credential) {
+        this.credential = credential;
     }
 
     public KafkaTaskTypeResponse getKafkaTaskType() {

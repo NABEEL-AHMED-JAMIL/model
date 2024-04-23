@@ -26,10 +26,6 @@ public class KafkaTaskType extends BaseEntity {
     @Column(name = "topic_pattern", nullable = false)
     private String topicPattern;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "stt_id")
-    private SourceTaskType sourceTaskType;
-
     public KafkaTaskType() {
     }
 
@@ -63,14 +59,6 @@ public class KafkaTaskType extends BaseEntity {
 
     public void setTopicPattern(String topicPattern) {
         this.topicPattern = topicPattern;
-    }
-
-    public SourceTaskType getSourceTaskType() {
-        return sourceTaskType;
-    }
-
-    public void setSourceTaskType(SourceTaskType sourceTaskType) {
-        this.sourceTaskType = sourceTaskType;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.barco.model.repository;
 
+import com.barco.model.pojo.AppUser;
 import com.barco.model.pojo.Credential;
 import com.barco.model.util.lookup.APPLICATION_STATUS;
 import org.springframework.data.jpa.repository.Query;
@@ -30,6 +31,8 @@ public interface CredentialRepository extends CrudRepository<Credential, Long> {
 
     @Query(value = FIND_ALL_BY_DATE_CREATED_BETWEEN_AND_USERNAME_AND_STATUS_NOT)
     public List<Credential> findAllByDateCreatedBetweenAndUsernameAndStatusNot(Date startDate, Date endDate, String username, APPLICATION_STATUS status);
+
+    public List<Credential> findAllByCreatedByAndStatusNot(AppUser createdBy, APPLICATION_STATUS status);
 
     public List<Credential> findAllByIdIn(List<Long> ids);
 

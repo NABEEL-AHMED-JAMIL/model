@@ -26,6 +26,9 @@ public class FormRequest extends RequestFilter {
     private List<Long> sectionId;
     private List<Long> formLinkSection;
     private Long sectionOrder;
+    //
+    private List<Long> sttId;
+    private List<Long> formLinkStt;
 
     public FormRequest() {
     }
@@ -124,6 +127,22 @@ public class FormRequest extends RequestFilter {
 
     public void setSectionOrder(Long sectionOrder) {
         this.sectionOrder = sectionOrder;
+    }
+
+    public List<Long> getSttId() {
+        return sttId;
+    }
+
+    public void setSttId(List<Long> sttId) {
+        this.sttId = sttId;
+    }
+
+    public List<Long> getFormLinkStt() {
+        return formLinkStt;
+    }
+
+    public void setFormLinkStt(List<Long> formLinkStt) {
+        this.formLinkStt = formLinkStt;
     }
 
     @Override

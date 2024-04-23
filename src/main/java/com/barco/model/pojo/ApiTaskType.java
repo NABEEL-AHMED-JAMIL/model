@@ -21,10 +21,6 @@ public class ApiTaskType extends BaseEntity {
     @Column(name = "http_method", nullable = false)
     private HttpMethod httpMethod;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "stt_id")
-    private SourceTaskType sourceTaskType;
-
     public ApiTaskType() {
     }
 
@@ -42,14 +38,6 @@ public class ApiTaskType extends BaseEntity {
 
     public void setHttpMethod(HttpMethod httpMethod) {
         this.httpMethod = httpMethod;
-    }
-
-    public SourceTaskType getSourceTaskType() {
-        return sourceTaskType;
-    }
-
-    public void setSourceTaskType(SourceTaskType sourceTaskType) {
-        this.sourceTaskType = sourceTaskType;
     }
 
     @Override

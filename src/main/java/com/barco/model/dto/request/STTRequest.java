@@ -1,8 +1,11 @@
 package com.barco.model.dto.request;
 
+import com.barco.model.util.lookup.ACTION;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
+
+import java.util.List;
 
 /**
  * @author Nabeel Ahmed
@@ -20,6 +23,10 @@ public class STTRequest extends RequestFilter {
     private KafkaTaskTypeRequest kafkaTaskType; // base on task type
     private ApiTaskTypeRequest apiTaskType; // base on task type
     private SessionUser sessionUser;
+    //
+    private ACTION action; // delete|insert
+    private List<Long> formId;
+    private List<Long> sttLinkForm;
 
     public STTRequest() {
     }
@@ -94,6 +101,30 @@ public class STTRequest extends RequestFilter {
 
     public void setSessionUser(SessionUser sessionUser) {
         this.sessionUser = sessionUser;
+    }
+
+    public ACTION getAction() {
+        return action;
+    }
+
+    public void setAction(ACTION action) {
+        this.action = action;
+    }
+
+    public List<Long> getFormId() {
+        return formId;
+    }
+
+    public void setFormId(List<Long> formId) {
+        this.formId = formId;
+    }
+
+    public List<Long> getSttLinkForm() {
+        return sttLinkForm;
+    }
+
+    public void setSttLinkForm(List<Long> sttLinkForm) {
+        this.sttLinkForm = sttLinkForm;
     }
 
     @Override

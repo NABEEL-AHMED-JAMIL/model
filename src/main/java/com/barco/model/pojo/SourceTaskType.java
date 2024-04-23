@@ -26,12 +26,12 @@ public class SourceTaskType extends BaseEntity {
         nullable = false, updatable = false)
     private TASK_TYPE taskType;
 
-    @OneToOne(mappedBy = "sourceTaskType", cascade=CascadeType.ALL,
-        fetch = FetchType.LAZY, optional = false)
+    @ManyToOne
+    @JoinColumn(name = "api_id")
     private ApiTaskType apiTaskType;
 
-    @OneToOne(mappedBy = "sourceTaskType", cascade = CascadeType.ALL,
-        fetch = FetchType.LAZY, optional = false)
+    @ManyToOne
+    @JoinColumn(name = "kafka_id")
     private KafkaTaskType kafkaTaskType;
 
     @ManyToOne
