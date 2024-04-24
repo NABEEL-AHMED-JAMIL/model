@@ -2,100 +2,72 @@ package com.barco.model.pojo;
 
 import com.google.gson.Gson;
 import javax.persistence.*;
-import java.sql.Timestamp;
-import java.util.*;
-import org.hibernate.annotations.Parameter;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import org.hibernate.annotations.GenericGenerator;
 
 /**
  * @author Nabeel Ahmed
  */
 @Entity
-@Table(	name = "app_users",
-uniqueConstraints = {
-    @UniqueConstraint(columnNames = "username"),
-    @UniqueConstraint(columnNames = "email")
-})
-@JsonIgnoreProperties(ignoreUnknown=true)
+@Table(name = "app_user")
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class AppUser {
+public class AppUser extends BaseEntity {
 
-    @GenericGenerator(
-        name = "appUserSequenceGenerator",
-        strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
-        parameters = {
-            @Parameter(name = "sequence_name", value = "app_users_Seq"),
-            @Parameter(name = "initial_value", value = "1000"),
-            @Parameter(name = "increment_size", value = "1")
-        }
-    )
-    @Id
-    @Column(name = "app_user_id")
-    @GeneratedValue(generator = "appUserSequenceGenerator")
-    private Long appUserId;
-
-    @Column(name = "profile_img")
-    private String profileImg;
-
-    @Column(name = "first_name")
+    @Column(name = "first_name", nullable = false)
     private String firstName;
 
-    @Column(name = "last_name")
+    @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Column(name = "username", nullable=false)
-    private String username;
-
-    @Column(name = "email", nullable=false)
+    @Column(name = "email",
+        nullable = false, unique = true)
     private String email;
 
-    @Column(name = "password", nullable=false)
+    @Column(name = "username",
+        nullable = false, unique = true)
+    private String username;
+
+    @Column(name = "password")
     private String password;
 
+    @Column(name = "img")
+    private String img;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "profile_id", nullable = false)
+    private Profile profile;
+
+    @Column(name = "ip_address")
+    private String ipAddress;
+
     @ManyToMany(cascade = {
-        CascadeType.PERSIST, CascadeType.MERGE
+       CascadeType.PERSIST, CascadeType.MERGE
     }, fetch = FetchType.LAZY)
     @JoinTable(	name = "app_user_roles",
         joinColumns = @JoinColumn(name = "app_user_id"),
         inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> appUserRoles = new HashSet<>();
 
-    @ManyToOne
-    @JoinColumn(name = "parent_user_id")
-    protected AppUser parentAppUser;
+    // AppUserProfileAccess & AppUserRoleAccess for ui access
+    // for admin and super admin for create the user from application
+    @OneToMany(mappedBy = "appUser", fetch = FetchType.LAZY)
+    private List<AppUserProfileAccess> profilePermissionsAccesses;
 
-    @OneToMany(mappedBy = "parentAppUser", fetch = FetchType.LAZY)
-    protected Set<AppUser> appUserChildren;
+    @OneToMany(mappedBy = "appUser", fetch = FetchType.LAZY)
+    private List<AppUserRoleAccess> appUserRoleAccesses;
 
-    @Column(name = "status", nullable = false)
-    private Long status;
+    @OneToMany(mappedBy = "appUser", fetch = FetchType.LAZY)
+    private List<AppUserEnv> appUserEnvs;
 
-    @Column(name = "date_created", nullable = false)
-    private Timestamp dateCreated;
+    @OneToMany(mappedBy = "appUserParent", fetch = FetchType.LAZY)
+    private List<SubAppUser> subAppUsers;
 
-    public AppUser() {}
 
-    @PrePersist
-    protected void onCreate() {
-        this.dateCreated = new Timestamp(System.currentTimeMillis());
-    }
-
-    public Long getAppUserId() {
-        return appUserId;
-    }
-
-    public void setAppUserId(Long appUserId) {
-        this.appUserId = appUserId;
-    }
-
-    public String getProfileImg() {
-        return profileImg;
-    }
-
-    public void setProfileImg(String profileImg) {
-        this.profileImg = profileImg;
+    public AppUser() {
     }
 
     public String getFirstName() {
@@ -114,20 +86,20 @@ public class AppUser {
         this.lastName = lastName;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -138,6 +110,30 @@ public class AppUser {
         this.password = password;
     }
 
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    public Profile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
+    }
+
+    public String getIpAddress() {
+        return ipAddress;
+    }
+
+    public void setIpAddress(String ipAddress) {
+        this.ipAddress = ipAddress;
+    }
+
     public Set<Role> getAppUserRoles() {
         return appUserRoles;
     }
@@ -146,36 +142,36 @@ public class AppUser {
         this.appUserRoles = appUserRoles;
     }
 
-    public AppUser getParentAppUser() {
-        return parentAppUser;
+    public List<AppUserProfileAccess> getProfilePermissionsAccesses() {
+        return profilePermissionsAccesses;
     }
 
-    public void setParentAppUser(AppUser parentAppUser) {
-        this.parentAppUser = parentAppUser;
+    public void setProfilePermissionsAccesses(List<AppUserProfileAccess> profilePermissionsAccesses) {
+        this.profilePermissionsAccesses = profilePermissionsAccesses;
     }
 
-    public Set<AppUser> getAppUserChildren() {
-        return appUserChildren;
+    public List<AppUserRoleAccess> getAppUserRoleAccesses() {
+        return appUserRoleAccesses;
     }
 
-    public void setAppUserChildren(Set<AppUser> appUserChildren) {
-        this.appUserChildren = appUserChildren;
+    public void setAppUserRoleAccesses(List<AppUserRoleAccess> appUserRoleAccesses) {
+        this.appUserRoleAccesses = appUserRoleAccesses;
     }
 
-    public Long getStatus() {
-        return status;
+    public List<AppUserEnv> getAppUserEnvs() {
+        return appUserEnvs;
     }
 
-    public void setStatus(Long status) {
-        this.status = status;
+    public void setAppUserEnvs(List<AppUserEnv> appUserEnvs) {
+        this.appUserEnvs = appUserEnvs;
     }
 
-    public Timestamp getDateCreated() {
-        return dateCreated;
+    public List<SubAppUser> getSubAppUsers() {
+        return subAppUsers;
     }
 
-    public void setDateCreated(Timestamp dateCreated) {
-        this.dateCreated = dateCreated;
+    public void setSubAppUsers(List<SubAppUser> subAppUsers) {
+        this.subAppUsers = subAppUsers;
     }
 
     @Override

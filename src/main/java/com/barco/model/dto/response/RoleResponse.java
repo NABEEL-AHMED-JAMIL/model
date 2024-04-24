@@ -1,61 +1,54 @@
 package com.barco.model.dto.response;
 
-import com.barco.model.util.lookuputil.GLookup;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
-import java.sql.Timestamp;
 
 /**
  * @author Nabeel Ahmed
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class RoleResponse {
+public class RoleResponse extends BaseEntity {
 
-    private Long roleId;
-    private String roleName;
-    private GLookup status;
-    private Timestamp dateCreated;
+    private Long id;
+    private String name;
+    private String description;
 
     public RoleResponse() {
     }
 
-    public Long getRoleId() {
-        return roleId;
+    public RoleResponse(String name) {
+        this.name = name;
     }
 
-    public void setRoleId(Long roleId) {
-        this.roleId = roleId;
+    public Long getId() {
+        return id;
     }
 
-    public String getRoleName() {
-        return roleName;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
+    public String getName() {
+        return name;
     }
 
-    public GLookup getStatus() {
-        return status;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setStatus(GLookup status) {
-        this.status = status;
+    public String getDescription() {
+        return description;
     }
 
-    public Timestamp getDateCreated() {
-        return dateCreated;
-    }
-
-    public void setDateCreated(Timestamp dateCreated) {
-        this.dateCreated = dateCreated;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
     public String toString() {
         return new Gson().toJson(this);
     }
-
 }

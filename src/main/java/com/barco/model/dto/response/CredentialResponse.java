@@ -1,82 +1,57 @@
 package com.barco.model.dto.response;
 
-import com.barco.model.util.lookuputil.GLookup;
+import com.barco.model.util.lookup.GLookup;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
-import java.sql.Timestamp;
 
 /**
  * @author Nabeel Ahmed
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class CredentialResponse {
+public class CredentialResponse extends BaseEntity {
 
-    private Long credentialId;
-    private String credentialName;
-    private GLookup credentialType;
-    private AppUserResponse appUser;
+    private String name;
+    private GLookup type;
     private GLookup status;
-    private Object credentialContent;
-    private Timestamp dateCreated;
+    private Object content;
 
-    public CredentialResponse() {}
-
-    public Long getCredentialId() {
-        return credentialId;
+    public CredentialResponse() {
     }
 
-    public void setCredentialId(Long credentialId) {
-        this.credentialId = credentialId;
+    public String getName() {
+        return name;
     }
 
-    public String getCredentialName() {
-        return credentialName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setCredentialName(String credentialName) {
-        this.credentialName = credentialName;
+    public GLookup getType() {
+        return type;
     }
 
-    public GLookup getCredentialType() {
-        return credentialType;
+    public void setType(GLookup type) {
+        this.type = type;
     }
 
-    public void setCredentialType(GLookup credentialType) {
-        this.credentialType = credentialType;
-    }
-
-    public AppUserResponse getAppUser() {
-        return appUser;
-    }
-
-    public void setAppUser(AppUserResponse appUser) {
-        this.appUser = appUser;
-    }
-
+    @Override
     public GLookup getStatus() {
         return status;
     }
 
+    @Override
     public void setStatus(GLookup status) {
         this.status = status;
     }
 
-    public Object getCredentialContent() {
-        return credentialContent;
+    public Object getContent() {
+        return content;
     }
 
-    public void setCredentialContent(Object credentialContent) {
-        this.credentialContent = credentialContent;
-    }
-
-    public Timestamp getDateCreated() {
-        return dateCreated;
-    }
-
-    public void setDateCreated(Timestamp dateCreated) {
-        this.dateCreated = dateCreated;
+    public void setContent(Object content) {
+        this.content = content;
     }
 
     @Override

@@ -13,20 +13,19 @@ import java.util.Optional;
 @Repository
 public interface LookupDataRepository extends CrudRepository<LookupData, Long> {
 
+    String FIND_ALL_PARENT_LOOKUP_BY_USERNAME = "SELECT lkd FROM LookupData lkd " +
+        "WHERE lkd.createdBy.username = ?1 AND lkd.parentLookup.id IS NULL ORDER BY lkd.dateCreated DESC";
+    String FIND_ONE_BY_PARENT_LOOKUP_ID_AND_USERNAME = "SELECT lkd FROM LookupData lkd " +
+        "WHERE lkd.id = ?1 AND lkd.createdBy.username = ?2";
+
     public Optional<LookupData> findByLookupType(String lookupType);
 
     public List<LookupData> findByParentLookupIsNull();
 
-    @Query(value = "select ld.*, au.app_user_id, au.username\n" +
-        "from lookup_data ld\n" +
-        "join app_users au on au.app_user_id  = ld.app_user_id  \n" +
-        "where au.username = ?1 and ld.parent_lookup_id  is null order by ld.lookup_id", nativeQuery = true)
-    public List<LookupData> fetchAllLookup(String username);
+    @Query(value = FIND_ALL_PARENT_LOOKUP_BY_USERNAME)
+    public List<LookupData> findAllParentLookupByUsernameOrderByDateCreatedDesc(String username);
 
-    @Query(value = "select ld.*, au.app_user_id, au.username\n" +
-        "from lookup_data ld\n" +
-        "join app_users au on au.app_user_id  = ld.app_user_id  \n" +
-        "where ld.lookup_id = ?1 and au.username = ?2 order by ld.lookup_id", nativeQuery = true)
-    public Optional<LookupData> findByParentLookupAndAppUserUsername(Long parentLookupId, String username);
+    @Query(value = FIND_ONE_BY_PARENT_LOOKUP_ID_AND_USERNAME)
+    public Optional<LookupData> findOneByParentLookupIdAndUsername(Long parentLookupId, String username);
 
 }

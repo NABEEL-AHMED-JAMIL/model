@@ -3,39 +3,28 @@ package com.barco.model.dto.response;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
-import com.barco.model.util.lookuputil.GLookup;
-import java.sql.Timestamp;
 import java.util.List;
-import java.util.Set;
 
 /**
  * @author Nabeel Ahmed
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class AppUserResponse {
+public class AppUserResponse extends BaseEntity {
 
-    private Long appUserId;
     private String firstName;
     private String lastName;
-    private GLookup timeZone;
-    private String username;
     private String email;
-    private String profile;
-    private List<AppUserResponse> subAppUser;
-    private Set<RoleResponse> roleResponse;
-    private GLookup status;
-    private Timestamp dateCreated;
-    protected AppUserResponse parentAppUser;
+    private String username;
+    private String password;
+    private String profileImg;
+    private String ipAddress;
+    private List<String> roles;
+    private ProfileResponse profile;
+    private Integer totalSubUser;
+    private List<EnVariablesResponse> enVariables;
 
-    public AppUserResponse() {}
-
-    public Long getAppUserId() {
-        return appUserId;
-    }
-
-    public void setAppUserId(Long appUserId) {
-        this.appUserId = appUserId;
+    public AppUserResponse() {
     }
 
     public String getFirstName() {
@@ -54,12 +43,12 @@ public class AppUserResponse {
         this.lastName = lastName;
     }
 
-    public GLookup getTimeZone() {
-        return timeZone;
+    public String getEmail() {
+        return email;
     }
 
-    public void setTimeZone(GLookup timeZone) {
-        this.timeZone = timeZone;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getUsername() {
@@ -70,60 +59,60 @@ public class AppUserResponse {
         this.username = username;
     }
 
-    public String getEmail() {
-        return email;
+    public String getPassword() {
+        return password;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getProfile() {
+    public String getProfileImg() {
+        return profileImg;
+    }
+
+    public void setProfileImg(String profileImg) {
+        this.profileImg = profileImg;
+    }
+
+    public String getIpAddress() {
+        return ipAddress;
+    }
+
+    public void setIpAddress(String ipAddress) {
+        this.ipAddress = ipAddress;
+    }
+
+    public List<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
+    }
+
+    public ProfileResponse getProfile() {
         return profile;
     }
 
-    public void setProfile(String profile) {
+    public void setProfile(ProfileResponse profile) {
         this.profile = profile;
     }
 
-    public List<AppUserResponse> getSubAppUser() {
-        return subAppUser;
+    public Integer getTotalSubUser() {
+        return totalSubUser;
     }
 
-    public void setSubAppUser(List<AppUserResponse> subAppUser) {
-        this.subAppUser = subAppUser;
+    public void setTotalSubUser(Integer totalSubUser) {
+        this.totalSubUser = totalSubUser;
     }
 
-    public Set<RoleResponse> getRoleResponse() {
-        return roleResponse;
+    public List<EnVariablesResponse> getEnVariables() {
+        return enVariables;
     }
 
-    public void setRoleResponse(Set<RoleResponse> roleResponse) {
-        this.roleResponse = roleResponse;
-    }
-
-    public GLookup getStatus() {
-        return status;
-    }
-
-    public void setStatus(GLookup status) {
-        this.status = status;
-    }
-
-    public Timestamp getDateCreated() {
-        return dateCreated;
-    }
-
-    public void setDateCreated(Timestamp dateCreated) {
-        this.dateCreated = dateCreated;
-    }
-
-    public AppUserResponse getParentAppUser() {
-        return parentAppUser;
-    }
-
-    public void setParentAppUser(AppUserResponse parentAppUser) {
-        this.parentAppUser = parentAppUser;
+    public void setEnVariables(List<EnVariablesResponse> enVariables) {
+        this.enVariables = enVariables;
     }
 
     @Override

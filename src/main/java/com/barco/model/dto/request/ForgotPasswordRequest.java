@@ -11,28 +11,20 @@ import com.google.gson.Gson;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ForgotPasswordRequest {
 
-    private String email;
     // vm detail
-    private Long appUserId;
+    private Long id;
     private String username;
+    private String email;
 
     public ForgotPasswordRequest() {
     }
 
-    public String getEmail() {
-        return email;
+    public Long getId() {
+        return id;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Long getAppUserId() {
-        return appUserId;
-    }
-
-    public void setAppUserId(Long appUserId) {
-        this.appUserId = appUserId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -41,6 +33,14 @@ public class ForgotPasswordRequest {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override

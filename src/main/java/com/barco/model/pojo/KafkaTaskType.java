@@ -3,8 +3,6 @@ package com.barco.model.pojo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Parameter;
 import javax.persistence.*;
 
 /**
@@ -12,24 +10,12 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "kafka_task_type")
-@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class KafkaTaskType {
-    final static Integer REPLICATION_FACTOR = 1;
+public class KafkaTaskType extends BaseEntity {
 
-    @GenericGenerator(
-        name = "kafkaTaskTypeSequenceGenerator",
-        strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
-        parameters = {
-            @Parameter(name = "sequence_name", value = "kafka_task_type_source_Seq"),
-            @Parameter(name = "initial_value", value = "1000"),
-            @Parameter(name = "increment_size", value = "1")
-        }
-    )
-    @Id
-    @Column(name="kafka_task_type_id", unique=true, nullable=false)
-    @GeneratedValue(generator = "kafkaTaskTypeSequenceGenerator")
-    private Long kafkaTaskTypeId;
+    @Column(name = "service_url", nullable = false)
+    private String serviceUrl;
 
     @Column(name = "topic_name", nullable = false)
     private String topicName;
@@ -40,18 +26,15 @@ public class KafkaTaskType {
     @Column(name = "topic_pattern", nullable = false)
     private String topicPattern;
 
-    @Column(name = "status", nullable = false)
-    private Long status;
-
     public KafkaTaskType() {
     }
 
-    public Long getKafkaTaskTypeId() {
-        return kafkaTaskTypeId;
+    public String getServiceUrl() {
+        return serviceUrl;
     }
 
-    public void setKafkaTaskTypeId(Long kafkaTaskTypeId) {
-        this.kafkaTaskTypeId = kafkaTaskTypeId;
+    public void setServiceUrl(String serviceUrl) {
+        this.serviceUrl = serviceUrl;
     }
 
     public String getTopicName() {
@@ -76,14 +59,6 @@ public class KafkaTaskType {
 
     public void setTopicPattern(String topicPattern) {
         this.topicPattern = topicPattern;
-    }
-
-    public Long getStatus() {
-        return status;
-    }
-
-    public void setStatus(Long status) {
-        this.status = status;
     }
 
     @Override

@@ -35,7 +35,7 @@ public class AppResponse {
     }
 
     public AppResponse(String status, String message,
-        Object data, Object paging) {
+                       Object data, Object paging) {
         this.status = status;
         this.message = message;
         this.data = data;

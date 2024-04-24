@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 
-
 /**
  * @author Nabeel Ahmed
  */
@@ -12,22 +11,22 @@ import com.google.gson.Gson;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class QueryRequest {
 
-    private String query;
+	private String query;
 
-    public QueryRequest() {
-    }
+	public QueryRequest() {
+	}
 
-    public String getQuery() {
-        return query;
-    }
+	public String getQuery() {
+		return query;
+	}
 
-    public void setQuery(String query) {
-        this.query = query;
-    }
+	public void setQuery(String query) {
+		this.query = query;
+	}
 
-    @Override
-    public String toString() {
-        return new Gson().toJson(this);
-    }
+	@Override
+	public String toString() {
+		return new Gson().toJson(this);
+	}
 
 }

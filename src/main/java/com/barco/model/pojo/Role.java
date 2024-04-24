@@ -1,83 +1,55 @@
 package com.barco.model.pojo;
 
-import com.google.gson.Gson;
-import javax.persistence.*;
-import java.sql.Timestamp;
-import org.hibernate.annotations.Parameter;
-import org.hibernate.annotations.GenericGenerator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.google.gson.Gson;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * @author Nabeel Ahmed
  */
 @Entity
 @Table(name = "role")
-@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Role {
+public class Role extends BaseEntity {
 
-    @GenericGenerator(
-        name = "roleSequenceGenerator",
-        strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
-        parameters = {
-            @Parameter(name = "sequence_name", value = "role_Seq"),
-            @Parameter(name = "initial_value", value = "1000"),
-            @Parameter(name = "increment_size", value = "1")
-        }
-    )
-    @Id
-    @Column(name = "role_id")
-    @GeneratedValue(generator = "roleSequenceGenerator")
-    private Long roleId;
+    @Column(name = "name",
+        unique = true, nullable = false)
+    private String name;
 
-    @Column(name = "role_name",
-        unique=true, nullable=false)
-    private String roleName;
+    @Column(name = "description")
+    private String description;
 
-    @Column(name = "status", nullable = false)
-    private Long status;
-
-    @Column(name = "date_created", nullable = false)
-    private Timestamp dateCreated;
+    @OneToMany(mappedBy = "role", fetch = FetchType.LAZY,
+        cascade = CascadeType.ALL)
+    private List<AppUserRoleAccess> roleAccesses;
 
     public Role() {}
 
-    @PrePersist
-    protected void onCreate() {
-        this.dateCreated = new Timestamp(System.currentTimeMillis());
+    public String getName() {
+        return name;
     }
 
-    public Long getRoleId() {
-        return roleId;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setRoleId(Long roleId) {
-        this.roleId = roleId;
+    public String getDescription() {
+        return description;
     }
 
-    public String getRoleName() {
-        return roleName;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
+    public List<AppUserRoleAccess> getRoleAccesses() {
+        return roleAccesses;
     }
 
-    public Long getStatus() {
-        return status;
-    }
-
-    public void setStatus(Long status) {
-        this.status = status;
-    }
-
-    public Timestamp getDateCreated() {
-        return dateCreated;
-    }
-
-    public void setDateCreated(Timestamp dateCreated) {
-        this.dateCreated = dateCreated;
+    public void setRoleAccesses(List<AppUserRoleAccess> roleAccesses) {
+        this.roleAccesses = roleAccesses;
     }
 
     @Override

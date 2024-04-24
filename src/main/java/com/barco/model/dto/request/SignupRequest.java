@@ -4,8 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 
-import java.util.List;
-
 /**
  * @author Nabeel Ahmed
  */
@@ -15,13 +13,11 @@ public class SignupRequest {
 
     private String firstName;
     private String lastName;
-    private String username;
     private String email;
+    private String username;
     private String password;
-    private List<Long> roles;
     private String profileImg;
-    private String role; // for email
-    private ParseRequest accessUserDetail;
+    private String ipAddress;
 
     public SignupRequest() {
     }
@@ -42,20 +38,20 @@ public class SignupRequest {
         this.lastName = lastName;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -66,14 +62,6 @@ public class SignupRequest {
         this.password = password;
     }
 
-    public List<Long> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<Long> roles) {
-        this.roles = roles;
-    }
-
     public String getProfileImg() {
         return profileImg;
     }
@@ -82,26 +70,12 @@ public class SignupRequest {
         this.profileImg = profileImg;
     }
 
-    public String getRole() {
-        return role;
+    public String getIpAddress() {
+        return ipAddress;
     }
 
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public ParseRequest getAccessUserDetail() {
-        return accessUserDetail;
-    }
-
-    public void setAccessUserDetail(ParseRequest accessUserDetail) {
-        this.accessUserDetail = accessUserDetail;
-    }
-
-    public void addAccessUserDetail(String username) {
-        ParseRequest accessUserDetail = new ParseRequest();
-        accessUserDetail.setUsername(username);
-        this.setAccessUserDetail(accessUserDetail);
+    public void setIpAddress(String ipAddress) {
+        this.ipAddress = ipAddress;
     }
 
     @Override

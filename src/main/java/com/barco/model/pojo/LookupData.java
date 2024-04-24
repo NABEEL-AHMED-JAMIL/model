@@ -1,47 +1,26 @@
 package com.barco.model.pojo;
 
+import com.barco.model.util.lookup.UI_LOOKUP;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Parameter;
 import javax.persistence.*;
-import java.sql.Timestamp;
 import java.util.Set;
 
-/**
- * This LookupData use store the all scheduler detail
- * like last scheduler run
- * and how much chuck data fetch at 1 time
- * */
 /**
  * @author Nabeel Ahmed
  */
 @Entity
 @Table(name = "lookup_data")
-@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class LookupData {
-
-    @GenericGenerator(
-        name = "lookupDataSequenceGenerator",
-        strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
-        parameters = {
-            @Parameter(name = "sequence_name", value = "lookup_id_Seq"),
-            @Parameter(name = "initial_value", value = "1000"),
-            @Parameter(name = "increment_size", value = "1")
-        }
-    )
-    @Id
-    @Column(name = "lookup_id")
-    @GeneratedValue(generator = "lookupDataSequenceGenerator")
-    private Long lookupId;
-
-    @Column(name = "lookup_code")
-    public Long lookupCode;
+public class LookupData extends BaseEntity {
 
     @Column(name = "lookup_type", unique = true)
     private String lookupType;
+
+    @Column(name = "lookup_code")
+    private Long lookupCode;
 
     @Column(name = "lookup_value",
         columnDefinition = "text")
@@ -50,39 +29,25 @@ public class LookupData {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "date_created",
-        nullable = false)
-    private Timestamp dateCreated;
-
     @ManyToOne
     @JoinColumn(name = "parent_lookup_id")
     protected LookupData parentLookup;
 
-    @OneToMany(mappedBy = "parentLookup",
-        fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "parentLookup", fetch = FetchType.LAZY)
     protected Set<LookupData> lookupChildren;
 
-    @Column(name = "uiLookup")
-    private Boolean uiLookup;
-
-    @ManyToOne
-    @JoinColumn(name="app_user_id",
-        nullable=false)
-    private AppUser appUser;
+    @Column(name = "ui_lookup")
+    @Enumerated(EnumType.ORDINAL)
+    private UI_LOOKUP uiLookup;
 
     public LookupData() { }
 
-    @PrePersist
-    protected void onCreate() {
-        this.dateCreated = new Timestamp(System.currentTimeMillis());
+    public String getLookupType() {
+        return lookupType;
     }
 
-    public Long getLookupId() {
-        return lookupId;
-    }
-
-    public void setLookupId(Long lookupId) {
-        this.lookupId = lookupId;
+    public void setLookupType(String lookupType) {
+        this.lookupType = lookupType;
     }
 
     public Long getLookupCode() {
@@ -91,14 +56,6 @@ public class LookupData {
 
     public void setLookupCode(Long lookupCode) {
         this.lookupCode = lookupCode;
-    }
-
-    public String getLookupType() {
-        return lookupType;
-    }
-
-    public void setLookupType(String lookupType) {
-        this.lookupType = lookupType;
     }
 
     public String getLookupValue() {
@@ -117,14 +74,6 @@ public class LookupData {
         this.description = description;
     }
 
-    public Timestamp getDateCreated() {
-        return dateCreated;
-    }
-
-    public void setDateCreated(Timestamp dateCreated) {
-        this.dateCreated = dateCreated;
-    }
-
     public LookupData getParentLookup() {
         return parentLookup;
     }
@@ -141,20 +90,12 @@ public class LookupData {
         this.lookupChildren = lookupChildren;
     }
 
-    public Boolean getUiLookup() {
+    public UI_LOOKUP getUiLookup() {
         return uiLookup;
     }
 
-    public void setUiLookup(Boolean uiLookup) {
+    public void setUiLookup(UI_LOOKUP uiLookup) {
         this.uiLookup = uiLookup;
-    }
-
-    public AppUser getAppUser() {
-        return appUser;
-    }
-
-    public void setAppUser(AppUser appUser) {
-        this.appUser = appUser;
     }
 
     @Override

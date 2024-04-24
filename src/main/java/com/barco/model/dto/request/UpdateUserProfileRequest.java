@@ -12,26 +12,25 @@ import com.google.gson.Gson;
 public class UpdateUserProfileRequest {
 
     // vm detail (appUserId, username)
-    private Long appUserId;
+    private Long id;
     private String firstName;
     private String lastName;
+    private String ipAddress;
     private String username;
     private String email;
     private String oldPassword;
     private String newPassword;
-    private Long timeZone;
-    private Long status;
-    private ParseRequest accessUserDetail;
+    private SessionUser sessionUser;
 
     public UpdateUserProfileRequest() {
     }
 
-    public Long getAppUserId() {
-        return appUserId;
+    public Long getId() {
+        return id;
     }
 
-    public void setAppUserId(Long appUserId) {
-        this.appUserId = appUserId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -48,6 +47,14 @@ public class UpdateUserProfileRequest {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getIpAddress() {
+        return ipAddress;
+    }
+
+    public void setIpAddress(String ipAddress) {
+        this.ipAddress = ipAddress;
     }
 
     public String getUsername() {
@@ -82,34 +89,12 @@ public class UpdateUserProfileRequest {
         this.newPassword = newPassword;
     }
 
-    public Long getTimeZone() {
-        return timeZone;
+    public SessionUser getSessionUser() {
+        return sessionUser;
     }
 
-    public void setTimeZone(Long timeZone) {
-        this.timeZone = timeZone;
-    }
-
-    public Long getStatus() {
-        return status;
-    }
-
-    public void setStatus(Long status) {
-        this.status = status;
-    }
-
-    public ParseRequest getAccessUserDetail() {
-        return accessUserDetail;
-    }
-
-    public void setAccessUserDetail(ParseRequest accessUserDetail) {
-        this.accessUserDetail = accessUserDetail;
-    }
-
-    public void addAccessUserDetail(String username) {
-        ParseRequest accessUserDetail = new ParseRequest();
-        accessUserDetail.setUsername(username);
-        this.setAccessUserDetail(accessUserDetail);
+    public void setSessionUser(SessionUser sessionUser) {
+        this.sessionUser = sessionUser;
     }
 
     @Override

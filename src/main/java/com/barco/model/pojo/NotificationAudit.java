@@ -1,9 +1,10 @@
 package com.barco.model.pojo;
 
+import com.barco.model.util.lookup.NOTIFICATION_STATUS;
+import com.barco.model.util.lookup.NOTIFICATION_TYPE;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Parameter;
+import com.google.gson.Gson;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
@@ -12,67 +13,37 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table(name = "notification_audit")
-@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class NotificationAudit {
-
-    @GenericGenerator(
-        name = "notificationAuditSequenceGenerator",
-        strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
-        parameters = {
-            @Parameter(name = "sequence_name", value = "notification_audit_source_Seq"),
-            @Parameter(name = "initial_value", value = "1000"),
-            @Parameter(name = "increment_size", value = "1")
-        })
-    @Id
-    @Column(name = "notification_audit_id")
-    @GeneratedValue(generator = "notificationAuditSequenceGenerator")
-    private Long notAuditId;
+public class NotificationAudit extends BaseEntity  {
 
     @ManyToOne
-    @JoinColumn(name = "not_for")
-    protected AppUser notFor;
+    @JoinColumn(name = "send_to")
+    protected AppUser sendTo;
 
-
-    @Column(name = "message",
-        nullable = false)
+    @Column(name = "message", nullable = false)
     private String message;
 
-    // job|email
-    @Column(name = "type",
-        nullable = false)
-    private Long type;
+    @Column(name = "notify_type", nullable = false)
+    @Enumerated(EnumType.ORDINAL)
+    private NOTIFICATION_TYPE notifyType;
 
     // base on look-up
-    @Column(name = "expire_time",
-        nullable = false)
-    private Long expireTime;
+    @Column(name = "expire_time", nullable = false)
+    private Timestamp expireTime;
 
-    // read|un-read
-    @Column(name = "not_state",
-        nullable = false)
-    private Long notStatus;
-
-    @Column(name = "date_created",
-        nullable = false)
-    private Timestamp dateCreated;
+    @Column(name = "message_state", nullable = false)
+    @Enumerated(EnumType.ORDINAL)
+    private NOTIFICATION_STATUS messageStatus;
 
     public NotificationAudit() {}
 
-    public Long getNotAuditId() {
-        return notAuditId;
+    public AppUser getSendTo() {
+        return sendTo;
     }
 
-    public void setNotAuditId(Long notAuditId) {
-        this.notAuditId = notAuditId;
-    }
-
-    public AppUser getNotFor() {
-        return notFor;
-    }
-
-    public void setNotFor(AppUser notFor) {
-        this.notFor = notFor;
+    public void setSendTo(AppUser sendTo) {
+        this.sendTo = sendTo;
     }
 
     public String getMessage() {
@@ -83,42 +54,32 @@ public class NotificationAudit {
         this.message = message;
     }
 
-    public Long getType() {
-        return type;
+    public NOTIFICATION_TYPE getNotifyType() {
+        return notifyType;
     }
 
-    public void setType(Long type) {
-        this.type = type;
+    public void setNotifyType(NOTIFICATION_TYPE notifyType) {
+        this.notifyType = notifyType;
     }
 
-    public Long getExpireTime() {
+    public Timestamp getExpireTime() {
         return expireTime;
     }
 
-    public void setExpireTime(Long expireTime) {
+    public void setExpireTime(Timestamp expireTime) {
         this.expireTime = expireTime;
     }
 
-    public Long getNotStatus() {
-        return notStatus;
+    public NOTIFICATION_STATUS getMessageStatus() {
+        return messageStatus;
     }
 
-    public void setNotStatus(Long notStatus) {
-        this.notStatus = notStatus;
+    public void setMessageStatus(NOTIFICATION_STATUS messageStatus) {
+        this.messageStatus = messageStatus;
     }
 
-    public Timestamp getDateCreated() {
-        return dateCreated;
+    @Override
+    public String toString() {
+        return new Gson().toJson(this);
     }
-
-    public void setDateCreated(Timestamp dateCreated) {
-        this.dateCreated = dateCreated;
-    }
-
-    @PrePersist
-    protected void onCreate() {
-        this.dateCreated = new Timestamp(System.currentTimeMillis());
-    }
-
-
 }

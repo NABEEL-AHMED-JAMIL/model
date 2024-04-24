@@ -1,9 +1,9 @@
 package com.barco.model.dto.response;
 
+import com.barco.model.util.lookup.GLookup;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
-import java.sql.Timestamp;
 import java.util.Set;
 
 /**
@@ -11,26 +11,16 @@ import java.util.Set;
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class LookupDataResponse {
+public class LookupDataResponse extends BaseEntity {
 
-    private Long lookupId;
     private Long lookupCode;
     private String lookupType;
     private String lookupValue;
     private String description;
-    private Boolean uiLookup;
-    private Timestamp dateCreated;
+    private GLookup uiLookup;
     protected Set<LookupDataResponse> lookupChildren;
 
     public LookupDataResponse() {
-    }
-
-    public Long getLookupId() {
-        return lookupId;
-    }
-
-    public void setLookupId(Long lookupId) {
-        this.lookupId = lookupId;
     }
 
     public Long getLookupCode() {
@@ -65,20 +55,12 @@ public class LookupDataResponse {
         this.description = description;
     }
 
-    public Boolean getUiLookup() {
+    public GLookup getUiLookup() {
         return uiLookup;
     }
 
-    public void setUiLookup(Boolean uiLookup) {
+    public void setUiLookup(GLookup uiLookup) {
         this.uiLookup = uiLookup;
-    }
-
-    public Timestamp getDateCreated() {
-        return dateCreated;
-    }
-
-    public void setDateCreated(Timestamp dateCreated) {
-        this.dateCreated = dateCreated;
     }
 
     public Set<LookupDataResponse> getLookupChildren() {

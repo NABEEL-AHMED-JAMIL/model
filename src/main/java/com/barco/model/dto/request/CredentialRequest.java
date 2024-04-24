@@ -9,40 +9,40 @@ import com.google.gson.Gson;
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class CredentialRequest {
+public class CredentialRequest extends RequestFilter {
 
-    private Long credentialId;
-    private String credentialName; // yes
-    private Long credentialType; // yes
+    private Long id;
+    private String name; // yes
+    private Long type; // yes
     private Long status;
-    private Object credentialContent; // yes
-    private ParseRequest accessUserDetail; // yes
+    private Object content; // yes
+    private SessionUser sessionUser;
 
     public CredentialRequest() {
     }
 
-    public Long getCredentialId() {
-        return credentialId;
+    public Long getId() {
+        return id;
     }
 
-    public void setCredentialId(Long credentialId) {
-        this.credentialId = credentialId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getCredentialName() {
-        return credentialName;
+    public String getName() {
+        return name;
     }
 
-    public void setCredentialName(String credentialName) {
-        this.credentialName = credentialName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Long getCredentialType() {
-        return credentialType;
+    public Long getType() {
+        return type;
     }
 
-    public void setCredentialType(Long credentialType) {
-        this.credentialType = credentialType;
+    public void setType(Long type) {
+        this.type = type;
     }
 
     public Long getStatus() {
@@ -53,26 +53,20 @@ public class CredentialRequest {
         this.status = status;
     }
 
-    public Object getCredentialContent() {
-        return credentialContent;
+    public Object getContent() {
+        return content;
     }
 
-    public void setCredentialContent(Object credentialContent) {
-        this.credentialContent = credentialContent;
+    public void setContent(Object content) {
+        this.content = content;
     }
 
-    public ParseRequest getAccessUserDetail() {
-        return accessUserDetail;
+    public SessionUser getSessionUser() {
+        return sessionUser;
     }
 
-    public void setAccessUserDetail(ParseRequest accessUserDetail) {
-        this.accessUserDetail = accessUserDetail;
-    }
-
-    public void addAccessUserDetail(String username) {
-        ParseRequest accessUserDetail = new ParseRequest();
-        accessUserDetail.setUsername(username);
-        this.setAccessUserDetail(accessUserDetail);
+    public void setSessionUser(SessionUser sessionUser) {
+        this.sessionUser = sessionUser;
     }
 
     @Override

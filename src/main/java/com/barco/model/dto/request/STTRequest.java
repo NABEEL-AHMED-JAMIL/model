@@ -1,39 +1,42 @@
 package com.barco.model.dto.request;
 
+import com.barco.model.util.lookup.ACTION;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 
+import java.util.List;
 
 /**
  * @author Nabeel Ahmed
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class STTRequest {
+public class STTRequest extends RequestFilter {
 
-    private Long sttId;
+    private Long id;
     private String description; // yes
     private String serviceName; // yes
     private Long status;
     private Long taskType; // yes
-    private String homePage;
-    private String serviceId;
-    private Long formId;
     private Long credentialId;
-    private Boolean deleteAble;
     private KafkaTaskTypeRequest kafkaTaskType; // base on task type
     private ApiTaskTypeRequest apiTaskType; // base on task type
-    private ParseRequest accessUserDetail; // yes
+    private SessionUser sessionUser;
+    //
+    private ACTION action; // delete|insert
+    private List<Long> formId;
+    private List<Long> sttLinkForm;
 
-    public STTRequest() {}
-
-    public Long getSttId() {
-        return sttId;
+    public STTRequest() {
     }
 
-    public void setSttId(Long sttId) {
-        this.sttId = sttId;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getDescription() {
@@ -68,44 +71,12 @@ public class STTRequest {
         this.taskType = taskType;
     }
 
-    public String getHomePage() {
-        return homePage;
-    }
-
-    public void setHomePage(String homePage) {
-        this.homePage = homePage;
-    }
-
-    public String getServiceId() {
-        return serviceId;
-    }
-
-    public void setServiceId(String serviceId) {
-        this.serviceId = serviceId;
-    }
-
-    public Long getFormId() {
-        return formId;
-    }
-
-    public void setFormId(Long formId) {
-        this.formId = formId;
-    }
-
     public Long getCredentialId() {
         return credentialId;
     }
 
     public void setCredentialId(Long credentialId) {
         this.credentialId = credentialId;
-    }
-
-    public Boolean getDeleteAble() {
-        return deleteAble;
-    }
-
-    public void setDeleteAble(Boolean deleteAble) {
-        this.deleteAble = deleteAble;
     }
 
     public KafkaTaskTypeRequest getKafkaTaskType() {
@@ -124,12 +95,36 @@ public class STTRequest {
         this.apiTaskType = apiTaskType;
     }
 
-    public ParseRequest getAccessUserDetail() {
-        return accessUserDetail;
+    public SessionUser getSessionUser() {
+        return sessionUser;
     }
 
-    public void setAccessUserDetail(ParseRequest accessUserDetail) {
-        this.accessUserDetail = accessUserDetail;
+    public void setSessionUser(SessionUser sessionUser) {
+        this.sessionUser = sessionUser;
+    }
+
+    public ACTION getAction() {
+        return action;
+    }
+
+    public void setAction(ACTION action) {
+        this.action = action;
+    }
+
+    public List<Long> getFormId() {
+        return formId;
+    }
+
+    public void setFormId(List<Long> formId) {
+        this.formId = formId;
+    }
+
+    public List<Long> getSttLinkForm() {
+        return sttLinkForm;
+    }
+
+    public void setSttLinkForm(List<Long> sttLinkForm) {
+        this.sttLinkForm = sttLinkForm;
     }
 
     @Override

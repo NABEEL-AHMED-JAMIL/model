@@ -11,7 +11,8 @@ import com.google.gson.Gson;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class KafkaTaskTypeRequest {
 
-    private Long kafkaTTId;
+    private Long kafkaId;
+    private String serviceUrl;
     private Integer numPartitions; // yes
     private String topicName; // yes
     private String topicPattern; // yes
@@ -19,12 +20,20 @@ public class KafkaTaskTypeRequest {
     public KafkaTaskTypeRequest() {
     }
 
-    public Long getKafkaTTId() {
-        return kafkaTTId;
+    public Long getKafkaId() {
+        return kafkaId;
     }
 
-    public void setKafkaTTId(Long kafkaTTId) {
-        this.kafkaTTId = kafkaTTId;
+    public void setKafkaId(Long kafkaId) {
+        this.kafkaId = kafkaId;
+    }
+
+    public String getServiceUrl() {
+        return serviceUrl;
+    }
+
+    public void setServiceUrl(String serviceUrl) {
+        this.serviceUrl = serviceUrl;
     }
 
     public Integer getNumPartitions() {

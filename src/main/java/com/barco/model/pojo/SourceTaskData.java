@@ -3,92 +3,58 @@ package com.barco.model.pojo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Parameter;
 import javax.persistence.*;
+import java.sql.Date;
+import java.sql.Time;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.UUID;
 
 /**
  * @author Nabeel Ahmed
  */
 @Entity
 @Table(name = "source_task_data")
-@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class SourceTaskData {
-
-    @GenericGenerator(
-        name = "sourceTaskDataSequenceGenerator",
-        strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
-        parameters = {
-            @Parameter(name = "sequence_name", value = "source_task_data_Seq"),
-            @Parameter(name = "initial_value", value = "1000"),
-            @Parameter(name = "increment_size", value = "1")
-        }
-    )
-    @Id
-    @Column(name = "task_data_id")
-    @GeneratedValue(generator = "sourceTaskDataSequenceGenerator")
-    private Long taskDataId;
+public class SourceTaskData extends BaseEntity {
 
     @ManyToOne
-    @JoinColumn(name = "task_detail_id")
+    @JoinColumn(name = "task_id")
     private SourceTask sourceTask;
 
-    @Column(name = "lkf_section_uuid", nullable = false)
-    private UUID lkfSectionUUid;
-
-    @Column(name = "lkf_control_uuid", nullable = false)
-    private UUID lkfSectionControl;
-
-    @Column(name = "text_control_val")
-    private String textControlValue;
-
-    @Column(name = "checked_control_val")
-    private Boolean checkedControlValue;
-
-    @Column(name = "select_control_val")
-    private Long selectControlValue;
-
-    @Column(name = "datetime_control_val",
-        columnDefinition = "TIMESTAMP")
-    private LocalDateTime dateTimeControlValue;
-
-    @Column(name = "time_control_val",
-        columnDefinition = "TIMESTAMP")
-    private LocalTime timeValue;
-
-    // in case of multi select and multi check box
-    @Column(name = "lookup_id")
-    private Long lookupId;
+    @ManyToOne
+    @JoinColumn(name = "gs_link_gf_id")
+    private GenSectionLinkGenForm genSectionLinkGenForm;
 
     @ManyToOne
-    @JoinColumn(name="app_user_id")
-    private AppUser appUser;
+    @JoinColumn(name = "gc_link_gs_id")
+    private GenControlLinkGenSection genControlLinkGenSection;
 
-    @Column(name = "status", nullable = false)
-    private Long status;
+    @Column(name = "text_value")
+    private String textValue;
 
-    @Column(name = "date_created")
-    private Timestamp dateCreated;
+    @Column(name = "numeric_value")
+    private Integer numericValue;
+
+    @Column(name = "date_value")
+    private Date dateValue;
+
+    @Column(name = "time_value")
+    private Time timeValue;
+
+    @Column(name = "timestamp_value")
+    private Timestamp dateTimeValue;
+
+    @Column(name = "checkbox_value")
+    private Boolean checkBoxValue;
+
+    // can be used for both single and multi
+    @Column(name = "select_value")
+    private Long selectValue;
+
+    @Column(name = "rich_text_value")
+    private String richTextValue;
 
     public SourceTaskData() {
-    }
-
-    @PrePersist
-    protected void onCreate() {
-        this.dateCreated = new Timestamp(System.currentTimeMillis());
-    }
-
-    public Long getTaskDataId() {
-        return taskDataId;
-    }
-
-    public void setTaskDataId(Long taskDataId) {
-        this.taskDataId = taskDataId;
     }
 
     public SourceTask getSourceTask() {
@@ -99,92 +65,84 @@ public class SourceTaskData {
         this.sourceTask = sourceTask;
     }
 
-    public UUID getLkfSectionUUid() {
-        return lkfSectionUUid;
+    public GenSectionLinkGenForm getGenSectionLinkGenForm() {
+        return genSectionLinkGenForm;
     }
 
-    public void setLkfSectionUUid(UUID lkfSectionUUid) {
-        this.lkfSectionUUid = lkfSectionUUid;
+    public void setGenSectionLinkGenForm(GenSectionLinkGenForm genSectionLinkGenForm) {
+        this.genSectionLinkGenForm = genSectionLinkGenForm;
     }
 
-    public UUID getLkfSectionControl() {
-        return lkfSectionControl;
+    public GenControlLinkGenSection getGenControlLinkGenSection() {
+        return genControlLinkGenSection;
     }
 
-    public void setLkfSectionControl(UUID lkfSectionControl) {
-        this.lkfSectionControl = lkfSectionControl;
+    public void setGenControlLinkGenSection(GenControlLinkGenSection genControlLinkGenSection) {
+        this.genControlLinkGenSection = genControlLinkGenSection;
     }
 
-    public String getTextControlValue() {
-        return textControlValue;
+    public String getTextValue() {
+        return textValue;
     }
 
-    public void setTextControlValue(String textControlValue) {
-        this.textControlValue = textControlValue;
+    public void setTextValue(String textValue) {
+        this.textValue = textValue;
     }
 
-    public Boolean getCheckedControlValue() {
-        return checkedControlValue;
+    public Integer getNumericValue() {
+        return numericValue;
     }
 
-    public void setCheckedControlValue(Boolean checkedControlValue) {
-        this.checkedControlValue = checkedControlValue;
+    public void setNumericValue(Integer numericValue) {
+        this.numericValue = numericValue;
     }
 
-    public Long getSelectControlValue() {
-        return selectControlValue;
+    public Date getDateValue() {
+        return dateValue;
     }
 
-    public void setSelectControlValue(Long selectControlValue) {
-        this.selectControlValue = selectControlValue;
+    public void setDateValue(Date dateValue) {
+        this.dateValue = dateValue;
     }
 
-    public LocalDateTime getDateTimeControlValue() {
-        return dateTimeControlValue;
-    }
-
-    public void setDateTimeControlValue(LocalDateTime dateTimeControlValue) {
-        this.dateTimeControlValue = dateTimeControlValue;
-    }
-
-    public LocalTime getTimeValue() {
+    public Time getTimeValue() {
         return timeValue;
     }
 
-    public void setTimeValue(LocalTime timeValue) {
+    public void setTimeValue(Time timeValue) {
         this.timeValue = timeValue;
     }
 
-    public Long getLookupId() {
-        return lookupId;
+    public Timestamp getDateTimeValue() {
+        return dateTimeValue;
     }
 
-    public void setLookupId(Long lookupId) {
-        this.lookupId = lookupId;
+    public void setDateTimeValue(Timestamp dateTimeValue) {
+        this.dateTimeValue = dateTimeValue;
     }
 
-    public AppUser getAppUser() {
-        return appUser;
+    public Boolean getCheckBoxValue() {
+        return checkBoxValue;
     }
 
-    public void setAppUser(AppUser appUser) {
-        this.appUser = appUser;
+    public void setCheckBoxValue(Boolean checkBoxValue) {
+        this.checkBoxValue = checkBoxValue;
     }
 
-    public Long getStatus() {
-        return status;
+    public Long getSelectValue() {
+        return selectValue;
     }
 
-    public void setStatus(Long status) {
-        this.status = status;
+    public void setSelectValue(Long selectValue) {
+        this.selectValue = selectValue;
     }
 
-    public Timestamp getDateCreated() {
-        return dateCreated;
+    public String getRichTextValue() {
+        return richTextValue;
     }
 
-    public void setDateCreated(Timestamp dateCreated) {
-        this.dateCreated = dateCreated;
+    public void setRichTextValue(String richTextValue) {
+        this.richTextValue = richTextValue;
     }
 
     @Override

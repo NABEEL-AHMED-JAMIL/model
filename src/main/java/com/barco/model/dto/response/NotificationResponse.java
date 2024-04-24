@@ -1,63 +1,76 @@
 package com.barco.model.dto.response;
 
+import com.barco.model.dto.request.SessionUser;
+import com.barco.model.util.lookup.GLookup;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
+
+import java.sql.Timestamp;
 
 /**
  * @author Nabeel Ahmed
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class NotificationResponse {
+public class NotificationResponse extends BaseEntity {
 
-    private Long notAuditId;
-    private String message;
-    private Long type;
-    private Long expireTime;
-    private Long notStatus;
+    private String sendTo;
+    private MessageResponse body;
+    private GLookup notifyType;
+    private Timestamp expireTime;
+    private GLookup messageStatus;
+    private SessionUser sessionUser;
 
     public NotificationResponse() {
     }
 
-    public Long getNotAuditId() {
-        return notAuditId;
+    public String getSendTo() {
+        return sendTo;
     }
 
-    public void setNotAuditId(Long notAuditId) {
-        this.notAuditId = notAuditId;
+    public void setSendTo(String sendTo) {
+        this.sendTo = sendTo;
     }
 
-    public String getMessage() {
-        return message;
+    public MessageResponse getBody() {
+        return body;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setBody(MessageResponse body) {
+        this.body = body;
     }
 
-    public Long getType() {
-        return type;
+    public GLookup getNotifyType() {
+        return notifyType;
     }
 
-    public void setType(Long type) {
-        this.type = type;
+    public void setNotifyType(GLookup notifyType) {
+        this.notifyType = notifyType;
     }
 
-    public Long getExpireTime() {
+    public Timestamp getExpireTime() {
         return expireTime;
     }
 
-    public void setExpireTime(Long expireTime) {
+    public void setExpireTime(Timestamp expireTime) {
         this.expireTime = expireTime;
     }
 
-    public Long getNotStatus() {
-        return notStatus;
+    public GLookup getMessageStatus() {
+        return messageStatus;
     }
 
-    public void setNotStatus(Long notStatus) {
-        this.notStatus = notStatus;
+    public void setMessageStatus(GLookup messageStatus) {
+        this.messageStatus = messageStatus;
+    }
+
+    public SessionUser getSessionUser() {
+        return sessionUser;
+    }
+
+    public void setSessionUser(SessionUser sessionUser) {
+        this.sessionUser = sessionUser;
     }
 
     @Override

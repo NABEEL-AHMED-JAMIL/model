@@ -10,39 +10,25 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class AuthResponse {
+public class AuthResponse extends BaseEntity {
 
-    private Long appUserId;
     private String token;
     private String type = "Bearer";
     private String refreshToken;
+    private String firstName;
+    private String lastName;
     private String ipAddress;
+    private String profileImage;
     private String username;
     private String email;
-    private String profileImage;
     private List<String> roles;
+    private ProfileResponse profile;
 
     public AuthResponse() {}
 
-    public AuthResponse(Long appUserId, String token, String refreshToken,
-        String ipAddress, String username, String email, String profileImage,
-        List<String> roles) {
-        this.appUserId = appUserId;
+    public AuthResponse(String token, String refreshToken) {
         this.token = token;
         this.refreshToken = refreshToken;
-        this.ipAddress = ipAddress;
-        this.username = username;
-        this.email = email;
-        this.profileImage = profileImage;
-        this.roles = roles;
-    }
-
-    public Long getAppUserId() {
-        return appUserId;
-    }
-
-    public void setAppUserId(Long appUserId) {
-        this.appUserId = appUserId;
     }
 
     public String getToken() {
@@ -69,12 +55,36 @@ public class AuthResponse {
         this.refreshToken = refreshToken;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     public String getIpAddress() {
         return ipAddress;
     }
 
     public void setIpAddress(String ipAddress) {
         this.ipAddress = ipAddress;
+    }
+
+    public String getProfileImage() {
+        return profileImage;
+    }
+
+    public void setProfileImage(String profileImage) {
+        this.profileImage = profileImage;
     }
 
     public String getUsername() {
@@ -93,20 +103,20 @@ public class AuthResponse {
         this.email = email;
     }
 
-    public String getProfileImage() {
-        return profileImage;
-    }
-
-    public void setProfileImage(String profileImage) {
-        this.profileImage = profileImage;
-    }
-
     public List<String> getRoles() {
         return roles;
     }
 
     public void setRoles(List<String> roles) {
         this.roles = roles;
+    }
+
+    public ProfileResponse getProfile() {
+        return profile;
+    }
+
+    public void setProfile(ProfileResponse profile) {
+        this.profile = profile;
     }
 
     @Override

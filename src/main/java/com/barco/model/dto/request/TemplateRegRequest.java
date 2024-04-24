@@ -4,29 +4,29 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 
+import java.util.List;
+
 /**
  * @author Nabeel Ahmed
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class TemplateRegRequest {
-
-    private Long templateId;
+public class TemplateRegRequest extends RequestFilter {
+    private Long id;
     private String templateName;
-    private Long templateType;
     private Long status;
     private String templateContent;
-    private ParseRequest accessUserDetail;
+    private SessionUser sessionUser;
 
     public TemplateRegRequest() {
     }
 
-    public Long getTemplateId() {
-        return templateId;
+    public Long getId() {
+        return id;
     }
 
-    public void setTemplateId(Long templateId) {
-        this.templateId = templateId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTemplateName() {
@@ -35,14 +35,6 @@ public class TemplateRegRequest {
 
     public void setTemplateName(String templateName) {
         this.templateName = templateName;
-    }
-
-    public Long getTemplateType() {
-        return templateType;
-    }
-
-    public void setTemplateType(Long templateType) {
-        this.templateType = templateType;
     }
 
     public Long getStatus() {
@@ -61,18 +53,12 @@ public class TemplateRegRequest {
         this.templateContent = templateContent;
     }
 
-    public ParseRequest getAccessUserDetail() {
-        return accessUserDetail;
+    public SessionUser getSessionUser() {
+        return sessionUser;
     }
 
-    public void setAccessUserDetail(ParseRequest accessUserDetail) {
-        this.accessUserDetail = accessUserDetail;
-    }
-
-    public void addAccessUserDetail(String username) {
-        ParseRequest accessUserDetail = new ParseRequest();
-        accessUserDetail.setUsername(username);
-        this.setAccessUserDetail(accessUserDetail);
+    public void setSessionUser(SessionUser sessionUser) {
+        this.sessionUser = sessionUser;
     }
 
     @Override

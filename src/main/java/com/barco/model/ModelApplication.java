@@ -5,8 +5,6 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
-import javax.annotation.PostConstruct;
-import java.util.TimeZone;
 
 /**
  * @author Nabeel Ahmed
@@ -19,11 +17,6 @@ public class ModelApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ModelApplication.class, args);
-	}
-
-	@PostConstruct
-	public void started() {
-		TimeZone.setDefault(TimeZone.getTimeZone("America/New_York"));
 	}
 
 }

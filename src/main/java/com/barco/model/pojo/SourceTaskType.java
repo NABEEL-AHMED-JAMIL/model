@@ -1,36 +1,20 @@
 package com.barco.model.pojo;
 
+import com.barco.model.util.lookup.TASK_TYPE;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Parameter;
 import javax.persistence.*;
-import java.sql.Timestamp;
-
+import java.util.List;
 
 /**
  * @author Nabeel Ahmed
  */
 @Entity
-@Table(name = "stt")
-@JsonIgnoreProperties(ignoreUnknown=true)
+@Table(name = "source_task_type")
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class SourceTaskType {
-
-    @GenericGenerator(
-        name = "sourceTaskTypeSequenceGenerator",
-        strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
-        parameters = {
-            @Parameter(name = "sequence_name", value = "source_task_type_source_Seq"),
-            @Parameter(name = "initial_value", value = "1000"),
-            @Parameter(name = "increment_size", value = "1")
-        }
-    )
-    @Id
-    @Column(name="stt_id", unique=true, nullable=false)
-    @GeneratedValue(generator = "sourceTaskTypeSequenceGenerator")
-    private Long sttId;
+public class SourceTaskType extends BaseEntity {
 
     @Column(name = "service_name", nullable = false)
     private String serviceName;
@@ -40,60 +24,30 @@ public class SourceTaskType {
 
     @Column(name = "task_type",
         nullable = false, updatable = false)
-    private Long taskType;
-
-    @Column(name = "home_page")
-    private String homePage;
-
-    @Column(name = "service_id", unique = true)
-    private String serviceId;
+    private TASK_TYPE taskType;
 
     @ManyToOne
-    @JoinColumn(name="credential_id")
-    private Credential credential;
-
-    @Column(name = "status", nullable = false)
-    private Long status;
-
-    /**default source task type for testing
-     * if its default then no delete to delete*/
-    @Column(name = "delete_able",
-        columnDefinition = "boolean default false")
-    private Boolean deleteAble;
-
-    @ManyToOne
-    @JoinColumn(name="app_user_id")
-    private AppUser appUser;
-
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="api_task_type")
+    @JoinColumn(name = "api_id")
     private ApiTaskType apiTaskType;
 
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="kafka_type_type")
+    @ManyToOne
+    @JoinColumn(name = "kafka_id")
     private KafkaTaskType kafkaTaskType;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "sttf_id")
-    private STTForm sttf;
+    @ManyToOne
+    @JoinColumn(name = "credential_id")
+    private Credential credential;
 
-    @Column(name = "date_created", nullable = false)
-    private Timestamp dateCreated;
+    @OneToMany(mappedBy = "sourceTaskType", fetch = FetchType.LAZY)
+    private List<SourceTask> sourceTasks;
+
+    @OneToMany(mappedBy="sourceTaskType", fetch = FetchType.LAZY)
+    private List<AppUserLinkSourceTaskType> appUserLinkSourceTaskTypes;
+
+    @OneToMany(mappedBy="sourceTaskType", fetch = FetchType.LAZY)
+    private List<GenFormLinkSourceTaskType> genFormLinkSourceTaskTypes;
 
     public SourceTaskType() {}
-
-    @PrePersist
-    protected void onCreate() {
-        this.dateCreated = new Timestamp(System.currentTimeMillis());
-    }
-
-    public Long getSttId() {
-        return sttId;
-    }
-
-    public void setSttId(Long sttId) {
-        this.sttId = sttId;
-    }
 
     public String getServiceName() {
         return serviceName;
@@ -111,60 +65,12 @@ public class SourceTaskType {
         this.description = description;
     }
 
-    public Long getTaskType() {
+    public TASK_TYPE getTaskType() {
         return taskType;
     }
 
-    public void setTaskType(Long taskType) {
+    public void setTaskType(TASK_TYPE taskType) {
         this.taskType = taskType;
-    }
-
-    public String getHomePage() {
-        return homePage;
-    }
-
-    public void setHomePage(String homePage) {
-        this.homePage = homePage;
-    }
-
-    public String getServiceId() {
-        return serviceId;
-    }
-
-    public void setServiceId(String serviceId) {
-        this.serviceId = serviceId;
-    }
-
-    public Credential getCredential() {
-        return credential;
-    }
-
-    public void setCredential(Credential credential) {
-        this.credential = credential;
-    }
-
-    public Long getStatus() {
-        return status;
-    }
-
-    public void setStatus(Long status) {
-        this.status = status;
-    }
-
-    public Boolean getDeleteAble() {
-        return deleteAble;
-    }
-
-    public void setDeleteAble(Boolean deleteAble) {
-        this.deleteAble = deleteAble;
-    }
-
-    public AppUser getAppUser() {
-        return appUser;
-    }
-
-    public void setAppUser(AppUser appUser) {
-        this.appUser = appUser;
     }
 
     public ApiTaskType getApiTaskType() {
@@ -183,20 +89,36 @@ public class SourceTaskType {
         this.kafkaTaskType = kafkaTaskType;
     }
 
-    public STTForm getSttf() {
-        return sttf;
+    public Credential getCredential() {
+        return credential;
     }
 
-    public void setSttf(STTForm sttf) {
-        this.sttf = sttf;
+    public void setCredential(Credential credential) {
+        this.credential = credential;
     }
 
-    public Timestamp getDateCreated() {
-        return dateCreated;
+    public List<SourceTask> getSourceTasks() {
+        return sourceTasks;
     }
 
-    public void setDateCreated(Timestamp dateCreated) {
-        this.dateCreated = dateCreated;
+    public void setSourceTasks(List<SourceTask> sourceTasks) {
+        this.sourceTasks = sourceTasks;
+    }
+
+    public List<AppUserLinkSourceTaskType> getAppUserLinkSourceTaskTypes() {
+        return appUserLinkSourceTaskTypes;
+    }
+
+    public void setAppUserLinkSourceTaskTypes(List<AppUserLinkSourceTaskType> appUserLinkSourceTaskTypes) {
+        this.appUserLinkSourceTaskTypes = appUserLinkSourceTaskTypes;
+    }
+
+    public List<GenFormLinkSourceTaskType> getGenFormLinkSourceTaskTypes() {
+        return genFormLinkSourceTaskTypes;
+    }
+
+    public void setGenFormLinkSourceTaskTypes(List<GenFormLinkSourceTaskType> genFormLinkSourceTaskTypes) {
+        this.genFormLinkSourceTaskTypes = genFormLinkSourceTaskTypes;
     }
 
     @Override

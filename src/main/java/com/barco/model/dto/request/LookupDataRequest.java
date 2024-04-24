@@ -12,26 +12,25 @@ import java.sql.Timestamp;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class LookupDataRequest {
 
-    private Long lookupId;
+    private Long id;
     private Long lookupCode;
     private String lookupType;
     private String lookupValue;
     private String description;
     private Timestamp dateCreated;
     private Long parentLookupId;
-    private boolean validate;
-    private boolean uiLookup;
-    private ParseRequest accessUserDetail;
+    private Long uiLookup;
+    private SessionUser sessionUser;
 
     public LookupDataRequest() {
     }
 
-    public Long getLookupId() {
-        return lookupId;
+    public Long getId() {
+        return id;
     }
 
-    public void setLookupId(Long lookupId) {
-        this.lookupId = lookupId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getLookupCode() {
@@ -82,34 +81,20 @@ public class LookupDataRequest {
         this.parentLookupId = parentLookupId;
     }
 
-    public boolean isValidate() {
-        return validate;
-    }
-
-    public void setValidate(boolean validate) {
-        this.validate = validate;
-    }
-
-    public boolean isUiLookup() {
+    public Long getUiLookup() {
         return uiLookup;
     }
 
-    public void setUiLookup(boolean uiLookup) {
+    public void setUiLookup(Long uiLookup) {
         this.uiLookup = uiLookup;
     }
 
-    public ParseRequest getAccessUserDetail() {
-        return accessUserDetail;
+    public SessionUser getSessionUser() {
+        return sessionUser;
     }
 
-    public void setAccessUserDetail(ParseRequest accessUserDetail) {
-        this.accessUserDetail = accessUserDetail;
-    }
-
-    public void addAccessUserDetail(String username) {
-        ParseRequest accessUserDetail = new ParseRequest();
-        accessUserDetail.setUsername(username);
-        this.setAccessUserDetail(accessUserDetail);
+    public void setSessionUser(SessionUser sessionUser) {
+        this.sessionUser = sessionUser;
     }
 
     @Override
