@@ -14,7 +14,7 @@ import java.util.List;
 @Table(name = "permission")
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Permission extends BaseEntity  {
+public class Permission extends BaseEntity {
 
     @Column(name = "permission_name", nullable = false)
     private String permissionName;

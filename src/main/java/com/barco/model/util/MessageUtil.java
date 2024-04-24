@@ -1,6 +1,10 @@
 package com.barco.model.util;
 
 
+import com.barco.model.util.lookup.EXECUTION;
+import com.barco.model.util.lookup.FREQUENCY;
+import com.barco.model.util.lookup.JOB_STATUS;
+
 /**
  * @author Nabeel Ahmed
  */
@@ -15,7 +19,12 @@ public interface MessageUtil {
     public static final String TASK_TYPE_NOT_FOUND = "No task type found.";
     public static final String NOTIFICATION_TYPE_NOT_FOUND = "No notification type found.";
     public static final String NOTIFICATION_STATUS_NOT_FOUND = "No notification status found.";
+    public static final String FREQUENCY_STATUS_NOT_FOUND = "No frequency status found.";
+    public static final String JOB_STATUS_STATUS_NOT_FOUND = "No job status found.";
+    public static final String EXECUTION_STATUS_NOT_FOUND = "No execution status found.";
     public static final String EMAIL_TEMPLATE_NOT_FOUND = "No email template status found.";
+    public static final String DASHBOARD_TYPE_NOT_FOUND = "No dashboard status found.";
+    public static final String PAYLOAD_REF_NOT_FOUND = "No payload ref found.";
     public static final String APPLICATION_STATUS_NOT_FOUND = "No application status found.";
     public static final String USER_NOT_FOUND = "User not found with username : %s .";
     public static final String REFRESH_TOKEN_EXPIRED = "Refresh token expired. Please make a new signing request.";
