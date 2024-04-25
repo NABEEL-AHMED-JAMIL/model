@@ -1,11 +1,11 @@
 package com.barco.model.pojo;
 
 import com.barco.model.util.lookup.DASHBOARD_TYPE;
+import com.barco.model.util.lookup.FORM_TYPE;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * @author Nabeel Ahmed
@@ -16,9 +16,22 @@ import javax.persistence.Table;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class DashboardSetting extends BaseEntity {
 
+    @Column(name = "name", nullable = false)
     private String name;
-    private DASHBOARD_TYPE boardType;
+
+    @Column(name = "group_type", nullable = false)
     private String groupType;
+
+    @Column(name = "description", nullable = false)
+    private String description;
+
+    @Column(name = "board_type", nullable = false)
+    @Enumerated(EnumType.ORDINAL)
+    private DASHBOARD_TYPE boardType;
+
+    @Column(name = "form_type", nullable = false)
+    @Enumerated(EnumType.ORDINAL)
+    private FORM_TYPE formType;
 
 //-- (post | get) --
 //if its get then its will key value paire

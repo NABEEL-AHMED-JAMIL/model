@@ -1,13 +1,10 @@
 package com.barco.model.pojo;
 
-import com.barco.model.util.lookup.DASHBOARD_TYPE;
 import com.barco.model.util.lookup.PAYLOAD_REF;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
-
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * @author Nabeel Ahmed
@@ -18,23 +15,66 @@ import javax.persistence.Table;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ReportSetting extends BaseEntity {
 
+    @Column(name = "name", nullable = false)
     private String name;
-    private PAYLOAD_REF payloadRef;
+
+    @Column(name = "group_type", nullable = false)
     private String groupType;
 
-//----------
-//
-//PDF -< url -< data with same payload
-//XLS -< url -< data with same payload
-//CSV -< url -< data with same payload
-//
-//-- (post | get) --
-//        if its get then its will key value paire
-//if its post then its will be xml
-//---
-//Report url => post
-//Report url param => payload
-//key|value
+    @Column(name = "description", nullable = false)
+    private String description;
+
+    // if its form ref then have to give the ref of form
+    @Column(name = "payload_ref", nullable = false)
+    @Enumerated(EnumType.ORDINAL)
+    private PAYLOAD_REF payloadRef;
+
+    @Column(name = "is_pdf", nullable = false)
+    private Boolean isPdf;
+
+    @Column(name = "pdf_url")
+    private String pdfUrl;
+
+    @Column(name = "is_xlsx", nullable = false)
+    private Boolean isXlsx;
+
+    @Column(name = "xlsx_url")
+    private String xlsxUrl;
+
+    @Column(name = "is_csv", nullable = false)
+    private Boolean isCsv;
+
+    @Column(name = "csv_url")
+    private String csvUrl;
+
+    @Column(name = "data_url")
+    private String dataUrl;
+
+    @Column(name = "fd_url")
+    private String firstDimensionUrl;
+
+    @Column(name = "fd_lkv")
+    private String firstLKValue;
+
+    @Column(name = "sd_url")
+    private String secondDimensionUrl;
+
+    @Column(name = "sd_lkv")
+    private String secondLKValue;
+
+    @Column(name = "td_url")
+    private String thirdDimensionUrl;
+
+    @Column(name = "td_lkv")
+    private String thirdLKValue;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "form_id")
+    private GenForm genForm;
+
+    public ReportSetting() {
+    }
+
 
 
     @Override
