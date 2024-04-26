@@ -9,8 +9,7 @@ import com.google.gson.Gson;
 public enum FORM_TYPE {
 
     SERVICE_FORM(0l),
-    REPORT_FORM(1l),
-    DASHBOARD_FORM(2l);
+    REPORT_FORM(1l);
 
     private Long lookupCode;
 
@@ -27,8 +26,6 @@ public enum FORM_TYPE {
             return SERVICE_FORM;
         } else if (lookupCode.equals(REPORT_FORM.getLookupCode())) {
             return REPORT_FORM;
-        } else if (lookupCode.equals(DASHBOARD_FORM.getLookupCode())) {
-            return DASHBOARD_FORM;
         }
         throw new RuntimeException(MessageUtil.FORM_TYPE_NOT_FOUND);
     }

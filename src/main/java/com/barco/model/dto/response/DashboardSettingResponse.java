@@ -1,37 +1,24 @@
-package com.barco.model.pojo;
+package com.barco.model.dto.response;
 
-import com.barco.model.util.lookup.DASHBOARD_TYPE;
+import com.barco.model.util.lookup.GLookup;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
-import javax.persistence.*;
 
 /**
  * @author Nabeel Ahmed
  */
-@Entity
-@Table(name = "dashboard_setting")
-@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class DashboardSetting extends BaseEntity {
+public class DashboardSettingResponse extends BaseEntity {
 
-    @Column(name = "name", nullable = false)
     private String name;
-
-    @Column(name = "group_type", nullable = false)
-    private String groupType;
-
-    @Column(name = "description", nullable = false)
+    private GLookup groupType;
     private String description;
-
-    @Column(name = "board_type", nullable = false)
-    @Enumerated(EnumType.ORDINAL)
-    private DASHBOARD_TYPE boardType;
-
-    @Column(name = "dashboard_url", nullable = false)
+    private GLookup boardType;
     private String dashboardUrl;
 
-    public DashboardSetting() {
+    public DashboardSettingResponse() {
     }
 
     public String getName() {
@@ -42,11 +29,11 @@ public class DashboardSetting extends BaseEntity {
         this.name = name;
     }
 
-    public String getGroupType() {
+    public GLookup getGroupType() {
         return groupType;
     }
 
-    public void setGroupType(String groupType) {
+    public void setGroupType(GLookup groupType) {
         this.groupType = groupType;
     }
 
@@ -58,11 +45,11 @@ public class DashboardSetting extends BaseEntity {
         this.description = description;
     }
 
-    public DASHBOARD_TYPE getBoardType() {
+    public GLookup getBoardType() {
         return boardType;
     }
 
-    public void setBoardType(DASHBOARD_TYPE boardType) {
+    public void setBoardType(GLookup boardType) {
         this.boardType = boardType;
     }
 
