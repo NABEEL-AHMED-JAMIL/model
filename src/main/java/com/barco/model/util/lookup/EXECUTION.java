@@ -6,28 +6,28 @@ import com.google.gson.Gson;
 /**
  * @author Nabeel Ahmed
  */
-public enum NOTIFICATION_STATUS {
+public enum EXECUTION {
 
-    UNREAD(0l),
-    READ(1l);
+    AUTO(0l),
+    MANUAL(1l);
 
     private Long lookupCode;
 
-    NOTIFICATION_STATUS(Long lookupCode) {
+    EXECUTION(Long lookupCode) {
         this.lookupCode = lookupCode;
     }
 
     public static String getName() {
-        return NOTIFICATION_STATUS.class.getSimpleName();
+        return EXECUTION.class.getSimpleName();
     }
 
-    public static NOTIFICATION_STATUS getByLookupCode(Long lookupCode) throws RuntimeException {
-        if (lookupCode.equals(UNREAD.getLookupCode())) {
-            return UNREAD;
-        } else if (lookupCode.equals(READ.getLookupCode())) {
-            return READ;
+    public static EXECUTION getByLookupCode(Long lookupCode) throws RuntimeException {
+        if (lookupCode.equals(AUTO.getLookupCode())) {
+            return AUTO;
+        } else if (lookupCode.equals(MANUAL.getLookupCode())) {
+            return MANUAL;
         }
-        throw new RuntimeException(MessageUtil.NOTIFICATION_STATUS_NOT_FOUND);
+        throw new RuntimeException(MessageUtil.EXECUTION_STATUS_NOT_FOUND);
     }
 
     public Long getLookupCode() {

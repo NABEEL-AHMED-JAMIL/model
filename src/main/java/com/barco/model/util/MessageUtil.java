@@ -1,6 +1,10 @@
 package com.barco.model.util;
 
 
+import com.barco.model.util.lookup.EXECUTION;
+import com.barco.model.util.lookup.FREQUENCY;
+import com.barco.model.util.lookup.JOB_STATUS;
+
 /**
  * @author Nabeel Ahmed
  */
@@ -15,7 +19,12 @@ public interface MessageUtil {
     public static final String TASK_TYPE_NOT_FOUND = "No task type found.";
     public static final String NOTIFICATION_TYPE_NOT_FOUND = "No notification type found.";
     public static final String NOTIFICATION_STATUS_NOT_FOUND = "No notification status found.";
+    public static final String FREQUENCY_STATUS_NOT_FOUND = "No frequency status found.";
+    public static final String JOB_STATUS_STATUS_NOT_FOUND = "No job status found.";
+    public static final String EXECUTION_STATUS_NOT_FOUND = "No execution status found.";
     public static final String EMAIL_TEMPLATE_NOT_FOUND = "No email template status found.";
+    public static final String DASHBOARD_TYPE_NOT_FOUND = "No dashboard status found.";
+    public static final String PAYLOAD_REF_NOT_FOUND = "No payload ref found.";
     public static final String APPLICATION_STATUS_NOT_FOUND = "No application status found.";
     public static final String USER_NOT_FOUND = "User not found with username : %s .";
     public static final String REFRESH_TOKEN_EXPIRED = "Refresh token expired. Please make a new signing request.";
@@ -168,5 +177,14 @@ public interface MessageUtil {
     public static final String TOTAL_STTF_INVALID = "Total %d sttf invalid.";
     public static final String TOTAL_STTS_INVALID = "Total %d stts invalid.";
     public static final String TOTAL_STTC_INVALID = "Total %d sttc invalid.";
-
+    public static final String DASHBOARD_ID_MISSING = "Dashboard field id missing.";
+    public static final String DASHBOARD_NAME_MISSING = "Dashboard field name missing.";
+    public static final String DASHBOARD_GROUP_TYPE_MISSING = "Dashboard field groupType missing.";
+    public static final String DASHBOARD_DESCRIPTION_MISSING = "Dashboard field description missing.";
+    public static final String DASHBOARD_BOARD_TYPE_MISSING = "Dashboard field board type missing.";
+    public static final String DASHBOARD_DASHBOARD_URL_MISSING = "Dashboard field dashboard url missing.";
+    public static final String DASHBOARD_IFRAME_MISSING = "Dashboard field Iframe url missing.";
+    public static final String DASHBOARD_NOT_FOUND = "Dashboard not found.";
+    public static final String REPORT_ID_MISSING = "Report field id missing.";
+    public static final String REPORT_NOT_FOUND = "Report not found.";
 }

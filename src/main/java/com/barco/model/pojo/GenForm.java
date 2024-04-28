@@ -28,8 +28,8 @@ public class GenForm extends BaseEntity {
     @Column(name = "service_id")
     private String serviceId;
 
-    @Enumerated(EnumType.ORDINAL)
     @Column(name = "form_type", nullable = false)
+    @Enumerated(EnumType.ORDINAL)
     private FORM_TYPE formType;
 
     @OneToMany(mappedBy="genForm")
@@ -37,6 +37,9 @@ public class GenForm extends BaseEntity {
 
     @OneToMany(mappedBy="genForm")
     private List<GenFormLinkSourceTaskType> genFormLinkSourceTaskTypes;
+
+    @OneToMany(mappedBy="genForm")
+    private List<ReportSetting> reportSettings;
 
     public GenForm() {
     }
@@ -95,6 +98,14 @@ public class GenForm extends BaseEntity {
 
     public void setGenFormLinkSourceTaskTypes(List<GenFormLinkSourceTaskType> genFormLinkSourceTaskTypes) {
         this.genFormLinkSourceTaskTypes = genFormLinkSourceTaskTypes;
+    }
+
+    public List<ReportSetting> getReportSettings() {
+        return reportSettings;
+    }
+
+    public void setReportSettings(List<ReportSetting> reportSettings) {
+        this.reportSettings = reportSettings;
     }
 
     @Override

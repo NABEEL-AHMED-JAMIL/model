@@ -22,6 +22,10 @@ public class SourceTaskData extends BaseEntity {
     private SourceTask sourceTask;
 
     @ManyToOne
+    @JoinColumn(name = "gf_link_stt_id")
+    private GenFormLinkSourceTaskType genFormLinkSourceTaskType;
+
+    @ManyToOne
     @JoinColumn(name = "gs_link_gf_id")
     private GenSectionLinkGenForm genSectionLinkGenForm;
 
@@ -63,6 +67,14 @@ public class SourceTaskData extends BaseEntity {
 
     public void setSourceTask(SourceTask sourceTask) {
         this.sourceTask = sourceTask;
+    }
+
+    public GenFormLinkSourceTaskType getGenFormLinkSourceTaskType() {
+        return genFormLinkSourceTaskType;
+    }
+
+    public void setGenFormLinkSourceTaskType(GenFormLinkSourceTaskType genFormLinkSourceTaskType) {
+        this.genFormLinkSourceTaskType = genFormLinkSourceTaskType;
     }
 
     public GenSectionLinkGenForm getGenSectionLinkGenForm() {
