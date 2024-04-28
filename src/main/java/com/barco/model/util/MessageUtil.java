@@ -185,6 +185,17 @@ public interface MessageUtil {
     public static final String DASHBOARD_DASHBOARD_URL_MISSING = "Dashboard field dashboard url missing.";
     public static final String DASHBOARD_IFRAME_MISSING = "Dashboard field Iframe url missing.";
     public static final String DASHBOARD_NOT_FOUND = "Dashboard not found.";
-    public static final String REPORT_ID_MISSING = "Report field id missing.";
+    public static final String REPORT_SETTING_ID_MISSING = "Report Setting field id missing.";
+    public static final String REPORT_SETTING_NAME_MISSING = "Report Setting field name missing.";
+    public static final String REPORT_SETTING_GROUP_MISSING = "Report Setting field groupType missing.";
+    public static final String REPORT_SETTING_DESCRIPTION_MISSING = "Report Setting field description missing.";
+    public static final String REPORT_SETTING_PAYLOAD_REF_MISSING = "Report Setting field payload ref missing.";
+    public static final String REPORT_SETTING_PDF_MISSING = "Report Setting field pdf missing.";
+    public static final String REPORT_SETTING_CSV_MISSING = "Report Setting field csv missing.";
+    public static final String REPORT_SETTING_XLSX_MISSING = "Report Setting field xlsx missing.";
+    public static final String REPORT_SETTING_DATA_MISSING = "Report Setting field data missing.";
+    public static final String REPORT_SETTING_FIRST_DIMENSION_MISSING = "Report Setting field first dimension missing.";
+    public static final String REPORT_SETTING_SECOND_DIMENSION_MISSING = "Report Setting field second dimension missing.";
+    public static final String REPORT_SETTING_THIRD_DIMENSION_MISSING = "Report Setting field third dimension missing.";
     public static final String REPORT_NOT_FOUND = "Report not found.";
 }

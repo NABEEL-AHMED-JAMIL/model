@@ -1,6 +1,7 @@
 package com.barco.model.pojo;
 
 import com.barco.model.util.lookup.DASHBOARD_TYPE;
+import com.barco.model.util.lookup.UI_LOOKUP;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
@@ -32,7 +33,8 @@ public class DashboardSetting extends BaseEntity {
     private String dashboardUrl;
 
     @Column(name = "iframe", nullable = false)
-    private Boolean iframe; // in case of POWER_BI|TABLEAU => true and false, for
+    @Enumerated(EnumType.ORDINAL)
+    private UI_LOOKUP iframe;
 
     public DashboardSetting() {
     }
@@ -77,11 +79,11 @@ public class DashboardSetting extends BaseEntity {
         this.dashboardUrl = dashboardUrl;
     }
 
-    public Boolean getIframe() {
+    public UI_LOOKUP getIframe() {
         return iframe;
     }
 
-    public void setIframe(Boolean iframe) {
+    public void setIframe(UI_LOOKUP iframe) {
         this.iframe = iframe;
     }
 

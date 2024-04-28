@@ -1,6 +1,7 @@
 package com.barco.model.pojo;
 
 import com.barco.model.util.lookup.PAYLOAD_REF;
+import com.barco.model.util.lookup.UI_LOOKUP;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
@@ -30,7 +31,8 @@ public class ReportSetting extends BaseEntity {
     private PAYLOAD_REF payloadRef;
 
     @Column(name = "is_pdf", nullable = false)
-    private Boolean isPdf;
+    @Enumerated(EnumType.ORDINAL)
+    private UI_LOOKUP isPdf;
 
     @Column(name = "pdf_url")
     private String pdfUrl;
@@ -39,7 +41,8 @@ public class ReportSetting extends BaseEntity {
     private String pdfApiToken;
 
     @Column(name = "is_xlsx", nullable = false)
-    private Boolean isXlsx;
+    @Enumerated(EnumType.ORDINAL)
+    private UI_LOOKUP isXlsx;
 
     @Column(name = "xlsx_url")
     private String xlsxUrl;
@@ -48,7 +51,8 @@ public class ReportSetting extends BaseEntity {
     private String xlsxApiToken;
 
     @Column(name = "is_csv", nullable = false)
-    private Boolean isCsv;
+    @Enumerated(EnumType.ORDINAL)
+    private UI_LOOKUP isCsv;
 
     @Column(name = "csv_url")
     private String csvUrl;
@@ -57,7 +61,8 @@ public class ReportSetting extends BaseEntity {
     private String csvApiToken;
 
     @Column(name = "is_data", nullable = false)
-    private String isData;
+    @Enumerated(EnumType.ORDINAL)
+    private UI_LOOKUP isData;
 
     @Column(name = "data_url")
     private String dataUrl;
@@ -66,19 +71,21 @@ public class ReportSetting extends BaseEntity {
     private String dataApiToken;
 
     @Column(name = "is_fd", nullable = false)
-    private String isFirstDimension;
+    @Enumerated(EnumType.ORDINAL)
+    private UI_LOOKUP isFirstDimension;
 
     @Column(name = "fd_url")
     private String firstDimensionUrl;
 
     @Column(name = "fd_lkv")
-    private String firstDimensLKValue;
+    private String firstDimensionLKValue;
 
     @Column(name = "fd_token")
     private String firstDimensionApiToken;
 
-    @Column(name = "is_sd")
-    private String isSecondDimension;
+    @Column(name = "is_sd", nullable = false)
+    @Enumerated(EnumType.ORDINAL)
+    private UI_LOOKUP isSecondDimension;
 
     @Column(name = "sd_url")
     private String secondDimensionUrl;
@@ -90,7 +97,8 @@ public class ReportSetting extends BaseEntity {
     private String secondDimensionApiToken;
 
     @Column(name = "is_td", nullable = false)
-    private String isThirdDimension;
+    @Enumerated(EnumType.ORDINAL)
+    private UI_LOOKUP isThirdDimension;
 
     @Column(name = "td_url")
     private String thirdDimensionUrl;
@@ -147,12 +155,12 @@ public class ReportSetting extends BaseEntity {
         this.payloadRef = payloadRef;
     }
 
-    public Boolean getPdf() {
+    public UI_LOOKUP getIsPdf() {
         return isPdf;
     }
 
-    public void setPdf(Boolean pdf) {
-        isPdf = pdf;
+    public void setIsPdf(UI_LOOKUP isPdf) {
+        this.isPdf = isPdf;
     }
 
     public String getPdfUrl() {
@@ -171,12 +179,12 @@ public class ReportSetting extends BaseEntity {
         this.pdfApiToken = pdfApiToken;
     }
 
-    public Boolean getXlsx() {
+    public UI_LOOKUP getIsXlsx() {
         return isXlsx;
     }
 
-    public void setXlsx(Boolean xlsx) {
-        isXlsx = xlsx;
+    public void setIsXlsx(UI_LOOKUP isXlsx) {
+        this.isXlsx = isXlsx;
     }
 
     public String getXlsxUrl() {
@@ -195,12 +203,12 @@ public class ReportSetting extends BaseEntity {
         this.xlsxApiToken = xlsxApiToken;
     }
 
-    public Boolean getCsv() {
+    public UI_LOOKUP getIsCsv() {
         return isCsv;
     }
 
-    public void setCsv(Boolean csv) {
-        isCsv = csv;
+    public void setIsCsv(UI_LOOKUP isCsv) {
+        this.isCsv = isCsv;
     }
 
     public String getCsvUrl() {
@@ -219,11 +227,11 @@ public class ReportSetting extends BaseEntity {
         this.csvApiToken = csvApiToken;
     }
 
-    public String getIsData() {
+    public UI_LOOKUP getIsData() {
         return isData;
     }
 
-    public void setIsData(String isData) {
+    public void setIsData(UI_LOOKUP isData) {
         this.isData = isData;
     }
 
@@ -243,11 +251,11 @@ public class ReportSetting extends BaseEntity {
         this.dataApiToken = dataApiToken;
     }
 
-    public String getIsFirstDimension() {
+    public UI_LOOKUP getIsFirstDimension() {
         return isFirstDimension;
     }
 
-    public void setIsFirstDimension(String isFirstDimension) {
+    public void setIsFirstDimension(UI_LOOKUP isFirstDimension) {
         this.isFirstDimension = isFirstDimension;
     }
 
@@ -259,12 +267,12 @@ public class ReportSetting extends BaseEntity {
         this.firstDimensionUrl = firstDimensionUrl;
     }
 
-    public String getFirstDimensLKValue() {
-        return firstDimensLKValue;
+    public String getFirstDimensionLKValue() {
+        return firstDimensionLKValue;
     }
 
-    public void setFirstDimensLKValue(String firstDimensLKValue) {
-        this.firstDimensLKValue = firstDimensLKValue;
+    public void setFirstDimensionLKValue(String firstDimensionLKValue) {
+        this.firstDimensionLKValue = firstDimensionLKValue;
     }
 
     public String getFirstDimensionApiToken() {
@@ -275,11 +283,11 @@ public class ReportSetting extends BaseEntity {
         this.firstDimensionApiToken = firstDimensionApiToken;
     }
 
-    public String getIsSecondDimension() {
+    public UI_LOOKUP getIsSecondDimension() {
         return isSecondDimension;
     }
 
-    public void setIsSecondDimension(String isSecondDimension) {
+    public void setIsSecondDimension(UI_LOOKUP isSecondDimension) {
         this.isSecondDimension = isSecondDimension;
     }
 
@@ -307,11 +315,11 @@ public class ReportSetting extends BaseEntity {
         this.secondDimensionApiToken = secondDimensionApiToken;
     }
 
-    public String getIsThirdDimension() {
+    public UI_LOOKUP getIsThirdDimension() {
         return isThirdDimension;
     }
 
-    public void setIsThirdDimension(String isThirdDimension) {
+    public void setIsThirdDimension(UI_LOOKUP isThirdDimension) {
         this.isThirdDimension = isThirdDimension;
     }
 
