@@ -17,7 +17,7 @@ public class DashboardSettingRequest extends RequestFilter {
     private String description;
     private Long boardType;
     private String dashboardUrl;
-    private Boolean iframe;
+    private Long iframe;
     private Long status;
     private SessionUser sessionUser;
 
@@ -88,11 +88,11 @@ public class DashboardSettingRequest extends RequestFilter {
         this.sessionUser = sessionUser;
     }
 
-    public Boolean getIframe() {
+    public Long getIframe() {
         return iframe;
     }
 
-    public void setIframe(Boolean iframe) {
+    public void setIframe(Long iframe) {
         this.iframe = iframe;
     }
 

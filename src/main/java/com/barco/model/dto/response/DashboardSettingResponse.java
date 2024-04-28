@@ -17,7 +17,7 @@ public class DashboardSettingResponse extends BaseEntity {
     private String description;
     private GLookup boardType;
     private String dashboardUrl;
-    private Boolean iframe;
+    private GLookup iframe;
 
     public DashboardSettingResponse() {
     }
@@ -62,11 +62,11 @@ public class DashboardSettingResponse extends BaseEntity {
         this.dashboardUrl = dashboardUrl;
     }
 
-    public Boolean getIframe() {
+    public GLookup getIframe() {
         return iframe;
     }
 
-    public void setIframe(Boolean iframe) {
+    public void setIframe(GLookup iframe) {
         this.iframe = iframe;
     }
 

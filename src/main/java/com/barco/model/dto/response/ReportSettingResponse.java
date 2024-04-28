@@ -16,27 +16,32 @@ public class ReportSettingResponse extends BaseEntity {
     private GLookup groupType;
     private String description;
     private GLookup payloadRef;
-    private Boolean isPdf;
+    private GLookup isPdf;
     private String pdfUrl;
     private String pdfApiToken;
-    private Boolean isXlsx;
+    private GLookup isXlsx;
     private String xlsxUrl;
     private String xlsxApiToken;
-    private Boolean isCsv;
+    private GLookup isCsv;
     private String csvUrl;
     private String csvApiToken;
+    private GLookup isData;
     private String dataUrl;
     private String dataApiToken;
+    private GLookup isFirstDimension;
     private String firstDimensionUrl;
-    private String firstDimensLKValue;
+    private GLookup firstDimensionLKValue;
     private String firstDimensionApiToken;
+    private GLookup isSecondDimension;
     private String secondDimensionUrl;
-    private String secondDimensionLKValue;
+    private GLookup secondDimensionLKValue;
     private String secondDimensionApiToken;
+    private GLookup isThirdDimension;
     private String thirdDimensionUrl;
-    private String thirdDimensionLKValue;
+    private GLookup thirdDimensionLKValue;
     private String thirdDimensionApiToken;
-    private String distinctLKValue;
+    private GLookup distinctLKValue;
+    private GLookup aggLKValue;
     private FormResponse formResponse;
 
     public ReportSettingResponse() {
@@ -74,12 +79,12 @@ public class ReportSettingResponse extends BaseEntity {
         this.payloadRef = payloadRef;
     }
 
-    public Boolean getPdf() {
+    public GLookup getIsPdf() {
         return isPdf;
     }
 
-    public void setPdf(Boolean pdf) {
-        isPdf = pdf;
+    public void setIsPdf(GLookup isPdf) {
+        this.isPdf = isPdf;
     }
 
     public String getPdfUrl() {
@@ -98,12 +103,12 @@ public class ReportSettingResponse extends BaseEntity {
         this.pdfApiToken = pdfApiToken;
     }
 
-    public Boolean getXlsx() {
+    public GLookup getIsXlsx() {
         return isXlsx;
     }
 
-    public void setXlsx(Boolean xlsx) {
-        isXlsx = xlsx;
+    public void setIsXlsx(GLookup isXlsx) {
+        this.isXlsx = isXlsx;
     }
 
     public String getXlsxUrl() {
@@ -122,12 +127,12 @@ public class ReportSettingResponse extends BaseEntity {
         this.xlsxApiToken = xlsxApiToken;
     }
 
-    public Boolean getCsv() {
+    public GLookup getIsCsv() {
         return isCsv;
     }
 
-    public void setCsv(Boolean csv) {
-        isCsv = csv;
+    public void setIsCsv(GLookup isCsv) {
+        this.isCsv = isCsv;
     }
 
     public String getCsvUrl() {
@@ -146,6 +151,14 @@ public class ReportSettingResponse extends BaseEntity {
         this.csvApiToken = csvApiToken;
     }
 
+    public GLookup getIsData() {
+        return isData;
+    }
+
+    public void setIsData(GLookup isData) {
+        this.isData = isData;
+    }
+
     public String getDataUrl() {
         return dataUrl;
     }
@@ -162,6 +175,14 @@ public class ReportSettingResponse extends BaseEntity {
         this.dataApiToken = dataApiToken;
     }
 
+    public GLookup getIsFirstDimension() {
+        return isFirstDimension;
+    }
+
+    public void setIsFirstDimension(GLookup isFirstDimension) {
+        this.isFirstDimension = isFirstDimension;
+    }
+
     public String getFirstDimensionUrl() {
         return firstDimensionUrl;
     }
@@ -170,12 +191,12 @@ public class ReportSettingResponse extends BaseEntity {
         this.firstDimensionUrl = firstDimensionUrl;
     }
 
-    public String getFirstDimensLKValue() {
-        return firstDimensLKValue;
+    public GLookup getFirstDimensionLKValue() {
+        return firstDimensionLKValue;
     }
 
-    public void setFirstDimensLKValue(String firstDimensLKValue) {
-        this.firstDimensLKValue = firstDimensLKValue;
+    public void setFirstDimensionLKValue(GLookup firstDimensionLKValue) {
+        this.firstDimensionLKValue = firstDimensionLKValue;
     }
 
     public String getFirstDimensionApiToken() {
@@ -186,6 +207,14 @@ public class ReportSettingResponse extends BaseEntity {
         this.firstDimensionApiToken = firstDimensionApiToken;
     }
 
+    public GLookup getIsSecondDimension() {
+        return isSecondDimension;
+    }
+
+    public void setIsSecondDimension(GLookup isSecondDimension) {
+        this.isSecondDimension = isSecondDimension;
+    }
+
     public String getSecondDimensionUrl() {
         return secondDimensionUrl;
     }
@@ -194,11 +223,11 @@ public class ReportSettingResponse extends BaseEntity {
         this.secondDimensionUrl = secondDimensionUrl;
     }
 
-    public String getSecondDimensionLKValue() {
+    public GLookup getSecondDimensionLKValue() {
         return secondDimensionLKValue;
     }
 
-    public void setSecondDimensionLKValue(String secondDimensionLKValue) {
+    public void setSecondDimensionLKValue(GLookup secondDimensionLKValue) {
         this.secondDimensionLKValue = secondDimensionLKValue;
     }
 
@@ -210,6 +239,14 @@ public class ReportSettingResponse extends BaseEntity {
         this.secondDimensionApiToken = secondDimensionApiToken;
     }
 
+    public GLookup getIsThirdDimension() {
+        return isThirdDimension;
+    }
+
+    public void setIsThirdDimension(GLookup isThirdDimension) {
+        this.isThirdDimension = isThirdDimension;
+    }
+
     public String getThirdDimensionUrl() {
         return thirdDimensionUrl;
     }
@@ -218,11 +255,11 @@ public class ReportSettingResponse extends BaseEntity {
         this.thirdDimensionUrl = thirdDimensionUrl;
     }
 
-    public String getThirdDimensionLKValue() {
+    public GLookup getThirdDimensionLKValue() {
         return thirdDimensionLKValue;
     }
 
-    public void setThirdDimensionLKValue(String thirdDimensionLKValue) {
+    public void setThirdDimensionLKValue(GLookup thirdDimensionLKValue) {
         this.thirdDimensionLKValue = thirdDimensionLKValue;
     }
 
@@ -234,12 +271,20 @@ public class ReportSettingResponse extends BaseEntity {
         this.thirdDimensionApiToken = thirdDimensionApiToken;
     }
 
-    public String getDistinctLKValue() {
+    public GLookup getDistinctLKValue() {
         return distinctLKValue;
     }
 
-    public void setDistinctLKValue(String distinctLKValue) {
+    public void setDistinctLKValue(GLookup distinctLKValue) {
         this.distinctLKValue = distinctLKValue;
+    }
+
+    public GLookup getAggLKValue() {
+        return aggLKValue;
+    }
+
+    public void setAggLKValue(GLookup aggLKValue) {
+        this.aggLKValue = aggLKValue;
     }
 
     public FormResponse getFormResponse() {
