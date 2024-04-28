@@ -10,7 +10,7 @@ public enum DASHBOARD_TYPE {
 
     POWER_BI(0l),
     TABLEAU(1l),
-    CUSTOMER(2l);
+    CUSTOM(2l);
 
     private Long lookupCode;
 
@@ -27,8 +27,8 @@ public enum DASHBOARD_TYPE {
             return POWER_BI;
         } else if (lookupCode.equals(TABLEAU.getLookupCode())) {
             return TABLEAU;
-        } else if (lookupCode.equals(CUSTOMER.getLookupCode())) {
-            return CUSTOMER;
+        } else if (lookupCode.equals(CUSTOM.getLookupCode())) {
+            return CUSTOM;
         }
         throw new RuntimeException(MessageUtil.DASHBOARD_TYPE_NOT_FOUND);
     }

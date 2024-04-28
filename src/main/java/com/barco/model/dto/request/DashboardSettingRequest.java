@@ -1,6 +1,5 @@
 package com.barco.model.dto.request;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
@@ -16,8 +15,9 @@ public class DashboardSettingRequest extends RequestFilter {
     private String name;
     private String groupType;
     private String description;
-    private Integer boardType;
+    private Long boardType;
     private String dashboardUrl;
+    private Boolean iframe;
     private Long status;
     private SessionUser sessionUser;
 
@@ -56,11 +56,11 @@ public class DashboardSettingRequest extends RequestFilter {
         this.description = description;
     }
 
-    public Integer getBoardType() {
+    public Long getBoardType() {
         return boardType;
     }
 
-    public void setBoardType(Integer boardType) {
+    public void setBoardType(Long boardType) {
         this.boardType = boardType;
     }
 
@@ -86,6 +86,14 @@ public class DashboardSettingRequest extends RequestFilter {
 
     public void setSessionUser(SessionUser sessionUser) {
         this.sessionUser = sessionUser;
+    }
+
+    public Boolean getIframe() {
+        return iframe;
+    }
+
+    public void setIframe(Boolean iframe) {
+        this.iframe = iframe;
     }
 
     @Override

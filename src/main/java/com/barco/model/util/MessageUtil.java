@@ -177,5 +177,14 @@ public interface MessageUtil {
     public static final String TOTAL_STTF_INVALID = "Total %d sttf invalid.";
     public static final String TOTAL_STTS_INVALID = "Total %d stts invalid.";
     public static final String TOTAL_STTC_INVALID = "Total %d sttc invalid.";
-
+    public static final String DASHBOARD_ID_MISSING = "Dashboard field id missing.";
+    public static final String DASHBOARD_NAME_MISSING = "Dashboard field name missing.";
+    public static final String DASHBOARD_GROUP_TYPE_MISSING = "Dashboard field groupType missing.";
+    public static final String DASHBOARD_DESCRIPTION_MISSING = "Dashboard field description missing.";
+    public static final String DASHBOARD_BOARD_TYPE_MISSING = "Dashboard field board type missing.";
+    public static final String DASHBOARD_DASHBOARD_URL_MISSING = "Dashboard field dashboard url missing.";
+    public static final String DASHBOARD_IFRAME_MISSING = "Dashboard field Iframe url missing.";
+    public static final String DASHBOARD_NOT_FOUND = "Dashboard not found.";
+    public static final String REPORT_ID_MISSING = "Report field id missing.";
+    public static final String REPORT_NOT_FOUND = "Report not found.";
 }

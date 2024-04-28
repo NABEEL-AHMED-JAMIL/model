@@ -25,19 +25,26 @@ public class ReportSettingRequest extends RequestFilter {
     private Boolean isCsv;
     private String csvUrl;
     private String csvApiToken;
+    private String isData;
     private String dataUrl;
     private String dataApiToken;
+    private String isFirstDimension;
     private String firstDimensionUrl;
     private String firstDimensLKValue;
     private String firstDimensionApiToken;
+    private String isSecondDimension;
     private String secondDimensionUrl;
     private String secondDimensionLKValue;
     private String secondDimensionApiToken;
+    private String isThirdDimension;
     private String thirdDimensionUrl;
     private String thirdDimensionLKValue;
     private String thirdDimensionApiToken;
     private String distinctLKValue;
+    private String aggLKValue;
     private FormRequest formRequest;
+    private Long status;
+    private SessionUser sessionUser;
 
     public ReportSettingRequest() {
     }
@@ -154,6 +161,14 @@ public class ReportSettingRequest extends RequestFilter {
         this.csvApiToken = csvApiToken;
     }
 
+    public String getIsData() {
+        return isData;
+    }
+
+    public void setIsData(String isData) {
+        this.isData = isData;
+    }
+
     public String getDataUrl() {
         return dataUrl;
     }
@@ -168,6 +183,14 @@ public class ReportSettingRequest extends RequestFilter {
 
     public void setDataApiToken(String dataApiToken) {
         this.dataApiToken = dataApiToken;
+    }
+
+    public String getIsFirstDimension() {
+        return isFirstDimension;
+    }
+
+    public void setIsFirstDimension(String isFirstDimension) {
+        this.isFirstDimension = isFirstDimension;
     }
 
     public String getFirstDimensionUrl() {
@@ -194,6 +217,14 @@ public class ReportSettingRequest extends RequestFilter {
         this.firstDimensionApiToken = firstDimensionApiToken;
     }
 
+    public String getIsSecondDimension() {
+        return isSecondDimension;
+    }
+
+    public void setIsSecondDimension(String isSecondDimension) {
+        this.isSecondDimension = isSecondDimension;
+    }
+
     public String getSecondDimensionUrl() {
         return secondDimensionUrl;
     }
@@ -216,6 +247,14 @@ public class ReportSettingRequest extends RequestFilter {
 
     public void setSecondDimensionApiToken(String secondDimensionApiToken) {
         this.secondDimensionApiToken = secondDimensionApiToken;
+    }
+
+    public String getIsThirdDimension() {
+        return isThirdDimension;
+    }
+
+    public void setIsThirdDimension(String isThirdDimension) {
+        this.isThirdDimension = isThirdDimension;
     }
 
     public String getThirdDimensionUrl() {
@@ -248,6 +287,30 @@ public class ReportSettingRequest extends RequestFilter {
 
     public void setDistinctLKValue(String distinctLKValue) {
         this.distinctLKValue = distinctLKValue;
+    }
+
+    public String getAggLKValue() {
+        return aggLKValue;
+    }
+
+    public void setAggLKValue(String aggLKValue) {
+        this.aggLKValue = aggLKValue;
+    }
+
+    public Long getStatus() {
+        return status;
+    }
+
+    public void setStatus(Long status) {
+        this.status = status;
+    }
+
+    public SessionUser getSessionUser() {
+        return sessionUser;
+    }
+
+    public void setSessionUser(SessionUser sessionUser) {
+        this.sessionUser = sessionUser;
     }
 
     public FormRequest getFormRequest() {

@@ -31,6 +31,9 @@ public class DashboardSetting extends BaseEntity {
     @Column(name = "dashboard_url", nullable = false)
     private String dashboardUrl;
 
+    @Column(name = "iframe", nullable = false)
+    private Boolean iframe; // in case of POWER_BI|TABLEAU => true and false, for
+
     public DashboardSetting() {
     }
 
@@ -72,6 +75,14 @@ public class DashboardSetting extends BaseEntity {
 
     public void setDashboardUrl(String dashboardUrl) {
         this.dashboardUrl = dashboardUrl;
+    }
+
+    public Boolean getIframe() {
+        return iframe;
+    }
+
+    public void setIframe(Boolean iframe) {
+        this.iframe = iframe;
     }
 
     @Override
