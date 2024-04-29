@@ -116,7 +116,7 @@ public class ReportSetting extends BaseEntity {
     @Column(name = "agg_lkv")
     private String aggLKValue;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(name = "form_id")
     private GenForm genForm;
 
