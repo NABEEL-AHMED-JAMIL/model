@@ -42,7 +42,7 @@ public class ReportSettingRequest extends RequestFilter {
     private String thirdDimensionApiToken;
     private String distinctLKValue;
     private String aggLKValue;
-    private FormRequest formRequest;
+    private Long formRequestId;
     private Long status;
     private SessionUser sessionUser;
 
@@ -297,12 +297,12 @@ public class ReportSettingRequest extends RequestFilter {
         this.aggLKValue = aggLKValue;
     }
 
-    public FormRequest getFormRequest() {
-        return formRequest;
+    public Long getFormRequestId() {
+        return formRequestId;
     }
 
-    public void setFormRequest(FormRequest formRequest) {
-        this.formRequest = formRequest;
+    public void setFormRequestId(Long formRequestId) {
+        this.formRequestId = formRequestId;
     }
 
     public Long getStatus() {

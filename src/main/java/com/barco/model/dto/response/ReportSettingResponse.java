@@ -42,7 +42,7 @@ public class ReportSettingResponse extends BaseEntity {
     private String thirdDimensionApiToken;
     private GLookup distinctLKValue;
     private GLookup aggLKValue;
-    private FormResponse formResponse;
+    private Long formRequestId;
 
     public ReportSettingResponse() {
     }
@@ -287,12 +287,12 @@ public class ReportSettingResponse extends BaseEntity {
         this.aggLKValue = aggLKValue;
     }
 
-    public FormResponse getFormResponse() {
-        return formResponse;
+    public Long getFormRequestId() {
+        return formRequestId;
     }
 
-    public void setFormResponse(FormResponse formResponse) {
-        this.formResponse = formResponse;
+    public void setFormRequestId(Long formRequestId) {
+        this.formRequestId = formRequestId;
     }
 
     @Override
