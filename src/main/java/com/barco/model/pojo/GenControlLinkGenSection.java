@@ -17,6 +17,12 @@ public class GenControlLinkGenSection extends BaseEntity {
     @Column(name = "control_order")
     private Long controlOrder;
 
+    @Column(name = "disabled_pattern")
+    private String disabledPattern;
+
+    @Column(name = "visible_pattern")
+    private String visiblePattern;
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "control_id", nullable = false)
     private GenControl genControl;
@@ -34,6 +40,22 @@ public class GenControlLinkGenSection extends BaseEntity {
 
     public void setControlOrder(Long controlOrder) {
         this.controlOrder = controlOrder;
+    }
+
+    public String getDisabledPattern() {
+        return disabledPattern;
+    }
+
+    public void setDisabledPattern(String disabledPattern) {
+        this.disabledPattern = disabledPattern;
+    }
+
+    public String getVisiblePattern() {
+        return visiblePattern;
+    }
+
+    public void setVisiblePattern(String visiblePattern) {
+        this.visiblePattern = visiblePattern;
     }
 
     public GenControl getGenControl() {

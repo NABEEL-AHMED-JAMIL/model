@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 
+import javax.persistence.Column;
+
 /**
  * @author Nabeel Ahmed
  */
@@ -15,6 +17,8 @@ public class ControlLinkSectionResponse extends BaseEntity {
     private String description;
     private Boolean linkedControl;
     private Long linkSectionId;
+    private String disabledPattern;
+    private String visiblePattern;
     private Long controlOrder;
 
     public ControlLinkSectionResponse() {
@@ -50,6 +54,22 @@ public class ControlLinkSectionResponse extends BaseEntity {
 
     public void setLinkSectionId(Long linkSectionId) {
         this.linkSectionId = linkSectionId;
+    }
+
+    public String getDisabledPattern() {
+        return disabledPattern;
+    }
+
+    public void setDisabledPattern(String disabledPattern) {
+        this.disabledPattern = disabledPattern;
+    }
+
+    public String getVisiblePattern() {
+        return visiblePattern;
+    }
+
+    public void setVisiblePattern(String visiblePattern) {
+        this.visiblePattern = visiblePattern;
     }
 
     public Long getControlOrder() {
