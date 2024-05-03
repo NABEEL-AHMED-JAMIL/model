@@ -43,17 +43,17 @@ public class GenControl extends BaseEntity {
     private Long fieldWidth;
 
     @Column(name = "min_length")
-    private Long minLength;
+    private Long minLength; // validation
 
     @Column(name = "max_length")
-    private Long maxLength;
+    private Long maxLength; // validation
 
     @Column(name = "field_lk_value")
     private String fieldLkValue;
 
     @Column(name = "mandatory")
     @Enumerated(EnumType.ORDINAL)
-    private IS_DEFAULT mandatory;
+    private IS_DEFAULT mandatory; // validation
 
     @Column(name = "disabled")
     @Enumerated(EnumType.ORDINAL)
@@ -67,7 +67,7 @@ public class GenControl extends BaseEntity {
     private String defaultValue;
 
     @Column(name = "pattern")
-    private String pattern;
+    private String pattern; // validation
 
     @OneToMany(mappedBy="genControl", fetch = FetchType.LAZY)
     private List<GenControlLinkGenSection> genControlLinkGenSections;
