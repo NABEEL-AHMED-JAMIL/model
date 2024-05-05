@@ -39,9 +39,6 @@ public class GenControl extends BaseEntity {
     @Column(name = "place_holder")
     private String placeHolder;
 
-    @Column(name = "field_width")
-    private Long fieldWidth;
-
     @Column(name = "min_length")
     private Long minLength; // validation
 
@@ -54,10 +51,6 @@ public class GenControl extends BaseEntity {
     @Column(name = "mandatory")
     @Enumerated(EnumType.ORDINAL)
     private IS_DEFAULT mandatory; // validation
-
-    @Column(name = "disabled")
-    @Enumerated(EnumType.ORDINAL)
-    private IS_DEFAULT disabled;
 
     @Column(name = "is_default")
     @Enumerated(EnumType.ORDINAL)
@@ -124,14 +117,6 @@ public class GenControl extends BaseEntity {
         this.placeHolder = placeHolder;
     }
 
-    public Long getFieldWidth() {
-        return fieldWidth;
-    }
-
-    public void setFieldWidth(Long fieldWidth) {
-        this.fieldWidth = fieldWidth;
-    }
-
     public Long getMinLength() {
         return minLength;
     }
@@ -162,14 +147,6 @@ public class GenControl extends BaseEntity {
 
     public void setMandatory(IS_DEFAULT mandatory) {
         this.mandatory = mandatory;
-    }
-
-    public IS_DEFAULT getDisabled() {
-        return disabled;
-    }
-
-    public void setDisabled(IS_DEFAULT disabled) {
-        this.disabled = disabled;
     }
 
     public IS_DEFAULT getIsDefault() {

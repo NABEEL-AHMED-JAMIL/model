@@ -25,6 +25,7 @@ public class SectionRequest extends RequestFilter {
     private Long controlOrder;
     private String disabledPattern;
     private String visiblePattern;
+    private Long fieldWidth;
     //
     private List<Long> formId;
     private List<Long> sectionLinkForm;
@@ -115,6 +116,14 @@ public class SectionRequest extends RequestFilter {
 
     public void setVisiblePattern(String visiblePattern) {
         this.visiblePattern = visiblePattern;
+    }
+
+    public Long getFieldWidth() {
+        return fieldWidth;
+    }
+
+    public void setFieldWidth(Long fieldWidth) {
+        this.fieldWidth = fieldWidth;
     }
 
     public List<Long> getFormId() {

@@ -19,6 +19,7 @@ public class ControlLinkSectionResponse extends BaseEntity {
     private Long linkSectionId;
     private String disabledPattern;
     private String visiblePattern;
+    private Long fieldWidth;
     private Long controlOrder;
 
     public ControlLinkSectionResponse() {
@@ -70,6 +71,14 @@ public class ControlLinkSectionResponse extends BaseEntity {
 
     public void setVisiblePattern(String visiblePattern) {
         this.visiblePattern = visiblePattern;
+    }
+
+    public Long getFieldWidth() {
+        return fieldWidth;
+    }
+
+    public void setFieldWidth(Long fieldWidth) {
+        this.fieldWidth = fieldWidth;
     }
 
     public Long getControlOrder() {

@@ -1,6 +1,5 @@
 package com.barco.model.dto.dform;
 
-import com.barco.model.enums.ErrorAssosiation;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
@@ -12,31 +11,31 @@ import com.google.gson.Gson;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class IDynamicValidation {
 
-    private ErrorAssosiation validator;
+    private String validator;
     private String message;
     private String pattern;
 
     public IDynamicValidation() {
     }
 
-    public IDynamicValidation(ErrorAssosiation validator,
+    public IDynamicValidation(String validator,
         String message) {
         this.validator = validator;
         this.message = message;
     }
 
-    public IDynamicValidation(ErrorAssosiation validator,
+    public IDynamicValidation(String validator,
         String message, String pattern) {
         this.validator = validator;
         this.message = message;
         this.pattern = pattern;
     }
 
-    public ErrorAssosiation getValidator() {
+    public String getValidator() {
         return validator;
     }
 
-    public void setValidator(ErrorAssosiation validator) {
+    public void setValidator(String validator) {
         this.validator = validator;
     }
 

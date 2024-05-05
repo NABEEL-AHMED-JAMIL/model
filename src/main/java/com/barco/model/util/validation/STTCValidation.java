@@ -23,7 +23,6 @@ public class STTCValidation {
     private String description;
     private String fieldName;
     private String fieldTitle;
-    private String fieldWidth;
     private String placeHolder;
     private String pattern;
     private String fieldType;
@@ -88,14 +87,6 @@ public class STTCValidation {
 
     public void setFieldTitle(String fieldTitle) {
         this.fieldTitle = fieldTitle;
-    }
-
-    public String getFieldWidth() {
-        return fieldWidth;
-    }
-
-    public void setFieldWidth(String fieldWidth) {
-        this.fieldWidth = fieldWidth;
     }
 
     public String getPlaceHolder() {
@@ -167,11 +158,6 @@ public class STTCValidation {
             }
             if (this.isNull(this.fieldTitle)) {
                 this.setErrorMsg(String.format("FieldTitle should not be empty at row %s.<br>", rowCounter));
-            }
-            if (this.isNull(this.fieldWidth)) {
-                this.setErrorMsg(String.format("FieldWidth should not be empty at row %s.<br>", rowCounter));
-            } else if (!this.patternRegx.matcher(fieldWidth).matches()) {
-                this.setErrorMsg(String.format("FieldWidth type not correct at row %s.<br>", rowCounter));
             }
             if (this.isNull(this.fieldType)) {
                 this.setErrorMsg(String.format("FieldType should not be empty at row %s.<br>", rowCounter));

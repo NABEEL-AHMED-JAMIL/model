@@ -5,8 +5,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 /**
  * @author Nabeel Ahmed
@@ -23,7 +21,7 @@ public class IDynamicControl {
     private Object value;
     private String placeHolder;
     private Long width; // max 24
-    private Map<String, Object> selectMenuOptions;
+    private List<GLookup> selectMenuOptions;
     private String disabledPattern;
     private String visiblePattern;
     private List<IDynamicValidation> validators;
@@ -95,11 +93,11 @@ public class IDynamicControl {
         this.width = width;
     }
 
-    public Map<String, Object> getSelectMenuOptions() {
+    public List<GLookup> getSelectMenuOptions() {
         return selectMenuOptions;
     }
 
-    public void setSelectMenuOptions(Map<String, Object> selectMenuOptions) {
+    public void setSelectMenuOptions(List<GLookup> selectMenuOptions) {
         this.selectMenuOptions = selectMenuOptions;
     }
 

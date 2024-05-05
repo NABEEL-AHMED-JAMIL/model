@@ -63,6 +63,13 @@ public class GLookup<X, Y> {
         return new GLookup(lookupData.getLookupType(), lookupData.getLookupCode(), lookupData.getLookupValue());
     }
 
+    public static GLookup getGLookupV2(LookupDataResponse lookupData) throws NullPointerException {
+        if (ModelUtil.isNull(lookupData)) {
+            throw new NullPointerException("Lookup should not null.");
+        }
+        return new GLookup(lookupData.getLookupType(), lookupData.getLookupCode().toString(), lookupData.getLookupValue());
+    }
+
     @Override
     public String toString() {
         return new Gson().toJson(this);

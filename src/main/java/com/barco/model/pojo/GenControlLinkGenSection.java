@@ -23,6 +23,9 @@ public class GenControlLinkGenSection extends BaseEntity {
     @Column(name = "visible_pattern")
     private String visiblePattern;
 
+    @Column(name = "field_width")
+    private Long fieldWidth;
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "control_id", nullable = false)
     private GenControl genControl;
@@ -56,6 +59,14 @@ public class GenControlLinkGenSection extends BaseEntity {
 
     public void setVisiblePattern(String visiblePattern) {
         this.visiblePattern = visiblePattern;
+    }
+
+    public Long getFieldWidth() {
+        return fieldWidth;
+    }
+
+    public void setFieldWidth(Long fieldWidth) {
+        this.fieldWidth = fieldWidth;
     }
 
     public GenControl getGenControl() {

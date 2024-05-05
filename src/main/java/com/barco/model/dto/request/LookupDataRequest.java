@@ -26,6 +26,10 @@ public class LookupDataRequest {
     public LookupDataRequest() {
     }
 
+    public LookupDataRequest(String lookupType) {
+        this.lookupType = lookupType;
+    }
+
     public Long getId() {
         return id;
     }
