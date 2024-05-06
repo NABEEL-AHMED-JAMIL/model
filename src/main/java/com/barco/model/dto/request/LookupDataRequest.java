@@ -19,10 +19,15 @@ public class LookupDataRequest {
     private String description;
     private Timestamp dateCreated;
     private Long parentLookupId;
+    private Long status;
     private Long uiLookup;
     private SessionUser sessionUser;
 
     public LookupDataRequest() {
+    }
+
+    public LookupDataRequest(String lookupType) {
+        this.lookupType = lookupType;
     }
 
     public Long getId() {
@@ -79,6 +84,14 @@ public class LookupDataRequest {
 
     public void setParentLookupId(Long parentLookupId) {
         this.parentLookupId = parentLookupId;
+    }
+
+    public Long getStatus() {
+        return status;
+    }
+
+    public void setStatus(Long status) {
+        this.status = status;
     }
 
     public Long getUiLookup() {

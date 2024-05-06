@@ -26,6 +26,8 @@ public interface GenControlLinkGenSectionRepository extends CrudRepository<GenCo
 
     public List<GenControlLinkGenSection> findAllByIdInAndStatusNot(List<Long> ids, APPLICATION_STATUS status);
 
+    public List<GenControlLinkGenSection> findAllByGenSectionAndStatus(GenSection genSection, APPLICATION_STATUS status);
+
     @Modifying
     @Query(DELETE_ALL_BY_STATUS_AND_SECTION_ID_AND_APP_USER_ID)
     public void deleteAllByStatusAndSectionIdAndAppUserId(APPLICATION_STATUS status, Long genSectionId, Long createdBy);

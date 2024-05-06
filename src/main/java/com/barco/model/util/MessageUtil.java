@@ -196,6 +196,5 @@ public interface MessageUtil {
     public static final String REPORT_SETTING_DATA_MISSING = "Report Setting field data missing.";
     public static final String REPORT_SETTING_FIRST_DIMENSION_MISSING = "Report Setting field first dimension missing.";
     public static final String REPORT_SETTING_SECOND_DIMENSION_MISSING = "Report Setting field second dimension missing.";
-    public static final String REPORT_SETTING_THIRD_DIMENSION_MISSING = "Report Setting field third dimension missing.";
     public static final String REPORT_NOT_FOUND = "Report not found.";
 }

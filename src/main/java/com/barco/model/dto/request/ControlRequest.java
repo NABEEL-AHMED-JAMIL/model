@@ -20,12 +20,10 @@ public class ControlRequest extends RequestFilter {
     private String fieldTitle;
     private String fieldName;
     private String placeHolder;
-    private Long fieldWidth;
     private Long minLength;
     private Long maxLength;
     private String fieldLkValue;
     private Long mandatory;
-    private Long disabled;
     private Long isDefault;
     private String defaultValue;
     private String pattern;
@@ -35,6 +33,9 @@ public class ControlRequest extends RequestFilter {
     private ACTION action; // delete|insert
     private List<Long> sectionId;
     private List<Long> controlLinkSection;
+    private String disabledPattern;
+    private String visiblePattern;
+    private Long fieldWidth;
     private Long controlOrder;
 
     public ControlRequest() {
@@ -96,14 +97,6 @@ public class ControlRequest extends RequestFilter {
         this.placeHolder = placeHolder;
     }
 
-    public Long getFieldWidth() {
-        return fieldWidth;
-    }
-
-    public void setFieldWidth(Long fieldWidth) {
-        this.fieldWidth = fieldWidth;
-    }
-
     public Long getMinLength() {
         return minLength;
     }
@@ -134,14 +127,6 @@ public class ControlRequest extends RequestFilter {
 
     public void setMandatory(Long mandatory) {
         this.mandatory = mandatory;
-    }
-
-    public Long getDisabled() {
-        return disabled;
-    }
-
-    public void setDisabled(Long disabled) {
-        this.disabled = disabled;
     }
 
     public Long getIsDefault() {
@@ -206,6 +191,30 @@ public class ControlRequest extends RequestFilter {
 
     public void setControlLinkSection(List<Long> controlLinkSection) {
         this.controlLinkSection = controlLinkSection;
+    }
+
+    public String getDisabledPattern() {
+        return disabledPattern;
+    }
+
+    public void setDisabledPattern(String disabledPattern) {
+        this.disabledPattern = disabledPattern;
+    }
+
+    public String getVisiblePattern() {
+        return visiblePattern;
+    }
+
+    public void setVisiblePattern(String visiblePattern) {
+        this.visiblePattern = visiblePattern;
+    }
+
+    public Long getFieldWidth() {
+        return fieldWidth;
+    }
+
+    public void setFieldWidth(Long fieldWidth) {
+        this.fieldWidth = fieldWidth;
     }
 
     public Long getControlOrder() {

@@ -18,12 +18,10 @@ public class ControlResponse extends BaseEntity {
     private String fieldTitle;
     private String fieldName;
     private String placeHolder;
-    private Long fieldWidth;
     private Long minLength;
     private Long maxLength;
     private String fieldLkValue;
     private GLookup mandatory;
-    private GLookup disabled;
     private GLookup isDefault;
     private String defaultValue;
     private String pattern;
@@ -80,14 +78,6 @@ public class ControlResponse extends BaseEntity {
         this.placeHolder = placeHolder;
     }
 
-    public Long getFieldWidth() {
-        return fieldWidth;
-    }
-
-    public void setFieldWidth(Long fieldWidth) {
-        this.fieldWidth = fieldWidth;
-    }
-
     public Long getMinLength() {
         return minLength;
     }
@@ -118,14 +108,6 @@ public class ControlResponse extends BaseEntity {
 
     public void setMandatory(GLookup mandatory) {
         this.mandatory = mandatory;
-    }
-
-    public GLookup getDisabled() {
-        return disabled;
-    }
-
-    public void setDisabled(GLookup disabled) {
-        this.disabled = disabled;
     }
 
     public GLookup getIsDefault() {

@@ -36,10 +36,6 @@ public class ReportSettingRequest extends RequestFilter {
     private String secondDimensionUrl;
     private String secondDimensionLKValue;
     private String secondDimensionApiToken;
-    private Long isThirdDimension;
-    private String thirdDimensionUrl;
-    private String thirdDimensionLKValue;
-    private String thirdDimensionApiToken;
     private String distinctLKValue;
     private String aggLKValue;
     private Long formRequestId;
@@ -247,38 +243,6 @@ public class ReportSettingRequest extends RequestFilter {
 
     public void setSecondDimensionApiToken(String secondDimensionApiToken) {
         this.secondDimensionApiToken = secondDimensionApiToken;
-    }
-
-    public Long getIsThirdDimension() {
-        return isThirdDimension;
-    }
-
-    public void setIsThirdDimension(Long isThirdDimension) {
-        this.isThirdDimension = isThirdDimension;
-    }
-
-    public String getThirdDimensionUrl() {
-        return thirdDimensionUrl;
-    }
-
-    public void setThirdDimensionUrl(String thirdDimensionUrl) {
-        this.thirdDimensionUrl = thirdDimensionUrl;
-    }
-
-    public String getThirdDimensionLKValue() {
-        return thirdDimensionLKValue;
-    }
-
-    public void setThirdDimensionLKValue(String thirdDimensionLKValue) {
-        this.thirdDimensionLKValue = thirdDimensionLKValue;
-    }
-
-    public String getThirdDimensionApiToken() {
-        return thirdDimensionApiToken;
-    }
-
-    public void setThirdDimensionApiToken(String thirdDimensionApiToken) {
-        this.thirdDimensionApiToken = thirdDimensionApiToken;
     }
 
     public String getDistinctLKValue() {

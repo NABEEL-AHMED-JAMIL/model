@@ -96,19 +96,6 @@ public class ReportSetting extends BaseEntity {
     @Column(name = "sd_token")
     private String secondDimensionApiToken;
 
-    @Column(name = "is_td", nullable = false)
-    @Enumerated(EnumType.ORDINAL)
-    private UI_LOOKUP isThirdDimension;
-
-    @Column(name = "td_url")
-    private String thirdDimensionUrl;
-
-    @Column(name = "td_lkv")
-    private String thirdDimensionLKValue;
-
-    @Column(name = "td_token")
-    private String thirdDimensionApiToken;
-
     @Column(name = "distinct_lkv")
     private String distinctLKValue;
 
@@ -313,38 +300,6 @@ public class ReportSetting extends BaseEntity {
 
     public void setSecondDimensionApiToken(String secondDimensionApiToken) {
         this.secondDimensionApiToken = secondDimensionApiToken;
-    }
-
-    public UI_LOOKUP getIsThirdDimension() {
-        return isThirdDimension;
-    }
-
-    public void setIsThirdDimension(UI_LOOKUP isThirdDimension) {
-        this.isThirdDimension = isThirdDimension;
-    }
-
-    public String getThirdDimensionUrl() {
-        return thirdDimensionUrl;
-    }
-
-    public void setThirdDimensionUrl(String thirdDimensionUrl) {
-        this.thirdDimensionUrl = thirdDimensionUrl;
-    }
-
-    public String getThirdDimensionLKValue() {
-        return thirdDimensionLKValue;
-    }
-
-    public void setThirdDimensionLKValue(String thirdDimensionLKValue) {
-        this.thirdDimensionLKValue = thirdDimensionLKValue;
-    }
-
-    public String getThirdDimensionApiToken() {
-        return thirdDimensionApiToken;
-    }
-
-    public void setThirdDimensionApiToken(String thirdDimensionApiToken) {
-        this.thirdDimensionApiToken = thirdDimensionApiToken;
     }
 
     public String getDistinctLKValue() {
