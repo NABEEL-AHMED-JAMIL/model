@@ -27,7 +27,8 @@ public enum FIELD_TYPE {
     TEXTAREA(16l),
     SELECT(17l),
     MULTI_SELECT(18l),
-    KEY_VALUE(19l);
+    KEY_VALUE(19l),
+    YEAR(20l);
 
     private Long lookupCode;
 
@@ -80,6 +81,8 @@ public enum FIELD_TYPE {
             return MULTI_SELECT;
         } else if (lookupCode.equals(KEY_VALUE.getLookupCode())) {
             return KEY_VALUE;
+        } else if (lookupCode.equals(YEAR.getLookupCode())) {
+            return YEAR;
         }
         throw new RuntimeException(MessageUtil.FILED_TYPE_NOT_FOUND);
     }

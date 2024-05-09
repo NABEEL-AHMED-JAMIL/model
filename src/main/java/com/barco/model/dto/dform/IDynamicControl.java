@@ -19,6 +19,7 @@ public class IDynamicControl {
     private String label;
     private String name;
     private Object value;
+    private String pattern;
     private String placeHolder;
     private Long width; // max 24
     private List<GLookup> selectMenuOptions;
@@ -75,6 +76,14 @@ public class IDynamicControl {
 
     public void setValue(Object value) {
         this.value = value;
+    }
+
+    public String getPattern() {
+        return pattern;
+    }
+
+    public void setPattern(String pattern) {
+        this.pattern = pattern;
     }
 
     public String getPlaceHolder() {

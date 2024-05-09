@@ -12,8 +12,8 @@ import com.google.gson.Gson;
 public enum ErrorAssosiation {
 
     REQUIRED("required"),
-    MIN_LENGTH("min_length"),
-    MAX_LENGTH("max_length"),
+    MIN_LENGTH("minlength"),
+    MAX_LENGTH("maxlength"),
     PATTERN("pattern");
 
     private String assosiation;
