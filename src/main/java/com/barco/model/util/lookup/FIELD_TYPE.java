@@ -8,26 +8,27 @@ import com.google.gson.Gson;
  */
 public enum FIELD_TYPE {
 
-    WEEK(0l),
-    RANGE(1l),
-    FILE(2l),
-    DATE(3l),
-    EMAIL(4l),
+    WEEK(0l), // working
+    RANGE(1l), // deprecate
+    FILE(2l), // deprecate
+    DATE(3l), // working
+    EMAIL(4l), // working
     TEL(5l),
-    MONTH(6l),
-    PASSWORD(7l),
-    URL(8l),
+    MONTH(6l), // working
+    PASSWORD(7l), // working
+    URL(8l), // working
     DATETIME_LOCAL(9l),
     NUMBER(10l),
     RADIO(11l),
     CHECKBOX(12l),
     COLOR(13l),
     TIME(14l),
-    TEXT(15l),
-    TEXTAREA(16l),
-    SELECT(17l),
-    MULTI_SELECT(18l),
-    KEY_VALUE(19l);
+    TEXT(15l), // working
+    TEXTAREA(16l), // working
+    SELECT(17l), // working
+    MULTI_SELECT(18l), // working
+    KEY_VALUE(19l),
+    YEAR(20l); // working
 
     private Long lookupCode;
 
@@ -80,6 +81,8 @@ public enum FIELD_TYPE {
             return MULTI_SELECT;
         } else if (lookupCode.equals(KEY_VALUE.getLookupCode())) {
             return KEY_VALUE;
+        } else if (lookupCode.equals(YEAR.getLookupCode())) {
+            return YEAR;
         }
         throw new RuntimeException(MessageUtil.FILED_TYPE_NOT_FOUND);
     }
