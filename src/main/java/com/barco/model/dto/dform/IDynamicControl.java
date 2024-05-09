@@ -23,6 +23,7 @@ public class IDynamicControl {
     private String placeHolder;
     private Long width; // max 24
     private List<GLookup> selectMenuOptions;
+    private String apiLkValue;
     private String disabledPattern;
     private String visiblePattern;
     private List<IDynamicValidation> validators;
@@ -108,6 +109,14 @@ public class IDynamicControl {
 
     public void setSelectMenuOptions(List<GLookup> selectMenuOptions) {
         this.selectMenuOptions = selectMenuOptions;
+    }
+
+    public String getApiLkValue() {
+        return apiLkValue;
+    }
+
+    public void setApiLkValue(String apiLkValue) {
+        this.apiLkValue = apiLkValue;
     }
 
     public String getDisabledPattern() {

@@ -21,6 +21,7 @@ public class ControlResponse extends BaseEntity {
     private Long minLength;
     private Long maxLength;
     private String fieldLkValue;
+    private String apiLkValue;
     private GLookup mandatory;
     private GLookup isDefault;
     private String defaultValue;
@@ -100,6 +101,14 @@ public class ControlResponse extends BaseEntity {
 
     public void setFieldLkValue(String fieldLkValue) {
         this.fieldLkValue = fieldLkValue;
+    }
+
+    public String getApiLkValue() {
+        return apiLkValue;
+    }
+
+    public void setApiLkValue(String apiLkValue) {
+        this.apiLkValue = apiLkValue;
     }
 
     public GLookup getMandatory() {
