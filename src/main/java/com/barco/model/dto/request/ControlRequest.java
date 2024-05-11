@@ -23,6 +23,7 @@ public class ControlRequest extends RequestFilter {
     private Long minLength;
     private Long maxLength;
     private String fieldLkValue;
+    private String apiLkValue;
     private Long mandatory;
     private Long isDefault;
     private String defaultValue;
@@ -119,6 +120,14 @@ public class ControlRequest extends RequestFilter {
 
     public void setFieldLkValue(String fieldLkValue) {
         this.fieldLkValue = fieldLkValue;
+    }
+
+    public String getApiLkValue() {
+        return apiLkValue;
+    }
+
+    public void setApiLkValue(String apiLkValue) {
+        this.apiLkValue = apiLkValue;
     }
 
     public Long getMandatory() {

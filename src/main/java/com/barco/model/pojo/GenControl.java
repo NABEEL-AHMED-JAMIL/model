@@ -48,6 +48,9 @@ public class GenControl extends BaseEntity {
     @Column(name = "field_lk_value")
     private String fieldLkValue;
 
+    @Column(name = "api_lk_value")
+    private String apiLkValue;
+
     @Column(name = "mandatory")
     @Enumerated(EnumType.ORDINAL)
     private IS_DEFAULT mandatory; // validation
@@ -139,6 +142,14 @@ public class GenControl extends BaseEntity {
 
     public void setFieldLkValue(String fieldLkValue) {
         this.fieldLkValue = fieldLkValue;
+    }
+
+    public String getApiLkValue() {
+        return apiLkValue;
+    }
+
+    public void setApiLkValue(String apiLkValue) {
+        this.apiLkValue = apiLkValue;
     }
 
     public IS_DEFAULT getMandatory() {
