@@ -9,7 +9,11 @@ import com.google.gson.Gson;
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class SourceTaskRequest {
+public class SourceTaskRequest extends RequestFilter {
+
+    private String taskName;
+    private STTRequest sourceTaskType;
+    private FormRequest formRequest;
 
     @Override
     public String toString() {
