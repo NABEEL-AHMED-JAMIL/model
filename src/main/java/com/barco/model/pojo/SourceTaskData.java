@@ -4,9 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import javax.persistence.*;
-import java.sql.Date;
-import java.sql.Time;
-import java.sql.Timestamp;
 
 /**
  * @author Nabeel Ahmed
@@ -33,30 +30,9 @@ public class SourceTaskData extends BaseEntity {
     @JoinColumn(name = "gc_link_gs_id")
     private GenControlLinkGenSection genControlLinkGenSection;
 
-    @Column(name = "text_value")
-    private String textValue;
-
-    @Column(name = "numeric_value")
-    private Integer numericValue;
-
-    @Column(name = "date_value")
-    private Date dateValue;
-
-    @Column(name = "time_value")
-    private Time timeValue;
-
-    @Column(name = "timestamp_value")
-    private Timestamp dateTimeValue;
-
-    @Column(name = "checkbox_value")
-    private Boolean checkBoxValue;
-
-    // can be used for both single and multi
-    @Column(name = "select_value")
-    private Long selectValue;
-
-    @Column(name = "rich_text_value")
-    private String richTextValue;
+    @Lob
+    @Column(name = "value", nullable = false)
+    private String value;
 
     public SourceTaskData() {
     }
@@ -93,68 +69,12 @@ public class SourceTaskData extends BaseEntity {
         this.genControlLinkGenSection = genControlLinkGenSection;
     }
 
-    public String getTextValue() {
-        return textValue;
+    public String getValue() {
+        return value;
     }
 
-    public void setTextValue(String textValue) {
-        this.textValue = textValue;
-    }
-
-    public Integer getNumericValue() {
-        return numericValue;
-    }
-
-    public void setNumericValue(Integer numericValue) {
-        this.numericValue = numericValue;
-    }
-
-    public Date getDateValue() {
-        return dateValue;
-    }
-
-    public void setDateValue(Date dateValue) {
-        this.dateValue = dateValue;
-    }
-
-    public Time getTimeValue() {
-        return timeValue;
-    }
-
-    public void setTimeValue(Time timeValue) {
-        this.timeValue = timeValue;
-    }
-
-    public Timestamp getDateTimeValue() {
-        return dateTimeValue;
-    }
-
-    public void setDateTimeValue(Timestamp dateTimeValue) {
-        this.dateTimeValue = dateTimeValue;
-    }
-
-    public Boolean getCheckBoxValue() {
-        return checkBoxValue;
-    }
-
-    public void setCheckBoxValue(Boolean checkBoxValue) {
-        this.checkBoxValue = checkBoxValue;
-    }
-
-    public Long getSelectValue() {
-        return selectValue;
-    }
-
-    public void setSelectValue(Long selectValue) {
-        this.selectValue = selectValue;
-    }
-
-    public String getRichTextValue() {
-        return richTextValue;
-    }
-
-    public void setRichTextValue(String richTextValue) {
-        this.richTextValue = richTextValue;
+    public void setValue(String value) {
+        this.value = value;
     }
 
     @Override
