@@ -20,6 +20,8 @@ public interface SourceTaskTypeRepository extends CrudRepository<SourceTaskType,
 
     public Optional<SourceTaskType> findByIdAndCreatedByAndStatusNot(Long id, AppUser appUser, APPLICATION_STATUS status);
 
+    public List<SourceTaskType> findAllByCreatedByAndStatusNotOrderByDateCreatedDesc(AppUser createdBy, APPLICATION_STATUS status);
+
     public List<SourceTaskType> findAllByDateCreatedBetweenAndCreatedByAndStatusNotOrderByDateCreatedDesc(
             Date startDate, Date endDate, AppUser createdBy, APPLICATION_STATUS status);
 
