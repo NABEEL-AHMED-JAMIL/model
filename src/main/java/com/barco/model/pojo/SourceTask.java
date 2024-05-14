@@ -15,8 +15,11 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SourceTask extends BaseEntity {
 
-    @Column(name = "task_name")
+    @Column(name = "task_name", nullable = false)
     private String taskName;
+
+    @Column(name = "description", nullable = false)
+    private String description;
 
     @ManyToOne
     @JoinColumn(name = "stt_id")
@@ -33,6 +36,14 @@ public class SourceTask extends BaseEntity {
 
     public void setTaskName(String taskName) {
         this.taskName = taskName;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public SourceTaskType getSourceTaskType() {

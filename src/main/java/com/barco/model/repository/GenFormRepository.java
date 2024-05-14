@@ -26,6 +26,8 @@ public interface GenFormRepository extends CrudRepository<GenForm, Long> {
 
     public Optional<GenForm> findByIdAndStatus(Long id, APPLICATION_STATUS status);
 
+    public Optional<GenForm> findByIdAndCreatedByAndStatus(Long id, AppUser createdBy, APPLICATION_STATUS status);
+
     public Optional<GenForm> findByIdAndCreatedByAndStatusNot(Long id, AppUser createdBy, APPLICATION_STATUS status);
 
     public List<GenForm> findAllByDateCreatedBetweenAndCreatedByAndStatusNotOrderByDateCreatedDesc(

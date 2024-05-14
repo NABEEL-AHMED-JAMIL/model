@@ -151,6 +151,10 @@ public interface MessageUtil {
     public static final String SOURCE_TASK_TYPE_MISSING = "STT task type missing.";
     public static final String SOURCE_TASK_TYPE_WITH_API_TYPE_MISSING = "TaskType with api type missing.";
     public static final String SOURCE_TASK_TYPE_WITH_KAFKA_TYPE_MISSING = "TaskType with kafka type missing.";
+    public static final String SOURCE_TASK_ID_MISSING = "Source task id missing";
+    public static final String SOURCE_TASK_NAME_MISSING = "Source task name missing";
+    public static final String SOURCE_TASK_DESCRIPTION_MISSING = "Source task description missing";
+    public static final String SOURCE_TASK_NOT_FOUND = "Source Task not found.";
     public static final String API_URL_MISSING = "Api url missing.";
     public static final String HTTP_METHOD_MISSING = "Http method missing.";
     public static final String KAFKA_NUM_PARTITIONS = "Kafka num partitions";

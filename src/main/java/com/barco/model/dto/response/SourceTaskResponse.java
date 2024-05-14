@@ -1,4 +1,4 @@
-package com.barco.model.dto.request;
+package com.barco.model.dto.response;
 
 import com.barco.model.dto.dform.data.FormData;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -10,25 +10,14 @@ import com.google.gson.Gson;
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class SourceTaskRequest extends RequestFilter {
+public class SourceTaskResponse extends BaseEntity {
 
-    private Long id;
     private String taskName;
     private String description;
-    private Long status;
-    private STTRequest sourceTaskType;
+    private SourceTaskTypeResponse sourceTaskType;
     private FormData formData;
-    private SessionUser sessionUser;
 
-    public SourceTaskRequest() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public SourceTaskResponse() {
     }
 
     public String getTaskName() {
@@ -47,19 +36,11 @@ public class SourceTaskRequest extends RequestFilter {
         this.description = description;
     }
 
-    public Long getStatus() {
-        return status;
-    }
-
-    public void setStatus(Long status) {
-        this.status = status;
-    }
-
-    public STTRequest getSourceTaskType() {
+    public SourceTaskTypeResponse getSourceTaskType() {
         return sourceTaskType;
     }
 
-    public void setSourceTaskType(STTRequest sourceTaskType) {
+    public void setSourceTaskType(SourceTaskTypeResponse sourceTaskType) {
         this.sourceTaskType = sourceTaskType;
     }
 
@@ -69,14 +50,6 @@ public class SourceTaskRequest extends RequestFilter {
 
     public void setFormData(FormData formData) {
         this.formData = formData;
-    }
-
-    public SessionUser getSessionUser() {
-        return sessionUser;
-    }
-
-    public void setSessionUser(SessionUser sessionUser) {
-        this.sessionUser = sessionUser;
     }
 
     @Override
