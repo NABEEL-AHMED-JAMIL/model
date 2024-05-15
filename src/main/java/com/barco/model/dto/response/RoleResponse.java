@@ -1,6 +1,5 @@
 package com.barco.model.dto.response;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
@@ -12,7 +11,6 @@ import com.google.gson.Gson;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class RoleResponse extends BaseEntity {
 
-    private Long id;
     private String name;
     private String description;
 
@@ -23,12 +21,10 @@ public class RoleResponse extends BaseEntity {
         this.name = name;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public RoleResponse(Long id, String name, String description) {
+        super(id);
+        this.name = name;
+        this.description = description;
     }
 
     public String getName() {

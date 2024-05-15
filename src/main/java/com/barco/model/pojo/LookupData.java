@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -39,6 +40,12 @@ public class LookupData extends BaseEntity {
     @Column(name = "ui_lookup")
     @Enumerated(EnumType.ORDINAL)
     private UI_LOOKUP uiLookup;
+
+    @OneToMany(mappedBy = "groupType", cascade = CascadeType.ALL)
+    private List<DashboardSetting> dashboardSettings;
+
+    @OneToMany(mappedBy = "groupType", cascade = CascadeType.ALL)
+    private List<ReportSetting> reportSettings;
 
     public LookupData() { }
 
@@ -96,6 +103,22 @@ public class LookupData extends BaseEntity {
 
     public void setUiLookup(UI_LOOKUP uiLookup) {
         this.uiLookup = uiLookup;
+    }
+
+    public List<DashboardSetting> getDashboardSettings() {
+        return dashboardSettings;
+    }
+
+    public void setDashboardSettings(List<DashboardSetting> dashboardSettings) {
+        this.dashboardSettings = dashboardSettings;
+    }
+
+    public List<ReportSetting> getReportSettings() {
+        return reportSettings;
+    }
+
+    public void setReportSettings(List<ReportSetting> reportSettings) {
+        this.reportSettings = reportSettings;
     }
 
     @Override
