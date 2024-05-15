@@ -47,6 +47,12 @@ public class LookupData extends BaseEntity {
     @OneToMany(mappedBy = "groupType", cascade = CascadeType.ALL)
     private List<ReportSetting> reportSettings;
 
+    @OneToMany(mappedBy = "homePage", cascade = CascadeType.ALL)
+    private List<GenForm> genForms;
+
+    @OneToMany(mappedBy = "fieldLkValue", cascade = CascadeType.ALL)
+    private List<GenControl> genControls;
+
     public LookupData() { }
 
     public String getLookupType() {
@@ -119,6 +125,22 @@ public class LookupData extends BaseEntity {
 
     public void setReportSettings(List<ReportSetting> reportSettings) {
         this.reportSettings = reportSettings;
+    }
+
+    public List<GenForm> getGenForms() {
+        return genForms;
+    }
+
+    public void setGenForms(List<GenForm> genForms) {
+        this.genForms = genForms;
+    }
+
+    public List<GenControl> getGenControls() {
+        return genControls;
+    }
+
+    public void setGenControls(List<GenControl> genControls) {
+        this.genControls = genControls;
     }
 
     @Override

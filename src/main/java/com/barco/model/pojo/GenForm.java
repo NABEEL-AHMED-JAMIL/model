@@ -22,8 +22,9 @@ public class GenForm extends BaseEntity {
     @Column(name = "description", nullable = false)
     private String description;
 
-    @Column(name = "home_page")
-    private String homePage;
+    @ManyToOne
+    @JoinColumn(name = "home_page")
+    private LookupData homePage;
 
     @Column(name = "service_id")
     private String serviceId;
@@ -60,11 +61,11 @@ public class GenForm extends BaseEntity {
         this.description = description;
     }
 
-    public String getHomePage() {
+    public LookupData getHomePage() {
         return homePage;
     }
 
-    public void setHomePage(String homePage) {
+    public void setHomePage(LookupData homePage) {
         this.homePage = homePage;
     }
 
