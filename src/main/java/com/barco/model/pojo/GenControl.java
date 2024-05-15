@@ -45,8 +45,9 @@ public class GenControl extends BaseEntity {
     @Column(name = "max_length")
     private Long maxLength; // validation
 
-    @Column(name = "field_lk_value")
-    private String fieldLkValue;
+    @ManyToOne
+    @JoinColumn(name = "field_lk_value")
+    private LookupData fieldLkValue;
 
     @Column(name = "api_lk_value")
     private String apiLkValue;
@@ -136,11 +137,11 @@ public class GenControl extends BaseEntity {
         this.maxLength = maxLength;
     }
 
-    public String getFieldLkValue() {
+    public LookupData getFieldLkValue() {
         return fieldLkValue;
     }
 
-    public void setFieldLkValue(String fieldLkValue) {
+    public void setFieldLkValue(LookupData fieldLkValue) {
         this.fieldLkValue = fieldLkValue;
     }
 

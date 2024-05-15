@@ -25,6 +25,12 @@ public class ProfileResponse extends BaseEntity {
         this.profileName = profileName;
     }
 
+    public ProfileResponse(Long id, String profileName, String description) {
+        super(id);
+        this.profileName = profileName;
+        this.description = description;
+    }
+
     public String getProfileName() {
         return profileName;
     }

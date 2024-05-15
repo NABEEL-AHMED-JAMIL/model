@@ -19,8 +19,9 @@ public class ReportSetting extends BaseEntity {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "group_type", nullable = false)
-    private String groupType;
+    @ManyToOne
+    @JoinColumn(name = "group_type")
+    private LookupData groupType;
 
     @Column(name = "description", nullable = false)
     private String description;
@@ -118,11 +119,11 @@ public class ReportSetting extends BaseEntity {
         this.name = name;
     }
 
-    public String getGroupType() {
+    public LookupData getGroupType() {
         return groupType;
     }
 
-    public void setGroupType(String groupType) {
+    public void setGroupType(LookupData groupType) {
         this.groupType = groupType;
     }
 
