@@ -19,16 +19,16 @@ public class SourceTaskData extends BaseEntity {
     private SourceTask sourceTask;
 
     @ManyToOne
-    @JoinColumn(name = "gf_link_stt_id")
-    private GenFormLinkSourceTaskType genFormLinkSourceTaskType;
+    @JoinColumn(name = "from_id")
+    private GenForm genForm;
 
     @ManyToOne
-    @JoinColumn(name = "gs_link_gf_id")
-    private GenSectionLinkGenForm genSectionLinkGenForm;
+    @JoinColumn(name = "section_id")
+    private GenSection genSection;
 
     @ManyToOne
-    @JoinColumn(name = "gc_link_gs_id")
-    private GenControlLinkGenSection genControlLinkGenSection;
+    @JoinColumn(name = "control_id")
+    private GenControl genControl;
 
     @Lob
     @Column(name = "value", nullable = false)
@@ -45,28 +45,28 @@ public class SourceTaskData extends BaseEntity {
         this.sourceTask = sourceTask;
     }
 
-    public GenFormLinkSourceTaskType getGenFormLinkSourceTaskType() {
-        return genFormLinkSourceTaskType;
+    public GenForm getGenForm() {
+        return genForm;
     }
 
-    public void setGenFormLinkSourceTaskType(GenFormLinkSourceTaskType genFormLinkSourceTaskType) {
-        this.genFormLinkSourceTaskType = genFormLinkSourceTaskType;
+    public void setGenForm(GenForm genForm) {
+        this.genForm = genForm;
     }
 
-    public GenSectionLinkGenForm getGenSectionLinkGenForm() {
-        return genSectionLinkGenForm;
+    public GenSection getGenSection() {
+        return genSection;
     }
 
-    public void setGenSectionLinkGenForm(GenSectionLinkGenForm genSectionLinkGenForm) {
-        this.genSectionLinkGenForm = genSectionLinkGenForm;
+    public void setGenSection(GenSection genSection) {
+        this.genSection = genSection;
     }
 
-    public GenControlLinkGenSection getGenControlLinkGenSection() {
-        return genControlLinkGenSection;
+    public GenControl getGenControl() {
+        return genControl;
     }
 
-    public void setGenControlLinkGenSection(GenControlLinkGenSection genControlLinkGenSection) {
-        this.genControlLinkGenSection = genControlLinkGenSection;
+    public void setGenControl(GenControl genControl) {
+        this.genControl = genControl;
     }
 
     public String getValue() {

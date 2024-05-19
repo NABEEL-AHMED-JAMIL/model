@@ -69,6 +69,9 @@ public class GenControl extends BaseEntity {
     @OneToMany(mappedBy="genControl", fetch = FetchType.LAZY)
     private List<GenControlLinkGenSection> genControlLinkGenSections;
 
+    @OneToMany(mappedBy = "sourceTask", fetch = FetchType.LAZY)
+    private List<SourceTaskData> sourceTaskData;
+
 
     public GenControl() {
     }
@@ -191,6 +194,14 @@ public class GenControl extends BaseEntity {
 
     public void setGenControlLinkGenSections(List<GenControlLinkGenSection> genControlLinkGenSections) {
         this.genControlLinkGenSections = genControlLinkGenSections;
+    }
+
+    public List<SourceTaskData> getSourceTaskData() {
+        return sourceTaskData;
+    }
+
+    public void setSourceTaskData(List<SourceTaskData> sourceTaskData) {
+        this.sourceTaskData = sourceTaskData;
     }
 
     @Override

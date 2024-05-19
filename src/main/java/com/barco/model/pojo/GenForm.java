@@ -42,6 +42,9 @@ public class GenForm extends BaseEntity {
     @OneToMany(mappedBy="genForm")
     private List<ReportSetting> reportSettings;
 
+    @OneToMany(mappedBy = "sourceTask", fetch = FetchType.LAZY)
+    private List<SourceTaskData> sourceTaskData;
+
     public GenForm() {
     }
 
@@ -107,6 +110,14 @@ public class GenForm extends BaseEntity {
 
     public void setReportSettings(List<ReportSetting> reportSettings) {
         this.reportSettings = reportSettings;
+    }
+
+    public List<SourceTaskData> getSourceTaskData() {
+        return sourceTaskData;
+    }
+
+    public void setSourceTaskData(List<SourceTaskData> sourceTaskData) {
+        this.sourceTaskData = sourceTaskData;
     }
 
     @Override
