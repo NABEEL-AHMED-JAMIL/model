@@ -18,6 +18,9 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SourceJob extends BaseEntity {
 
+    @Column(name = "job_key", nullable = false)
+    private String jobKey;
+
     // job name should be unique
     @Column(name = "job_name",
         length = 1000, nullable = false)
@@ -63,6 +66,14 @@ public class SourceJob extends BaseEntity {
     private List<JobQueue> jobQueues;
 
     public SourceJob() {
+    }
+
+    public String getJobKey() {
+        return jobKey;
+    }
+
+    public void setJobKey(String jobKey) {
+        this.jobKey = jobKey;
     }
 
     public String getJobName() {

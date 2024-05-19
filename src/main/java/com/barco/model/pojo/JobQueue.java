@@ -17,6 +17,9 @@ import javax.persistence.*;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class JobQueue extends BaseEntity {
 
+    @Column(name = "job_queue_key", nullable = false)
+    private String jobQueueKey;
+
     @Column(name = "start_time",
         columnDefinition = "TIMESTAMP")
     private LocalDateTime startTime;
@@ -56,6 +59,14 @@ public class JobQueue extends BaseEntity {
     private List<JobAuditLogs> jobAuditLogs;
 
     public JobQueue() {
+    }
+
+    public String getJobQueueKey() {
+        return jobQueueKey;
+    }
+
+    public void setJobQueueKey(String jobQueueKey) {
+        this.jobQueueKey = jobQueueKey;
     }
 
     public LocalDateTime getStartTime() {
