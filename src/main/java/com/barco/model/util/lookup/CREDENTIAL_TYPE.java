@@ -9,7 +9,7 @@ import com.google.gson.Gson;
 public enum CREDENTIAL_TYPE {
 
     BASIC_AUTH(0l),
-    CERTIFICATE(1l),
+    ASYMMETRIC_CRYPTOGRAPHY(1l),
     AUTHORIZATION_CODE(2l),
     AWS_AUTH(3l),
     FIREBASE(4l),
@@ -28,8 +28,8 @@ public enum CREDENTIAL_TYPE {
     public static CREDENTIAL_TYPE getByLookupCode(Long lookupCode) throws RuntimeException {
         if (lookupCode.equals(BASIC_AUTH.getLookupCode())) {
             return BASIC_AUTH;
-        } else if (lookupCode.equals(CERTIFICATE.getLookupCode())) {
-            return CERTIFICATE;
+        } else if (lookupCode.equals(ASYMMETRIC_CRYPTOGRAPHY.getLookupCode())) {
+            return ASYMMETRIC_CRYPTOGRAPHY;
         } else if (lookupCode.equals(AUTHORIZATION_CODE.getLookupCode())) {
             return AUTHORIZATION_CODE;
         } else if (lookupCode.equals(AWS_AUTH.getLookupCode())) {

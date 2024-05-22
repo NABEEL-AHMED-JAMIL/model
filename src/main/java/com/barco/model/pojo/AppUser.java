@@ -63,9 +63,11 @@ public class AppUser extends BaseEntity {
     @OneToMany(mappedBy = "appUser", fetch = FetchType.LAZY)
     private List<AppUserEnv> appUserEnvs;
 
+    @OneToMany(mappedBy = "appUser", fetch = FetchType.LAZY)
+    private List<AppUserWebHook> appUserWebHooks;
+
     @OneToMany(mappedBy = "appUserParent", fetch = FetchType.LAZY)
     private List<SubAppUser> subAppUsers;
-
 
     public AppUser() {
     }
@@ -164,6 +166,14 @@ public class AppUser extends BaseEntity {
 
     public void setAppUserEnvs(List<AppUserEnv> appUserEnvs) {
         this.appUserEnvs = appUserEnvs;
+    }
+
+    public List<AppUserWebHook> getAppUserWebHooks() {
+        return appUserWebHooks;
+    }
+
+    public void setAppUserWebHooks(List<AppUserWebHook> appUserWebHooks) {
+        this.appUserWebHooks = appUserWebHooks;
     }
 
     public List<SubAppUser> getSubAppUsers() {

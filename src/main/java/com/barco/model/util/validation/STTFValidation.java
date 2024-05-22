@@ -14,7 +14,6 @@ public class STTFValidation {
 
     private Integer rowCounter = 0;
     private String errorMsg;
-
     private String formName;
     private String formType;
     private String homePage;

@@ -1,6 +1,6 @@
 package com.barco.model.dto.report;
 
-import com.barco.model.dto.dform.data.FormData;
+import com.barco.model.dto.dform.response.FormData;
 import com.barco.model.dto.request.RequestFilter;
 import com.barco.model.dto.request.SessionUser;
 import com.barco.model.enums.DataType;

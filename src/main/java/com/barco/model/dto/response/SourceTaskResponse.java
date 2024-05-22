@@ -1,6 +1,6 @@
 package com.barco.model.dto.response;
 
-import com.barco.model.dto.dform.data.FormData;
+import com.barco.model.dto.dform.response.FormData;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;

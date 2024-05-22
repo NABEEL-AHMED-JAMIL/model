@@ -1,4 +1,4 @@
-package com.barco.model.dto.dform;
+package com.barco.model.dto.dform.request;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;

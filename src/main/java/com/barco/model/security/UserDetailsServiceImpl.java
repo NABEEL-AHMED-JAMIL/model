@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.Optional;
 
-
 /**
  * @author Nabeel Ahmed
  */
@@ -28,7 +27,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     /**
      * loadUserByUsername method provide the auth user detail
-     * user can login with email or username
+     * user can Log in with email or username
      * @param username
      * @return UserDetails
      * */
