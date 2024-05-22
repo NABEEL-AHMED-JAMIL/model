@@ -13,7 +13,6 @@ public class STTSValidation {
 
     private Integer rowCounter = 0;
     private String errorMsg;
-
     private String sectionName;
     private String description;
 

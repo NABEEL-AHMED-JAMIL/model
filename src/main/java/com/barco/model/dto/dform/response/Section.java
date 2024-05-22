@@ -1,23 +1,21 @@
-package com.barco.model.dto.dform.data;
+package com.barco.model.dto.dform.response;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
+import java.util.Map;
 
 /**
  * @author Nabeel Ahmed
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Field {
+public class Section {
 
     private int id;
     private String name;
     private int order;
-    private Object value;
-
-    public Field() {
-    }
+    private Map<String, Field> fields;
 
     public int getId() {
         return id;
@@ -43,12 +41,12 @@ public class Field {
         this.order = order;
     }
 
-    public Object getValue() {
-        return value;
+    public Map<String, Field> getFields() {
+        return fields;
     }
 
-    public void setValue(Object value) {
-        this.value = value;
+    public void setFields(Map<String, Field> fields) {
+        this.fields = fields;
     }
 
     @Override

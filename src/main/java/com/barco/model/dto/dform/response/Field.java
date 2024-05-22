@@ -1,30 +1,29 @@
-package com.barco.model.dto.dform;
+package com.barco.model.dto.dform.response;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
-import java.util.List;
 
 /**
  * @author Nabeel Ahmed
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class IDynamicForm {
+public class Field {
 
-    private Long id;
+    private int id;
     private String name;
-    private String description;
-    private List<IDynamicSection> sections;
+    private int order;
+    private Object value;
 
-    public IDynamicForm() {
+    public Field() {
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -36,20 +35,20 @@ public class IDynamicForm {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public int getOrder() {
+        return order;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setOrder(int order) {
+        this.order = order;
     }
 
-    public List<IDynamicSection> getSections() {
-        return sections;
+    public Object getValue() {
+        return value;
     }
 
-    public void setSections(List<IDynamicSection> sections) {
-        this.sections = sections;
+    public void setValue(Object value) {
+        this.value = value;
     }
 
     @Override

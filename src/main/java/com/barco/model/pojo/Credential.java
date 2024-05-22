@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * @author Nabeel Ahmed
@@ -25,6 +26,12 @@ public class Credential extends BaseEntity {
     @Column(name = "content",
         nullable = false, length = 25000)
     private String content;
+
+    @OneToMany(mappedBy = "credential", fetch = FetchType.LAZY)
+    private List<WebHook> webHooks;
+
+    @OneToMany(mappedBy = "credential", fetch = FetchType.LAZY)
+    private List<SourceTaskType> sourceTaskTypes;
 
     public Credential() {}
 
@@ -50,6 +57,22 @@ public class Credential extends BaseEntity {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public List<WebHook> getWebHooks() {
+        return webHooks;
+    }
+
+    public void setWebHooks(List<WebHook> webHooks) {
+        this.webHooks = webHooks;
+    }
+
+    public List<SourceTaskType> getSourceTaskTypes() {
+        return sourceTaskTypes;
+    }
+
+    public void setSourceTaskTypes(List<SourceTaskType> sourceTaskTypes) {
+        this.sourceTaskTypes = sourceTaskTypes;
     }
 
     @Override

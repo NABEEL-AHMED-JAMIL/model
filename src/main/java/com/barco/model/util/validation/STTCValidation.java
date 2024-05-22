@@ -18,7 +18,6 @@ public class STTCValidation {
 
     private Integer rowCounter = 0;
     private String errorMsg;
-
     private String controlName;
     private String description;
     private String fieldName;

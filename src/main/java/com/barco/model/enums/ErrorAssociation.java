@@ -9,7 +9,7 @@ import com.google.gson.Gson;
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public enum ErrorAssosiation {
+public enum ErrorAssociation {
 
     REQUIRED("required"),
     MIN_LENGTH("minlength"),
@@ -18,7 +18,7 @@ public enum ErrorAssosiation {
 
     private String assosiation;
 
-    ErrorAssosiation(String assosiation) {
+    ErrorAssociation(String assosiation) {
         this.assosiation = assosiation;
     }
 

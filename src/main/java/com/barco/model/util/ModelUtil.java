@@ -63,10 +63,7 @@ public class ModelUtil {
      * @return boolean isNull
      * */
     public static boolean isNull(Long log) {
-        if (log == null) {
-            return true;
-        }
-        return false;
+        return (log == null) ? true : false;
     }
 
     /**
@@ -75,10 +72,7 @@ public class ModelUtil {
      * @return boolean isNull
      * */
     public static boolean isNull(String str) {
-        if (str == null || str.trim().isEmpty()) {
-            return true;
-        }
-        return false;
+        return (str == null || str.trim().isEmpty()) ? true : false;
     }
 
     /**
@@ -87,10 +81,7 @@ public class ModelUtil {
      * @return boolean isNull
      * */
     public static boolean isNull(Boolean bool) {
-        if (bool == null) {
-            return true;
-        }
-        return false;
+        return (bool == null) ? true : false;
     }
 
     /**
@@ -99,10 +90,7 @@ public class ModelUtil {
      * @return boolean isNull
      * */
     public static boolean isNull(Double dou) {
-        if (dou == null) {
-            return true;
-        }
-        return false;
+        return (dou == null) ? true : false;
     }
 
     /**
@@ -142,6 +130,9 @@ public class ModelUtil {
 
     /**
      * Method use to add days into timestamp
+     * @param date
+     * @param days
+     * @return Timestamp
      * */
     public static Timestamp addDays(Timestamp date, Long days) {
         Calendar cal = Calendar.getInstance();
