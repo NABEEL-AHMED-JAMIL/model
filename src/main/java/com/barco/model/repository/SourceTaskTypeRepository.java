@@ -1,6 +1,7 @@
 package com.barco.model.repository;
 
 import com.barco.model.pojo.AppUser;
+import com.barco.model.pojo.Credential;
 import com.barco.model.pojo.SourceTaskType;
 import com.barco.model.util.lookup.APPLICATION_STATUS;
 import org.springframework.data.repository.CrudRepository;
@@ -17,6 +18,8 @@ public interface SourceTaskTypeRepository extends CrudRepository<SourceTaskType,
 
     public List<SourceTaskType> findAllByIdInAndStatusNot(List<Long> ids, APPLICATION_STATUS status);
     public List<SourceTaskType> findAllByIdIn(List<Long> ids);
+
+    public Long countByCredentialAndStatusNot(Credential credential, APPLICATION_STATUS status);
 
     public Optional<SourceTaskType> findByIdAndCreatedByAndStatusNot(Long id, AppUser appUser, APPLICATION_STATUS status);
 

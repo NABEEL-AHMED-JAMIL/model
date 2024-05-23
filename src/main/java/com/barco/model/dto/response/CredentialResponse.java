@@ -16,6 +16,7 @@ public class CredentialResponse extends BaseEntity {
     private GLookup type;
     private GLookup status;
     private Object content;
+    private Long totalCount;
 
     public CredentialResponse() {
     }
@@ -52,6 +53,14 @@ public class CredentialResponse extends BaseEntity {
 
     public void setContent(Object content) {
         this.content = content;
+    }
+
+    public Long getTotalCount() {
+        return totalCount;
+    }
+
+    public void setTotalCount(Long totalCount) {
+        this.totalCount = totalCount;
     }
 
     @Override
