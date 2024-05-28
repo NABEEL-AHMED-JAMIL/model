@@ -23,6 +23,7 @@ public class AppUserResponse extends BaseEntity {
     private ProfileResponse profile;
     private Integer totalSubUser;
     private List<EnVariablesResponse> enVariables;
+    private List<WebHookResponse> webHooks;
 
     public AppUserResponse() {
     }
@@ -113,6 +114,14 @@ public class AppUserResponse extends BaseEntity {
 
     public void setEnVariables(List<EnVariablesResponse> enVariables) {
         this.enVariables = enVariables;
+    }
+
+    public List<WebHookResponse> getWebHooks() {
+        return webHooks;
+    }
+
+    public void setWebHooks(List<WebHookResponse> webHooks) {
+        this.webHooks = webHooks;
     }
 
     @Override

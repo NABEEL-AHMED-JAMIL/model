@@ -1,6 +1,5 @@
 package com.barco.model.util;
 
-
 /**
  * @author Nabeel Ahmed
  */
@@ -110,6 +109,7 @@ public interface MessageUtil {
     String CREDENTIAL_TYPE_MISSING = "Credential type missing.";
     String CREDENTIAL_CONTENT_MISSING = "Credential content missing.";
     String CREDENTIAL_NOT_FOUND = "Credential not found.";
+    String CREDENTIAL_NOT_ACTIVE = "Credential not active.";
     String REFRESH_TOKEN_IDS_MISSING = "Refresh token ids missing.";
     String NOTIFY_ID_MISSING = "NotifyId missing.";
     String NOTIFICATION_AUDIT_NOT_FOUND = "Notification audit not found.";
@@ -198,5 +198,15 @@ public interface MessageUtil {
     String REPORT_SETTING_FIRST_DIMENSION_MISSING = "Report Setting field first dimension missing.";
     String REPORT_SETTING_SECOND_DIMENSION_MISSING = "Report Setting field second dimension missing.";
     String REPORT_NOT_FOUND = "Report not found.";
+    String WEBHOOK_ID_MISSING = "WebHook id missing.";
+    String WEBHOOK_URL_MISSING = "WebHook url missing.";
+    String WEBHOOK_NAME_MISSING = "WebHook name missing.";
+    String WEBHOOK_DESCRIPTION_MISSING = "WebHook description missing.";
+    String WEBHOOK_TYPE_MISSING = "WebHook description missing.";
+    String WEBHOOK_CREDENTIAL_MISSING = "WebHook credential missing.";
+    String WEBHOOK_NOT_FOUND = "WebHook not found.";
+    String WEBHOOK_NOT_FOUND_WITH_ID = "WebHook not found with id %s.";
+    String WEBHOOK_GEN_TOKEN_MISSING = "WebHook tokenId missing.";
+    String WEBHOOK_NOT_FOUND_WITH_GEN_TOKEN = "WebHook not found with tokenId %d.";
 
 }

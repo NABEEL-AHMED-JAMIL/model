@@ -3,8 +3,10 @@ package com.barco.model.pojo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
+import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.UUID;
 
 /**
  * @author Nabeel Ahmed
@@ -15,6 +17,10 @@ import java.sql.Timestamp;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AppUserWebHook extends BaseEntity {
 
+    // don't show this to user
+    @Column(name = "token_id", nullable = false)
+    private String tokenId;
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "webhook_id", nullable = false)
     private WebHook webhook;
@@ -24,13 +30,21 @@ public class AppUserWebHook extends BaseEntity {
     private AppUser appUser;
 
     // generate base on the credential
-    @Column(name = "access_token", nullable = false)
+    @Column(name = "access_token", length = 25000)
     private String accessToken;
 
-    @Column(name = "expire_time", nullable = false)
+    @Column(name = "expire_time")
     private Timestamp expireTime;
 
     public AppUserWebHook() {
+    }
+
+    public String getTokenId() {
+        return tokenId;
+    }
+
+    public void setTokenId(String tokenId) {
+        this.tokenId = tokenId;
     }
 
     public WebHook getWebhook() {
