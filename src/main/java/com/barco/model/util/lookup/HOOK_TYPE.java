@@ -8,8 +8,8 @@ import com.google.gson.Gson;
  */
 public enum HOOK_TYPE {
 
-    SENDER(0l),
-    RECEIVER(1l);
+    HOOK_SENDER(0l),
+    HOOK_RECEIVER(1l);
 
     private Long lookupCode;
 
@@ -21,21 +21,21 @@ public enum HOOK_TYPE {
         return HOOK_TYPE.class.getSimpleName();
     }
 
-    public static HOOK_TYPE getByLookupCode(Long lookupCode) throws RuntimeException {
-        if (lookupCode.equals(SENDER.getLookupCode())) {
-            return SENDER;
-        } else if (lookupCode.equals(RECEIVER.getLookupCode())) {
-            return RECEIVER;
-        }
-        throw new RuntimeException(MessageUtil.HOOK_TYPE_NOT_FOUND);
-    }
-
     public Long getLookupCode() {
         return lookupCode;
     }
 
     public void setLookupCode(Long lookupCode) {
         this.lookupCode = lookupCode;
+    }
+
+    public static HOOK_TYPE getByLookupCode(Long lookupCode) throws RuntimeException {
+        if (lookupCode.equals(HOOK_SENDER.getLookupCode())) {
+            return HOOK_SENDER;
+        } else if (lookupCode.equals(HOOK_RECEIVER.getLookupCode())) {
+            return HOOK_RECEIVER;
+        }
+        throw new RuntimeException(MessageUtil.HOOK_TYPE_NOT_FOUND);
     }
 
     @Override

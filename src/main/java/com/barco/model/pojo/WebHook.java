@@ -16,6 +16,9 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class WebHook extends BaseEntity {
 
+    @Column(name = "name", nullable = false)
+    private String name;
+
     @Column(name = "hook_url", nullable = false)
     private String hookUrl;
 
@@ -35,6 +38,14 @@ public class WebHook extends BaseEntity {
     private List<AppUserWebHook> appUserWebHooks;
 
     public WebHook() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getHookUrl() {

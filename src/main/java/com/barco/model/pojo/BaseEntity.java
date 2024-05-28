@@ -56,6 +56,11 @@ public class BaseEntity implements Serializable {
         this.setDateUpdated(new Timestamp((System.currentTimeMillis())));
     }
 
+    @PreRemove
+    public void preRemove() {
+        this.setDateDeleted(new Timestamp((System.currentTimeMillis())));
+    }
+
     public Long getId() {
         return id;
     }

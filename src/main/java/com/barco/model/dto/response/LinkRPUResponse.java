@@ -4,6 +4,7 @@ import com.barco.model.util.lookup.GLookup;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
+import java.sql.Timestamp;
 
 /**
  * @author Nabeel Ahmed
@@ -22,6 +23,9 @@ public class LinkRPUResponse {
     private Boolean linked = false;
     private String envValue;
     private ProfileResponse profile;
+    private String tokenId;
+    private String accessToken;
+    private String expireTime;
 
     public LinkRPUResponse() {
     }
@@ -104,6 +108,30 @@ public class LinkRPUResponse {
 
     public void setProfile(ProfileResponse profile) {
         this.profile = profile;
+    }
+
+    public String getTokenId() {
+        return tokenId;
+    }
+
+    public void setTokenId(String tokenId) {
+        this.tokenId = tokenId;
+    }
+
+    public String getAccessToken() {
+        return accessToken;
+    }
+
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
+    }
+
+    public String getExpireTime() {
+        return expireTime;
+    }
+
+    public void setExpireTime(String expireTime) {
+        this.expireTime = expireTime;
     }
 
     @Override

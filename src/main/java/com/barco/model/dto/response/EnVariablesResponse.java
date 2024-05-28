@@ -1,6 +1,5 @@
 package com.barco.model.dto.response;
 
-import com.barco.model.dto.request.SessionUser;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
@@ -15,7 +14,6 @@ public class EnVariablesResponse extends BaseEntity {
     private String envKey;
     private String envValue;
     private String description;
-    private SessionUser sessionUser;
 
     public EnVariablesResponse() {
     }
@@ -49,14 +47,6 @@ public class EnVariablesResponse extends BaseEntity {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public SessionUser getSessionUser() {
-        return sessionUser;
-    }
-
-    public void setSessionUser(SessionUser sessionUser) {
-        this.sessionUser = sessionUser;
     }
 
     @Override
