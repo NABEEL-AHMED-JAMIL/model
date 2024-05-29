@@ -17,32 +17,25 @@ public class ReportSettingResponse extends BaseEntity {
     private String description;
     private GLookup payloadRef;
     private GLookup isPdf;
-    private String pdfUrl;
-    private String pdfApiToken;
+    private EventBridgeResponse pdfBridge;
     private GLookup isXlsx;
-    private String xlsxUrl;
-    private String xlsxApiToken;
+    private EventBridgeResponse xlsxBridge;
     private GLookup isCsv;
-    private String csvUrl;
-    private String csvApiToken;
+    private EventBridgeResponse csvBridge;
     private GLookup isData;
-    private String dataUrl;
-    private String dataApiToken;
+    private EventBridgeResponse dataBridge;
     private GLookup isFirstDimension;
-    private String firstDimensionUrl;
+    private EventBridgeResponse firstDimensionBridge;
     private GLookup firstDimensionLKValue;
-    private String firstDimensionApiToken;
     private GLookup isSecondDimension;
-    private String secondDimensionUrl;
+    private EventBridgeResponse secondDimensionBridge;
     private GLookup secondDimensionLKValue;
-    private String secondDimensionApiToken;
     private GLookup isThirdDimension;
-    private String thirdDimensionUrl;
+    private EventBridgeResponse thirdDimensionBridge;
     private GLookup thirdDimensionLKValue;
-    private String thirdDimensionApiToken;
     private GLookup distinctLKValue;
     private GLookup aggLKValue;
-    private Long formRequestId;
+    private FormResponse formResponse;
 
     public ReportSettingResponse() {
     }
@@ -87,20 +80,12 @@ public class ReportSettingResponse extends BaseEntity {
         this.isPdf = isPdf;
     }
 
-    public String getPdfUrl() {
-        return pdfUrl;
+    public EventBridgeResponse getPdfBridge() {
+        return pdfBridge;
     }
 
-    public void setPdfUrl(String pdfUrl) {
-        this.pdfUrl = pdfUrl;
-    }
-
-    public String getPdfApiToken() {
-        return pdfApiToken;
-    }
-
-    public void setPdfApiToken(String pdfApiToken) {
-        this.pdfApiToken = pdfApiToken;
+    public void setPdfBridge(EventBridgeResponse pdfBridge) {
+        this.pdfBridge = pdfBridge;
     }
 
     public GLookup getIsXlsx() {
@@ -111,20 +96,12 @@ public class ReportSettingResponse extends BaseEntity {
         this.isXlsx = isXlsx;
     }
 
-    public String getXlsxUrl() {
-        return xlsxUrl;
+    public EventBridgeResponse getXlsxBridge() {
+        return xlsxBridge;
     }
 
-    public void setXlsxUrl(String xlsxUrl) {
-        this.xlsxUrl = xlsxUrl;
-    }
-
-    public String getXlsxApiToken() {
-        return xlsxApiToken;
-    }
-
-    public void setXlsxApiToken(String xlsxApiToken) {
-        this.xlsxApiToken = xlsxApiToken;
+    public void setXlsxBridge(EventBridgeResponse xlsxBridge) {
+        this.xlsxBridge = xlsxBridge;
     }
 
     public GLookup getIsCsv() {
@@ -135,20 +112,12 @@ public class ReportSettingResponse extends BaseEntity {
         this.isCsv = isCsv;
     }
 
-    public String getCsvUrl() {
-        return csvUrl;
+    public EventBridgeResponse getCsvBridge() {
+        return csvBridge;
     }
 
-    public void setCsvUrl(String csvUrl) {
-        this.csvUrl = csvUrl;
-    }
-
-    public String getCsvApiToken() {
-        return csvApiToken;
-    }
-
-    public void setCsvApiToken(String csvApiToken) {
-        this.csvApiToken = csvApiToken;
+    public void setCsvBridge(EventBridgeResponse csvBridge) {
+        this.csvBridge = csvBridge;
     }
 
     public GLookup getIsData() {
@@ -159,20 +128,12 @@ public class ReportSettingResponse extends BaseEntity {
         this.isData = isData;
     }
 
-    public String getDataUrl() {
-        return dataUrl;
+    public EventBridgeResponse getDataBridge() {
+        return dataBridge;
     }
 
-    public void setDataUrl(String dataUrl) {
-        this.dataUrl = dataUrl;
-    }
-
-    public String getDataApiToken() {
-        return dataApiToken;
-    }
-
-    public void setDataApiToken(String dataApiToken) {
-        this.dataApiToken = dataApiToken;
+    public void setDataBridge(EventBridgeResponse dataBridge) {
+        this.dataBridge = dataBridge;
     }
 
     public GLookup getIsFirstDimension() {
@@ -183,12 +144,12 @@ public class ReportSettingResponse extends BaseEntity {
         this.isFirstDimension = isFirstDimension;
     }
 
-    public String getFirstDimensionUrl() {
-        return firstDimensionUrl;
+    public EventBridgeResponse getFirstDimensionBridge() {
+        return firstDimensionBridge;
     }
 
-    public void setFirstDimensionUrl(String firstDimensionUrl) {
-        this.firstDimensionUrl = firstDimensionUrl;
+    public void setFirstDimensionBridge(EventBridgeResponse firstDimensionBridge) {
+        this.firstDimensionBridge = firstDimensionBridge;
     }
 
     public GLookup getFirstDimensionLKValue() {
@@ -199,14 +160,6 @@ public class ReportSettingResponse extends BaseEntity {
         this.firstDimensionLKValue = firstDimensionLKValue;
     }
 
-    public String getFirstDimensionApiToken() {
-        return firstDimensionApiToken;
-    }
-
-    public void setFirstDimensionApiToken(String firstDimensionApiToken) {
-        this.firstDimensionApiToken = firstDimensionApiToken;
-    }
-
     public GLookup getIsSecondDimension() {
         return isSecondDimension;
     }
@@ -215,12 +168,12 @@ public class ReportSettingResponse extends BaseEntity {
         this.isSecondDimension = isSecondDimension;
     }
 
-    public String getSecondDimensionUrl() {
-        return secondDimensionUrl;
+    public EventBridgeResponse getSecondDimensionBridge() {
+        return secondDimensionBridge;
     }
 
-    public void setSecondDimensionUrl(String secondDimensionUrl) {
-        this.secondDimensionUrl = secondDimensionUrl;
+    public void setSecondDimensionBridge(EventBridgeResponse secondDimensionBridge) {
+        this.secondDimensionBridge = secondDimensionBridge;
     }
 
     public GLookup getSecondDimensionLKValue() {
@@ -231,14 +184,6 @@ public class ReportSettingResponse extends BaseEntity {
         this.secondDimensionLKValue = secondDimensionLKValue;
     }
 
-    public String getSecondDimensionApiToken() {
-        return secondDimensionApiToken;
-    }
-
-    public void setSecondDimensionApiToken(String secondDimensionApiToken) {
-        this.secondDimensionApiToken = secondDimensionApiToken;
-    }
-
     public GLookup getIsThirdDimension() {
         return isThirdDimension;
     }
@@ -247,12 +192,12 @@ public class ReportSettingResponse extends BaseEntity {
         this.isThirdDimension = isThirdDimension;
     }
 
-    public String getThirdDimensionUrl() {
-        return thirdDimensionUrl;
+    public EventBridgeResponse getThirdDimensionBridge() {
+        return thirdDimensionBridge;
     }
 
-    public void setThirdDimensionUrl(String thirdDimensionUrl) {
-        this.thirdDimensionUrl = thirdDimensionUrl;
+    public void setThirdDimensionBridge(EventBridgeResponse thirdDimensionBridge) {
+        this.thirdDimensionBridge = thirdDimensionBridge;
     }
 
     public GLookup getThirdDimensionLKValue() {
@@ -261,14 +206,6 @@ public class ReportSettingResponse extends BaseEntity {
 
     public void setThirdDimensionLKValue(GLookup thirdDimensionLKValue) {
         this.thirdDimensionLKValue = thirdDimensionLKValue;
-    }
-
-    public String getThirdDimensionApiToken() {
-        return thirdDimensionApiToken;
-    }
-
-    public void setThirdDimensionApiToken(String thirdDimensionApiToken) {
-        this.thirdDimensionApiToken = thirdDimensionApiToken;
     }
 
     public GLookup getDistinctLKValue() {
@@ -287,12 +224,12 @@ public class ReportSettingResponse extends BaseEntity {
         this.aggLKValue = aggLKValue;
     }
 
-    public Long getFormRequestId() {
-        return formRequestId;
+    public FormResponse getFormResponse() {
+        return formResponse;
     }
 
-    public void setFormRequestId(Long formRequestId) {
-        this.formRequestId = formRequestId;
+    public void setFormResponse(FormResponse formResponse) {
+        this.formResponse = formResponse;
     }
 
     @Override

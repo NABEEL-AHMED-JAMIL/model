@@ -11,19 +11,19 @@ import java.sql.Timestamp;
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class WebHookResponse extends BaseEntity {
+public class EventBridgeResponse extends BaseEntity {
 
     private String name;
-    private String hookUrl;
+    private String bridgeUrl;
     private String description;
-    private GLookup hookType;
+    private GLookup bridgeType;
     private CredentialResponse credential;
     // token-id
     private String tokenId;
     private String accessToken;
     private Timestamp expireTime;
 
-    public WebHookResponse() {
+    public EventBridgeResponse() {
     }
 
     public String getName() {
@@ -34,12 +34,12 @@ public class WebHookResponse extends BaseEntity {
         this.name = name;
     }
 
-    public String getHookUrl() {
-        return hookUrl;
+    public String getBridgeUrl() {
+        return bridgeUrl;
     }
 
-    public void setHookUrl(String hookUrl) {
-        this.hookUrl = hookUrl;
+    public void setBridgeUrl(String bridgeUrl) {
+        this.bridgeUrl = bridgeUrl;
     }
 
     public String getDescription() {
@@ -50,12 +50,12 @@ public class WebHookResponse extends BaseEntity {
         this.description = description;
     }
 
-    public GLookup getHookType() {
-        return hookType;
+    public GLookup getBridgeType() {
+        return bridgeType;
     }
 
-    public void setHookType(GLookup hookType) {
-        this.hookType = hookType;
+    public void setBridgeType(GLookup bridgeType) {
+        this.bridgeType = bridgeType;
     }
 
     public CredentialResponse getCredential() {

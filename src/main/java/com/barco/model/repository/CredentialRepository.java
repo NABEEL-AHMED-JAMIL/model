@@ -26,10 +26,10 @@ public interface CredentialRepository extends CrudRepository<Credential, Long> {
         "WHERE credential.dateCreated BETWEEN ?1 AND ?2 AND credential.createdBy.username = ?3 AND credential.status != ?4";
 
     @Query(value = FIND_BY_ID_AND_USERNAME_AND_STATUS)
-    public Optional<Credential> findByIdAndUsernameAndStatus(Long credentialId, String username, APPLICATION_STATUS status);
+    public Optional<Credential> findByIdAndUsernameAndStatus(Long id, String username, APPLICATION_STATUS status);
 
     @Query(value = FIND_BY_ID_AND_USERNAME_AND_STATUS_NOT)
-    public Optional<Credential> findByIdAndUsernameAndStatusNot(Long credentialId, String username, APPLICATION_STATUS status);
+    public Optional<Credential> findByIdAndUsernameAndStatusNot(Long id, String username, APPLICATION_STATUS status);
 
     @Query(value = FIND_ALL_BY_DATE_CREATED_BETWEEN_AND_USERNAME_AND_STATUS_NOT)
     public List<Credential> findAllByDateCreatedBetweenAndUsernameAndStatusNot(Date startDate, Date endDate, String username, APPLICATION_STATUS status);

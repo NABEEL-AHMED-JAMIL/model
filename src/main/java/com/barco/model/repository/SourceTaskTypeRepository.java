@@ -16,8 +16,9 @@ import java.util.Optional;
 @Repository
 public interface SourceTaskTypeRepository extends CrudRepository<SourceTaskType, Long> {
 
-    public List<SourceTaskType> findAllByIdInAndStatusNot(List<Long> ids, APPLICATION_STATUS status);
     public List<SourceTaskType> findAllByIdIn(List<Long> ids);
+
+    public List<SourceTaskType> findAllByIdInAndStatusNot(List<Long> ids, APPLICATION_STATUS status);
 
     public Long countByCredentialAndStatusNot(Credential credential, APPLICATION_STATUS status);
 
@@ -27,7 +28,4 @@ public interface SourceTaskTypeRepository extends CrudRepository<SourceTaskType,
 
     public List<SourceTaskType> findAllByDateCreatedBetweenAndCreatedByAndStatusNotOrderByDateCreatedDesc(
             Date startDate, Date endDate, AppUser createdBy, APPLICATION_STATUS status);
-
-    public List<SourceTaskType> findAllByDateCreatedBetweenAndCreatedByAndIdInAndStatusNotOrderByDateCreatedDesc(
-            Date startDate, Date endDate, AppUser createdBy, List<Long> ids, APPLICATION_STATUS status);
 }

@@ -17,25 +17,19 @@ public class ReportSettingRequest extends RequestFilter {
     private String description;
     private Long payloadRef;
     private Long isPdf;
-    private String pdfUrl;
-    private String pdfApiToken;
+    private Long pdfBridgeId;
     private Long isXlsx;
-    private String xlsxUrl;
-    private String xlsxApiToken;
+    private Long xlsxBridgeId;
     private Long isCsv;
-    private String csvUrl;
-    private String csvApiToken;
+    private Long csvBridgeId;
     private Long isData;
-    private String dataUrl;
-    private String dataApiToken;
+    private Long dataBridgeId;
     private Long isFirstDimension;
-    private String firstDimensionUrl;
+    private Long firstDimensionBridgeId;
     private String firstDimensionLKValue;
-    private String firstDimensionApiToken;
     private Long isSecondDimension;
-    private String secondDimensionUrl;
+    private Long secondDimensionBridgeId;
     private String secondDimensionLKValue;
-    private String secondDimensionApiToken;
     private String distinctLKValue;
     private String aggLKValue;
     private Long formRequestId;
@@ -93,20 +87,12 @@ public class ReportSettingRequest extends RequestFilter {
         this.isPdf = isPdf;
     }
 
-    public String getPdfUrl() {
-        return pdfUrl;
+    public Long getPdfBridgeId() {
+        return pdfBridgeId;
     }
 
-    public void setPdfUrl(String pdfUrl) {
-        this.pdfUrl = pdfUrl;
-    }
-
-    public String getPdfApiToken() {
-        return pdfApiToken;
-    }
-
-    public void setPdfApiToken(String pdfApiToken) {
-        this.pdfApiToken = pdfApiToken;
+    public void setPdfBridgeId(Long pdfBridgeId) {
+        this.pdfBridgeId = pdfBridgeId;
     }
 
     public Long getIsXlsx() {
@@ -117,20 +103,12 @@ public class ReportSettingRequest extends RequestFilter {
         this.isXlsx = isXlsx;
     }
 
-    public String getXlsxUrl() {
-        return xlsxUrl;
+    public Long getXlsxBridgeId() {
+        return xlsxBridgeId;
     }
 
-    public void setXlsxUrl(String xlsxUrl) {
-        this.xlsxUrl = xlsxUrl;
-    }
-
-    public String getXlsxApiToken() {
-        return xlsxApiToken;
-    }
-
-    public void setXlsxApiToken(String xlsxApiToken) {
-        this.xlsxApiToken = xlsxApiToken;
+    public void setXlsxBridgeId(Long xlsxBridgeId) {
+        this.xlsxBridgeId = xlsxBridgeId;
     }
 
     public Long getIsCsv() {
@@ -141,20 +119,12 @@ public class ReportSettingRequest extends RequestFilter {
         this.isCsv = isCsv;
     }
 
-    public String getCsvUrl() {
-        return csvUrl;
+    public Long getCsvBridgeId() {
+        return csvBridgeId;
     }
 
-    public void setCsvUrl(String csvUrl) {
-        this.csvUrl = csvUrl;
-    }
-
-    public String getCsvApiToken() {
-        return csvApiToken;
-    }
-
-    public void setCsvApiToken(String csvApiToken) {
-        this.csvApiToken = csvApiToken;
+    public void setCsvBridgeId(Long csvBridgeId) {
+        this.csvBridgeId = csvBridgeId;
     }
 
     public Long getIsData() {
@@ -165,20 +135,12 @@ public class ReportSettingRequest extends RequestFilter {
         this.isData = isData;
     }
 
-    public String getDataUrl() {
-        return dataUrl;
+    public Long getDataBridgeId() {
+        return dataBridgeId;
     }
 
-    public void setDataUrl(String dataUrl) {
-        this.dataUrl = dataUrl;
-    }
-
-    public String getDataApiToken() {
-        return dataApiToken;
-    }
-
-    public void setDataApiToken(String dataApiToken) {
-        this.dataApiToken = dataApiToken;
+    public void setDataBridgeId(Long dataBridgeId) {
+        this.dataBridgeId = dataBridgeId;
     }
 
     public Long getIsFirstDimension() {
@@ -189,12 +151,12 @@ public class ReportSettingRequest extends RequestFilter {
         this.isFirstDimension = isFirstDimension;
     }
 
-    public String getFirstDimensionUrl() {
-        return firstDimensionUrl;
+    public Long getFirstDimensionBridgeId() {
+        return firstDimensionBridgeId;
     }
 
-    public void setFirstDimensionUrl(String firstDimensionUrl) {
-        this.firstDimensionUrl = firstDimensionUrl;
+    public void setFirstDimensionBridgeId(Long firstDimensionBridgeId) {
+        this.firstDimensionBridgeId = firstDimensionBridgeId;
     }
 
     public String getFirstDimensionLKValue() {
@@ -205,14 +167,6 @@ public class ReportSettingRequest extends RequestFilter {
         this.firstDimensionLKValue = firstDimensionLKValue;
     }
 
-    public String getFirstDimensionApiToken() {
-        return firstDimensionApiToken;
-    }
-
-    public void setFirstDimensionApiToken(String firstDimensionApiToken) {
-        this.firstDimensionApiToken = firstDimensionApiToken;
-    }
-
     public Long getIsSecondDimension() {
         return isSecondDimension;
     }
@@ -221,12 +175,12 @@ public class ReportSettingRequest extends RequestFilter {
         this.isSecondDimension = isSecondDimension;
     }
 
-    public String getSecondDimensionUrl() {
-        return secondDimensionUrl;
+    public Long getSecondDimensionBridgeId() {
+        return secondDimensionBridgeId;
     }
 
-    public void setSecondDimensionUrl(String secondDimensionUrl) {
-        this.secondDimensionUrl = secondDimensionUrl;
+    public void setSecondDimensionBridgeId(Long secondDimensionBridgeId) {
+        this.secondDimensionBridgeId = secondDimensionBridgeId;
     }
 
     public String getSecondDimensionLKValue() {
@@ -235,14 +189,6 @@ public class ReportSettingRequest extends RequestFilter {
 
     public void setSecondDimensionLKValue(String secondDimensionLKValue) {
         this.secondDimensionLKValue = secondDimensionLKValue;
-    }
-
-    public String getSecondDimensionApiToken() {
-        return secondDimensionApiToken;
-    }
-
-    public void setSecondDimensionApiToken(String secondDimensionApiToken) {
-        this.secondDimensionApiToken = secondDimensionApiToken;
     }
 
     public String getDistinctLKValue() {

@@ -23,7 +23,7 @@ public class AppUserResponse extends BaseEntity {
     private ProfileResponse profile;
     private Integer totalSubUser;
     private List<EnVariablesResponse> enVariables;
-    private List<WebHookResponse> webHooks;
+    private List<EventBridgeResponse> eventBridge;
 
     public AppUserResponse() {
     }
@@ -116,12 +116,12 @@ public class AppUserResponse extends BaseEntity {
         this.enVariables = enVariables;
     }
 
-    public List<WebHookResponse> getWebHooks() {
-        return webHooks;
+    public List<EventBridgeResponse> getEventBridge() {
+        return eventBridge;
     }
 
-    public void setWebHooks(List<WebHookResponse> webHooks) {
-        this.webHooks = webHooks;
+    public void setEventBridge(List<EventBridgeResponse> eventBridge) {
+        this.eventBridge = eventBridge;
     }
 
     @Override

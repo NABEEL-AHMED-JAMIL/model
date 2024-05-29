@@ -15,7 +15,7 @@ public interface MessageUtil {
     String NOTIFICATION_TYPE_NOT_FOUND = "No notification type found.";
     String NOTIFICATION_STATUS_NOT_FOUND = "No notification status found.";
     String FREQUENCY_STATUS_NOT_FOUND = "No frequency status found.";
-    String HOOK_TYPE_NOT_FOUND = "No hook type found.";
+    String EVENT_BRIDGE_TYPE_NOT_FOUND = "No event bridge type found.";
     String JOB_STATUS_STATUS_NOT_FOUND = "No job status found.";
     String EXECUTION_STATUS_NOT_FOUND = "No execution status found.";
     String EMAIL_TEMPLATE_NOT_FOUND = "No email template status found.";
@@ -198,15 +198,15 @@ public interface MessageUtil {
     String REPORT_SETTING_FIRST_DIMENSION_MISSING = "Report Setting field first dimension missing.";
     String REPORT_SETTING_SECOND_DIMENSION_MISSING = "Report Setting field second dimension missing.";
     String REPORT_NOT_FOUND = "Report not found.";
-    String WEBHOOK_ID_MISSING = "WebHook id missing.";
-    String WEBHOOK_URL_MISSING = "WebHook url missing.";
-    String WEBHOOK_NAME_MISSING = "WebHook name missing.";
-    String WEBHOOK_DESCRIPTION_MISSING = "WebHook description missing.";
-    String WEBHOOK_TYPE_MISSING = "WebHook description missing.";
-    String WEBHOOK_CREDENTIAL_MISSING = "WebHook credential missing.";
-    String WEBHOOK_NOT_FOUND = "WebHook not found.";
-    String WEBHOOK_NOT_FOUND_WITH_ID = "WebHook not found with id %s.";
-    String WEBHOOK_GEN_TOKEN_MISSING = "WebHook tokenId missing.";
-    String WEBHOOK_NOT_FOUND_WITH_GEN_TOKEN = "WebHook not found with tokenId %d.";
+    String EVENT_BRIDGE_ID_MISSING = "EventBridge id missing.";
+    String EVENT_BRIDGE_URL_MISSING = "EventBridge url missing.";
+    String EVENT_BRIDGE_NAME_MISSING = "EventBridge name missing.";
+    String EVENT_BRIDGE_DESCRIPTION_MISSING = "EventBridge description missing.";
+    String EVENT_BRIDGE_TYPE_MISSING = "EventBridge type missing.";
+    String EVENT_BRIDGE_CREDENTIAL_MISSING = "EventBridge credential missing.";
+    String EVENT_BRIDGE_NOT_FOUND = "EventBridge not found.";
+    String EVENT_BRIDGE_NOT_FOUND_WITH_ID = "EventBridge not found with id %s.";
+    String EVENT_BRIDGE_GEN_TOKEN_MISSING = "EventBridge tokenId missing.";
+    String EVENT_BRIDGE_NOT_FOUND_WITH_GEN_TOKEN = "EventBridge not found with tokenId %d.";
 
 }

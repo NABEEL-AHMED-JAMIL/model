@@ -35,67 +35,55 @@ public class ReportSetting extends BaseEntity {
     @Enumerated(EnumType.ORDINAL)
     private UI_LOOKUP isPdf;
 
-    @Column(name = "pdf_url")
-    private String pdfUrl;
-
-    @Column(name = "pdf_token")
-    private String pdfApiToken;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "pdf_bridge")
+    private EventBridge pdfBridge;
 
     @Column(name = "is_xlsx", nullable = false)
     @Enumerated(EnumType.ORDINAL)
     private UI_LOOKUP isXlsx;
 
-    @Column(name = "xlsx_url")
-    private String xlsxUrl;
-
-    @Column(name = "xlsx_token")
-    private String xlsxApiToken;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "xlsx_bridge")
+    private EventBridge xlsxBridge;
 
     @Column(name = "is_csv", nullable = false)
     @Enumerated(EnumType.ORDINAL)
     private UI_LOOKUP isCsv;
 
-    @Column(name = "csv_url")
-    private String csvUrl;
-
-    @Column(name = "csv_token")
-    private String csvApiToken;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "csv_bridge")
+    private EventBridge csvBridge;
 
     @Column(name = "is_data", nullable = false)
     @Enumerated(EnumType.ORDINAL)
     private UI_LOOKUP isData;
 
-    @Column(name = "data_url")
-    private String dataUrl;
-
-    @Column(name = "data_token")
-    private String dataApiToken;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "data_bridge")
+    private EventBridge dataBridge;
 
     @Column(name = "is_fd", nullable = false)
     @Enumerated(EnumType.ORDINAL)
     private UI_LOOKUP isFirstDimension;
 
-    @Column(name = "fd_url")
-    private String firstDimensionUrl;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "fd_bridge")
+    private EventBridge firstDimensionBridge;
 
     @Column(name = "fd_lkv")
     private String firstDimensionLKValue;
-
-    @Column(name = "fd_token")
-    private String firstDimensionApiToken;
 
     @Column(name = "is_sd", nullable = false)
     @Enumerated(EnumType.ORDINAL)
     private UI_LOOKUP isSecondDimension;
 
-    @Column(name = "sd_url")
-    private String secondDimensionUrl;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "sd_bridge")
+    private EventBridge secondDimensionBridge;
 
     @Column(name = "sd_lkv")
     private String secondDimensionLKValue;
-
-    @Column(name = "sd_token")
-    private String secondDimensionApiToken;
 
     @Column(name = "distinct_lkv")
     private String distinctLKValue;
@@ -104,7 +92,7 @@ public class ReportSetting extends BaseEntity {
     @Column(name = "agg_lkv")
     private String aggLKValue;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "form_id")
     private GenForm genForm;
 
@@ -151,20 +139,12 @@ public class ReportSetting extends BaseEntity {
         this.isPdf = isPdf;
     }
 
-    public String getPdfUrl() {
-        return pdfUrl;
+    public EventBridge getPdfBridge() {
+        return pdfBridge;
     }
 
-    public void setPdfUrl(String pdfUrl) {
-        this.pdfUrl = pdfUrl;
-    }
-
-    public String getPdfApiToken() {
-        return pdfApiToken;
-    }
-
-    public void setPdfApiToken(String pdfApiToken) {
-        this.pdfApiToken = pdfApiToken;
+    public void setPdfBridge(EventBridge pdfBridge) {
+        this.pdfBridge = pdfBridge;
     }
 
     public UI_LOOKUP getIsXlsx() {
@@ -175,20 +155,12 @@ public class ReportSetting extends BaseEntity {
         this.isXlsx = isXlsx;
     }
 
-    public String getXlsxUrl() {
-        return xlsxUrl;
+    public EventBridge getXlsxBridge() {
+        return xlsxBridge;
     }
 
-    public void setXlsxUrl(String xlsxUrl) {
-        this.xlsxUrl = xlsxUrl;
-    }
-
-    public String getXlsxApiToken() {
-        return xlsxApiToken;
-    }
-
-    public void setXlsxApiToken(String xlsxApiToken) {
-        this.xlsxApiToken = xlsxApiToken;
+    public void setXlsxBridge(EventBridge xlsxBridge) {
+        this.xlsxBridge = xlsxBridge;
     }
 
     public UI_LOOKUP getIsCsv() {
@@ -199,20 +171,12 @@ public class ReportSetting extends BaseEntity {
         this.isCsv = isCsv;
     }
 
-    public String getCsvUrl() {
-        return csvUrl;
+    public EventBridge getCsvBridge() {
+        return csvBridge;
     }
 
-    public void setCsvUrl(String csvUrl) {
-        this.csvUrl = csvUrl;
-    }
-
-    public String getCsvApiToken() {
-        return csvApiToken;
-    }
-
-    public void setCsvApiToken(String csvApiToken) {
-        this.csvApiToken = csvApiToken;
+    public void setCsvBridge(EventBridge csvBridge) {
+        this.csvBridge = csvBridge;
     }
 
     public UI_LOOKUP getIsData() {
@@ -223,20 +187,12 @@ public class ReportSetting extends BaseEntity {
         this.isData = isData;
     }
 
-    public String getDataUrl() {
-        return dataUrl;
+    public EventBridge getDataBridge() {
+        return dataBridge;
     }
 
-    public void setDataUrl(String dataUrl) {
-        this.dataUrl = dataUrl;
-    }
-
-    public String getDataApiToken() {
-        return dataApiToken;
-    }
-
-    public void setDataApiToken(String dataApiToken) {
-        this.dataApiToken = dataApiToken;
+    public void setDataBridge(EventBridge dataBridge) {
+        this.dataBridge = dataBridge;
     }
 
     public UI_LOOKUP getIsFirstDimension() {
@@ -247,12 +203,12 @@ public class ReportSetting extends BaseEntity {
         this.isFirstDimension = isFirstDimension;
     }
 
-    public String getFirstDimensionUrl() {
-        return firstDimensionUrl;
+    public EventBridge getFirstDimensionBridge() {
+        return firstDimensionBridge;
     }
 
-    public void setFirstDimensionUrl(String firstDimensionUrl) {
-        this.firstDimensionUrl = firstDimensionUrl;
+    public void setFirstDimensionBridge(EventBridge firstDimensionBridge) {
+        this.firstDimensionBridge = firstDimensionBridge;
     }
 
     public String getFirstDimensionLKValue() {
@@ -263,14 +219,6 @@ public class ReportSetting extends BaseEntity {
         this.firstDimensionLKValue = firstDimensionLKValue;
     }
 
-    public String getFirstDimensionApiToken() {
-        return firstDimensionApiToken;
-    }
-
-    public void setFirstDimensionApiToken(String firstDimensionApiToken) {
-        this.firstDimensionApiToken = firstDimensionApiToken;
-    }
-
     public UI_LOOKUP getIsSecondDimension() {
         return isSecondDimension;
     }
@@ -279,12 +227,12 @@ public class ReportSetting extends BaseEntity {
         this.isSecondDimension = isSecondDimension;
     }
 
-    public String getSecondDimensionUrl() {
-        return secondDimensionUrl;
+    public EventBridge getSecondDimensionBridge() {
+        return secondDimensionBridge;
     }
 
-    public void setSecondDimensionUrl(String secondDimensionUrl) {
-        this.secondDimensionUrl = secondDimensionUrl;
+    public void setSecondDimensionBridge(EventBridge secondDimensionBridge) {
+        this.secondDimensionBridge = secondDimensionBridge;
     }
 
     public String getSecondDimensionLKValue() {
@@ -293,14 +241,6 @@ public class ReportSetting extends BaseEntity {
 
     public void setSecondDimensionLKValue(String secondDimensionLKValue) {
         this.secondDimensionLKValue = secondDimensionLKValue;
-    }
-
-    public String getSecondDimensionApiToken() {
-        return secondDimensionApiToken;
-    }
-
-    public void setSecondDimensionApiToken(String secondDimensionApiToken) {
-        this.secondDimensionApiToken = secondDimensionApiToken;
     }
 
     public String getDistinctLKValue() {
