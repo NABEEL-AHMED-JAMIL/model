@@ -28,7 +28,7 @@ public class Credential extends BaseEntity {
     private String content;
 
     @OneToMany(mappedBy = "credential", fetch = FetchType.LAZY)
-    private List<WebHook> webHooks;
+    private List<EventBridge> eventBridges;
 
     @OneToMany(mappedBy = "credential", fetch = FetchType.LAZY)
     private List<SourceTaskType> sourceTaskTypes;
@@ -59,12 +59,12 @@ public class Credential extends BaseEntity {
         this.content = content;
     }
 
-    public List<WebHook> getWebHooks() {
-        return webHooks;
+    public List<EventBridge> getEventBridges() {
+        return eventBridges;
     }
 
-    public void setWebHooks(List<WebHook> webHooks) {
-        this.webHooks = webHooks;
+    public void setEventBridges(List<EventBridge> eventBridges) {
+        this.eventBridges = eventBridges;
     }
 
     public List<SourceTaskType> getSourceTaskTypes() {

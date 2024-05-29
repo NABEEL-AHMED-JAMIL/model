@@ -23,7 +23,7 @@ public interface DashboardSettingRepository extends CrudRepository<DashboardSett
             "WHERE dashSetting.dateCreated BETWEEN ?1 AND ?2 AND dashSetting.createdBy.username = ?3 AND dashSetting.status != ?4";
 
     @Query(value = FIND_BY_ID_AND_USERNAME_AND_STATUS_NOT)
-    public Optional<DashboardSetting> findByIdAndUsernameAndStatusNot(Long credentialId, String username, APPLICATION_STATUS status);
+    public Optional<DashboardSetting> findByIdAndUsernameAndStatusNot(Long id, String username, APPLICATION_STATUS status);
 
     @Query(value = FIND_ALL_BY_DATE_CREATED_BETWEEN_AND_USERNAME_AND_STATUS_NOT)
     public List<DashboardSetting> findAllByDateCreatedBetweenAndUsernameAndStatusNot(Date startDate, Date endDate, String username, APPLICATION_STATUS status);

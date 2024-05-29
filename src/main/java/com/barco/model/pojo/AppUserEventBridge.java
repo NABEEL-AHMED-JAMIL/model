@@ -3,27 +3,25 @@ package com.barco.model.pojo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
-import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.UUID;
 
 /**
  * @author Nabeel Ahmed
  */
 @Entity
-@Table(name = "app_user_hooks")
+@Table(name = "app_user_event_bridge")
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class AppUserWebHook extends BaseEntity {
+public class AppUserEventBridge extends BaseEntity {
 
     // don't show this to user
     @Column(name = "token_id", nullable = false)
     private String tokenId;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "webhook_id", nullable = false)
-    private WebHook webhook;
+    @JoinColumn(name = "event_bridge_id", nullable = false)
+    private EventBridge eventBridge;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "app_user_id", nullable = false)
@@ -36,7 +34,7 @@ public class AppUserWebHook extends BaseEntity {
     @Column(name = "expire_time")
     private Timestamp expireTime;
 
-    public AppUserWebHook() {
+    public AppUserEventBridge() {
     }
 
     public String getTokenId() {
@@ -47,12 +45,12 @@ public class AppUserWebHook extends BaseEntity {
         this.tokenId = tokenId;
     }
 
-    public WebHook getWebhook() {
-        return webhook;
+    public EventBridge getEventBridge() {
+        return eventBridge;
     }
 
-    public void setWebhook(WebHook webhook) {
-        this.webhook = webhook;
+    public void setEventBridge(EventBridge eventBridge) {
+        this.eventBridge = eventBridge;
     }
 
     public AppUser getAppUser() {

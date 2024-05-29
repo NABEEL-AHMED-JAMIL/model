@@ -64,7 +64,7 @@ public class AppUser extends BaseEntity {
     private List<AppUserEnv> appUserEnvs;
 
     @OneToMany(mappedBy = "appUser", fetch = FetchType.LAZY)
-    private List<AppUserWebHook> appUserWebHooks;
+    private List<AppUserEventBridge> appUserEventBridges;
 
     @OneToMany(mappedBy = "appUserParent", fetch = FetchType.LAZY)
     private List<SubAppUser> subAppUsers;
@@ -168,12 +168,12 @@ public class AppUser extends BaseEntity {
         this.appUserEnvs = appUserEnvs;
     }
 
-    public List<AppUserWebHook> getAppUserWebHooks() {
-        return appUserWebHooks;
+    public List<AppUserEventBridge> getAppUserEventBridges() {
+        return appUserEventBridges;
     }
 
-    public void setAppUserWebHooks(List<AppUserWebHook> appUserWebHooks) {
-        this.appUserWebHooks = appUserWebHooks;
+    public void setAppUserEventBridges(List<AppUserEventBridge> appUserEventBridges) {
+        this.appUserEventBridges = appUserEventBridges;
     }
 
     public List<SubAppUser> getSubAppUsers() {

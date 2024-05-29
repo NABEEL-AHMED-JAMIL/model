@@ -22,7 +22,7 @@ public interface ReportSettingRepository extends CrudRepository<ReportSetting, L
             "WHERE reportSetting.dateCreated BETWEEN ?1 AND ?2 AND reportSetting.createdBy.username = ?3 AND reportSetting.status != ?4";
 
     @Query(value = FIND_BY_ID_AND_USERNAME_AND_STATUS_NOT)
-    public Optional<ReportSetting> findByIdAndUsernameAndStatusNot(Long credentialId, String username, APPLICATION_STATUS status);
+    public Optional<ReportSetting> findByIdAndUsernameAndStatusNot(Long id, String username, APPLICATION_STATUS status);
 
     @Query(value = FIND_ALL_BY_DATE_CREATED_BETWEEN_AND_USERNAME_AND_STATUS_NOT)
     public List<ReportSetting> findAllByDateCreatedBetweenAndUsernameAndStatusNot(Date startDate, Date endDate, String username, APPLICATION_STATUS status);

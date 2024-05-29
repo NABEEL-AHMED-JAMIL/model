@@ -2,24 +2,25 @@ package com.barco.model.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.google.gson.Gson;
 
 /**
  * @author Nabeel Ahmed
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class WebHookRequest extends RequestFilter {
+public class EventBridgeRequest extends RequestFilter {
 
     private Long id;
     private String name;
-    private String hookUrl;
+    private String bridgeUrl;
     private String description;
-    private Long hookType;
+    private Long bridgeType;
     private Long credentialId;
     private Long status;
     private SessionUser sessionUser;
 
-    public WebHookRequest() {
+    public EventBridgeRequest() {
     }
 
     public Long getId() {
@@ -38,12 +39,12 @@ public class WebHookRequest extends RequestFilter {
         this.name = name;
     }
 
-    public String getHookUrl() {
-        return hookUrl;
+    public String getBridgeUrl() {
+        return bridgeUrl;
     }
 
-    public void setHookUrl(String hookUrl) {
-        this.hookUrl = hookUrl;
+    public void setBridgeUrl(String bridgeUrl) {
+        this.bridgeUrl = bridgeUrl;
     }
 
     public String getDescription() {
@@ -54,12 +55,12 @@ public class WebHookRequest extends RequestFilter {
         this.description = description;
     }
 
-    public Long getHookType() {
-        return hookType;
+    public Long getBridgeType() {
+        return bridgeType;
     }
 
-    public void setHookType(Long hookType) {
-        this.hookType = hookType;
+    public void setBridgeType(Long bridgeType) {
+        this.bridgeType = bridgeType;
     }
 
     public Long getCredentialId() {
@@ -84,5 +85,10 @@ public class WebHookRequest extends RequestFilter {
 
     public void setSessionUser(SessionUser sessionUser) {
         this.sessionUser = sessionUser;
+    }
+
+    @Override
+    public String toString() {
+        return new Gson().toJson(this);
     }
 }

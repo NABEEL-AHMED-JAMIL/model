@@ -11,7 +11,7 @@ import java.sql.Timestamp;
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class LinkWHURequest {
+public class LinkEBURequest {
 
     private Long id;
     private Long appUserId;
