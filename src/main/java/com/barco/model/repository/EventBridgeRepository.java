@@ -26,6 +26,8 @@ public interface EventBridgeRepository extends CrudRepository<EventBridge, Long>
 
     public List<EventBridge> findAllByCreatedByAndStatusNotOrderByDateCreatedDesc(AppUser appUser, APPLICATION_STATUS status);
 
+    public List<EventBridge> findAllByIdInAndCreatedByAndStatusNotOrderByDateCreatedDesc(List<Long> ids, AppUser appUser, APPLICATION_STATUS status);
+
     public List<EventBridge> findAllByBridgeTypeAndCreatedByAndStatusNotOrderByDateCreatedDesc(EVENT_BRIDGE_TYPE bridgeType, AppUser appUser, APPLICATION_STATUS status);
 
 }

@@ -206,6 +206,7 @@ public interface MessageUtil {
     String EVENT_BRIDGE_CREDENTIAL_MISSING = "EventBridge credential missing.";
     String EVENT_BRIDGE_NOT_FOUND = "EventBridge not found.";
     String EVENT_BRIDGE_NOT_FOUND_WITH_ID = "EventBridge not found with id %s.";
+    String EVENT_BRIDGE_NOT_FOUND_LINK_CREDENTIAL_WITH_ID = "EventBridge not found linked credential with id %s.";
     String EVENT_BRIDGE_GEN_TOKEN_MISSING = "EventBridge tokenId missing.";
     String EVENT_BRIDGE_NOT_FOUND_WITH_GEN_TOKEN = "EventBridge not found with tokenId %d.";
 
