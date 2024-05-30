@@ -30,7 +30,7 @@ public class EventBridge extends BaseEntity {
     private EVENT_BRIDGE_TYPE bridgeType;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "credential_id", nullable = false)
+    @JoinColumn(name = "credential_id")
     private Credential credential;
 
     @OneToMany(mappedBy = "eventBridge",
