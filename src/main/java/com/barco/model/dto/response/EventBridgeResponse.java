@@ -18,6 +18,7 @@ public class EventBridgeResponse extends BaseEntity {
     private String description;
     private GLookup bridgeType;
     private CredentialResponse credential;
+    private Integer totalLinkCount;
     // token-id
     private String tokenId;
     private String accessToken;
@@ -64,6 +65,14 @@ public class EventBridgeResponse extends BaseEntity {
 
     public void setCredential(CredentialResponse credential) {
         this.credential = credential;
+    }
+
+    public Integer getTotalLinkCount() {
+        return totalLinkCount;
+    }
+
+    public void setTotalLinkCount(Integer totalLinkCount) {
+        this.totalLinkCount = totalLinkCount;
     }
 
     public String getTokenId() {
