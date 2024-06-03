@@ -17,10 +17,10 @@ public class GenControlLinkGenSection extends BaseEntity {
     @Column(name = "control_order")
     private Long controlOrder;
 
-    @Column(name = "disabled_pattern")
+    @Column(name = "disabled_pattern", columnDefinition = "text")
     private String disabledPattern;
 
-    @Column(name = "visible_pattern")
+    @Column(name = "visible_pattern", columnDefinition = "text")
     private String visiblePattern;
 
     @Column(name = "field_width")

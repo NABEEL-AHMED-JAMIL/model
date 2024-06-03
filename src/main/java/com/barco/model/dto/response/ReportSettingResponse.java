@@ -13,6 +13,8 @@ import com.google.gson.Gson;
 public class ReportSettingResponse extends BaseEntity {
 
     private String name;
+    private GLookup dateFilter;
+    private GLookup fetchRate;
     private GLookup groupType;
     private String description;
     private GLookup payloadRef;
@@ -46,6 +48,22 @@ public class ReportSettingResponse extends BaseEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public GLookup getDateFilter() {
+        return dateFilter;
+    }
+
+    public void setDateFilter(GLookup dateFilter) {
+        this.dateFilter = dateFilter;
+    }
+
+    public GLookup getFetchRate() {
+        return fetchRate;
+    }
+
+    public void setFetchRate(GLookup fetchRate) {
+        this.fetchRate = fetchRate;
     }
 
     public GLookup getGroupType() {
