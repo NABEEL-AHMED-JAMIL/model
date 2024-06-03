@@ -12,6 +12,8 @@ import com.google.gson.Gson;
 public class ReportSettingRequest extends RequestFilter {
 
     private Long id;
+    private Long dateFilter;
+    private Long fetchRate;
     private String name;
     private String groupType;
     private String description;
@@ -45,6 +47,22 @@ public class ReportSettingRequest extends RequestFilter {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getDateFilter() {
+        return dateFilter;
+    }
+
+    public void setDateFilter(Long dateFilter) {
+        this.dateFilter = dateFilter;
+    }
+
+    public Long getFetchRate() {
+        return fetchRate;
+    }
+
+    public void setFetchRate(Long fetchRate) {
+        this.fetchRate = fetchRate;
     }
 
     public String getName() {

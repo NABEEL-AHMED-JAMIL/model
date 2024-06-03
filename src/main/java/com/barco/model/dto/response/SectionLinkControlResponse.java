@@ -15,8 +15,8 @@ public class SectionLinkControlResponse extends BaseEntity {
     private String controlName;
     private GLookup fieldType;
     private Long controlOrder;
-    private String disabledPattern;
-    private String visiblePattern;
+    private Object disabledPattern;
+    private Object visiblePattern;
     private Long  fieldWidth;
     private Boolean linkedSection;
     private Long linkControlId;
@@ -48,19 +48,19 @@ public class SectionLinkControlResponse extends BaseEntity {
         this.controlOrder = controlOrder;
     }
 
-    public String getDisabledPattern() {
+    public Object getDisabledPattern() {
         return disabledPattern;
     }
 
-    public void setDisabledPattern(String disabledPattern) {
+    public void setDisabledPattern(Object disabledPattern) {
         this.disabledPattern = disabledPattern;
     }
 
-    public String getVisiblePattern() {
+    public Object getVisiblePattern() {
         return visiblePattern;
     }
 
-    public void setVisiblePattern(String visiblePattern) {
+    public void setVisiblePattern(Object visiblePattern) {
         this.visiblePattern = visiblePattern;
     }
 

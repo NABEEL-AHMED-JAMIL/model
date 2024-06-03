@@ -1,5 +1,6 @@
 package com.barco.model.pojo;
 
+import com.barco.model.util.lookup.FETCH_LIMIT;
 import com.barco.model.util.lookup.PAYLOAD_REF;
 import com.barco.model.util.lookup.UI_LOOKUP;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -18,6 +19,14 @@ public class ReportSetting extends BaseEntity {
 
     @Column(name = "name", nullable = false)
     private String name;
+
+    @Column(name = "data_filter", nullable = false)
+    @Enumerated(EnumType.ORDINAL)
+    private UI_LOOKUP dateFilter;
+
+    @Column(name = "fetch_rate", nullable = false)
+    @Enumerated(EnumType.ORDINAL)
+    private FETCH_LIMIT fetchRate;
 
     @ManyToOne
     @JoinColumn(name = "group_type")
@@ -105,6 +114,22 @@ public class ReportSetting extends BaseEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public UI_LOOKUP getDateFilter() {
+        return dateFilter;
+    }
+
+    public void setDateFilter(UI_LOOKUP dateFilter) {
+        this.dateFilter = dateFilter;
+    }
+
+    public FETCH_LIMIT getFetchRate() {
+        return fetchRate;
+    }
+
+    public void setFetchRate(FETCH_LIMIT fetchRate) {
+        this.fetchRate = fetchRate;
     }
 
     public LookupData getGroupType() {

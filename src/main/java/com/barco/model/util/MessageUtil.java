@@ -6,6 +6,7 @@ package com.barco.model.util;
 public interface MessageUtil {
 
     String IS_DEFAULT_NOT_FOUND = "No default found.";
+    String FETCH_LIMIT_NOT_FOUND = "No fetch limit found.";
     String CREDENTIAL_TYPE_NOT_FOUND = "No credential type found.";
     String FILED_TYPE_NOT_FOUND = "No filed type found";
     String FORM_TYPE_NOT_FOUND = "No form type found";
@@ -190,6 +191,8 @@ public interface MessageUtil {
     String REPORT_SETTING_NAME_MISSING = "Report Setting field name missing.";
     String REPORT_SETTING_GROUP_MISSING = "Report Setting field groupType missing.";
     String REPORT_SETTING_DESCRIPTION_MISSING = "Report Setting field description missing.";
+    String REPORT_SETTING_DATA_FILTER_MISSING = "Report Setting data filter missing.";
+    String REPORT_SETTING_FETCH_RATE_MISSING = "Report Setting fetch rate missing.";
     String REPORT_SETTING_PAYLOAD_REF_MISSING = "Report Setting field payload ref missing.";
     String REPORT_SETTING_PDF_MISSING = "Report Setting field pdf missing.";
     String REPORT_SETTING_CSV_MISSING = "Report Setting field csv missing.";
