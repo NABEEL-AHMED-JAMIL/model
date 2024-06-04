@@ -27,9 +27,6 @@ public class BaseEntity implements Serializable {
     @Column(name = "date_updated")
     private Timestamp dateUpdated;
 
-    @Column(name = "date_deleted")
-    private Timestamp dateDeleted;
-
     @ManyToOne
     @JoinColumn(name = "created_by_id")
     private AppUser createdBy;
@@ -56,11 +53,6 @@ public class BaseEntity implements Serializable {
         this.setDateUpdated(new Timestamp((System.currentTimeMillis())));
     }
 
-    @PreRemove
-    public void preRemove() {
-        this.setDateDeleted(new Timestamp((System.currentTimeMillis())));
-    }
-
     public Long getId() {
         return id;
     }
@@ -83,14 +75,6 @@ public class BaseEntity implements Serializable {
 
     public void setDateUpdated(Timestamp dateUpdated) {
         this.dateUpdated = dateUpdated;
-    }
-
-    public Timestamp getDateDeleted() {
-        return dateDeleted;
-    }
-
-    public void setDateDeleted(Timestamp dateDeleted) {
-        this.dateDeleted = dateDeleted;
     }
 
     public AppUser getCreatedBy() {
