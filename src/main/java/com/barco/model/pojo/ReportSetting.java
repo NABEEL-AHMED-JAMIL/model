@@ -32,7 +32,9 @@ public class ReportSetting extends BaseEntity {
     @JoinColumn(name = "group_type")
     private LookupData groupType;
 
-    @Column(name = "description", nullable = false)
+    @Column(name = "description",
+        columnDefinition = "text",
+        nullable = false)
     private String description;
 
     // if its form ref then have to give the ref of form

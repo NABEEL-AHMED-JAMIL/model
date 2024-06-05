@@ -15,9 +15,12 @@ public class ModelUtil {
 
     public static Logger logger = LogManager.getLogger(ModelUtil.class);
 
-    private static final String[] IP_HEADERS = { "X-Forwarded-For", "Proxy-Client-IP", "WL-Proxy-Client-IP",
+    private static final String EMAIL_PATTERN = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
+    private static final String[] IP_HEADERS = {
+        "X-Forwarded-For", "Proxy-Client-IP", "WL-Proxy-Client-IP",
         "HTTP_X_FORWARDED_FOR", "HTTP_X_FORWARDED", "HTTP_X_CLUSTER_CLIENT_IP",
-        "HTTP_CLIENT_IP", "HTTP_FORWARDED_FOR", "HTTP_FORWARDED", "HTTP_VIA", "REMOTE_ADDR"
+        "HTTP_CLIENT_IP", "HTTP_FORWARDED_FOR", "HTTP_FORWARDED",
+        "HTTP_VIA", "REMOTE_ADDR"
     };
 
     /**
@@ -26,8 +29,7 @@ public class ModelUtil {
      * @return boolean
      * */
     public static boolean isValidEmail(String email) {
-        return Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$",
-            Pattern.CASE_INSENSITIVE).matcher(email).find();
+        return Pattern.compile(EMAIL_PATTERN, Pattern.CASE_INSENSITIVE).matcher(email).find();
     }
 
     /**

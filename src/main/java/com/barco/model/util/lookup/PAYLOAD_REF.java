@@ -10,7 +10,7 @@ public enum PAYLOAD_REF {
 
     DYNAMIC_PAYLOAD(0l),
     REF_REPORT_FORM(1l); // if this then have to select the
-        // form from the form service and set the form report
+    // form from the form service and set the form report
 
     private Long lookupCode;
 
