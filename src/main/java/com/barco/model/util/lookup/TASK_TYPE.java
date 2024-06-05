@@ -11,7 +11,9 @@ public enum TASK_TYPE {
     API(0l),
     AWS_SQS(1l),
     WEB_SOCKET(2l),
-    KAFKA(3l);
+    KAFKA(3l),
+    AWS_S3(4l),
+    AWS_LAMBDA(5l);
 
     private Long lookupCode;
 
@@ -32,6 +34,10 @@ public enum TASK_TYPE {
             return WEB_SOCKET;
         } else if (lookupValue.equals(KAFKA.getLookupCode())) {
             return KAFKA;
+        } else if (lookupValue.equals(AWS_S3.getLookupCode())) {
+            return AWS_S3;
+        } else if (lookupValue.equals(AWS_LAMBDA.getLookupCode())) {
+            return AWS_LAMBDA;
         }
         throw new RuntimeException(MessageUtil.TASK_TYPE_NOT_FOUND);
     }

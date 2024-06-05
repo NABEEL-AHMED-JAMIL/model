@@ -15,6 +15,7 @@ import java.util.List;
 public class SourceTaskTypeLinkFormResponse extends BaseEntity {
 
     private String formName;
+    private String serviceId;
     private GLookup formType;
     private Boolean linkStatus;
     private Long sttLinkForm;
@@ -28,6 +29,14 @@ public class SourceTaskTypeLinkFormResponse extends BaseEntity {
 
     public void setFormName(String formName) {
         this.formName = formName;
+    }
+
+    public String getServiceId() {
+        return serviceId;
+    }
+
+    public void setServiceId(String serviceId) {
+        this.serviceId = serviceId;
     }
 
     public GLookup getFormType() {
