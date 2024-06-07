@@ -52,3 +52,7 @@ Feel free to reach out if you have any questions or need assistance getting star
 🔗 [Admin API GitHub Repository](https://github.com/NABEEL-AHMED-JAMIL/admin-api)
 
 #OpenSource #Java #SpringBoot #PostgreSQL #Angular #DeveloperCommunity #TechForGood
+
+### DB Design For Dyanmic Form
+![Screenshot 2024-06-07 132257](https://github.com/NABEEL-AHMED-JAMIL/model/assets/24192325/2f7c67e0-6e44-42aa-8c8a-160ddbdf825c)
+
