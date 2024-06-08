@@ -23,8 +23,6 @@ public class SectionRequest extends RequestFilter {
     private List<Long> controlId;
     private List<Long> sectionLinkControl;
     private Long controlOrder;
-    private String disabledPattern;
-    private String visiblePattern;
     private Long fieldWidth;
     //
     private List<Long> formId;
@@ -100,22 +98,6 @@ public class SectionRequest extends RequestFilter {
 
     public void setControlOrder(Long controlOrder) {
         this.controlOrder = controlOrder;
-    }
-
-    public String getDisabledPattern() {
-        return disabledPattern;
-    }
-
-    public void setDisabledPattern(String disabledPattern) {
-        this.disabledPattern = disabledPattern;
-    }
-
-    public String getVisiblePattern() {
-        return visiblePattern;
-    }
-
-    public void setVisiblePattern(String visiblePattern) {
-        this.visiblePattern = visiblePattern;
     }
 
     public Long getFieldWidth() {

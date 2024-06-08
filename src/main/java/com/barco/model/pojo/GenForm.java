@@ -42,8 +42,19 @@ public class GenForm extends BaseEntity {
     @OneToMany(mappedBy="genForm")
     private List<ReportSetting> reportSettings;
 
+    @OneToMany(mappedBy = "sourceTaskType", fetch = FetchType.LAZY)
+    private List<SourceTask> sourceTasks;
+
     @OneToMany(mappedBy = "sourceTask", fetch = FetchType.LAZY)
     private List<SourceTaskData> sourceTaskData;
+
+    @ManyToOne
+    @JoinColumn(name = "enable_id")
+    private EnableabilityConfig enableabilityConfig;
+
+    @ManyToOne
+    @JoinColumn(name = "visible_id")
+    private VisibilityConfig visibilityConfig;
 
     public GenForm() {
     }
@@ -112,12 +123,36 @@ public class GenForm extends BaseEntity {
         this.reportSettings = reportSettings;
     }
 
+    public List<SourceTask> getSourceTasks() {
+        return sourceTasks;
+    }
+
+    public void setSourceTasks(List<SourceTask> sourceTasks) {
+        this.sourceTasks = sourceTasks;
+    }
+
     public List<SourceTaskData> getSourceTaskData() {
         return sourceTaskData;
     }
 
     public void setSourceTaskData(List<SourceTaskData> sourceTaskData) {
         this.sourceTaskData = sourceTaskData;
+    }
+
+    public EnableabilityConfig getEnableabilityConfig() {
+        return enableabilityConfig;
+    }
+
+    public void setEnableabilityConfig(EnableabilityConfig enableabilityConfig) {
+        this.enableabilityConfig = enableabilityConfig;
+    }
+
+    public VisibilityConfig getVisibilityConfig() {
+        return visibilityConfig;
+    }
+
+    public void setVisibilityConfig(VisibilityConfig visibilityConfig) {
+        this.visibilityConfig = visibilityConfig;
     }
 
     @Override

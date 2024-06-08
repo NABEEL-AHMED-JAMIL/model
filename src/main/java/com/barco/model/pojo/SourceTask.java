@@ -25,6 +25,10 @@ public class SourceTask extends BaseEntity {
     @JoinColumn(name = "stt_id")
     private SourceTaskType sourceTaskType;
 
+    @ManyToOne
+    @JoinColumn(name = "form_id")
+    private GenForm genForm;
+
     @OneToMany(mappedBy = "sourceTask")
     private List<SourceTaskData> sourceTaskData;
 
@@ -52,6 +56,14 @@ public class SourceTask extends BaseEntity {
 
     public void setSourceTaskType(SourceTaskType sourceTaskType) {
         this.sourceTaskType = sourceTaskType;
+    }
+
+    public GenForm getGenForm() {
+        return genForm;
+    }
+
+    public void setGenForm(GenForm genForm) {
+        this.genForm = genForm;
     }
 
     public List<SourceTaskData> getSourceTaskData() {

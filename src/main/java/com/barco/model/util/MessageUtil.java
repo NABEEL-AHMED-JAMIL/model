@@ -23,6 +23,9 @@ public interface MessageUtil {
     String DASHBOARD_TYPE_NOT_FOUND = "No dashboard status found.";
     String PAYLOAD_REF_NOT_FOUND = "No payload ref found.";
     String APPLICATION_STATUS_NOT_FOUND = "No application status found.";
+    String LOGICAL_OPERATORS_NOT_FOUND = "No logical operator found.";
+    String DYNAMIC_CONDITION_NOT_FOUND = "No dynamic condition found.";
+    String COMPARISON_OPERATORS_NOT_FOUND = "No comparison operator found.";
     String USER_NOT_FOUND = "User not found with username : %s .";
     String REFRESH_TOKEN_EXPIRED = "Refresh token expired. Please make a new signing request.";
     String REFRESH_TOKEN_VALID = "Token valid and can be use.";

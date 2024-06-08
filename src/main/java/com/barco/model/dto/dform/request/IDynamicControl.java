@@ -24,8 +24,6 @@ public class IDynamicControl {
     private Long width; // max 24
     private List<GLookup> selectMenuOptions;
     private String apiLkValue;
-    private Object disabledPattern;
-    private Object visiblePattern;
     private List<IDynamicValidation> validators;
 
     public IDynamicControl() {
@@ -117,22 +115,6 @@ public class IDynamicControl {
 
     public void setApiLkValue(String apiLkValue) {
         this.apiLkValue = apiLkValue;
-    }
-
-    public Object getDisabledPattern() {
-        return disabledPattern;
-    }
-
-    public void setDisabledPattern(Object disabledPattern) {
-        this.disabledPattern = disabledPattern;
-    }
-
-    public Object getVisiblePattern() {
-        return visiblePattern;
-    }
-
-    public void setVisiblePattern(Object visiblePattern) {
-        this.visiblePattern = visiblePattern;
     }
 
     public List<IDynamicValidation> getValidators() {
