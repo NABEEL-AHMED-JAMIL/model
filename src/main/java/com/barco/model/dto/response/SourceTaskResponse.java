@@ -14,8 +14,8 @@ public class SourceTaskResponse extends BaseEntity {
 
     private String taskName;
     private String description;
-    private SourceTaskTypeResponse sourceTaskType;
-    private FormData formData;
+    private SourceTaskTypeResponse linkStt;
+    private FormResponse linkForm;
 
     public SourceTaskResponse() {
     }
@@ -36,20 +36,20 @@ public class SourceTaskResponse extends BaseEntity {
         this.description = description;
     }
 
-    public SourceTaskTypeResponse getSourceTaskType() {
-        return sourceTaskType;
+    public SourceTaskTypeResponse getLinkStt() {
+        return linkStt;
     }
 
-    public void setSourceTaskType(SourceTaskTypeResponse sourceTaskType) {
-        this.sourceTaskType = sourceTaskType;
+    public void setLinkStt(SourceTaskTypeResponse linkStt) {
+        this.linkStt = linkStt;
     }
 
-    public FormData getFormData() {
-        return formData;
+    public FormResponse getLinkForm() {
+        return linkForm;
     }
 
-    public void setFormData(FormData formData) {
-        this.formData = formData;
+    public void setLinkForm(FormResponse linkForm) {
+        this.linkForm = linkForm;
     }
 
     @Override

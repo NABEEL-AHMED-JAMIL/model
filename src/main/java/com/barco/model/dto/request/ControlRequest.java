@@ -34,8 +34,6 @@ public class ControlRequest extends RequestFilter {
     private ACTION action; // delete|insert
     private List<Long> sectionId;
     private List<Long> controlLinkSection;
-    private String disabledPattern;
-    private String visiblePattern;
     private Long fieldWidth;
     private Long controlOrder;
 
@@ -200,22 +198,6 @@ public class ControlRequest extends RequestFilter {
 
     public void setControlLinkSection(List<Long> controlLinkSection) {
         this.controlLinkSection = controlLinkSection;
-    }
-
-    public String getDisabledPattern() {
-        return disabledPattern;
-    }
-
-    public void setDisabledPattern(String disabledPattern) {
-        this.disabledPattern = disabledPattern;
-    }
-
-    public String getVisiblePattern() {
-        return visiblePattern;
-    }
-
-    public void setVisiblePattern(String visiblePattern) {
-        this.visiblePattern = visiblePattern;
     }
 
     public Long getFieldWidth() {

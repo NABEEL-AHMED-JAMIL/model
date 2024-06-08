@@ -17,12 +17,6 @@ public class GenControlLinkGenSection extends BaseEntity {
     @Column(name = "control_order")
     private Long controlOrder;
 
-    @Column(name = "disabled_pattern", columnDefinition = "text")
-    private String disabledPattern;
-
-    @Column(name = "visible_pattern", columnDefinition = "text")
-    private String visiblePattern;
-
     @Column(name = "field_width")
     private Long fieldWidth;
 
@@ -43,22 +37,6 @@ public class GenControlLinkGenSection extends BaseEntity {
 
     public void setControlOrder(Long controlOrder) {
         this.controlOrder = controlOrder;
-    }
-
-    public String getDisabledPattern() {
-        return disabledPattern;
-    }
-
-    public void setDisabledPattern(String disabledPattern) {
-        this.disabledPattern = disabledPattern;
-    }
-
-    public String getVisiblePattern() {
-        return visiblePattern;
-    }
-
-    public void setVisiblePattern(String visiblePattern) {
-        this.visiblePattern = visiblePattern;
     }
 
     public Long getFieldWidth() {
