@@ -9,7 +9,7 @@ We’re thrilled to share our suite of open-source projects with the community! 
    - **GitHub**: [Model GitHub Repository](https://github.com/NABEEL-AHMED-JAMIL/model)
 
 2. **ETL Source**
-   - **Description**: Extract, Transform, Load (ETL) processes repository.
+   - **Description**: Extract, Transform, Load (ETL) process repository.
    - **GitHub**: [ETL Source GitHub Repository](https://github.com/NABEEL-AHMED-JAMIL/etl-source)
 
 3. **Common**
@@ -54,5 +54,8 @@ Feel free to reach out if you have any questions or need assistance getting star
 #OpenSource #Java #SpringBoot #PostgreSQL #Angular #DeveloperCommunity #TechForGood
 
 ### DB Design For Dyanmic Form
+#### Form, Section, Control Detail
 ![Screenshot 2024-06-07 132257](https://github.com/NABEEL-AHMED-JAMIL/model/assets/24192325/2f7c67e0-6e44-42aa-8c8a-160ddbdf825c)
+#### Logic Hide/Show Or Enabled/Disabled
+![Screenshot 2024-06-09 131229](https://github.com/NABEEL-AHMED-JAMIL/model/assets/24192325/1313ea6f-9be3-496b-b1b6-9d0a02c5246b)
 
