@@ -14,7 +14,7 @@ import java.util.List;
 @Table(name = "enable_config")
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class EnableabilityConfig extends BaseEntity {
+public class EnableAbilityConfig extends BaseEntity {
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -26,7 +26,7 @@ public class EnableabilityConfig extends BaseEntity {
     @JoinColumn(name = "enable_id")
     private List<ConditionalLogic> enableLogic;
 
-    public EnableabilityConfig() {
+    public EnableAbilityConfig() {
     }
 
     public String getName() {
