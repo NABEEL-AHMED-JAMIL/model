@@ -1,0 +1,85 @@
+INSERT INTO public.gen_control (date_created,date_updated,status,control_name,default_val,description,field_name,field_title,field_type,is_default,mandatory,max_length,min_length,pattern,place_holder,created_by_id,updated_by_id,api_lk_value,field_lk_value,date_deleted) VALUES
+	 ('2024-05-08 14:01:24.699','2024-05-09 11:48:58.025',2,'PROJECT DESCRIPTION','','Project Description','proDescription','Description',16,0,1,4,2,NULL,'Enter the project description',1,1,NULL,NULL,NULL),
+	 ('2024-05-08 14:35:30.342','2024-05-09 11:48:58.025',2,'SCRAP IMAGE','1','Scrap Image','Scrap Image','Scrap Image',17,1,1,NULL,NULL,NULL,'Enter the Scrap Image',1,1,NULL,NULL,NULL),
+	 ('2024-05-08 14:44:48.74','2024-05-09 11:48:58.025',2,'BARCO REPORT','1,2','Barco Report Group','barcoReport','Barco Report',18,1,1,NULL,NULL,NULL,'Select the barco report group',1,1,NULL,NULL,NULL),
+	 ('2024-05-09 10:01:40.981','2024-05-09 11:48:58.025',2,'APPOINTMENT_WEEK','','Opointement Week','optWeek','Appointment Week',3,0,1,NULL,NULL,'yyyy/MM/dd','Opointement Week',1,1,NULL,NULL,NULL),
+	 ('2024-05-06 03:17:15.273','2024-05-07 14:49:13.404',2,'USERNAME','','Username','username','Username',15,0,1,10,1,NULL,'Enter Username',1,1,NULL,NULL,NULL),
+	 ('2024-05-06 11:10:26.063','2024-05-07 14:49:13.405',2,'FIRST_NAME','','Enter Firstname','firstName','FirstName',15,0,1,NULL,NULL,NULL,'Enter Firstname',1,1,NULL,NULL,NULL),
+	 ('2024-05-06 12:08:21.355','2024-05-07 14:49:13.405',2,'MULTI-FORM','','Enter Multi Form','Multi Form','Multi Form',18,0,1,NULL,NULL,NULL,'Enter Multi Form',1,1,NULL,NULL,NULL),
+	 ('2024-05-06 13:09:22.822','2024-05-07 14:49:13.405',2,'DATE_TEST','','Select Date','dateTest','Date Test',3,0,1,NULL,NULL,NULL,'Select Date',1,1,NULL,NULL,NULL),
+	 ('2024-05-06 19:31:23.847','2024-05-07 14:49:13.405',2,'TEXT_AREA_TEST','Pakisgan Zindabad','Enter Text','textAr','Text Area',16,1,1,15,5,NULL,'Enter Text',1,1,NULL,NULL,NULL),
+	 ('2024-05-11 11:40:00.821','2024-05-11 12:35:57.963',2,'DPL QUESTION','','Where does Peter live?','dpl','WHERE DOES PETER LIVE?',15,0,1,NULL,NULL,NULL,'Where does Peter live?',1,1,'',NULL,NULL);
+INSERT INTO public.gen_control (date_created,date_updated,status,control_name,default_val,description,field_name,field_title,field_type,is_default,mandatory,max_length,min_length,pattern,place_holder,created_by_id,updated_by_id,api_lk_value,field_lk_value,date_deleted) VALUES
+	 ('2024-05-11 12:37:56.249','2024-05-11 12:37:56.249',1,'START INDEX','1','Start Index For Loop','startIndex','Start Index',10,1,1,5,1,NULL,'Enter your start index',1,1,'',NULL,NULL),
+	 ('2024-05-11 11:40:32.752','2024-05-11 12:35:57.963',2,'WYG QUESTION','','Where are you going?','wyg','Where are you going?',15,0,1,NULL,NULL,NULL,'Where are you going?',1,1,'',NULL,NULL),
+	 ('2024-05-07 16:45:12.814','2024-05-09 11:48:58.015',2,'TEST-CONTROL','','controlTst','controlTst','Control Test',15,0,1,NULL,NULL,NULL,'Enter Control Test',1,1,NULL,NULL,NULL),
+	 ('2024-05-08 12:39:42.9','2024-05-09 11:48:58.024',2,'TEST-2','','test2','test2','TEST-2',15,0,1,NULL,NULL,NULL,'test2',1,1,NULL,NULL,NULL),
+	 ('2024-05-08 13:59:35.152','2024-05-09 11:48:58.024',2,'FIRST_NAME','','Get user first name','firstName','First Name',15,0,1,NULL,NULL,NULL,'Enter the first name',1,1,NULL,NULL,NULL),
+	 ('2024-05-08 14:00:14.874','2024-05-09 11:48:58.024',2,'SECOND_NAME','','Second name detail from the user','secondName','Second Name',15,0,1,NULL,NULL,NULL,'Enter the second name',1,1,NULL,NULL,NULL),
+	 ('2024-05-08 14:02:44.754','2024-05-09 11:48:58.024',2,'USER EMAIL DETAI','','Email detail for eneity','email','Email',4,0,1,NULL,NULL,'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$','Enter the email',1,1,NULL,NULL,NULL),
+	 ('2024-05-08 14:03:57.241','2024-05-09 11:48:58.025',2,'PROFILE DTAIL','','Profile Url Detail','profile','Any Profile ',8,0,1,NULL,NULL,'^(https?|ftp):\/\/(www\.)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}([\/?#].*)?$','Enter the profile url',1,1,NULL,NULL,NULL),
+	 ('2024-05-08 14:06:18.38','2024-05-09 11:48:58.025',2,'USER PASSWORD','','Password detail for user ','password','Password',7,0,1,NULL,NULL,'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d_]+$','Enter the password',1,1,NULL,NULL,NULL),
+	 ('2024-05-09 12:00:14.032','2024-05-11 12:36:02.793',2,'FIRST_NAME','','Detail for first name','fristName','First Name',15,0,1,25,NULL,NULL,'Enter your fist name',1,1,NULL,NULL,NULL);
+INSERT INTO public.gen_control (date_created,date_updated,status,control_name,default_val,description,field_name,field_title,field_type,is_default,mandatory,max_length,min_length,pattern,place_holder,created_by_id,updated_by_id,api_lk_value,field_lk_value,date_deleted) VALUES
+	 ('2024-05-09 12:00:54.393','2024-05-11 12:36:02.793',2,'LAST_NAME','','Enter detail for last name','lastName','Last Name',15,0,1,25,NULL,NULL,'Enter your last name',1,1,NULL,NULL,NULL),
+	 ('2024-05-11 12:38:50.024','2024-05-11 12:38:50.024',1,'END INDEX','500','End index detail for loop','endIndex','End Index',10,1,1,5,1,NULL,'Enter end index ',1,1,'',NULL,NULL),
+	 ('2024-05-09 15:59:40.892','2024-05-09 16:52:24.434',2,'DATE TIME','','Date Time','dateTime','Date Time',9,0,1,NULL,NULL,'yyyy-MM-dd HH:mm:ss','Enter Date Time',1,1,NULL,NULL,NULL),
+	 ('2024-05-09 12:04:27.762','2024-05-11 12:36:02.793',2,'DESCRIPTION','','Give soem detai information','description','Description',16,0,1,25,NULL,NULL,'Please write about your experice in work',1,1,NULL,NULL,NULL),
+	 ('2024-05-09 12:16:35.748','2024-05-11 12:36:02.793',2,'PASSWORD','','Detail for password','password','Password',7,0,1,NULL,NULL,'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$','Enter your password',1,1,NULL,NULL,NULL),
+	 ('2024-05-09 15:30:00.024','2024-05-09 15:31:18.164',2,'RANGE TEST','','sadas','range','Range',1,0,1,10,1,NULL,'',1,1,NULL,NULL,NULL),
+	 ('2024-05-09 12:02:07.235','2024-05-11 12:36:02.793',2,'EMAIL','','Detail for you email address','email','Email',4,0,1,25,NULL,'^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$','Enter your email address',1,1,NULL,NULL,NULL),
+	 ('2024-05-09 12:26:38.052','2024-05-11 12:35:57.962',2,'BIRTH YEAR','','Detail for birth year','birthYear','Birth Year',20,0,1,NULL,NULL,'yyyy','',1,1,NULL,NULL,NULL),
+	 ('2024-05-09 15:44:12.288','2024-05-11 12:35:57.962',2,'MULTI SELECT','','Multi Select','multiSelect','MULTI SELECT',18,0,0,NULL,NULL,NULL,'Multi Select',1,1,NULL,NULL,NULL),
+	 ('2024-05-09 12:32:35.691','2024-05-11 12:35:57.962',2,'BIRTH MONTH','','Moth of your birth','birthMonth','Birth Month',6,0,1,NULL,NULL,'yyyy/MM','Select the date of month you born',1,1,NULL,NULL,NULL);
+INSERT INTO public.gen_control (date_created,date_updated,status,control_name,default_val,description,field_name,field_title,field_type,is_default,mandatory,max_length,min_length,pattern,place_holder,created_by_id,updated_by_id,api_lk_value,field_lk_value,date_deleted) VALUES
+	 ('2024-05-09 15:25:33.218','2024-05-11 12:35:57.963',2,'DATETEST','','Date Test','dateTe','Date Test',3,0,1,NULL,NULL,'yyyy-MM-dd','Date Test',1,1,NULL,NULL,NULL),
+	 ('2024-05-09 13:46:32.092','2024-05-11 12:35:57.963',2,'WEEK_DAY','','Week Day of your date of birth','weekDay','Week Day',0,0,0,NULL,NULL,'','Enter the detail for week day',1,1,NULL,NULL,NULL),
+	 ('2024-05-09 17:00:30.226','2024-05-11 12:35:57.963',2,'TIME TEST','','sfsa','testTest','Time Test',14,0,1,NULL,NULL,NULL,'',1,1,NULL,NULL,NULL),
+	 ('2024-05-09 17:10:50.315','2024-05-11 12:35:57.963',2,'NUMBE','','sdfa','numbert','Number',10,0,1,NULL,NULL,NULL,'',1,1,NULL,NULL,NULL),
+	 ('2024-05-09 15:43:29.728','2024-05-11 12:35:57.963',2,'SINGLE SELECT','','Single Select','singleSelect','Single Select',17,0,0,NULL,NULL,NULL,'Single Select',1,1,'http://localhost:4200/setting/mgControl',NULL,NULL),
+	 ('2024-05-09 12:12:00.423','2024-05-11 12:36:02.793',2,'TARGER_URL','','Target URl','targetUrl','Target Url',8,0,0,NULL,NULL,'^(https?|ftp):\/\/[^\s/$.?#][^\s]*$','Enter your target url',1,1,NULL,NULL,NULL),
+	 ('2024-05-11 13:55:25.637','2024-05-11 13:55:25.637',1,'PAYLOAD CONTENT','','Palyoad content detial','payloadContent','Palyoad Content',16,0,0,NULL,NULL,NULL,'Enter payload content detail',1,1,'',NULL,NULL),
+	 ('2024-05-11 13:52:03.69','2024-05-11 13:52:03.69',1,'ROOT TAG','body','Root Tag Detail For Web Scraping','rootTag','Root Tag',15,1,1,NULL,NULL,NULL,'Enter root tag detail',1,1,'',NULL,NULL),
+	 ('2024-05-14 10:19:04.861','2024-05-14 10:19:04.861',1,'SOURCE_FILE','','Source File Path','sourceFilePath','Source File Path',16,0,1,NULL,NULL,NULL,'Enter the root directory',1,1,'',NULL,NULL),
+	 ('2024-05-11 13:51:16.141','2024-05-11 13:51:16.141',1,'MAIN URL','','Root Url For Web Scraping','rootUrl','Root Url',8,0,1,NULL,NULL,'^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$','Enter your valid web url',1,1,'',NULL,NULL);
+INSERT INTO public.gen_control (date_created,date_updated,status,control_name,default_val,description,field_name,field_title,field_type,is_default,mandatory,max_length,min_length,pattern,place_holder,created_by_id,updated_by_id,api_lk_value,field_lk_value,date_deleted) VALUES
+	 ('2024-05-14 10:21:50.763','2024-05-15 15:21:13.539',1,'FILE TYPE','2','Detail for file type','fileType','File Type',17,1,1,NULL,NULL,NULL,'Select the file type for process',1,1,'',124,NULL),
+	 ('2024-06-05 10:45:56.119','2024-06-09 15:00:10.336',2,'ALL FILED MONTH','','All Filed Month','allFiledMonth','All Filed Month',6,0,0,NULL,NULL,NULL,'',1,1,NULL,NULL,NULL),
+	 ('2024-06-05 10:48:53.151','2024-06-09 15:00:10.336',2,'ALL FILED PASSWORD','B@llistic1','All Filed Password','allFiledPassword','All Filed Password',7,1,1,15,10,NULL,'Enter the valid password',1,1,NULL,NULL,NULL),
+	 ('2024-05-14 10:23:54.018','2024-05-14 10:23:54.018',1,'TRANSFORM OBJECT','','Xml pattern add for convert the data into xlm','trfObject','Transform Object',16,0,1,NULL,NULL,NULL,'Enter if any xml pattern you have',1,1,'',NULL,NULL),
+	 ('2024-05-11 13:54:11.905','2024-05-15 15:22:19.196',1,'SCRAPING TYPE','4','Scrap type detail for content scrapping','scrapType','Scrap Type',17,1,1,NULL,NULL,NULL,'Select Scrap Type',1,1,'',117,NULL),
+	 ('2024-05-18 01:37:23.78','2024-05-18 01:37:23.78',1,'DATE','','Trade Date','tradeDate','Trade Date',3,0,0,NULL,NULL,NULL,'Select Trade Date',1,1,NULL,NULL,NULL),
+	 ('2024-05-18 01:38:05.055','2024-05-18 01:38:05.055',1,'OPENPRICE','','Open Price','openPrice','Open Price',10,0,0,NULL,NULL,NULL,'Enter Open Price',1,1,NULL,NULL,NULL),
+	 ('2024-05-18 01:38:50.501','2024-05-18 01:38:50.501',1,'HIGH PRICE','','High Price','highPrice','High Price',10,0,0,NULL,NULL,NULL,'Enter High Price',1,1,NULL,NULL,NULL),
+	 ('2024-05-18 01:39:23.522','2024-05-18 01:39:23.522',1,'LOW PRICE','','Low Price','lowPrice','Low Price',10,0,0,NULL,NULL,NULL,'',1,1,NULL,NULL,NULL),
+	 ('2024-05-18 01:49:11.039','2024-05-18 01:49:11.039',1,'WAP','','Wap','wap','WAP',10,0,0,NULL,NULL,NULL,'Enter Wap',1,1,NULL,NULL,NULL);
+INSERT INTO public.gen_control (date_created,date_updated,status,control_name,default_val,description,field_name,field_title,field_type,is_default,mandatory,max_length,min_length,pattern,place_holder,created_by_id,updated_by_id,api_lk_value,field_lk_value,date_deleted) VALUES
+	 ('2024-05-18 01:49:49.778','2024-05-18 01:49:49.778',1,'NO.OF SHARES','','No.of Shares','noShares','No.of Shares',10,0,0,NULL,NULL,NULL,'Enter No.of Shares',1,1,NULL,NULL,NULL),
+	 ('2024-05-18 01:51:00.119','2024-05-18 01:51:00.119',1,'TOTAL TURNOVER (RS.)','','Total Turnover (Rs.)','toalTurnover ','Total Turnover (Rs.)',10,0,0,NULL,NULL,NULL,'Enter Total Turnover (Rs.)',1,1,NULL,NULL,NULL),
+	 ('2024-05-18 01:51:57.41','2024-05-18 01:51:57.41',1,'DELIVERABLE QUANTITY','','deliverableQuantity','deliverableQuantity','Deliverable Quantity',10,0,0,NULL,NULL,NULL,'',1,1,NULL,NULL,NULL),
+	 ('2024-05-18 01:53:33.887','2024-05-18 01:53:33.887',1,'SPREAD HIGH-LOW','','Spread High-Low','spreadHighLow','Spread High-Low',10,0,0,NULL,NULL,NULL,'Enter Spread High-Low',1,1,NULL,NULL,NULL),
+	 ('2024-05-18 01:54:10.756','2024-05-18 01:54:10.756',1,'SPREAD CLOSE-OPEN','','Spread Close-Open','spreadCloseOpen','Spread Close-Open',10,0,0,NULL,NULL,NULL,'Spread Close-Open',1,1,NULL,NULL,NULL),
+	 ('2024-05-18 01:48:35.426','2024-05-18 01:56:40.516',1,'CLOSE PRICE','','Close Price','closePrice','Close Price',10,0,0,NULL,NULL,NULL,'Enter Close Price',1,1,NULL,NULL,NULL),
+	 ('2024-05-18 01:52:22.145','2024-05-19 11:07:13.837',1,'% DELI QTY TO TRADED QTY','','% Deli Qty to Traded Qty','persentDeliQtyTraded ','% Deli Qty to Traded Qty',10,0,0,NULL,NULL,NULL,'Enter % Deli Qty to Traded Qty',1,1,NULL,NULL,NULL),
+	 ('2024-05-18 01:52:58.596','2024-05-19 11:07:22.673',2,'QTY TO TRADED QTY','','Qty to Traded Qty','qtyTraded','Qty to Traded Qty',10,0,0,NULL,NULL,NULL,'Enter Qty to Traded Qty',1,1,NULL,NULL,NULL),
+	 ('2024-05-18 01:50:26.343','2024-06-03 22:49:42.704',1,'NO. OF TRADES','','No. of Trades','noTrades','No. of Trades',10,0,0,NULL,NULL,NULL,'Enter No. of Trades',1,1,NULL,NULL,NULL),
+	 ('2024-06-03 10:48:38.778','2024-06-09 15:00:19.439',2,'FIRST NAME','Nabeel','[First Name]','firstName','First Name',15,1,1,NULL,NULL,NULL,'Enter First Name',1,1,NULL,NULL,NULL);
+INSERT INTO public.gen_control (date_created,date_updated,status,control_name,default_val,description,field_name,field_title,field_type,is_default,mandatory,max_length,min_length,pattern,place_holder,created_by_id,updated_by_id,api_lk_value,field_lk_value,date_deleted) VALUES
+	 ('2024-06-05 11:50:16.016','2024-06-09 15:00:10.336',2,'ALL FILED MULTIPLE','','All Filed Multiple','allFiledMultiple','All Filed Multiple',18,0,1,NULL,NULL,NULL,'All Filed Multiple',1,1,NULL,58,NULL),
+	 ('2024-06-05 11:55:14.772','2024-06-09 15:00:10.336',2,'ALL FILED YEAR','','All Filed Year','allFiledYear','All Filed Year',20,0,0,NULL,NULL,NULL,'All Filed Year',1,1,NULL,NULL,NULL),
+	 ('2024-06-07 13:55:14.242','2024-06-09 15:00:10.336',2,'HELO TEST INPUT FILED','Nabeel Ahmed','Enter helo test detail','heloTest','Helo Test',15,0,1,NULL,NULL,NULL,'Enter the helo test',1,1,NULL,NULL,NULL),
+	 ('2024-06-05 10:11:02.442','2024-06-09 15:00:10.336',2,'ALL FILED WEEK','','Week Selection','allFiledWeek','All Filed Week',0,0,1,NULL,NULL,NULL,'Select Week Selection',1,1,NULL,NULL,NULL),
+	 ('2024-06-05 10:28:13.234','2024-06-09 15:00:10.336',2,'ALL FILED RANGE','','All Filed Range','allFiledRange','All Filed Range',1,0,0,NULL,NULL,NULL,'',1,1,NULL,NULL,NULL),
+	 ('2024-06-05 10:29:30.783','2024-06-09 15:00:10.336',2,'ALL FILED DATE','','All Filed Date','allFiledDate','All Filed Date',3,0,1,NULL,NULL,NULL,'',1,1,NULL,NULL,NULL),
+	 ('2024-06-05 10:36:16.069','2024-06-09 15:00:10.336',2,'ALL FILED EMAIL','nabeel.amd93@gmail.com','Email Detail','allFiledEmail','All Filed Email',4,1,1,30,1,'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$','Enter the valid email',1,1,NULL,NULL,NULL),
+	 ('2024-06-05 10:43:56.166','2024-06-09 15:00:10.336',2,'ALL FILED TEL','','All Filed Tel','allFiledTel','All Filed Tel',5,0,1,NULL,NULL,'[0-9]{3}-[0-9]{2}-[0-9]{3}','123-45-678',1,1,NULL,NULL,NULL),
+	 ('2024-06-03 10:50:05.474','2024-06-09 15:00:19.439',2,'LAST NAME','','[Last Name]','lastName','Last Name',15,0,1,NULL,NULL,NULL,'Enter Last Name',1,1,NULL,NULL,NULL),
+	 ('2024-06-05 11:09:53.846','2024-06-09 15:00:10.336',2,'ALL FILED URL','http://localhost:4200/setting/mgControl','All Filed Url','allFiledUrl','All Filed Url',8,1,1,NULL,NULL,'^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$','Enter the valid url',1,1,NULL,NULL,NULL);
+INSERT INTO public.gen_control (date_created,date_updated,status,control_name,default_val,description,field_name,field_title,field_type,is_default,mandatory,max_length,min_length,pattern,place_holder,created_by_id,updated_by_id,api_lk_value,field_lk_value,date_deleted) VALUES
+	 ('2024-06-05 11:12:01.292','2024-06-09 15:00:10.336',2,'ALL FILED NUMBER','1','Number Detail','allFiledNumber','All Filed Number',10,1,1,100,1,NULL,'Enter Number Detail',1,1,NULL,NULL,NULL),
+	 ('2024-06-05 11:24:36.021','2024-06-09 15:00:10.336',2,'ALL FILED COLOR','','Color Detail','allFiledColor','All Filed Color',13,0,1,NULL,NULL,NULL,'',1,1,NULL,NULL,NULL),
+	 ('2024-06-05 11:26:22.446','2024-06-09 15:00:10.336',2,'ALL FILED TIME','','All Filed Time','allFiledTime','All Filed Time',14,0,1,NULL,NULL,NULL,'',1,1,NULL,NULL,NULL),
+	 ('2024-06-05 11:31:56.6','2024-06-09 15:00:10.336',2,'ALL FILED DATETIME-LOCAL','','All Filed DateTime Local','allFiledDateTime','All Filed Date Time Local',9,0,1,NULL,NULL,NULL,'Local Date Time',1,1,NULL,NULL,NULL),
+	 ('2024-06-05 11:36:53.304','2024-06-09 15:00:10.336',2,'ALL FILED TEXT','','All Filed Text','allFiledText','All Filed Text',15,0,1,NULL,NULL,NULL,'',1,1,NULL,NULL,NULL),
+	 ('2024-06-05 11:38:34.988','2024-06-09 15:00:10.336',2,'ALL FILED TEXTAREA','','All Filed Text Area','allFiledTextArea','All Filed TextArea',16,0,1,NULL,NULL,NULL,'',1,1,NULL,NULL,NULL),
+	 ('2024-06-05 11:48:13.405','2024-06-09 15:00:10.336',2,'ALL FILED SINGLE','','File Type Select','allFiledSingle','All Filed Single',17,0,1,NULL,NULL,NULL,'File Type Select',1,1,NULL,58,NULL);
