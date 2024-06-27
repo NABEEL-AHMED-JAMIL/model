@@ -11,16 +11,17 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class VisibilityRequest {
+public class EnableAndVisibilityConfigRequest {
 
     private Long id;
     private String name;
     private String description;
     private Long status;
+    private Long conditionType;
     private List<ConditionalLogicRequest> visibleLogic;
     private SessionUser sessionUser;
 
-    public VisibilityRequest() {
+    public EnableAndVisibilityConfigRequest() {
     }
 
     public Long getId() {
@@ -53,6 +54,14 @@ public class VisibilityRequest {
 
     public void setStatus(Long status) {
         this.status = status;
+    }
+
+    public Long getConditionType() {
+        return conditionType;
+    }
+
+    public void setConditionType(Long conditionType) {
+        this.conditionType = conditionType;
     }
 
     public List<ConditionalLogicRequest> getVisibleLogic() {

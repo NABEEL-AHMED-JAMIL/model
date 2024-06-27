@@ -50,11 +50,11 @@ public class GenForm extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "enable_id")
-    private EnableAbilityConfig enableAbility;
+    private EnableAndVisibilityConfig enableAbility;
 
     @ManyToOne
     @JoinColumn(name = "visible_id")
-    private VisibilityConfig visibility;
+    private EnableAndVisibilityConfig visibility;
 
     public GenForm() {
     }
@@ -139,19 +139,19 @@ public class GenForm extends BaseEntity {
         this.sourceTaskData = sourceTaskData;
     }
 
-    public EnableAbilityConfig getEnableAbility() {
+    public EnableAndVisibilityConfig getEnableAbility() {
         return enableAbility;
     }
 
-    public void setEnableAbility(EnableAbilityConfig enableAbility) {
+    public void setEnableAbility(EnableAndVisibilityConfig enableAbility) {
         this.enableAbility = enableAbility;
     }
 
-    public VisibilityConfig getVisibility() {
+    public EnableAndVisibilityConfig getVisibility() {
         return visibility;
     }
 
-    public void setVisibility(VisibilityConfig visibility) {
+    public void setVisibility(EnableAndVisibilityConfig visibility) {
         this.visibility = visibility;
     }
 

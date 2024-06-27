@@ -20,6 +20,7 @@ public interface MessageUtil {
     String JOB_STATUS_STATUS_NOT_FOUND = "No job status found.";
     String EXECUTION_STATUS_NOT_FOUND = "No execution status found.";
     String EMAIL_TEMPLATE_NOT_FOUND = "No email template status found.";
+    String CONDITION_TYPE_NOT_FOUND = "No condition type found.";
     String DASHBOARD_TYPE_NOT_FOUND = "No dashboard status found.";
     String PAYLOAD_REF_NOT_FOUND = "No payload ref found.";
     String APPLICATION_STATUS_NOT_FOUND = "No application status found.";

@@ -1,6 +1,6 @@
 package com.barco.model.dto.request;
 
-import com.barco.model.util.lookup.ACTION;
+import com.barco.model.enums.ACTION;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
