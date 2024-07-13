@@ -1,26 +1,21 @@
 package com.barco.model.dto.request;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import java.util.List;
 
 /**
  * @author Nabeel Ahmed
  */
-@JsonIgnoreProperties(ignoreUnknown=true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public class CredentialRequest extends RequestFilter {
+public class DynamicPayloadRequest {
 
     private Long id;
-    private String name; // yes
-    private Long type; // yes
+    private String name;
+    private String description;
     private Long status;
-    private Object content; // yes
-    private List<Long> types;
     private SessionUser sessionUser;
+    private List<DynamicPayloadTagRequest> dynamicPayloadTags;
 
-    public CredentialRequest() {
+    public DynamicPayloadRequest() {
     }
 
     public Long getId() {
@@ -39,12 +34,12 @@ public class CredentialRequest extends RequestFilter {
         this.name = name;
     }
 
-    public Long getType() {
-        return type;
+    public String getDescription() {
+        return description;
     }
 
-    public void setType(Long type) {
-        this.type = type;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Long getStatus() {
@@ -55,28 +50,20 @@ public class CredentialRequest extends RequestFilter {
         this.status = status;
     }
 
-    public Object getContent() {
-        return content;
-    }
-
-    public void setContent(Object content) {
-        this.content = content;
-    }
-
-    public List<Long> getTypes() {
-        return types;
-    }
-
-    public void setTypes(List<Long> types) {
-        this.types = types;
-    }
-
     public SessionUser getSessionUser() {
         return sessionUser;
     }
 
     public void setSessionUser(SessionUser sessionUser) {
         this.sessionUser = sessionUser;
+    }
+
+    public List<DynamicPayloadTagRequest> getDynamicPayloadTags() {
+        return dynamicPayloadTags;
+    }
+
+    public void setDynamicPayloadTags(List<DynamicPayloadTagRequest> dynamicPayloadTags) {
+        this.dynamicPayloadTags = dynamicPayloadTags;
     }
 
     @Override

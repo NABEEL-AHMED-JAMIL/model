@@ -3,6 +3,7 @@ package com.barco.model.dto.request;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
+import org.springframework.http.HttpMethod;
 
 /**
  * @author Nabeel Ahmed
@@ -14,6 +15,7 @@ public class EventBridgeRequest extends RequestFilter {
     private Long id;
     private String name;
     private String bridgeUrl;
+    private HttpMethod httpMethod; // yes
     private String description;
     private Long bridgeType;
     private Long credentialId;
@@ -45,6 +47,14 @@ public class EventBridgeRequest extends RequestFilter {
 
     public void setBridgeUrl(String bridgeUrl) {
         this.bridgeUrl = bridgeUrl;
+    }
+
+    public HttpMethod getHttpMethod() {
+        return httpMethod;
+    }
+
+    public void setHttpMethod(HttpMethod httpMethod) {
+        this.httpMethod = httpMethod;
     }
 
     public String getDescription() {

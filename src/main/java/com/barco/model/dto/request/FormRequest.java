@@ -1,6 +1,6 @@
 package com.barco.model.dto.request;
 
-import com.barco.model.enums.ACTION;
+import com.barco.model.enums.Action;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
@@ -22,7 +22,7 @@ public class FormRequest extends RequestFilter {
     private Long status;
     private SessionUser sessionUser;
     //
-    private ACTION action; // delete|insert
+    private Action action; // delete|insert
     private List<Long> sectionId;
     private List<Long> formLinkSection;
     private Long sectionOrder;
@@ -97,11 +97,11 @@ public class FormRequest extends RequestFilter {
         this.sessionUser = sessionUser;
     }
 
-    public ACTION getAction() {
+    public Action getAction() {
         return action;
     }
 
-    public void setAction(ACTION action) {
+    public void setAction(Action action) {
         this.action = action;
     }
 
