@@ -1,6 +1,6 @@
 package com.barco.model.repository;
 
-import com.barco.model.pojo.EnableAbilityConfig;
+import com.barco.model.pojo.EnableAndVisibilityConfig;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
  * @author Nabeel Ahmed
  */
 @Repository
-public interface EnableAbilityConfigRepository extends CrudRepository<EnableAbilityConfig, Long> {
+public interface EnableAndVisibilityConfigRepository extends CrudRepository<EnableAndVisibilityConfig, Long> {
 }

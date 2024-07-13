@@ -1,8 +1,8 @@
-package com.barco.model.util.lookup;
+package com.barco.model.enums;
 
 /**
  * @author Nabeel Ahmed
  */
-public enum ACTION {
+public enum Action {
     ADD, EDIT, DELETE, VIEW, LINK, UNLINK
 }

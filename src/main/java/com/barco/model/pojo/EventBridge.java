@@ -4,6 +4,8 @@ import com.barco.model.util.lookup.EVENT_BRIDGE_TYPE;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
+import org.springframework.http.HttpMethod;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -21,6 +23,9 @@ public class EventBridge extends BaseEntity {
 
     @Column(name = "bridge_url", nullable = false)
     private String bridgeUrl;
+
+    @Column(name = "http_method", nullable = false)
+    private HttpMethod httpMethod;
 
     @Column(name = "description", nullable = false)
     private String description;
@@ -72,6 +77,14 @@ public class EventBridge extends BaseEntity {
 
     public void setBridgeUrl(String bridgeUrl) {
         this.bridgeUrl = bridgeUrl;
+    }
+
+    public HttpMethod getHttpMethod() {
+        return httpMethod;
+    }
+
+    public void setHttpMethod(HttpMethod httpMethod) {
+        this.httpMethod = httpMethod;
     }
 
     public String getDescription() {

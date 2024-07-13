@@ -20,6 +20,7 @@ public interface MessageUtil {
     String JOB_STATUS_STATUS_NOT_FOUND = "No job status found.";
     String EXECUTION_STATUS_NOT_FOUND = "No execution status found.";
     String EMAIL_TEMPLATE_NOT_FOUND = "No email template status found.";
+    String CONDITION_TYPE_NOT_FOUND = "No condition type found.";
     String DASHBOARD_TYPE_NOT_FOUND = "No dashboard status found.";
     String PAYLOAD_REF_NOT_FOUND = "No payload ref found.";
     String APPLICATION_STATUS_NOT_FOUND = "No application status found.";
@@ -58,13 +59,14 @@ public interface MessageUtil {
     String DATA_SAVED = "Data save with %s.";
     String DATA_UPDATE = "Data update with %s.";
     String DATA_DELETED = "Data deleted with %s.";
+    String DATA_DELETED_ALL = "Data deleted with all ids.";
     String DATA_NOT_FOUND = "Data not found with %s.";
     String LOOKUP_DATA_LOOKUP_CODE_MISSING = "LookupData lookupCode missing.";
     String LOOKUP_DATA_LOOKUP_VALUE_MISSING = "LookupData lookupValue missing.";
     String LOOKUP_DATA_LOOKUP_TYPE_MISSING = "LookupData lookupType missing.";
     String LOOKUP_DATA_DESCRIPTION_MISSING = "LookupData description missing.";
     String LOOKUP_DATA_UI_LOOKUP_MISSING = "LookupData ui lookup missing.";
-    String PARENT_LOOKUP_NOT_FOUND = "ParentLookup not found.";
+    String LOOKUP_NOT_FOUND = "Lookup not found.";
     String LOOKUP_DATA_ALREADY_EXIST = "LookupData already exist.";
     String XLSX_FILE_ONLY = "You can upload only .xlsx extension file.";
     String REFRESH_TOKEN = "Refresh token.";

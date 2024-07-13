@@ -1,26 +1,21 @@
 package com.barco.model.dto.request;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
-
 import java.util.List;
 
 /**
  * @author Nabeel Ahmed
  */
-@JsonIgnoreProperties(ignoreUnknown=true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public class EnableAbilityRequest {
+public class DynamicPayloadRequest {
 
     private Long id;
     private String name;
     private String description;
     private Long status;
-    private List<ConditionalLogicRequest> enableLogic;
     private SessionUser sessionUser;
+    private List<DynamicPayloadTagRequest> dynamicPayloadTags;
 
-    public EnableAbilityRequest() {
+    public DynamicPayloadRequest() {
     }
 
     public Long getId() {
@@ -55,20 +50,20 @@ public class EnableAbilityRequest {
         this.status = status;
     }
 
-    public List<ConditionalLogicRequest> getEnableLogic() {
-        return enableLogic;
-    }
-
-    public void setEnableLogic(List<ConditionalLogicRequest> enableLogic) {
-        this.enableLogic = enableLogic;
-    }
-
     public SessionUser getSessionUser() {
         return sessionUser;
     }
 
     public void setSessionUser(SessionUser sessionUser) {
         this.sessionUser = sessionUser;
+    }
+
+    public List<DynamicPayloadTagRequest> getDynamicPayloadTags() {
+        return dynamicPayloadTags;
+    }
+
+    public void setDynamicPayloadTags(List<DynamicPayloadTagRequest> dynamicPayloadTags) {
+        this.dynamicPayloadTags = dynamicPayloadTags;
     }
 
     @Override

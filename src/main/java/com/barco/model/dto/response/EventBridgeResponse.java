@@ -15,6 +15,7 @@ public class EventBridgeResponse extends BaseEntity {
 
     private String name;
     private String bridgeUrl;
+    private GLookup httpMethod; // yes
     private String description;
     private GLookup bridgeType;
     private CredentialResponse credential;
@@ -41,6 +42,14 @@ public class EventBridgeResponse extends BaseEntity {
 
     public void setBridgeUrl(String bridgeUrl) {
         this.bridgeUrl = bridgeUrl;
+    }
+
+    public GLookup getHttpMethod() {
+        return httpMethod;
+    }
+
+    public void setHttpMethod(GLookup httpMethod) {
+        this.httpMethod = httpMethod;
     }
 
     public String getDescription() {

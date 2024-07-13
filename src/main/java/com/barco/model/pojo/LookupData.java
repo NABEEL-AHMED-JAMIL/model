@@ -41,16 +41,16 @@ public class LookupData extends BaseEntity {
     @Enumerated(EnumType.ORDINAL)
     private UI_LOOKUP uiLookup;
 
-    @OneToMany(mappedBy = "groupType", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "groupType", fetch = FetchType.LAZY)
     private List<DashboardSetting> dashboardSettings;
 
-    @OneToMany(mappedBy = "groupType", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "groupType", fetch = FetchType.LAZY)
     private List<ReportSetting> reportSettings;
 
-    @OneToMany(mappedBy = "homePage", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "homePage", fetch = FetchType.LAZY)
     private List<GenForm> genForms;
 
-    @OneToMany(mappedBy = "fieldLkValue", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "fieldLkValue", fetch = FetchType.LAZY)
     private List<GenControl> genControls;
 
     public LookupData() { }

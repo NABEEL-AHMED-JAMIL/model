@@ -8,9 +8,10 @@ import com.google.gson.Gson;
  */
 public enum EVENT_BRIDGE_TYPE {
 
-    WEB_HOOK_SENDER(0l),
-    WEB_HOOK_RECEIVER(1l),
-    API_SENDER(2l);
+    WEB_HOOK_SEND(0l),
+    WEB_HOOK_RECEIVE(1l),
+    REPORT_API_SEND(2l),
+    FORM_CONTROL_DATA_URL(3l);
 
     private Long lookupCode;
 
@@ -31,23 +32,27 @@ public enum EVENT_BRIDGE_TYPE {
     }
 
     public static EVENT_BRIDGE_TYPE getByLookupCode(Long lookupCode) throws RuntimeException {
-        if (lookupCode.equals(WEB_HOOK_SENDER.getLookupCode())) {
-            return WEB_HOOK_SENDER;
-        } else if (lookupCode.equals(WEB_HOOK_RECEIVER.getLookupCode())) {
-            return WEB_HOOK_RECEIVER;
-        } else if (lookupCode.equals(API_SENDER.getLookupCode())) {
-            return API_SENDER;
+        if (lookupCode.equals(WEB_HOOK_SEND.getLookupCode())) {
+            return WEB_HOOK_SEND;
+        } else if (lookupCode.equals(WEB_HOOK_RECEIVE.getLookupCode())) {
+            return WEB_HOOK_RECEIVE;
+        } else if (lookupCode.equals(REPORT_API_SEND.getLookupCode())) {
+            return REPORT_API_SEND;
+        } else if (lookupCode.equals(FORM_CONTROL_DATA_URL.getLookupCode())) {
+            return FORM_CONTROL_DATA_URL;
         }
         throw new RuntimeException(MessageUtil.EVENT_BRIDGE_TYPE_NOT_FOUND);
     }
 
     public static EVENT_BRIDGE_TYPE getByLookupCode(String lookupName) throws RuntimeException {
-        if (lookupName.equals(WEB_HOOK_SENDER.name())) {
-            return WEB_HOOK_SENDER;
-        } else if (lookupName.equals(WEB_HOOK_RECEIVER.name())) {
-            return WEB_HOOK_RECEIVER;
-        } else if (lookupName.equals(API_SENDER.name())) {
-            return API_SENDER;
+        if (lookupName.equals(WEB_HOOK_SEND.name())) {
+            return WEB_HOOK_SEND;
+        } else if (lookupName.equals(WEB_HOOK_RECEIVE.name())) {
+            return WEB_HOOK_RECEIVE;
+        } else if (lookupName.equals(REPORT_API_SEND.name())) {
+            return REPORT_API_SEND;
+        } else if (lookupName.equals(REPORT_API_SEND.getLookupCode())) {
+            return REPORT_API_SEND;
         }
         throw new RuntimeException(MessageUtil.EVENT_BRIDGE_TYPE_NOT_FOUND);
     }
