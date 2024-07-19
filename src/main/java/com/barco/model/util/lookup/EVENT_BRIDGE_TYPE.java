@@ -11,7 +11,7 @@ public enum EVENT_BRIDGE_TYPE {
     WEB_HOOK_SEND(0l),
     WEB_HOOK_RECEIVE(1l),
     REPORT_API_SEND(2l),
-    FORM_CONTROL_DATA_URL(3l);
+    REST_API(3l);
 
     private Long lookupCode;
 
@@ -38,8 +38,8 @@ public enum EVENT_BRIDGE_TYPE {
             return WEB_HOOK_RECEIVE;
         } else if (lookupCode.equals(REPORT_API_SEND.getLookupCode())) {
             return REPORT_API_SEND;
-        } else if (lookupCode.equals(FORM_CONTROL_DATA_URL.getLookupCode())) {
-            return FORM_CONTROL_DATA_URL;
+        } else if (lookupCode.equals(REST_API.getLookupCode())) {
+            return REST_API;
         }
         throw new RuntimeException(MessageUtil.EVENT_BRIDGE_TYPE_NOT_FOUND);
     }
@@ -51,8 +51,8 @@ public enum EVENT_BRIDGE_TYPE {
             return WEB_HOOK_RECEIVE;
         } else if (lookupName.equals(REPORT_API_SEND.name())) {
             return REPORT_API_SEND;
-        } else if (lookupName.equals(REPORT_API_SEND.getLookupCode())) {
-            return REPORT_API_SEND;
+        } else if (lookupName.equals(REST_API.name())) {
+            return REST_API;
         }
         throw new RuntimeException(MessageUtil.EVENT_BRIDGE_TYPE_NOT_FOUND);
     }

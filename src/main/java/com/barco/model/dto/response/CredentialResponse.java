@@ -13,6 +13,7 @@ import com.google.gson.Gson;
 public class CredentialResponse extends BaseEntity {
 
     private String name;
+    private String description;
     private GLookup type;
     private GLookup status;
     private Object content;
@@ -27,6 +28,14 @@ public class CredentialResponse extends BaseEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public GLookup getType() {

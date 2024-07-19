@@ -23,6 +23,7 @@ public interface MessageUtil {
     String CONDITION_TYPE_NOT_FOUND = "No condition type found.";
     String DASHBOARD_TYPE_NOT_FOUND = "No dashboard status found.";
     String PAYLOAD_REF_NOT_FOUND = "No payload ref found.";
+    String PAYLOAD_TYPE_NOT_FOUND = "No payload type found.";
     String APPLICATION_STATUS_NOT_FOUND = "No application status found.";
     String LOGICAL_OPERATORS_NOT_FOUND = "No logical operator found.";
     String DYNAMIC_CONDITION_NOT_FOUND = "No dynamic condition found.";
@@ -52,7 +53,7 @@ public interface MessageUtil {
     String ID_MISSING = "Id missing.";
     String APP_USER_ID_MISSING = "AppUser Id missing.";
     String TEMPLATE_NAME_MISSING = "Template name missing.";
-    String TEMPLATE_TYPE_MISSING = "Template type missing.";
+    String TEMPLATE_DESCRIPTION_MISSING = "Template description missing.";
     String TEMPLATE_CONTENT_MISSING = "Template content missing.";
     String TEMPLATE_REG_NOT_FOUND = "Template reg not found.";
     String TEMPLATE_REG_ALREADY_EXIST = "Template reg already exist.";
@@ -112,6 +113,7 @@ public interface MessageUtil {
     String ENV_NOT_FOUND_WITH_ID = "Env not found with id %s.";
     String CREDENTIAL_ID_MISSING = "Credential id missing.";
     String CREDENTIAL_NAME_MISSING = "Credential name missing.";
+    String CREDENTIAL_DESCRIPTION_MISSING = "Credential description missing.";
     String CREDENTIAL_TYPE_MISSING = "Credential type missing.";
     String CREDENTIAL_CONTENT_MISSING = "Credential content missing.";
     String CREDENTIAL_NOT_FOUND = "Credential not found.";
@@ -217,5 +219,10 @@ public interface MessageUtil {
     String EVENT_BRIDGE_NOT_FOUND_LINK_CREDENTIAL_WITH_ID = "EventBridge not found linked credential with id %s.";
     String EVENT_BRIDGE_GEN_TOKEN_MISSING = "EventBridge tokenId missing.";
     String EVENT_BRIDGE_NOT_FOUND_WITH_GEN_TOKEN = "EventBridge not found with tokenId %d.";
+    String DYNAMIC_PAYLOAD_ID_MISSING = "Dynamic payload id missing.";
+    String DYNAMIC_PAYLOAD_NAME_MISSING = "Dynamic payload name missing.";
+    String DYNAMIC_PAYLOAD_DESCRIPTION_MISSING = "Dynamic payload description missing.";
+    String DYNAMIC_PAYLOAD_TYPE_MISSING = "Dynamic payload xml|json missing.";
+    String DYNAMIC_NOT_FOUND = "Dynamic payload not found.";
 
 }

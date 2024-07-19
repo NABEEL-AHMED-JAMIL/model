@@ -4,8 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 
-import java.util.List;
-
 /**
  * @author Nabeel Ahmed
  */
@@ -15,6 +13,7 @@ public class TemplateRegRequest extends RequestFilter {
 
     private Long id;
     private String templateName;
+    private String description;
     private Long status;
     private String templateContent;
     private SessionUser sessionUser;
@@ -36,6 +35,14 @@ public class TemplateRegRequest extends RequestFilter {
 
     public void setTemplateName(String templateName) {
         this.templateName = templateName;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Long getStatus() {

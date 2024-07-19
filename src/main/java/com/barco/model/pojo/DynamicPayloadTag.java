@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import javax.persistence.*;
-import java.sql.Timestamp;
 
 /**
  * @author Nabeel Ahmed
@@ -13,7 +12,7 @@ import java.sql.Timestamp;
 @Table(name = "dynamic_payload_tag")
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class DynamicPayloadTag {
+public class DynamicPayloadTag extends BaseEntity {
 
     @Id
     @Column(name = "id")
@@ -29,18 +28,17 @@ public class DynamicPayloadTag {
     @Column(name = "tag_value", nullable = false)
     private String tagValue;
 
-    @Column(name = "date_created", nullable = false)
-    private Timestamp dateCreated;
-
-    @ManyToOne
-    @JoinColumn(name = "created_by_id")
-    private AppUser createdBy;
-
     @ManyToOne
     @JoinColumn(name = "dynamic_id")
     private DynamicPayload dynamicPayload;
 
     public DynamicPayloadTag() {
+    }
+
+    public DynamicPayloadTag(String tagKey, String tagParent, String tagValue) {
+        this.tagKey = tagKey;
+        this.tagParent = tagParent;
+        this.tagValue = tagValue;
     }
 
     public Long getId() {
@@ -73,22 +71,6 @@ public class DynamicPayloadTag {
 
     public void setTagValue(String tagValue) {
         this.tagValue = tagValue;
-    }
-
-    public Timestamp getDateCreated() {
-        return dateCreated;
-    }
-
-    public void setDateCreated(Timestamp dateCreated) {
-        this.dateCreated = dateCreated;
-    }
-
-    public AppUser getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(AppUser createdBy) {
-        this.createdBy = createdBy;
     }
 
     public DynamicPayload getDynamicPayload() {

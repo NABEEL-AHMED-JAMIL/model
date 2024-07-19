@@ -1,11 +1,9 @@
 package com.barco.model.dto.response;
 
-import com.barco.model.dto.request.SessionUser;
 import com.barco.model.util.lookup.GLookup;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
-
 import java.sql.Timestamp;
 
 /**
@@ -20,7 +18,6 @@ public class NotificationResponse extends BaseEntity {
     private GLookup notifyType;
     private Timestamp expireTime;
     private GLookup messageStatus;
-    private SessionUser sessionUser;
 
     public NotificationResponse() {
     }
@@ -63,14 +60,6 @@ public class NotificationResponse extends BaseEntity {
 
     public void setMessageStatus(GLookup messageStatus) {
         this.messageStatus = messageStatus;
-    }
-
-    public SessionUser getSessionUser() {
-        return sessionUser;
-    }
-
-    public void setSessionUser(SessionUser sessionUser) {
-        this.sessionUser = sessionUser;
     }
 
     @Override

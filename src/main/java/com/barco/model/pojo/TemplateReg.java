@@ -19,6 +19,9 @@ public class TemplateReg extends BaseEntity {
         nullable = false, unique = true)
     private String templateName;
 
+    @Column(name = "description")
+    private String description;
+
     @Column(name = "template_content",
         columnDefinition = "text", nullable = false)
     private String templateContent;
@@ -32,6 +35,14 @@ public class TemplateReg extends BaseEntity {
 
     public void setTemplateName(String templateName) {
         this.templateName = templateName;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getTemplateContent() {

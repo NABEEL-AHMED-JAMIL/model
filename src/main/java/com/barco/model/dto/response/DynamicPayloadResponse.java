@@ -1,5 +1,6 @@
-package com.barco.model.dto.request;
+package com.barco.model.dto.response;
 
+import com.barco.model.util.lookup.GLookup;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
@@ -9,26 +10,15 @@ import com.google.gson.Gson;
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class DynamicPayloadRequest extends RequestFilter {
+public class DynamicPayloadResponse extends BaseEntity {
 
-    private Long id;
     private String name;
     private String description;
     private String payload;
-    private Long payloadType;
-    private Long status;
-    private ConfigurationMakerRequest dynamicPayloadTags;
-    private SessionUser sessionUser;
+    private GLookup payloadType;
+    private ConfigurationMakerResponse dynamicPayloadTags;
 
-    public DynamicPayloadRequest() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public DynamicPayloadResponse() {
     }
 
     public String getName() {
@@ -55,36 +45,20 @@ public class DynamicPayloadRequest extends RequestFilter {
         this.payload = payload;
     }
 
-    public Long getPayloadType() {
+    public GLookup getPayloadType() {
         return payloadType;
     }
 
-    public void setPayloadType(Long payloadType) {
+    public void setPayloadType(GLookup payloadType) {
         this.payloadType = payloadType;
     }
 
-    public Long getStatus() {
-        return status;
-    }
-
-    public void setStatus(Long status) {
-        this.status = status;
-    }
-
-    public ConfigurationMakerRequest getDynamicPayloadTags() {
+    public ConfigurationMakerResponse getDynamicPayloadTags() {
         return dynamicPayloadTags;
     }
 
-    public void setDynamicPayloadTags(ConfigurationMakerRequest dynamicPayloadTags) {
+    public void setDynamicPayloadTags(ConfigurationMakerResponse dynamicPayloadTags) {
         this.dynamicPayloadTags = dynamicPayloadTags;
-    }
-
-    public SessionUser getSessionUser() {
-        return sessionUser;
-    }
-
-    public void setSessionUser(SessionUser sessionUser) {
-        this.sessionUser = sessionUser;
     }
 
     @Override

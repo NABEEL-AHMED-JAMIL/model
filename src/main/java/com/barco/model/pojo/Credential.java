@@ -19,6 +19,9 @@ public class Credential extends BaseEntity {
     @Column(name = "name", nullable = false)
     private String name;
 
+    @Column(name = "description")
+    private String description;
+
     @Column(name = "type")
     @Enumerated(EnumType.ORDINAL)
     private CREDENTIAL_TYPE type;
@@ -41,6 +44,14 @@ public class Credential extends BaseEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public CREDENTIAL_TYPE getType() {

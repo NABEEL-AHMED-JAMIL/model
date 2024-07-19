@@ -14,6 +14,7 @@ public class CredentialRequest extends RequestFilter {
 
     private Long id;
     private String name; // yes
+    private String description;
     private Long type; // yes
     private Long status;
     private Object content; // yes
@@ -37,6 +38,14 @@ public class CredentialRequest extends RequestFilter {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Long getType() {

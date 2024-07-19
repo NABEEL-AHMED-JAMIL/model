@@ -8,7 +8,7 @@ import com.google.gson.Gson;
  */
 public enum PAYLOAD_REF {
 
-    DYNAMIC_PAYLOAD(0l),
+    DYNAMIC_REPORT_PAYLOAD(0l),
     REF_REPORT_FORM(1l); // if this then have to select the
     // form from the form service and set the form report
 
@@ -23,8 +23,8 @@ public enum PAYLOAD_REF {
     }
 
     public static PAYLOAD_REF getByLookupCode(Long lookupCode) throws RuntimeException {
-        if (lookupCode.equals(DYNAMIC_PAYLOAD.getLookupCode())) {
-            return DYNAMIC_PAYLOAD;
+        if (lookupCode.equals(DYNAMIC_REPORT_PAYLOAD.getLookupCode())) {
+            return DYNAMIC_REPORT_PAYLOAD;
         } else if (lookupCode.equals(REF_REPORT_FORM.getLookupCode())) {
             return REF_REPORT_FORM;
         }

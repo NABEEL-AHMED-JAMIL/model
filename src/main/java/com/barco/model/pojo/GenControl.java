@@ -66,12 +66,15 @@ public class GenControl extends BaseEntity {
     @Column(name = "pattern")
     private String pattern; // validation
 
+    @ManyToOne
+    @JoinColumn(name = "dynamic_id")
+    private DynamicPayload dynamicPayload;
+
     @OneToMany(mappedBy="genControl", fetch = FetchType.LAZY)
     private List<GenControlLinkGenSection> genControlLinkGenSections;
 
-    @OneToMany(mappedBy = "sourceTask", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "genControl", fetch = FetchType.LAZY)
     private List<SourceTaskData> sourceTaskData;
-
 
     public GenControl() {
     }
@@ -186,6 +189,14 @@ public class GenControl extends BaseEntity {
 
     public void setPattern(String pattern) {
         this.pattern = pattern;
+    }
+
+    public DynamicPayload getDynamicPayload() {
+        return dynamicPayload;
+    }
+
+    public void setDynamicPayload(DynamicPayload dynamicPayload) {
+        this.dynamicPayload = dynamicPayload;
     }
 
     public List<GenControlLinkGenSection> getGenControlLinkGenSections() {

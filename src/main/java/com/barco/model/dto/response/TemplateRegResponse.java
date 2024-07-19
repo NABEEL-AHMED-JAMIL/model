@@ -13,6 +13,7 @@ import java.sql.Timestamp;
 public class TemplateRegResponse extends BaseEntity {
 
     private String templateName;
+    private String description;
     private String templateContent;
     private Timestamp dateCreated;
 
@@ -25,6 +26,14 @@ public class TemplateRegResponse extends BaseEntity {
 
     public void setTemplateName(String templateName) {
         this.templateName = templateName;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getTemplateContent() {

@@ -28,7 +28,8 @@ public enum FIELD_TYPE {
     SELECT(17l),
     MULTI_SELECT(18l),
     KEY_VALUE(19l),
-    YEAR(20l);
+    YEAR(20l),
+    DYNAMIC_PAYLOAD(21l);
 
     private Long lookupCode;
 

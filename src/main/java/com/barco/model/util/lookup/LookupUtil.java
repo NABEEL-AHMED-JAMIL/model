@@ -20,6 +20,6 @@ public interface LookupUtil {
     public static String ROOT_USER = "ROOT_USER";
     public static String NON_REPLY_EMAIL_SENDER = "NON_REPLY_EMAIL_SENDER";
     public static String RESET_PASSWORD_LINK = "RESET_PASSWORD_LINK";
-
+    public static String PAYLOAD_TYPE = "PAYLOAD_TYPE";
 
 }
