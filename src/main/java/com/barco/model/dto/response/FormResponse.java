@@ -15,6 +15,8 @@ public class FormResponse extends BaseEntity {
     private String formName;
     private String description;
     private GLookup homePage;
+    private ReportSettingResponse report;
+    private DashboardSettingResponse dashboard;
     private String serviceId;
     private GLookup formType;
     private Long totalSection;
@@ -45,6 +47,22 @@ public class FormResponse extends BaseEntity {
 
     public void setHomePage(GLookup homePage) {
         this.homePage = homePage;
+    }
+
+    public ReportSettingResponse getReport() {
+        return report;
+    }
+
+    public void setReport(ReportSettingResponse report) {
+        this.report = report;
+    }
+
+    public DashboardSettingResponse getDashboard() {
+        return dashboard;
+    }
+
+    public void setDashboard(DashboardSettingResponse dashboard) {
+        this.dashboard = dashboard;
     }
 
     public String getServiceId() {

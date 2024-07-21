@@ -26,11 +26,9 @@ public class JsonOutTagInfoUtil {
      */
     public String makeJson(ConfigurationMakerRequest jsonMakerRequest) {
         logger.info("Process for JSON Create Start");
-
         Map<String, Object> jsonMap = new HashMap<>();
-
-        if (jsonMakerRequest.getXmlTagsInfo() != null) {
-            for (TagInfoRequest tagInfoRequest : jsonMakerRequest.getXmlTagsInfo()) {
+        if (jsonMakerRequest.getJsonTagsInfo() != null) {
+            for (TagInfoRequest tagInfoRequest : jsonMakerRequest.getJsonTagsInfo()) {
                 String tagKey = tagInfoRequest.getTagKey();
                 String tagParent = tagInfoRequest.getTagParent();
                 String tagValue = tagInfoRequest.getTagValue();
@@ -42,8 +40,8 @@ public class JsonOutTagInfoUtil {
                 }
             }
         }
-
         String json = gson.toJson(jsonMap);
+        logger.info(json);
         logger.info("Process for JSON Create End");
         return json;
     }
@@ -53,7 +51,6 @@ public class JsonOutTagInfoUtil {
         if (!jsonMap.containsKey(parentKey)) {
             jsonMap.put(parentKey, new HashMap<String, Object>());
         }
-
         Map<String, Object> parentMap = (Map<String, Object>) jsonMap.get(parentKey);
         parentMap.put(key, value != null ? value : "");
     }

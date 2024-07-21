@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * @author Nabeel Ahmed
@@ -106,6 +107,9 @@ public class ReportSetting extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "form_id")
     private GenForm genForm;
+
+    @OneToMany(mappedBy = "report", fetch = FetchType.LAZY)
+    private List<GenForm> genForms;
 
     public ReportSetting() {
     }
@@ -292,6 +296,14 @@ public class ReportSetting extends BaseEntity {
 
     public void setGenForm(GenForm genForm) {
         this.genForm = genForm;
+    }
+
+    public List<GenForm> getGenForms() {
+        return genForms;
+    }
+
+    public void setGenForms(List<GenForm> genForms) {
+        this.genForms = genForms;
     }
 
     @Override

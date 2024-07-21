@@ -26,6 +26,14 @@ public class GenForm extends BaseEntity {
     @JoinColumn(name = "home_page")
     private LookupData homePage;
 
+    @ManyToOne
+    @JoinColumn(name = "dashboard_id")
+    private DashboardSetting dashboard;
+
+    @ManyToOne
+    @JoinColumn(name = "report_id")
+    private ReportSetting report;
+
     @Column(name = "service_id")
     private String serviceId;
 
@@ -81,6 +89,22 @@ public class GenForm extends BaseEntity {
 
     public void setHomePage(LookupData homePage) {
         this.homePage = homePage;
+    }
+
+    public DashboardSetting getDashboard() {
+        return dashboard;
+    }
+
+    public void setDashboard(DashboardSetting dashboard) {
+        this.dashboard = dashboard;
+    }
+
+    public ReportSetting getReport() {
+        return report;
+    }
+
+    public void setReport(ReportSetting report) {
+        this.report = report;
     }
 
     public String getServiceId() {

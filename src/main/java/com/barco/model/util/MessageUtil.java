@@ -36,6 +36,7 @@ public interface MessageUtil {
     String USER_SUCCESSFULLY_AUTHENTICATE = "User successfully authenticate.";
     String USER_SUCCESSFULLY_REGISTER = "User successfully register %s.";
     String WRONG_INPUT = "Wrong Input.";
+    String DYNAMIC_PAYLOAD = "Dynamic payload fetch.";
     String ONLY_SELECT_QUERY_EXECUTE = "Only select query execute.";
     String QUERY_MISSING = "Query missing.";
     String DATA_FETCH_SUCCESSFULLY = "Data fetch successfully.";
