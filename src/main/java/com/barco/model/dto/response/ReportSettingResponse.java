@@ -42,6 +42,11 @@ public class ReportSettingResponse extends BaseEntity {
     public ReportSettingResponse() {
     }
 
+    public ReportSettingResponse(Long id, String name) {
+        super(id);
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }

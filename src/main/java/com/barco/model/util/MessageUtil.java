@@ -126,6 +126,7 @@ public interface MessageUtil {
     String FORM_NAME_MISSING = "Form name missing.";
     String FORM_DESCRIPTION_MISSING = "Form description missing.";
     String FORM_TYPE_MISSING = "Form type missing.";
+    String HOME_PAGE_NOT_FOUND = "Home age not found.";
     String FORM_NOT_FOUND = "Form not found.";
     String ACTION_MISSING = "Action missing.";
     String CONTROL_LINK_SECTION_MISSING = "Control link section missing.";

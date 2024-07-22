@@ -18,8 +18,8 @@ public class FormRequest extends RequestFilter {
     private String description;
     private String homePage;
     private String serviceId;
-    private ReportSettingRequest report;
-    private DashboardSettingRequest dashboard;
+    private Long reportId;
+    private Long dashboardId;
     private Long formType;
     private Long status;
     private SessionUser sessionUser;
@@ -75,20 +75,20 @@ public class FormRequest extends RequestFilter {
         this.serviceId = serviceId;
     }
 
-    public ReportSettingRequest getReport() {
-        return report;
+    public Long getReportId() {
+        return reportId;
     }
 
-    public void setReport(ReportSettingRequest report) {
-        this.report = report;
+    public void setReportId(Long reportId) {
+        this.reportId = reportId;
     }
 
-    public DashboardSettingRequest getDashboard() {
-        return dashboard;
+    public Long getDashboardId() {
+        return dashboardId;
     }
 
-    public void setDashboard(DashboardSettingRequest dashboard) {
-        this.dashboard = dashboard;
+    public void setDashboardId(Long dashboardId) {
+        this.dashboardId = dashboardId;
     }
 
     public Long getFormType() {

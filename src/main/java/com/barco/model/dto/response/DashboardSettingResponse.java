@@ -22,6 +22,11 @@ public class DashboardSettingResponse extends BaseEntity {
     public DashboardSettingResponse() {
     }
 
+    public DashboardSettingResponse(Long id, String name) {
+        super(id);
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }
