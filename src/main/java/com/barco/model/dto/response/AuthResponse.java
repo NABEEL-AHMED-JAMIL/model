@@ -1,5 +1,6 @@
 package com.barco.model.dto.response;
 
+import com.barco.model.util.lookup.GLookup;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
@@ -21,6 +22,7 @@ public class AuthResponse extends BaseEntity {
     private String profileImage;
     private String username;
     private String email;
+    private GLookup accountType;
     private List<String> roles;
     private ProfileResponse profile;
 
@@ -101,6 +103,14 @@ public class AuthResponse extends BaseEntity {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public GLookup getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(GLookup accountType) {
+        this.accountType = accountType;
     }
 
     public List<String> getRoles() {

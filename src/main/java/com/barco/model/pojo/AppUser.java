@@ -1,5 +1,6 @@
 package com.barco.model.pojo;
 
+import com.barco.model.util.lookup.ACCOUNT_TYPE;
 import com.google.gson.Gson;
 import javax.persistence.*;
 import java.util.HashSet;
@@ -68,6 +69,14 @@ public class AppUser extends BaseEntity {
 
     @OneToMany(mappedBy = "appUserParent", fetch = FetchType.LAZY)
     private List<SubAppUser> subAppUsers;
+
+    @ManyToOne
+    @JoinColumn(name = "org_id")
+    protected Organization organization;
+
+    @Column(name = "account_type")
+    @Enumerated(EnumType.ORDINAL)
+    private ACCOUNT_TYPE accountType;
 
     public AppUser() {
     }
@@ -182,6 +191,22 @@ public class AppUser extends BaseEntity {
 
     public void setSubAppUsers(List<SubAppUser> subAppUsers) {
         this.subAppUsers = subAppUsers;
+    }
+
+    public Organization getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
+    }
+
+    public ACCOUNT_TYPE getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(ACCOUNT_TYPE accountType) {
+        this.accountType = accountType;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.barco.model.dto.response;
 
+import com.barco.model.util.lookup.GLookup;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
@@ -21,6 +22,8 @@ public class AppUserResponse extends BaseEntity {
     private String ipAddress;
     private List<String> roles;
     private ProfileResponse profile;
+    private GLookup accountType;
+    private OrganizationResponse organization;
     private Integer totalSubUser;
     private List<EnVariablesResponse> enVariables;
     private List<EventBridgeResponse> eventBridge;
@@ -98,6 +101,22 @@ public class AppUserResponse extends BaseEntity {
 
     public void setProfile(ProfileResponse profile) {
         this.profile = profile;
+    }
+
+    public GLookup getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(GLookup accountType) {
+        this.accountType = accountType;
+    }
+
+    public OrganizationResponse getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(OrganizationResponse organization) {
+        this.organization = organization;
     }
 
     public Integer getTotalSubUser() {

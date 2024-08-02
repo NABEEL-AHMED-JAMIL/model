@@ -13,6 +13,7 @@ public class ReportSettingRequest extends RequestFilter {
 
     private Long id;
     private Long dateFilter;
+    private Long recordReport;
     private Long fetchRate;
     private String name;
     private String groupType;
@@ -55,6 +56,14 @@ public class ReportSettingRequest extends RequestFilter {
 
     public void setDateFilter(Long dateFilter) {
         this.dateFilter = dateFilter;
+    }
+
+    public Long getRecordReport() {
+        return recordReport;
+    }
+
+    public void setRecordReport(Long recordReport) {
+        this.recordReport = recordReport;
     }
 
     public Long getFetchRate() {

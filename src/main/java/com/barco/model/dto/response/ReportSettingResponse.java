@@ -14,6 +14,7 @@ public class ReportSettingResponse extends BaseEntity {
 
     private String name;
     private GLookup dateFilter;
+    private GLookup recordReport;
     private GLookup fetchRate;
     private GLookup groupType;
     private String description;
@@ -61,6 +62,14 @@ public class ReportSettingResponse extends BaseEntity {
 
     public void setDateFilter(GLookup dateFilter) {
         this.dateFilter = dateFilter;
+    }
+
+    public GLookup getRecordReport() {
+        return recordReport;
+    }
+
+    public void setRecordReport(GLookup recordReport) {
+        this.recordReport = recordReport;
     }
 
     public GLookup getFetchRate() {

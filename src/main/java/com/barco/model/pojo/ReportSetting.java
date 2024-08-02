@@ -25,6 +25,10 @@ public class ReportSetting extends BaseEntity {
     @Enumerated(EnumType.ORDINAL)
     private UI_LOOKUP dateFilter;
 
+    @Column(name = "record_report", nullable = false)
+    @Enumerated(EnumType.ORDINAL)
+    private UI_LOOKUP recordReport;
+
     @Column(name = "fetch_rate", nullable = false)
     @Enumerated(EnumType.ORDINAL)
     private FETCH_LIMIT fetchRate;
@@ -128,6 +132,14 @@ public class ReportSetting extends BaseEntity {
 
     public void setDateFilter(UI_LOOKUP dateFilter) {
         this.dateFilter = dateFilter;
+    }
+
+    public UI_LOOKUP getRecordReport() {
+        return recordReport;
+    }
+
+    public void setRecordReport(UI_LOOKUP recordReport) {
+        this.recordReport = recordReport;
     }
 
     public FETCH_LIMIT getFetchRate() {
