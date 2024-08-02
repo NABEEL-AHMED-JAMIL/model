@@ -5,6 +5,7 @@ package com.barco.model.util;
  */
 public interface MessageUtil {
 
+    String ACCOUNT_TYPE_NOT_FOUND = "No account type found.";
     String IS_DEFAULT_NOT_FOUND = "No default found.";
     String FETCH_LIMIT_NOT_FOUND = "No fetch limit found.";
     String CREDENTIAL_TYPE_NOT_FOUND = "No credential type found.";
@@ -36,6 +37,7 @@ public interface MessageUtil {
     String USER_SUCCESSFULLY_AUTHENTICATE = "User successfully authenticate.";
     String USER_SUCCESSFULLY_REGISTER = "User successfully register %s.";
     String WRONG_INPUT = "Wrong Input.";
+    String DYNAMIC_PAYLOAD = "Dynamic payload fetch.";
     String ONLY_SELECT_QUERY_EXECUTE = "Only select query execute.";
     String QUERY_MISSING = "Query missing.";
     String DATA_FETCH_SUCCESSFULLY = "Data fetch successfully.";
@@ -125,6 +127,7 @@ public interface MessageUtil {
     String FORM_NAME_MISSING = "Form name missing.";
     String FORM_DESCRIPTION_MISSING = "Form description missing.";
     String FORM_TYPE_MISSING = "Form type missing.";
+    String HOME_PAGE_NOT_FOUND = "Home age not found.";
     String FORM_NOT_FOUND = "Form not found.";
     String ACTION_MISSING = "Action missing.";
     String CONTROL_LINK_SECTION_MISSING = "Control link section missing.";
@@ -199,6 +202,7 @@ public interface MessageUtil {
     String REPORT_SETTING_GROUP_MISSING = "Report Setting field groupType missing.";
     String REPORT_SETTING_DESCRIPTION_MISSING = "Report Setting field description missing.";
     String REPORT_SETTING_DATA_FILTER_MISSING = "Report Setting data filter missing.";
+    String REPORT_SETTING_RECORD_REPORT_MISSING = "Report Setting data record report missing.";
     String REPORT_SETTING_FETCH_RATE_MISSING = "Report Setting fetch rate missing.";
     String REPORT_SETTING_PAYLOAD_REF_MISSING = "Report Setting field payload ref missing.";
     String REPORT_SETTING_PDF_MISSING = "Report Setting field pdf missing.";
@@ -224,5 +228,7 @@ public interface MessageUtil {
     String DYNAMIC_PAYLOAD_DESCRIPTION_MISSING = "Dynamic payload description missing.";
     String DYNAMIC_PAYLOAD_TYPE_MISSING = "Dynamic payload xml|json missing.";
     String DYNAMIC_NOT_FOUND = "Dynamic payload not found.";
+    // error message
+    String SQL_GRAMMAR_EXCEPTION = "Query not valid.";
 
 }

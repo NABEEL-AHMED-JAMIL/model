@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * @author Nabeel Ahmed
@@ -36,6 +37,9 @@ public class DashboardSetting extends BaseEntity {
     @Column(name = "iframe", nullable = false)
     @Enumerated(EnumType.ORDINAL)
     private UI_LOOKUP iframe;
+
+    @OneToMany(mappedBy = "dashboard", fetch = FetchType.LAZY)
+    private List<GenForm> genForms;
 
     public DashboardSetting() {
     }
@@ -86,6 +90,14 @@ public class DashboardSetting extends BaseEntity {
 
     public void setIframe(UI_LOOKUP iframe) {
         this.iframe = iframe;
+    }
+
+    public List<GenForm> getGenForms() {
+        return genForms;
+    }
+
+    public void setGenForms(List<GenForm> genForms) {
+        this.genForms = genForms;
     }
 
     @Override

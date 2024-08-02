@@ -3,6 +3,7 @@ package com.barco.model.repository;
 import com.barco.model.pojo.AppUser;
 import com.barco.model.pojo.DashboardSetting;
 import com.barco.model.util.lookup.APPLICATION_STATUS;
+import com.barco.model.util.lookup.DASHBOARD_TYPE;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -29,6 +30,8 @@ public interface DashboardSettingRepository extends CrudRepository<DashboardSett
     public List<DashboardSetting> findAllByDateCreatedBetweenAndUsernameAndStatusNot(Date startDate, Date endDate, String username, APPLICATION_STATUS status);
 
     public List<DashboardSetting> findAllByCreatedByAndStatusNot(AppUser createdBy, APPLICATION_STATUS status);
+
+    public List<DashboardSetting> findAllByCreatedByAndBoardTypeAndStatusNot(AppUser createdBy, DASHBOARD_TYPE boardType, APPLICATION_STATUS status);
 
     public List<DashboardSetting> findAllByIdIn(List<Long> ids);
 }

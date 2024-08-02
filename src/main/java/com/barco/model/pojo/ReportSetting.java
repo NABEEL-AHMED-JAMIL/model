@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * @author Nabeel Ahmed
@@ -23,6 +24,10 @@ public class ReportSetting extends BaseEntity {
     @Column(name = "data_filter", nullable = false)
     @Enumerated(EnumType.ORDINAL)
     private UI_LOOKUP dateFilter;
+
+    @Column(name = "record_report", nullable = false)
+    @Enumerated(EnumType.ORDINAL)
+    private UI_LOOKUP recordReport;
 
     @Column(name = "fetch_rate", nullable = false)
     @Enumerated(EnumType.ORDINAL)
@@ -107,6 +112,9 @@ public class ReportSetting extends BaseEntity {
     @JoinColumn(name = "form_id")
     private GenForm genForm;
 
+    @OneToMany(mappedBy = "report", fetch = FetchType.LAZY)
+    private List<GenForm> genForms;
+
     public ReportSetting() {
     }
 
@@ -124,6 +132,14 @@ public class ReportSetting extends BaseEntity {
 
     public void setDateFilter(UI_LOOKUP dateFilter) {
         this.dateFilter = dateFilter;
+    }
+
+    public UI_LOOKUP getRecordReport() {
+        return recordReport;
+    }
+
+    public void setRecordReport(UI_LOOKUP recordReport) {
+        this.recordReport = recordReport;
     }
 
     public FETCH_LIMIT getFetchRate() {
@@ -292,6 +308,14 @@ public class ReportSetting extends BaseEntity {
 
     public void setGenForm(GenForm genForm) {
         this.genForm = genForm;
+    }
+
+    public List<GenForm> getGenForms() {
+        return genForms;
+    }
+
+    public void setGenForms(List<GenForm> genForms) {
+        this.genForms = genForms;
     }
 
     @Override
