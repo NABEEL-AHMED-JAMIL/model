@@ -5,7 +5,6 @@ import com.barco.model.util.lookup.APPLICATION_STATUS;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,6 +20,8 @@ public interface TemplateRegRepository extends CrudRepository<TemplateReg, Long>
 		"WHERE templateReg.createdBy.username = ?1 ORDER BY templateReg.dateCreated DESC";
 
 	public Optional<TemplateReg> findFirstByTemplateNameAndStatusNot(String templateName, APPLICATION_STATUS status);
+
+	public Optional<TemplateReg> findFirstByTemplateNameAndStatus(String templateName, APPLICATION_STATUS status);
 
 	@Query(value = FIND_BY_TEMPLATE_ID_AND_USERNAME)
 	public Optional<TemplateReg> findByIdAndUsername(Long id, String username);

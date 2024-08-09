@@ -24,7 +24,7 @@ public class AppUserResponse extends BaseEntity {
     private ProfileResponse profile;
     private GLookup accountType;
     private OrganizationResponse organization;
-    private Integer totalSubUser;
+    private Long totalSubUser = 0l;
     private List<EnVariablesResponse> enVariables;
     private List<EventBridgeResponse> eventBridge;
 
@@ -119,11 +119,11 @@ public class AppUserResponse extends BaseEntity {
         this.organization = organization;
     }
 
-    public Integer getTotalSubUser() {
+    public Long getTotalSubUser() {
         return totalSubUser;
     }
 
-    public void setTotalSubUser(Integer totalSubUser) {
+    public void setTotalSubUser(Long totalSubUser) {
         this.totalSubUser = totalSubUser;
     }
 

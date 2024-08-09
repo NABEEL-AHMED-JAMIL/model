@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import java.time.Instant;
+import java.util.Map;
 
 /**
  * @author Nabeel Ahmed
@@ -15,6 +16,7 @@ public class RefreshTokenResponse extends BaseEntity {
     private String token;
     private Instant expiryDate;
     private String ipAddress;
+    private Map<String, Object> statistics;
 
     public RefreshTokenResponse() {}
 
@@ -40,6 +42,14 @@ public class RefreshTokenResponse extends BaseEntity {
 
     public void setIpAddress(String ipAddress) {
         this.ipAddress = ipAddress;
+    }
+
+    public Map<String, Object> getStatistics() {
+        return statistics;
+    }
+
+    public void setStatistics(Map<String, Object> statistics) {
+        this.statistics = statistics;
     }
 
     @Override

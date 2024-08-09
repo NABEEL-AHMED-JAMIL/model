@@ -11,13 +11,25 @@ import com.google.gson.Gson;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class OrganizationRequest {
 
+    private Long id;
     private String name;
     private String address;
     private String email;
     private String phone;
     private String countryCode;
+    private AppUserRequest user;
+    private Long status;
+    private SessionUser sessionUser;
 
     public OrganizationRequest() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -60,6 +72,29 @@ public class OrganizationRequest {
         this.countryCode = countryCode;
     }
 
+    public AppUserRequest getUser() {
+        return user;
+    }
+
+    public void setUser(AppUserRequest user) {
+        this.user = user;
+    }
+
+    public Long getStatus() {
+        return status;
+    }
+
+    public void setStatus(Long status) {
+        this.status = status;
+    }
+
+    public SessionUser getSessionUser() {
+        return sessionUser;
+    }
+
+    public void setSessionUser(SessionUser sessionUser) {
+        this.sessionUser = sessionUser;
+    }
 
     @Override
     public String toString() {
