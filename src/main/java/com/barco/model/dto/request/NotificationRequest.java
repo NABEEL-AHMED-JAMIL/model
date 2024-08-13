@@ -23,9 +23,8 @@ public class NotificationRequest extends BaseEntity {
     public NotificationRequest() {
     }
 
-    public NotificationRequest(String sendTo, MessageRequest body,
+    public NotificationRequest(MessageRequest body,
         Long notifyType, Timestamp expireTime, Long messageStatus) {
-        this.sendTo = sendTo;
         this.body = body;
         this.notifyType = notifyType;
         this.expireTime = expireTime;

@@ -1,6 +1,7 @@
 package com.barco.model.pojo;
 
 import com.barco.model.util.lookup.EVENT_BRIDGE_TYPE;
+import com.barco.model.util.lookup.UI_LOOKUP;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;

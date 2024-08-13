@@ -96,6 +96,7 @@ public interface MessageUtil {
     String ROLE_ALREADY_EXIST = "Role already exist.";
     String ROLE_NOT_FOUND_WITH_ID = "Role not found with id %s.";
     String PROFILE_MISSING = "Profile missing.";
+    String PROFILE_ACCOUNT_TYPE_MISSING = "Profile account type missing";
     String PROFILE_ID_MISSING = "Profile id missing.";
     String PROFILE_NAME_MISSING = "Profile name missing.";
     String PROFILE_ALREADY_EXIST = "Profile already exist.";

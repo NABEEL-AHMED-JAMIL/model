@@ -20,10 +20,12 @@ public class AppUserRequest extends RequestFilter {
     private String username;
     private String password;
     private String profileImg;
+    private Long accountType;
     private String ipAddress;
     private SessionUser sessionUser;
     private Set<String> assignRole;
     private Long profile;
+    private boolean standalone = false;
 
     public AppUserRequest() {
     }
@@ -92,6 +94,14 @@ public class AppUserRequest extends RequestFilter {
         this.profileImg = profileImg;
     }
 
+    public Long getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(Long accountType) {
+        this.accountType = accountType;
+    }
+
     public String getIpAddress() {
         return ipAddress;
     }
@@ -122,6 +132,14 @@ public class AppUserRequest extends RequestFilter {
 
     public void setProfile(Long profile) {
         this.profile = profile;
+    }
+
+    public boolean isStandalone() {
+        return standalone;
+    }
+
+    public void setStandalone(boolean standalone) {
+        this.standalone = standalone;
     }
 
     @Override

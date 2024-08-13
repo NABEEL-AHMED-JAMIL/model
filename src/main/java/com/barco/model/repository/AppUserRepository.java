@@ -16,20 +16,25 @@ import java.util.Optional;
 @Repository
 public interface AppUserRepository extends CrudRepository<AppUser, Long> {
 
-    String FIND_ALL_BY_DATE_CREATED_BETWEEN_AND_APP_USER_PARENT_AND_ORG_ID_AND_STATUS_NOT = "SELECT au FROM AppUser au " +
+    // adding org is null so the super admin will not show in the view
+    public String FIND_ALL_BY_DATE_CREATED_BETWEEN_AND_STATUS_NOT = "SELECT au FROM AppUser au " +
+        "WHERE au.dateCreated BETWEEN ?1 AND ?2 AND au.status != ?3 AND au.createdBy IS NULL AND au.organization IS NULL " +
+        "ORDER BY au.id DESC";
+    public String FIND_ALL_BY_DATE_CREATED_BETWEEN_AND_APP_USER_PARENT_AND_ORG_ID_AND_STATUS_NOT = "SELECT au FROM AppUser au " +
         "INNER JOIN SubAppUser sau ON sau.appUserChild = au.id " +
         "WHERE au.dateCreated BETWEEN ?1 AND ?2 AND sau.appUserParent = ?3 AND au.organization = ?4 AND au.status != ?5 " +
         "ORDER BY au.id DESC";
-    String FIND_ALL_BY_DATE_CREATED_BETWEEN_AND_APP_USER_PARENT_AND_ORG_ID_AND_APP_USER_ID_IN_AND_STATUS_NOT = "SELECT au FROM AppUser au " +
+    public String FIND_ALL_BY_DATE_CREATED_BETWEEN_AND_APP_USER_PARENT_AND_ORG_ID_AND_APP_USER_ID_IN_AND_STATUS_NOT = "SELECT au FROM AppUser au " +
         "INNER JOIN SubAppUser sau ON sau.appUserChild = au.id " +
         "WHERE au.dateCreated BETWEEN ?1 AND ?2 AND sau.appUserParent = ?3 AND au.organization = ?4 AND au.id IN ?5 AND au.status != ?6  " +
         "ORDER BY au.id DESC";
 
-    public Optional<AppUser> findByIdAndStatus(Long id, APPLICATION_STATUS status);
-
     public Optional<AppUser> findByUsernameAndStatus(String username, APPLICATION_STATUS status);
 
     public Optional<AppUser> findByEmailAndStatus(String email, APPLICATION_STATUS status);
+
+    @Query(value = FIND_ALL_BY_DATE_CREATED_BETWEEN_AND_STATUS_NOT)
+    public List<AppUser> findAllByDateCreatedBetweenAndStatusNotOrderByDateCreatedDesc(Date startDate, Date endDate, APPLICATION_STATUS status);
 
     @Query(value = FIND_ALL_BY_DATE_CREATED_BETWEEN_AND_APP_USER_PARENT_AND_ORG_ID_AND_STATUS_NOT)
     public List<AppUser> findAllByDateCreatedBetweenAndAppUserParentAndOrgIdAndStatusNotOrderByDateCreatedDesc(
