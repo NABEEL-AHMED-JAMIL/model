@@ -28,6 +28,9 @@ public interface AppUserRepository extends CrudRepository<AppUser, Long> {
         "INNER JOIN SubAppUser sau ON sau.appUserChild = au.id " +
         "WHERE au.dateCreated BETWEEN ?1 AND ?2 AND sau.appUserParent = ?3 AND au.organization = ?4 AND au.id IN ?5 AND au.status != ?6  " +
         "ORDER BY au.id DESC";
+    public String FIND_ALL_BY_DATE_CREATED_BETWEEN_AND_APP_USER_ID_IN_AND_STATUS_NOT = "SELECT au FROM AppUser au " +
+        "WHERE au.dateCreated BETWEEN ?1 AND ?2 AND au.id IN ?3 AND au.createdBy IS NULL AND au.organization IS NULL " +
+        "ORDER BY au.id DESC";
 
     public Optional<AppUser> findByUsernameAndStatus(String username, APPLICATION_STATUS status);
 
@@ -43,6 +46,10 @@ public interface AppUserRepository extends CrudRepository<AppUser, Long> {
     @Query(value = FIND_ALL_BY_DATE_CREATED_BETWEEN_AND_APP_USER_PARENT_AND_ORG_ID_AND_APP_USER_ID_IN_AND_STATUS_NOT)
     public List<AppUser> findAllByDateCreatedBetweenAndAppUserParentAndOrgIdAndAppUserIdInAndStatusNotOrderByDateCreatedDesc(
         Date startDate, Date endDate, AppUser appUserParent, Organization organization, List<Long> appUserIds, APPLICATION_STATUS status);
+
+    @Query(value = FIND_ALL_BY_DATE_CREATED_BETWEEN_AND_APP_USER_ID_IN_AND_STATUS_NOT)
+    public List<AppUser> findAllByDateCreatedBetweenAndAppUserIdInAndStatusNotOrderByDateCreatedDesc(
+        Date startDate, Date endDate, List<Long> appUserIds, APPLICATION_STATUS status);
 
     public Boolean existsByUsername(String username);
 
