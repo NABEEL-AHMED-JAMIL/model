@@ -236,6 +236,11 @@ public interface MessageUtil {
     String ORG_PHONE_MISSING = "Org phone missing.";
     String ORG_COUNTRY_CODE_MISSING = "Org country code missing.";
     String ORG_COUNTRY_CODE_NOT_FOUND = "Org country code not found.";
+    String QUERY_INQUIRY_ID_MISSING = "Query inquiry id missing.";
+    String QUERY_INQUIRY_NAME_MISSING = "Query inquiry name missing.";
+    String QUERY_INQUIRY_DESCRIPTION_MISSING = "Query inquiry description missing.";
+    String QUERY_INQUIRY_QUERY_MISSING = "Query inquiry query missing.";
+    String QUERY_INQUIRY_NOT_FOUND = "Query inquiry not found.";
 
     // error message
     String SQL_GRAMMAR_EXCEPTION = "Query not valid.";
