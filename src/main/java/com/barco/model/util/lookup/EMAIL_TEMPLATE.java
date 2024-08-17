@@ -10,7 +10,7 @@ public enum EMAIL_TEMPLATE {
 
     FORGOT_USER_PASSWORD(0l),
     UPDATE_USER_ACCOUNT_PROFILE(1l),
-    CLOSE_USER_ACCOUNT(2l),
+    DELETE_USER_ACCOUNT(2l),
     RESET_USER_PASSWORD(3l),
     REGISTER_USER(4l),
     ACTIVE_USER_ACCOUNT(5l),
@@ -38,8 +38,8 @@ public enum EMAIL_TEMPLATE {
             return FORGOT_USER_PASSWORD;
         } else if (lookupCode.equals(UPDATE_USER_ACCOUNT_PROFILE.getLookupCode())) {
             return UPDATE_USER_ACCOUNT_PROFILE;
-        } else if (lookupCode.equals(CLOSE_USER_ACCOUNT.getLookupCode())) {
-            return CLOSE_USER_ACCOUNT;
+        } else if (lookupCode.equals(DELETE_USER_ACCOUNT.getLookupCode())) {
+            return DELETE_USER_ACCOUNT;
         } else if (lookupCode.equals(RESET_USER_PASSWORD.getLookupCode())) {
             return RESET_USER_PASSWORD;
         } else if (lookupCode.equals(REGISTER_USER.getLookupCode())) {

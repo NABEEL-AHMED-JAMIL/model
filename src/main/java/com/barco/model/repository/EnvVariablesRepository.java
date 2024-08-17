@@ -1,5 +1,6 @@
 package com.barco.model.repository;
 
+import com.barco.model.pojo.AppUser;
 import com.barco.model.pojo.EnvVariables;
 import com.barco.model.util.lookup.APPLICATION_STATUS;
 import org.springframework.data.repository.CrudRepository;
@@ -19,6 +20,8 @@ public interface EnvVariablesRepository extends CrudRepository<EnvVariables, Lon
     public Optional<EnvVariables> findByEnvKeyAndStatusNot(String envKey, APPLICATION_STATUS status);
 
     public List<EnvVariables> findAllByStatusNotOrderByDateCreatedDesc(APPLICATION_STATUS status);
+
+    public List<EnvVariables> findAllByCreatedByAndStatusNotOrderByDateCreatedDesc(AppUser createdBy, APPLICATION_STATUS status);
 
     public List<EnvVariables> findAllByDateCreatedBetweenAndStatusNotOrderByDateCreatedDesc(Date startDate, Date endDate, APPLICATION_STATUS status);
 

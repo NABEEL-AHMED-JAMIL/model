@@ -1,7 +1,9 @@
 package com.barco.model.security;
 
 import com.barco.model.pojo.AppUser;
+import com.barco.model.pojo.Organization;
 import com.barco.model.pojo.Profile;
+import com.barco.model.util.lookup.ACCOUNT_TYPE;
 import com.barco.model.util.lookup.APPLICATION_STATUS;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -28,6 +30,8 @@ public class UserSessionDetail implements UserDetails {
     private Profile profile;
     private String profileImage;
     private String ipAddress;
+    private Organization organization;
+    private ACCOUNT_TYPE accountType;
     private Collection<? extends GrantedAuthority> authorities;
 
     public UserSessionDetail(String username, String email, String password,
@@ -55,6 +59,8 @@ public class UserSessionDetail implements UserDetails {
         userSessionDetail.setLastName(appUser.getLastName());
         userSessionDetail.setIpAddress(appUser.getIpAddress());
         userSessionDetail.setProfileImage(appUser.getImg());
+        userSessionDetail.setAccountType(appUser.getAccountType());
+        userSessionDetail.setOrganization(appUser.getOrganization());
         if (appUser.getProfile().getStatus().equals(APPLICATION_STATUS.ACTIVE)) {
             userSessionDetail.setProfile(appUser.getProfile());
         }
@@ -153,6 +159,22 @@ public class UserSessionDetail implements UserDetails {
 
     public void setIpAddress(String ipAddress) {
         this.ipAddress = ipAddress;
+    }
+
+    public Organization getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
+    }
+
+    public ACCOUNT_TYPE getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(ACCOUNT_TYPE accountType) {
+        this.accountType = accountType;
     }
 
     public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {

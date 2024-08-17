@@ -9,19 +9,22 @@ import com.google.gson.Gson;
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class OrganizationRequest {
+public class QueryInquiryRequest extends RequestFilter {
 
     private Long id;
     private String name;
-    private String address;
-    private String email;
-    private String phone;
-    private String countryCode;
-    private AppUserRequest user;
+    private String description;
+    private String query;
     private Long status;
     private SessionUser sessionUser;
 
-    public OrganizationRequest() {
+    public QueryInquiryRequest() {
+    }
+
+    public QueryInquiryRequest(String name, String description, String query) {
+        this.name = name;
+        this.description = description;
+        this.query = query;
     }
 
     public Long getId() {
@@ -40,44 +43,20 @@ public class OrganizationRequest {
         this.name = name;
     }
 
-    public String getAddress() {
-        return address;
+    public String getDescription() {
+        return description;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getEmail() {
-        return email;
+    public String getQuery() {
+        return query;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getCountryCode() {
-        return countryCode;
-    }
-
-    public void setCountryCode(String countryCode) {
-        this.countryCode = countryCode;
-    }
-
-    public AppUserRequest getUser() {
-        return user;
-    }
-
-    public void setUser(AppUserRequest user) {
-        this.user = user;
+    public void setQuery(String query) {
+        this.query = query;
     }
 
     public Long getStatus() {

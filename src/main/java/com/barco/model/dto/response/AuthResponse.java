@@ -23,6 +23,7 @@ public class AuthResponse extends BaseEntity {
     private String username;
     private String email;
     private GLookup accountType;
+    private OrganizationResponse organization;
     private List<String> roles;
     private ProfileResponse profile;
 
@@ -111,6 +112,14 @@ public class AuthResponse extends BaseEntity {
 
     public void setAccountType(GLookup accountType) {
         this.accountType = accountType;
+    }
+
+    public OrganizationResponse getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(OrganizationResponse organization) {
+        this.organization = organization;
     }
 
     public List<String> getRoles() {

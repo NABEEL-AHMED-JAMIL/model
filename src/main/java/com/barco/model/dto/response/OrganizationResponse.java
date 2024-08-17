@@ -1,5 +1,6 @@
 package com.barco.model.dto.response;
 
+import com.barco.model.util.lookup.GLookup;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
@@ -9,7 +10,7 @@ import com.google.gson.Gson;
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class OrganizationResponse {
+public class OrganizationResponse extends BaseEntity {
 
     private Long id;
     private String name;
@@ -17,6 +18,7 @@ public class OrganizationResponse {
     private String email;
     private String phone;
     private ETLCountryResponse country;
+    private GLookup status;
 
     public OrganizationResponse() {
     }
@@ -69,6 +71,13 @@ public class OrganizationResponse {
         this.country = country;
     }
 
+    public GLookup getStatus() {
+        return status;
+    }
+
+    public void setStatus(GLookup status) {
+        this.status = status;
+    }
 
     @Override
     public String toString() {

@@ -96,6 +96,7 @@ public interface MessageUtil {
     String ROLE_ALREADY_EXIST = "Role already exist.";
     String ROLE_NOT_FOUND_WITH_ID = "Role not found with id %s.";
     String PROFILE_MISSING = "Profile missing.";
+    String PROFILE_ACCOUNT_TYPE_MISSING = "Profile account type missing";
     String PROFILE_ID_MISSING = "Profile id missing.";
     String PROFILE_NAME_MISSING = "Profile name missing.";
     String PROFILE_ALREADY_EXIST = "Profile already exist.";
@@ -173,7 +174,7 @@ public interface MessageUtil {
     String ACCOUNT_STATUS = "Account status";
     String ACCOUNT_ENABLED = "Account enabled for %s user";
     String ACCOUNT_DISABLED = "Account disabled for %s user";
-    String ACCOUNT_CLOSE_DETAIL = "Account closed for %s user.";
+    String ACCOUNT_DELETE_DETAIL = "Account delete for %s user.";
     String NEW_ACCOUNT_ADDED = "New account added";
     String FORGOT_PASSWORD = "Forgot password";
     String RESET_PASSWORD = "Reset password";
@@ -228,6 +229,19 @@ public interface MessageUtil {
     String DYNAMIC_PAYLOAD_DESCRIPTION_MISSING = "Dynamic payload description missing.";
     String DYNAMIC_PAYLOAD_TYPE_MISSING = "Dynamic payload xml|json missing.";
     String DYNAMIC_NOT_FOUND = "Dynamic payload not found.";
+    String ORG_NOT_FOUND = "Org not found.";
+    String ORG_NAME_MISSING = "Org name missing.";
+    String ORG_EMAIL_MISSING = "Org email missing.";
+    String ORG_ADDRESS_MISSING = "Org address missing.";
+    String ORG_PHONE_MISSING = "Org phone missing.";
+    String ORG_COUNTRY_CODE_MISSING = "Org country code missing.";
+    String ORG_COUNTRY_CODE_NOT_FOUND = "Org country code not found.";
+    String QUERY_INQUIRY_ID_MISSING = "Query inquiry id missing.";
+    String QUERY_INQUIRY_NAME_MISSING = "Query inquiry name missing.";
+    String QUERY_INQUIRY_DESCRIPTION_MISSING = "Query inquiry description missing.";
+    String QUERY_INQUIRY_QUERY_MISSING = "Query inquiry query missing.";
+    String QUERY_INQUIRY_NOT_FOUND = "Query inquiry not found.";
+
     // error message
     String SQL_GRAMMAR_EXCEPTION = "Query not valid.";
 

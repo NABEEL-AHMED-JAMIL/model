@@ -17,6 +17,7 @@ public class LinkRPUResponse {
     private String username;
     private String fullName;
     private String profileImg;
+    private Long linkId;
     private String linkData;
     private GLookup linkStatus;
     private Boolean linked = false;
@@ -67,6 +68,14 @@ public class LinkRPUResponse {
 
     public void setProfileImg(String profileImg) {
         this.profileImg = profileImg;
+    }
+
+    public Long getLinkId() {
+        return linkId;
+    }
+
+    public void setLinkId(Long linkId) {
+        this.linkId = linkId;
     }
 
     public String getLinkData() {

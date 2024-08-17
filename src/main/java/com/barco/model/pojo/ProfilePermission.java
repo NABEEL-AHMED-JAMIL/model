@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Table(name = "profile_permission")
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ProfilePermission extends BaseEntity  {
+public class ProfilePermission extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "profile_id", nullable = false)
