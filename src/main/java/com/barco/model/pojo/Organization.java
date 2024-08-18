@@ -3,7 +3,6 @@ package com.barco.model.pojo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
-
 import javax.persistence.*;
 
 /**
@@ -15,16 +14,18 @@ import javax.persistence.*;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Organization extends BaseEntity {
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name",
+        nullable = false,
+        unique = true)
     private String name;
 
-    @Column(name = "address", nullable = false)
+    @Column(name = "address",
+        nullable = false)
     private String address;
 
-    @Column(name = "email", nullable = false)
-    private String email;
-
-    @Column(name = "phone", nullable = false)
+    @Column(name = "phone",
+        nullable = false,
+        unique = true)
     private String phone;
 
     @ManyToOne
@@ -50,14 +51,6 @@ public class Organization extends BaseEntity {
         this.address = address;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getPhone() {
         return phone;
     }
@@ -73,7 +66,6 @@ public class Organization extends BaseEntity {
     public void setCountry(ETLCountry country) {
         this.country = country;
     }
-
 
     @Override
     public String toString() {
