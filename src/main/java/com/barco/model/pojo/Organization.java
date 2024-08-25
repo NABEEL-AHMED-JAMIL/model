@@ -28,6 +28,9 @@ public class Organization extends BaseEntity {
         unique = true)
     private String phone;
 
+    @Column(name = "logo_url")
+    private String logoUrl;
+
     @ManyToOne
     @JoinColumn(name = "country_id")
     private ETLCountry country;
@@ -57,6 +60,14 @@ public class Organization extends BaseEntity {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getLogoUrl() {
+        return logoUrl;
+    }
+
+    public void setLogoUrl(String logoUrl) {
+        this.logoUrl = logoUrl;
     }
 
     public ETLCountry getCountry() {

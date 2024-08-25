@@ -17,6 +17,7 @@ public class OrganizationResponse extends BaseEntity {
     private String address;
     private String email;
     private String phone;
+    private String logoUrl;
     private ETLCountryResponse country;
     private GLookup status;
 
@@ -61,6 +62,14 @@ public class OrganizationResponse extends BaseEntity {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getLogoUrl() {
+        return logoUrl;
+    }
+
+    public void setLogoUrl(String logoUrl) {
+        this.logoUrl = logoUrl;
     }
 
     public ETLCountryResponse getCountry() {

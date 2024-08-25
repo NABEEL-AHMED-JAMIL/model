@@ -5,6 +5,8 @@ package com.barco.model.util;
  */
 public interface MessageUtil {
 
+    String INVALID_PAYLOAD_TYPE = "Invalid payload type";
+    String SESSION_USER_MISSING = "Session User not found";
     String ACCOUNT_TYPE_NOT_FOUND = "No account type found.";
     String IS_DEFAULT_NOT_FOUND = "No default found.";
     String FETCH_LIMIT_NOT_FOUND = "No fetch limit found.";
