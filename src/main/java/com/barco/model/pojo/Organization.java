@@ -15,8 +15,7 @@ import javax.persistence.*;
 public class Organization extends BaseEntity {
 
     @Column(name = "name",
-        nullable = false,
-        unique = true)
+        nullable = false)
     private String name;
 
     @Column(name = "address",
@@ -24,8 +23,7 @@ public class Organization extends BaseEntity {
     private String address;
 
     @Column(name = "phone",
-        nullable = false,
-        unique = true)
+        nullable = false)
     private String phone;
 
     @Column(name = "logo_url")

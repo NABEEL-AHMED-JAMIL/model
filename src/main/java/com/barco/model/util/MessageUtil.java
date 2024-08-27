@@ -46,6 +46,7 @@ public interface MessageUtil {
     String OLD_PASSWORD_NOT_MATCH = "Old password not match.";
     String OLD_PASSWORD_MISSING = "OldPassword missing.";
     String NEW_PASSWORD_MISSING = "NewPassword missing.";
+    String USER_MISSING = "User missing";
     String USERNAME_MISSING = "Username missing.";
     String EMAIL_MISSING = "Email missing.";
     String IP_ADDRESS_MISSING = "IP address missing.";
@@ -178,12 +179,14 @@ public interface MessageUtil {
     String ACCOUNT_DISABLED = "Account disabled for %s user";
     String ACCOUNT_DELETE_DETAIL = "Account delete for %s user.";
     String NEW_ACCOUNT_ADDED = "New account added";
+    String NEW_ORG_ACCOUNT_ADDED = "New org account added";
     String FORGOT_PASSWORD = "Forgot password";
     String RESET_PASSWORD = "Reset password";
     String RESET_EMAIL_SEND_TO_YOUR_EMAIL = "Reset email send to your email";
     String FORGOT_EMAIL_SEND_TO_YOUR_EMAIL = "Forgot email send to your email";
     String REQUESTED_FOR_NEW_ACCOUNT = "Requested for new account";
     String NEW_USER_REGISTER_WITH_ID = "New user register with id(%d).";
+    String NEW_ORG_USER_REGISTER_WITH_ID = "New org user account register with id(%d).";
     String PASSWORD_UPDATED = "Password updated.";
     String PASSWORD_UPDATE_MESSAGE = "Dear user, your password update successfully.";
     String DOWNLOAD_TYPE_MISSING = "Download type missing.";

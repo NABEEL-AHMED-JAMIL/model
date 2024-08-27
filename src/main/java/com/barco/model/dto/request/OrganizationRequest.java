@@ -14,7 +14,6 @@ public class OrganizationRequest extends RequestFilter {
     private Long id;
     private String name;
     private String address;
-    private String email;
     private String phone;
     private String logoUrl;
     private String countryCode;
@@ -47,14 +46,6 @@ public class OrganizationRequest extends RequestFilter {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getPhone() {
