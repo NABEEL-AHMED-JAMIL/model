@@ -23,7 +23,8 @@ public class QueryInquiry extends BaseEntity {
     @Column(name = "description", nullable = false)
     private String description;
 
-    @Column(name = "query", nullable = false)
+    @Column(name = "query", nullable = false,
+        columnDefinition = "text")
     private String query;
 
     public QueryInquiry() {

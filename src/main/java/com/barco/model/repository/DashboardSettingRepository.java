@@ -17,11 +17,11 @@ import java.util.Optional;
 @Repository
 public interface DashboardSettingRepository extends CrudRepository<DashboardSetting, Long> {
 
-    String FIND_BY_ID_AND_USERNAME_AND_STATUS_NOT = "SELECT dashSetting FROM DashboardSetting dashSetting " +
-            "WHERE dashSetting.id = ?1 AND dashSetting.createdBy.username = ?2 AND dashSetting.status != ?3";
+    public String FIND_BY_ID_AND_USERNAME_AND_STATUS_NOT = "SELECT dashSetting FROM DashboardSetting dashSetting " +
+        "WHERE dashSetting.id = ?1 AND dashSetting.createdBy.username = ?2 AND dashSetting.status != ?3";
 
-    String FIND_ALL_BY_DATE_CREATED_BETWEEN_AND_USERNAME_AND_STATUS_NOT = "SELECT dashSetting FROM DashboardSetting dashSetting " +
-            "WHERE dashSetting.dateCreated BETWEEN ?1 AND ?2 AND dashSetting.createdBy.username = ?3 AND dashSetting.status != ?4";
+    public String FIND_ALL_BY_DATE_CREATED_BETWEEN_AND_USERNAME_AND_STATUS_NOT = "SELECT dashSetting FROM DashboardSetting dashSetting " +
+        "WHERE dashSetting.dateCreated BETWEEN ?1 AND ?2 AND dashSetting.createdBy.username = ?3 AND dashSetting.status != ?4";
 
     @Query(value = FIND_BY_ID_AND_USERNAME_AND_STATUS_NOT)
     public Optional<DashboardSetting> findByIdAndUsernameAndStatusNot(Long id, String username, APPLICATION_STATUS status);

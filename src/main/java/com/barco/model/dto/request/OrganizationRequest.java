@@ -9,13 +9,13 @@ import com.google.gson.Gson;
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class OrganizationRequest {
+public class OrganizationRequest extends RequestFilter {
 
     private Long id;
     private String name;
     private String address;
-    private String email;
     private String phone;
+    private String logoUrl;
     private String countryCode;
     private AppUserRequest user;
     private Long status;
@@ -48,20 +48,20 @@ public class OrganizationRequest {
         this.address = address;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getPhone() {
         return phone;
     }
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getLogoUrl() {
+        return logoUrl;
+    }
+
+    public void setLogoUrl(String logoUrl) {
+        this.logoUrl = logoUrl;
     }
 
     public String getCountryCode() {
