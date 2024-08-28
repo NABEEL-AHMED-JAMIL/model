@@ -23,6 +23,7 @@ public class AppUserResponse extends BaseEntity {
     private List<String> roles;
     private ProfileResponse profile;
     private GLookup accountType;
+    private Boolean orgAccount = false;
     private OrganizationResponse organization;
     private Long totalSubUser = 0l;
     private List<EnVariablesResponse> enVariables;
@@ -109,6 +110,14 @@ public class AppUserResponse extends BaseEntity {
 
     public void setAccountType(GLookup accountType) {
         this.accountType = accountType;
+    }
+
+    public Boolean getOrgAccount() {
+        return orgAccount;
+    }
+
+    public void setOrgAccount(Boolean orgAccount) {
+        this.orgAccount = orgAccount;
     }
 
     public OrganizationResponse getOrganization() {

@@ -24,7 +24,7 @@ public class AppUserRequest extends RequestFilter {
     private String ipAddress;
     private SessionUser sessionUser;
     private Set<String> assignRole;
-    private Long profile;
+    private String profile;
     private boolean standalone = false;
 
     public AppUserRequest() {
@@ -126,11 +126,11 @@ public class AppUserRequest extends RequestFilter {
         this.assignRole = assignRole;
     }
 
-    public Long getProfile() {
+    public String getProfile() {
         return profile;
     }
 
-    public void setProfile(Long profile) {
+    public void setProfile(String profile) {
         this.profile = profile;
     }
 
