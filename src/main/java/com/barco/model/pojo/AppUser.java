@@ -78,6 +78,10 @@ public class AppUser extends BaseEntity {
     @Enumerated(EnumType.ORDINAL)
     private ACCOUNT_TYPE accountType;
 
+    // by default account not or account
+    @Column(name = "org_account")
+    private Boolean orgAccount = false;
+
     public AppUser() {
     }
 
@@ -207,6 +211,14 @@ public class AppUser extends BaseEntity {
 
     public void setAccountType(ACCOUNT_TYPE accountType) {
         this.accountType = accountType;
+    }
+
+    public Boolean getOrgAccount() {
+        return orgAccount;
+    }
+
+    public void setOrgAccount(Boolean orgAccount) {
+        this.orgAccount = orgAccount;
     }
 
     @Override

@@ -15,6 +15,8 @@ public interface ProfileRepository extends CrudRepository<Profile, Long> {
 
     public Optional<Profile> findProfileByProfileName(String profileName);
 
+    public Optional<Profile> findProfileByProfileNameAndStatus(String profileName, APPLICATION_STATUS status);
+
     public Optional<Profile> findProfileByIdAndStatus(Long id, APPLICATION_STATUS status);
 
     public List<Profile> findAllByIdIn(List<Long> ids);
