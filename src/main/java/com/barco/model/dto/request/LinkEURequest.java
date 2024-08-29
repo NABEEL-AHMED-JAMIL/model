@@ -11,13 +11,21 @@ import com.google.gson.Gson;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class LinkEURequest extends RequestFilter {
 
+    private Long linkId;
     private Long envId;
     private Long appUserId;
     private String envValue;
     private Boolean linked;
     private SessionUser sessionUser;
 
-    public LinkEURequest() {
+    public LinkEURequest() {}
+
+    public Long getLinkId() {
+        return linkId;
+    }
+
+    public void setLinkId(Long linkId) {
+        this.linkId = linkId;
     }
 
     public Long getEnvId() {
@@ -64,4 +72,5 @@ public class LinkEURequest extends RequestFilter {
     public String toString() {
         return new Gson().toJson(this);
     }
+
 }
