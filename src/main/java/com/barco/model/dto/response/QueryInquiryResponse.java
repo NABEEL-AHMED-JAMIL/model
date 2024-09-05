@@ -11,7 +11,6 @@ import com.google.gson.Gson;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class QueryInquiryResponse extends BaseEntity {
 
-    private Long id;
     private String name;
     private String description;
     private String query;
@@ -23,14 +22,6 @@ public class QueryInquiryResponse extends BaseEntity {
         this.name = name;
         this.description = description;
         this.query = query;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {

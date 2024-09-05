@@ -22,6 +22,7 @@ import java.util.stream.Collectors;
 public class UserSessionDetail implements UserDetails {
 
     private Long id;
+    private String uuid;
     private String firstName;
     private String lastName;
     private String username;
@@ -55,6 +56,7 @@ public class UserSessionDetail implements UserDetails {
         UserSessionDetail userSessionDetail = new UserSessionDetail(appUser.getUsername(),
             appUser.getEmail(), appUser.getPassword(), authorities);
         userSessionDetail.setId(appUser.getId());
+        userSessionDetail.setUuid(appUser.getUuid());
         userSessionDetail.setFirstName(appUser.getFirstName());
         userSessionDetail.setLastName(appUser.getLastName());
         userSessionDetail.setIpAddress(appUser.getIpAddress());
@@ -73,6 +75,14 @@ public class UserSessionDetail implements UserDetails {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public String getFirstName() {

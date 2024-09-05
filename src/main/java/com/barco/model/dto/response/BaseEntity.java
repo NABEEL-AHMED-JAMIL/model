@@ -15,6 +15,7 @@ import java.sql.Timestamp;
 public class BaseEntity implements Serializable {
 
     private Long id;
+    private String uuid;
     private Timestamp dateCreated;
     private Timestamp dateUpdated;
     private ActionByUser createdBy;
@@ -34,6 +35,14 @@ public class BaseEntity implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public Timestamp getDateCreated() {

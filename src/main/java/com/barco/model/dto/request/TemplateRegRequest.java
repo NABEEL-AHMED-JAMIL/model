@@ -11,7 +11,7 @@ import com.google.gson.Gson;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class TemplateRegRequest extends RequestFilter {
 
-    private Long id;
+    private String uuid;
     private String templateName;
     private String description;
     private Long status;
@@ -21,12 +21,12 @@ public class TemplateRegRequest extends RequestFilter {
     public TemplateRegRequest() {
     }
 
-    public Long getId() {
-        return id;
+    public String getUuid() {
+        return uuid;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public String getTemplateName() {
