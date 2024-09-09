@@ -15,7 +15,7 @@ import java.util.List;
 @Table(name = "enable_visible_config")
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class EnableAndVisibilityConfig extends BaseEntity{
+public class EnableAndVisibilityConfig extends BaseEntity {
 
     @Column(name = "name", nullable = false)
     private String name;

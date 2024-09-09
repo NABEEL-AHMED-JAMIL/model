@@ -14,6 +14,8 @@ import java.util.Optional;
 @Repository
 public interface AppTokenRepository extends CrudRepository<RefreshToken, Long> {
 
+    public List<RefreshToken> findAllByUuidInAndStatusNot(List<String> uuids, APPLICATION_STATUS status);
+
     public Optional<RefreshToken> findByTokenAndStatus(String token, APPLICATION_STATUS status);
 
     public List<RefreshToken> findByDateCreatedBetweenOrderByDateCreatedDesc(Date startDate, Date endDate);
