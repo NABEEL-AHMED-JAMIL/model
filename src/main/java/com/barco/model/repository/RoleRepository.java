@@ -19,11 +19,15 @@ public interface RoleRepository extends CrudRepository<Role, Long> {
 
 	public Optional<Role> findRoleByName(String name);
 
+	public Optional<Role> findByUuid(String uuid);
+
 	public Optional<Role> findByNameAndStatus(String name, APPLICATION_STATUS status);
 
 	public Set<Role> findAllByNameInAndStatus(Set<String> names, APPLICATION_STATUS status);
 
 	public List<Role> findAllByIdIn(List<Long> ids);
+
+	public List<Role> findAllByUuidIn(List<String> uuids);
 
 	public static <T> Stream<T> asStream(Iterator<T> sourceIterator) {
 		return asStream(sourceIterator, false);

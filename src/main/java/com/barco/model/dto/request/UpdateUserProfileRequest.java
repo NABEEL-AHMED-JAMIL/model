@@ -13,6 +13,7 @@ public class UpdateUserProfileRequest {
 
     // vm detail (appUserId, username)
     private Long id;
+    private String uuid;
     private String firstName;
     private String lastName;
     private String ipAddress;
@@ -31,6 +32,14 @@ public class UpdateUserProfileRequest {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public String getFirstName() {

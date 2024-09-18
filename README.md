@@ -8,17 +8,21 @@ We’re thrilled to share our suite of open-source projects with the community! 
    - **Description**: The core data model repository.
    - **GitHub**: [Model GitHub Repository](https://github.com/NABEEL-AHMED-JAMIL/model)
 
-2. **ETL Source**
-   - **Description**: Extract, Transform, Load (ETL) process repository.
-   - **GitHub**: [ETL Source GitHub Repository](https://github.com/NABEEL-AHMED-JAMIL/etl-source)
+1. **Model**
+   - **Description**: The core data model repository.
+   - **GitHub**: [Model GitHub Repository](https://github.com/NABEEL-AHMED-JAMIL/model)
 
-3. **Common**
-   - **Description**: Shared utilities and common functionality repository.
-   - **GitHub**: [Common GitHub Repository](https://github.com/NABEEL-AHMED-JAMIL/common)
+3. **Auth**
+   - **Description**: Auth Api for managing the authentication and authorization process.
+   - **GitHub**: [Common GitHub Repository](https://github.com/NABEEL-AHMED-JAMIL/auth)
 
 4. **Admin API**
    - **Description**: Administrative API for managing the platform.
    - **GitHub**: [Admin API GitHub Repository](https://github.com/NABEEL-AHMED-JAMIL/admin-api)
+
+5. **ETL Source**
+   - **Description**: Extract, Transform, Load (ETL) process repository.
+   - **GitHub**: [ETL Source GitHub Repository](https://github.com/NABEEL-AHMED-JAMIL/etl-source)
 
 ## Technologies We Use
 

@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 public class ReportSettingRequest extends RequestFilter {
 
     private Long id;
+    private String uuid;
     private Long dateFilter;
     private Long recordReport;
     private Long fetchRate;
@@ -48,6 +49,14 @@ public class ReportSettingRequest extends RequestFilter {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public Long getDateFilter() {

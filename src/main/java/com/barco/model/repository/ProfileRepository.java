@@ -13,6 +13,8 @@ import java.util.Optional;
 @Repository
 public interface ProfileRepository extends CrudRepository<Profile, Long> {
 
+    public Optional<Profile> findByUuid(String uuid);
+
     public Optional<Profile> findProfileByProfileName(String profileName);
 
     public Optional<Profile> findProfileByProfileNameAndStatus(String profileName, APPLICATION_STATUS status);
@@ -20,5 +22,7 @@ public interface ProfileRepository extends CrudRepository<Profile, Long> {
     public Optional<Profile> findProfileByIdAndStatus(Long id, APPLICATION_STATUS status);
 
     public List<Profile> findAllByIdIn(List<Long> ids);
+
+    public List<Profile> findAllByUuidIn(List<String > uuids);
 
 }

@@ -12,8 +12,12 @@ import java.util.Optional;
 @Repository
 public interface PermissionRepository extends CrudRepository<Permission, Long> {
 
+    public Optional<Permission> findByUuid(String uuids);
+
     public Optional<Permission> findPermissionByPermissionName(String permissionName);
 
     public List<Permission> findAllByIdIn(List<Long> ids);
+
+    public List<Permission> findAllByUuidIn(List<String> uuids);
 
 }

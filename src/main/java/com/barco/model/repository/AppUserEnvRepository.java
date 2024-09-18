@@ -15,4 +15,6 @@ public interface AppUserEnvRepository extends CrudRepository<AppUserEnv, Long> {
 
     Optional<AppUserEnv> findAppUserEnvByEnvVariablesAndAppUser(EnvVariables envVariables, AppUser appUser);
 
+    Optional<AppUserEnv> findAppUserEnvByUuidAndAppUser(String uuid, AppUser appUser);
+
 }

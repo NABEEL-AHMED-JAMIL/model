@@ -32,13 +32,15 @@ public interface AppUserRepository extends CrudRepository<AppUser, Long> {
         "WHERE au.dateCreated BETWEEN ?1 AND ?2 AND au.id IN ?3 AND au.createdBy IS NULL AND au.organization IS NULL " +
         "ORDER BY au.id DESC";
 
+    public Optional<AppUser> findByUsernameAndStatusNot(String username, APPLICATION_STATUS status);
+
     public Optional<AppUser> findByUsernameAndStatus(String username, APPLICATION_STATUS status);
 
     public Optional<AppUser> findByEmailAndStatus(String email, APPLICATION_STATUS status);
 
-    public Optional<AppUser> findByEmailAndStatusNot(String email, APPLICATION_STATUS status);
-
     public Optional<AppUser> findByIdAndStatusNot(Long id, APPLICATION_STATUS status);
+
+    public Optional<AppUser> findByUuidAndStatusNot(String uuid, APPLICATION_STATUS status);
 
     @Query(value = FIND_ALL_BY_DATE_CREATED_BETWEEN_AND_STATUS_NOT)
     public List<AppUser> findAllByDateCreatedBetweenAndStatusNotOrderByDateCreatedDesc(Date startDate, Date endDate, APPLICATION_STATUS status);

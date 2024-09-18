@@ -11,11 +11,19 @@ import com.google.gson.Gson;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PasswordResetRequest {
 
+    private String email;
     private String oldPassword;
     private String newPassword;
-    private SessionUser sessionUser;
 
     public PasswordResetRequest() {
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getOldPassword() {
@@ -32,14 +40,6 @@ public class PasswordResetRequest {
 
     public void setNewPassword(String newPassword) {
         this.newPassword = newPassword;
-    }
-
-    public SessionUser getSessionUser() {
-        return sessionUser;
-    }
-
-    public void setSessionUser(SessionUser sessionUser) {
-        this.sessionUser = sessionUser;
     }
 
     @Override

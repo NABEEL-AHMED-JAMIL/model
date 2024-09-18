@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 public class PlayGroundRequest extends RequestFilter {
 
     private Long id;
+    private String uuid;
     private SessionUser sessionUser;
 
     public PlayGroundRequest() {
@@ -23,6 +24,14 @@ public class PlayGroundRequest extends RequestFilter {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public SessionUser getSessionUser() {
