@@ -64,10 +64,11 @@ public interface MessageUtil {
     String TEMPLATE_CONTENT_MISSING = "Template content missing.";
     String TEMPLATE_REG_NOT_FOUND = "Template reg not found.";
     String TEMPLATE_REG_ALREADY_EXIST = "Template reg already exist.";
+    String FILE_UPLOAD = "Bulk file upload successfully.";
     String DATA_SAVED = "Data save with ref (%s).";
     String DATA_UPDATE = "Data update with ref (%s).";
     String DATA_DELETED = "Data deleted with ref (%s).";
-    String DATA_DELETED_ALL = "Data deleted with all ids.";
+    String DATA_DELETED_ALL = "Data deleted with batch.";
     String DATA_NOT_FOUND = "Data not found with ref (%s).";
     String LOOKUP_DATA_LOOKUP_CODE_MISSING = "LookupData lookupCode missing.";
     String LOOKUP_DATA_LOOKUP_VALUE_MISSING = "LookupData lookupValue missing.";
@@ -176,7 +177,7 @@ public interface MessageUtil {
     String KAFKA_SERVICE_URL_MISSING = "Kafka service url missing.";
     String KAFKA_TOPIC_NAME_MISSING = "Kafka topic name missing.";
     String KAFKA_TOPIC_PATTERN_MISSING = "Kafka topic pattern missing.";
-    String APP_USER_ENV_NOT_FOUND = "AppUserEnv not found.";
+    String APP_USER_ENV_NOT_FOUND = "AppUser env not found.";
     String ACCOUNT_STATUS = "Account status";
     String ACCOUNT_ENABLED = "Account enabled for %s user";
     String ACCOUNT_DISABLED = "Account disabled for %s user";

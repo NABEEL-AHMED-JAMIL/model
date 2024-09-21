@@ -11,28 +11,28 @@ import com.google.gson.Gson;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class LinkPPRequest {
 
-    private Long profileId;
-    private Long permissionId;
+    private String profileUuid;
+    private String permissionUuid;
     private Boolean linked;
     private SessionUser sessionUser;
 
     public LinkPPRequest() {
     }
 
-    public Long getProfileId() {
-        return profileId;
+    public String getProfileUuid() {
+        return profileUuid;
     }
 
-    public void setProfileId(Long profileId) {
-        this.profileId = profileId;
+    public void setProfileUuid(String profileUuid) {
+        this.profileUuid = profileUuid;
     }
 
-    public Long getPermissionId() {
-        return permissionId;
+    public String getPermissionUuid() {
+        return permissionUuid;
     }
 
-    public void setPermissionId(Long permissionId) {
-        this.permissionId = permissionId;
+    public void setPermissionUuid(String permissionUuid) {
+        this.permissionUuid = permissionUuid;
     }
 
     public Boolean getLinked() {

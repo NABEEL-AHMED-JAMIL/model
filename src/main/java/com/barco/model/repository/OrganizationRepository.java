@@ -13,9 +13,13 @@ import java.util.Optional;
 @Repository
 public interface OrganizationRepository extends CrudRepository<Organization, Long> {
 
-    public Optional<Organization> findByIdAndStatusNot(Long id, APPLICATION_STATUS applicationStatus);
+    public Optional<Organization> findByUuidAndStatusNot(String uuid, APPLICATION_STATUS status);
+
+    public Optional<Organization> findByIdAndStatusNot(Long id, APPLICATION_STATUS status);
 
     public List<Organization> findAllByIdIn(List<Long> ids);
+
+    public Optional<Organization> findAllByUuidIn(List<String> uuIds);
 
     public List<Organization> findAllByStatusNotOrderByDateCreatedDesc(APPLICATION_STATUS status);
 
