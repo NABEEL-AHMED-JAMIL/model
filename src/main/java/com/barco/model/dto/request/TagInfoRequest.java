@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 public class TagInfoRequest implements Comparable<TagInfoRequest> {
 
     private Long taskPayloadId;
+    private String uuid;
     private String tagKey;
     private String tagParent;
     private String tagValue;
@@ -37,6 +38,14 @@ public class TagInfoRequest implements Comparable<TagInfoRequest> {
 
     public void setTaskPayloadId(Long taskPayloadId) {
         this.taskPayloadId = taskPayloadId;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public String getTagKey() {

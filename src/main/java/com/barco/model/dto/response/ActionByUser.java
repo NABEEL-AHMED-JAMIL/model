@@ -11,19 +11,19 @@ import com.google.gson.Gson;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ActionByUser {
 
-	private Long id;
+	private String uuid;
 	private String email;
 	private String username;
 
 	public ActionByUser() {
 	}
 
-	public Long getId() {
-		return id;
+	public String getUuid() {
+		return uuid;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
 	}
 
 	public String getEmail() {

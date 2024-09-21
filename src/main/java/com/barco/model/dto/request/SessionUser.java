@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 public class SessionUser {
 
 	private Long id;
+	private String uuid;
 	private String email;
 	private String username;
 
@@ -28,12 +29,33 @@ public class SessionUser {
 		this.username = username;
 	}
 
+	public SessionUser(String uuid, String email, String username) {
+		this.uuid = uuid;
+		this.email = email;
+		this.username = username;
+	}
+
+	public SessionUser(Long id, String uuid, String email, String username) {
+		this.id = id;
+		this.uuid = uuid;
+		this.email = email;
+		this.username = username;
+	}
+
 	public Long getId() {
 		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
 	}
 
 	public String getEmail() {

@@ -15,7 +15,6 @@ public class CredentialResponse extends BaseEntity {
     private String name;
     private String description;
     private GLookup type;
-    private GLookup status;
     private Object content;
     private Long totalCount;
 
@@ -44,16 +43,6 @@ public class CredentialResponse extends BaseEntity {
 
     public void setType(GLookup type) {
         this.type = type;
-    }
-
-    @Override
-    public GLookup getStatus() {
-        return status;
-    }
-
-    @Override
-    public void setStatus(GLookup status) {
-        this.status = status;
     }
 
     public Object getContent() {

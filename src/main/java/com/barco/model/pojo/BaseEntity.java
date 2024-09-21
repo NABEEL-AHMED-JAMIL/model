@@ -2,11 +2,13 @@ package com.barco.model.pojo;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.UUID;
 import javax.persistence.*;
 import com.barco.model.util.lookup.APPLICATION_STATUS;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
+import org.hibernate.annotations.GenericGenerator;
 
 /**
  * @author Nabeel Ahmed
@@ -20,6 +22,11 @@ public class BaseEntity implements Serializable {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @GenericGenerator(name = "uuid2", strategy = "uuid2")
+    @GeneratedValue(generator = "uuid2")
+    @Column(length = 36, nullable = false, updatable = false, unique = true)
+    private String uuid;
 
     @Column(name = "date_created", nullable = false)
     private Timestamp dateCreated;
@@ -44,6 +51,7 @@ public class BaseEntity implements Serializable {
 
     @PrePersist
     public void onCreate() {
+        this.uuid = UUID.randomUUID().toString();;
         this.dateCreated = new Timestamp((System.currentTimeMillis()));
         this.dateUpdated =  this.dateCreated;
     }
@@ -59,6 +67,14 @@ public class BaseEntity implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public Timestamp getDateCreated() {

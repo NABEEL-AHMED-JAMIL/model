@@ -11,7 +11,7 @@ import com.google.gson.Gson;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class QueryInquiryRequest extends RequestFilter {
 
-    private Long id;
+    private String uuid;
     private String name;
     private String description;
     private String query;
@@ -27,12 +27,12 @@ public class QueryInquiryRequest extends RequestFilter {
         this.query = query;
     }
 
-    public Long getId() {
-        return id;
+    public String getUuid() {
+        return uuid;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public String getName() {

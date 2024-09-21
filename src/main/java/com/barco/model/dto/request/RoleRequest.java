@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 public class RoleRequest extends RequestFilter {
 
     private Long id;
+    private String uuid;
     private String name;
     private String description;
     private Long status;
@@ -26,6 +27,14 @@ public class RoleRequest extends RequestFilter {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public String getName() {

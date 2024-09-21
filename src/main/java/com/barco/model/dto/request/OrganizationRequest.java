@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 public class OrganizationRequest extends RequestFilter {
 
     private Long id;
+    private String uuid;
     private String name;
     private String address;
     private String phone;
@@ -30,6 +31,14 @@ public class OrganizationRequest extends RequestFilter {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public String getName() {

@@ -12,24 +12,14 @@ import com.google.gson.Gson;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class OrganizationResponse extends BaseEntity {
 
-    private Long id;
     private String name;
     private String address;
     private String email;
     private String phone;
     private String logoUrl;
     private ETLCountryResponse country;
-    private GLookup status;
 
     public OrganizationResponse() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -78,14 +68,6 @@ public class OrganizationResponse extends BaseEntity {
 
     public void setCountry(ETLCountryResponse country) {
         this.country = country;
-    }
-
-    public GLookup getStatus() {
-        return status;
-    }
-
-    public void setStatus(GLookup status) {
-        this.status = status;
     }
 
     @Override

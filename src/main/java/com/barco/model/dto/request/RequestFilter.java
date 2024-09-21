@@ -18,6 +18,8 @@ public class RequestFilter {
 	private String startDate;
 	private String endDate;
 	private List<Long> ids;
+	private List<String> uuids;
+	private List<String> usernames;
 
 	public RequestFilter() {
 	}
@@ -68,6 +70,22 @@ public class RequestFilter {
 
 	public void setIds(List<Long> ids) {
 		this.ids = ids;
+	}
+
+	public List<String> getUuids() {
+		return uuids;
+	}
+
+	public void setUuids(List<String> uuids) {
+		this.uuids = uuids;
+	}
+
+	public List<String> getUsernames() {
+		return usernames;
+	}
+
+	public void setUsernames(List<String> usernames) {
+		this.usernames = usernames;
 	}
 
 	@Override

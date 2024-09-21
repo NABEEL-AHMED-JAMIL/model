@@ -22,5 +22,11 @@ public interface EnvVariablesRepository extends CrudRepository<EnvVariables, Lon
 
     public List<EnvVariables> findAllByIdInAndStatusNotOrderByDateCreatedDesc(List<Long> ids, APPLICATION_STATUS status);
 
+    public List<EnvVariables> findAllByUuidInAndStatusNotOrderByDateCreatedDesc(List<String> uuids, APPLICATION_STATUS status);
+
     public List<EnvVariables> findAllByIdIn(List<Long> ids);
+
+    public List<EnvVariables> findAllByUuidIn(List<String> uuids);
+
+    public Optional<EnvVariables> findByUuid(String uuid);
 }

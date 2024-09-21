@@ -15,7 +15,6 @@ public class TemplateRegResponse extends BaseEntity {
     private String templateName;
     private String description;
     private String templateContent;
-    private Timestamp dateCreated;
 
     public TemplateRegResponse() {
     }
@@ -42,16 +41,6 @@ public class TemplateRegResponse extends BaseEntity {
 
     public void setTemplateContent(String templateContent) {
         this.templateContent = templateContent;
-    }
-
-    @Override
-    public Timestamp getDateCreated() {
-        return dateCreated;
-    }
-
-    @Override
-    public void setDateCreated(Timestamp dateCreated) {
-        this.dateCreated = dateCreated;
     }
 
     @Override

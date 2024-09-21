@@ -17,14 +17,10 @@ public interface TemplateRegRepository extends CrudRepository<TemplateReg, Long>
 
 	public Optional<TemplateReg> findFirstByTemplateNameAndStatus(String templateName, APPLICATION_STATUS status);
 
-	public Optional<TemplateReg> findById(Long id);
+	public Optional<TemplateReg> findByUuidAndStatusNot(String id, APPLICATION_STATUS status);
 
-	/**
-	 * Find all TemplateReg entities ordered by the dateCreated field in descending order.
-	 * @return List of TemplateReg entities.
-	 */
-	public List<TemplateReg> findAllByOrderByDateCreatedDesc();
+	public List<TemplateReg> findAllByStatusNotOrderByDateCreatedDesc(APPLICATION_STATUS status);
 
-	public List<TemplateReg> findAllByIdIn(List<Long> ids);
+	public List<TemplateReg> findAllByUuidInAndStatusNot(List<String> uuids, APPLICATION_STATUS status);
 
 }

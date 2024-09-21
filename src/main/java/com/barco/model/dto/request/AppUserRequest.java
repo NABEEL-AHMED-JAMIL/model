@@ -13,6 +13,7 @@ import java.util.Set;
 public class AppUserRequest extends RequestFilter {
 
     private Long id;
+    private String uuid;
     private Long status;
     private String firstName;
     private String lastName;
@@ -36,6 +37,14 @@ public class AppUserRequest extends RequestFilter {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public Long getStatus() {

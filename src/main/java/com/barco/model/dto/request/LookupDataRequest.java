@@ -13,6 +13,7 @@ import java.sql.Timestamp;
 public class LookupDataRequest {
 
     private Long id;
+    private String uuid;
     private Long lookupCode;
     private String lookupType;
     private String lookupValue;
@@ -36,6 +37,14 @@ public class LookupDataRequest {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public Long getLookupCode() {
