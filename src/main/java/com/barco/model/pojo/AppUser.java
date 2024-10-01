@@ -70,7 +70,7 @@ public class AppUser extends BaseEntity {
     @OneToMany(mappedBy = "appUserParent", fetch = FetchType.LAZY)
     private List<SubAppUser> subAppUsers;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "org_id")
     protected Organization organization;
 

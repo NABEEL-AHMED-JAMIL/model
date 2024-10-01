@@ -7,6 +7,8 @@ public interface MessageUtil {
 
     String START_DATE_MISSING = "Start date missing.";
     String END_DATE_MISSING = "End date missing.";
+    String PAGE_NUMBER_MISSING = "Page number missing.";
+    String PAGE_SIZE_MISSING = "Page size missing.";
     String INVALID_PAYLOAD_TYPE = "Invalid payload type";
     String SESSION_USER_MISSING = "Session User not found";
     String ACCOUNT_TYPE_NOT_FOUND = "No account type found.";
@@ -184,13 +186,15 @@ public interface MessageUtil {
     String ACCOUNT_DELETE_DETAIL = "Account delete for %s user.";
     String NEW_ACCOUNT_ADDED = "New account added";
     String NEW_ORG_ACCOUNT_ADDED = "New org account added";
+    String ORG_ACCOUNT_UPDATE = "Org account update";
     String FORGOT_PASSWORD = "Forgot password";
     String RESET_PASSWORD = "Reset password";
     String RESET_EMAIL_SEND_TO_YOUR_EMAIL = "Dear user, your password successfully reset.";
     String FORGOT_EMAIL_SEND_TO_YOUR_EMAIL = "Reset password link send to your email account.";
     String REQUESTED_FOR_NEW_ACCOUNT = "Requested for new account";
     String NEW_USER_REGISTER_WITH_ID = "New user register with ref (%s).";
-    String NEW_ORG_USER_REGISTER_WITH_ID = "New org user account register with id(%s).";
+    String NEW_ORG_REGISTER_WITH_ID = "New org account register with ref (%s).";
+    String ORG_UPDATE_WITH_ID = "Org account update with ref (%s).";
     String PASSWORD_UPDATED = "Password updated.";
     String PASSWORD_UPDATE_MESSAGE = "Dear user, your password update successfully.";
     String DOWNLOAD_TYPE_MISSING = "Download type missing.";
@@ -240,7 +244,7 @@ public interface MessageUtil {
     String DYNAMIC_NOT_FOUND = "Dynamic payload not found.";
     String ORG_NOT_FOUND = "Org not found.";
     String ORG_NAME_MISSING = "Org name missing.";
-    String ORG_EMAIL_MISSING = "Org email missing.";
+    String ORG_LOGO_URL_MISSING = "Org logo url missing.";
     String ORG_ADDRESS_MISSING = "Org address missing.";
     String ORG_PHONE_MISSING = "Org phone missing.";
     String ORG_COUNTRY_CODE_MISSING = "Org country code missing.";

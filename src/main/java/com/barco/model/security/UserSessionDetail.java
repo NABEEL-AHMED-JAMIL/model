@@ -31,6 +31,7 @@ public class UserSessionDetail implements UserDetails {
     private Profile profile;
     private String profileImage;
     private String ipAddress;
+    private Boolean orgAccount = false;
     private Organization organization;
     private ACCOUNT_TYPE accountType;
     private Collection<? extends GrantedAuthority> authorities;
@@ -51,18 +52,18 @@ public class UserSessionDetail implements UserDetails {
     public static UserSessionDetail build(AppUser appUser) {
         List<GrantedAuthority> authorities = appUser.getAppUserRoles().stream()
            .filter(role -> role.getStatus().equals(APPLICATION_STATUS.ACTIVE))
-           .map(role -> new SimpleGrantedAuthority(role.getName()))
-           .collect(Collectors.toList());
-        UserSessionDetail userSessionDetail = new UserSessionDetail(appUser.getUsername(),
-            appUser.getEmail(), appUser.getPassword(), authorities);
+           .map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
+        UserSessionDetail userSessionDetail = new UserSessionDetail(appUser.getUsername(), appUser.getEmail(), appUser.getPassword(), authorities);
         userSessionDetail.setId(appUser.getId());
         userSessionDetail.setUuid(appUser.getUuid());
         userSessionDetail.setFirstName(appUser.getFirstName());
         userSessionDetail.setLastName(appUser.getLastName());
         userSessionDetail.setIpAddress(appUser.getIpAddress());
+        userSessionDetail.setOrgAccount(appUser.getOrgAccount());
         userSessionDetail.setProfileImage(appUser.getImg());
         userSessionDetail.setAccountType(appUser.getAccountType());
         userSessionDetail.setOrganization(appUser.getOrganization());
+        // if profile not active so we allow the user to open the api session but not allow to view the ui
         if (appUser.getProfile().getStatus().equals(APPLICATION_STATUS.ACTIVE)) {
             userSessionDetail.setProfile(appUser.getProfile());
         }
@@ -169,6 +170,14 @@ public class UserSessionDetail implements UserDetails {
 
     public void setIpAddress(String ipAddress) {
         this.ipAddress = ipAddress;
+    }
+
+    public Boolean getOrgAccount() {
+        return orgAccount;
+    }
+
+    public void setOrgAccount(Boolean orgAccount) {
+        this.orgAccount = orgAccount;
     }
 
     public Organization getOrganization() {

@@ -21,7 +21,11 @@ public enum EMAIL_TEMPLATE {
     JOB_FAILED_TEMPLATE(10l),
     JOB_COMPLETED_TEMPLATE(11l),
     JOB_SKIP_TEMPLATE(12l),
-    JOB_INTERRUPT_TEMPLATE(13l);
+    JOB_INTERRUPT_TEMPLATE(13l),
+    ACTIVE_ORG_ACCOUNT(14l),
+    BLOCK_ORG_ACCOUNT(15l),
+    DELETE_ORG_ACCOUNT(16l),
+    REGISTER_ORG(17l);
 
     private Long lookupCode;
 
@@ -62,6 +66,14 @@ public enum EMAIL_TEMPLATE {
             return JOB_SKIP_TEMPLATE;
         } else if (lookupCode.equals(JOB_INTERRUPT_TEMPLATE.getLookupCode())) {
             return JOB_INTERRUPT_TEMPLATE;
+        } else if (lookupCode.equals(ACTIVE_ORG_ACCOUNT.getLookupCode())) {
+            return ACTIVE_ORG_ACCOUNT;
+        } else if (lookupCode.equals(BLOCK_ORG_ACCOUNT.getLookupCode())) {
+            return BLOCK_ORG_ACCOUNT;
+        } else if (lookupCode.equals(DELETE_ORG_ACCOUNT.getLookupCode())) {
+            return DELETE_ORG_ACCOUNT;
+        } else if (lookupCode.equals(REGISTER_ORG.getLookupCode())) {
+            return REGISTER_ORG;
         }
         throw new RuntimeException(MessageUtil.EMAIL_TEMPLATE_NOT_FOUND);
     }

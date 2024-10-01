@@ -12,8 +12,8 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class RequestFilter {
 
-	private Long page;
-	private Long limit;
+	private Integer pageNumber;
+	private Integer pageSize;
 	private String textSearch;
 	private String startDate;
 	private String endDate;
@@ -24,20 +24,20 @@ public class RequestFilter {
 	public RequestFilter() {
 	}
 
-	public Long getPage() {
-		return page;
+	public Integer getPageNumber() {
+		return pageNumber;
 	}
 
-	public void setPage(Long page) {
-		this.page = page;
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
 	}
 
-	public Long getLimit() {
-		return limit;
+	public Integer getPageSize() {
+		return pageSize;
 	}
 
-	public void setLimit(Long limit) {
-		this.limit = limit;
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
 	}
 
 	public String getTextSearch() {
