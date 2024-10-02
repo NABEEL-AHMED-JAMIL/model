@@ -1,0 +1,87 @@
+INSERT INTO public.dashboard_setting (date_created,date_updated,status,board_type,dashboard_url,description,iframe,"name",created_by_id,updated_by_id,group_type,"uuid") VALUES
+	 ('2024-05-10 21:36:11.551','2024-07-19 22:13:27.072',1,0,'http://localhost:4200/setting/mgDashboard','Hospital Overview',1,'Hospital Overview',1,1,319,'c42c8df4-7b5e-46b6-b45f-299142996a9c'),
+	 ('2024-05-10 21:13:11.659','2024-05-30 17:31:02.822',1,0,'http://localhost:4200/setting/mgDashboard','Users Statistic Regional Map',1,'Users Statistic Regional Map',1,1,322,'adb18d2c-a849-452b-a080-8dcbb2418165'),
+	 ('2024-05-11 00:12:25.373','2024-05-30 17:34:28.731',1,0,'http://localhost:4200/setting/mgDashboard','Finances KPI',1,'Finances KPI',1,1,318,'c196943f-2d48-4815-9f69-582aa6246d33'),
+	 ('2024-05-10 21:32:56.283','2024-05-30 17:39:57.831',1,1,'http://localhost:4200/setting/mgDashboard','Operations KPI',1,'Operations KPI',1,1,115,'b9ca4056-50c3-4372-8143-9c6bcd18abce'),
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:40:55.937',1,0,'http://localhost:4200/setting/mgDashboard','Retail KPI',1,'Retail KPI',1,1,404,'57fee813-445e-460e-a024-cb2113c71dd4'),
+	 ('2024-05-10 21:22:15.772','2024-05-30 17:42:09.786',1,1,'http://localhost:4200/setting/mgDashboard','User Activity Stats',1,'User Activity Stats',1,1,405,'bd0ffa66-2b4b-4b2a-a1bb-84242a019fe5'),
+	 ('2024-05-10 21:22:48.311','2024-05-30 17:42:33.468',1,1,'http://localhost:4200/setting/mgDashboard','Website Analytics',1,'Website Analytics',1,1,405,'8715715e-232c-45b2-8f6c-90429eba1e22'),
+	 ('2024-05-10 21:23:14.942','2024-05-30 17:42:50.063',1,1,'http://localhost:4200/setting/mgDashboard','Restaurant Attendance Tracking',1,'Restaurant Attendance Tracking',1,1,405,'4295b1ea-8d30-4681-a92a-27a1bd984b53'),
+	 ('2024-05-10 21:23:35.663','2024-05-30 17:43:02.062',1,1,'http://localhost:4200/setting/mgDashboard','Orders',1,'Orders',1,1,405,'17089c28-3ea6-4793-bae5-9d39776c689f'),
+	 ('2024-05-10 21:25:11.056','2024-05-30 17:43:19.761',1,1,'http://localhost:4200/setting/mgDashboard','Insurance Sales',1,'Insurance Sales',1,1,320,'87874c32-a9ff-44b1-8383-654a1d010053');
+INSERT INTO public.dashboard_setting (date_created,date_updated,status,board_type,dashboard_url,description,iframe,"name",created_by_id,updated_by_id,group_type,"uuid") VALUES
+	 ('2024-05-06 03:08:20.84','2024-05-30 17:45:18.014',1,1,'http://localhost:4200/setting/mgDashboard','Tickets Statistics',1,'Tickets Statistics',1,1,323,'e688ee60-d636-48b7-b52d-b0a140c8e10e'),
+	 ('2024-05-10 21:25:47.029','2024-05-30 17:44:03.971',1,1,'http://localhost:4200/setting/mgDashboard','Insurance Risk',1,'Insurance Risk',1,1,320,'0df4b0b3-cfb4-4758-816c-06688d1b3530'),
+	 ('2024-05-10 21:31:38.358','2024-05-30 17:44:21.034',1,0,'http://localhost:4200/setting/mgDashboard','Patient Satisfaction',1,'Patient Satisfaction',1,1,319,'fe78dda7-1239-4906-b4cd-f13312e59390'),
+	 ('2024-05-10 21:29:51.173','2024-05-30 17:44:25.051',1,1,'http://localhost:4200/setting/mgDashboard','Public Health KPI',1,'Public Health KPI',1,1,319,'8d8186c6-13fc-4fa2-93a9-3144fdfaa8e1'),
+	 ('2024-05-10 21:36:44.152','2024-05-30 17:45:35.623',1,0,'http://localhost:4200/setting/mgDashboard','Finance KPI',1,'Finance KPI',1,1,319,'3de26d6d-82c7-4549-bfc5-d91d2481fdca'),
+	 ('2024-05-10 21:37:14.043','2024-05-30 17:45:49.109',1,1,'http://localhost:4200/setting/mgDashboard','Emergency KPI',1,'Emergency KPI',1,1,319,'e675d7e0-8abc-4779-99c3-dee305819f7e'),
+	 ('2024-05-10 21:26:06.428','2024-05-30 17:40:41.169',1,1,'http://localhost:4200/setting/mgDashboard','Insurance Claim',1,'Insurance Claim',1,1,320,'409a24ad-b839-4ea0-9516-1d797de571be'),
+	 ('2024-05-06 03:07:14.821','2024-05-15 12:35:55.238',1,0,'http://localhost:4200/setting/mgDashboard','Insurance Sales 2022',1,'Insurance Sales 2022',1,1,322,'5aee4d72-95b5-4643-abc3-2b19c9399c5d'),
+	 ('2024-05-10 21:13:45.867','2024-05-15 12:36:00.353',1,1,'http://localhost:4200/setting/mgDashboard','World Electricity Consumption per Capita',1,'World Electricity Consumption per Capita',1,1,315,'2f62cca8-9ea7-4694-a2f8-d518195bfe19'),
+	 ('2024-05-10 21:32:34.953','2024-05-30 17:40:11.31',1,1,'http://localhost:4200/setting/mgDashboard','Patient Health KPI',1,'Patient Health KPI',1,1,319,'b69586f4-c18f-4cec-84bb-c83b8c709b6c');
+INSERT INTO public.dashboard_setting (date_created,date_updated,status,board_type,dashboard_url,description,iframe,"name",created_by_id,updated_by_id,group_type,"uuid") VALUES
+	 ('2024-05-10 21:14:48.764','2024-05-30 17:31:13.369',1,1,'http://localhost:4200/setting/mgDashboard','Top 50 Countries by Urbanization',1,'Top 50 Countries by Urbanization',1,1,322,'e5c90e2f-68f0-4338-b519-d1c6a14ed630'),
+	 ('2024-05-10 21:15:31.514','2024-05-30 17:31:26.112',1,1,'http://localhost:4200/setting/mgDashboard','Phone Sales in China',1,'Phone Sales in China',1,1,322,'d4f1b7fd-67f1-4285-bb26-6d25280a49e5'),
+	 ('2024-05-10 21:16:56.932','2024-05-30 17:31:38.903',1,1,'http://localhost:4200/setting/mgDashboard','Manufacture in China',1,'Manufacture in China',1,1,322,'cbd1f2e2-7a2e-42a3-bdbd-f560182eb695'),
+	 ('2024-05-10 21:17:41.914','2024-05-30 17:31:50.382',1,1,'http://localhost:4200/setting/mgDashboard','Internet Application Trends in China',1,'Internet Application Trends in China',1,1,322,'40a3b47a-95c2-477c-b1f6-2a05d33958d7'),
+	 ('2024-05-10 21:18:36.519','2024-05-30 17:32:05.187',1,1,'http://localhost:4200/setting/mgDashboard','EUR-USD Conversion',1,'EUR-USD Conversion',1,1,322,'4fe60e80-c485-4ae0-95e1-67ae7b07388e'),
+	 ('2024-05-10 21:19:50.914','2024-05-30 17:32:15.667',1,0,'http://localhost:4200/setting/mgDashboard','China Construction Bank',1,'China Construction Bank',1,1,322,'29c0f82b-2cbe-4f4a-a3ab-9b4a11ecec54'),
+	 ('2024-05-10 21:20:51.001','2024-05-30 17:32:26.63',1,0,'http://localhost:4200/setting/mgDashboard','Car Sales in China',1,'Car Sales in China',1,1,322,'b6a198d5-1389-4e72-88a4-dc25ec905ba2'),
+	 ('2024-05-10 21:33:30.214','2024-05-30 17:32:53.902',1,1,'http://localhost:4200/setting/mgDashboard','Medical',1,'Medical',1,1,319,'6b7f4b21-4e1b-4055-a995-479424f8d92b'),
+	 ('2024-05-11 00:11:25.211','2024-05-30 17:34:22.839',1,1,'http://localhost:4200/setting/mgDashboard','Students KPI',1,'Students KPI',1,1,318,'62424383-0f2b-403e-9673-d10b64b208f9'),
+	 ('2024-05-11 00:13:22.224','2024-05-30 17:34:42.785',1,1,'http://localhost:4200/setting/mgDashboard','Education',1,'Education',1,1,318,'3a98e4cf-edae-4dff-9f62-bd5c3a45d58b');
+INSERT INTO public.dashboard_setting (date_created,date_updated,status,board_type,dashboard_url,description,iframe,"name",created_by_id,updated_by_id,group_type,"uuid") VALUES
+	 ('2024-05-11 00:16:22.333','2024-05-30 17:34:58.874',1,1,'http://localhost:4200/setting/mgDashboard','Social Networks Statistics',1,'Social Networks Statistics',1,1,404,'29f7cc39-9d62-4ec8-8b12-6e3f6c567a67'),
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:35:18.675',1,1,'http://localhost:4200/setting/mgDashboard','Marketing KPI',1,'Marketing KPI',1,1,404,'36081a72-353c-4f44-a8b1-6615ab1cd033'),
+	 ('2024-05-10 21:23:55.148','2024-05-30 17:38:14.471',1,0,'http://localhost:4200/setting/mgDashboard','Exchange Tenders',1,'Exchange Tenders',1,1,405,'6eed157c-6b7d-4e73-aaa0-8b805072a2e9'),
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:41:07.167',1,1,'http://localhost:4200/setting/mgDashboard','Manufacturing KPI',1,'Manufacturing KPI',1,1,404,'0aa19555-2382-4202-b2ec-99622b0e8ab7'),
+	 ('2024-05-10 21:35:03.625','2024-07-19 22:13:21.983',1,1,'http://localhost:4200/setting/mgDashboard','Internal KPI',1,'Internal KPI',1,1,319,'19de7f06-f42b-41da-a880-2907bee19227'),
+	 ('2024-05-06 03:06:12.642','2024-05-30 17:33:50.128',1,1,'http://localhost:4200/setting/mgDashboard','Hotel Revenue Dashboard 2022',1,'Hotel Revenue',1,1,323,'d0551844-267b-4d04-b7e8-907d8d8942c3'),
+	 ('2024-05-10 21:35:30.38','2024-05-30 17:34:02.433',1,1,'http://localhost:4200/setting/mgDashboard','Hospital Performance',1,'Hospital Performance',1,1,319,'a99c2b21-3def-49a4-bb62-7bb9e7f8b8e1'),
+	 ('2024-05-11 00:11:01.788','2024-05-30 17:34:18.109',1,0,'http://localhost:4200/setting/mgDashboard','University KPI',1,'University KPI',1,1,318,'d1393bd8-ff7e-47ee-8a5d-85df5a0f7255'),
+	 ('2024-05-10 21:14:24.291','2024-05-30 17:18:38.362',1,0,'http://localhost:4200/setting/mgDashboard','Top of Expensive Buildings in China',1,'Top of Expensive Buildings in China',1,1,322,'d907f5ce-ce42-4130-afb2-c14bb72e601f'),
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:18:58.086',1,0,'http://localhost:4200/setting/mgDashboard','Insurance Sales 2015-2024',1,'Insurance Sales 2015-2024',1,1,323,'1460bb78-20d2-4ef2-9a9f-c1f9a230e582');
+INSERT INTO public.dashboard_setting (date_created,date_updated,status,board_type,dashboard_url,description,iframe,"name",created_by_id,updated_by_id,group_type,"uuid") VALUES
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:41:18.106',1,1,'http://localhost:4200/setting/mgDashboard','Setting Appearance using Buttons',1,'Setting Appearance using Buttons',1,1,404,'7d1493ef-b33d-4979-a254-abb76723e519'),
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:41:36.19',1,0,'http://localhost:4200/setting/mgDashboard','Sport KPI',1,'Sport KPI',1,1,404,'80b27cc2-de8c-4294-8222-7a2842432027'),
+	 ('2024-05-10 21:16:15.302','2024-05-30 17:41:51.1',1,0,'http://localhost:4200/setting/mgDashboard','Motorcycles Statistics 2015-2022',1,'Motorcycles Statistics 2015-2022',1,1,322,'5b3f0d13-a0c4-46e4-9a7f-b1e10d2b5346'),
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:19:15.337',1,1,'http://localhost:4200/setting/mgDashboard','Tickets Statistics',1,'Tickets Statistics',1,1,323,'025b65cc-4dc1-4c8b-8a1c-27d1050727ac'),
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:19:28.402',1,0,'http://localhost:4200/setting/mgDashboard','Hotel Revenue',1,'Hotel Revenue',1,1,323,'02ecd670-2c72-49cf-a1d4-2585ff7b4136'),
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:19:52.75',1,1,'http://localhost:4200/setting/mgDashboard','Customer Service KPI',1,'Customer Service KPI',1,1,323,'31621999-f7b8-4e88-a6f4-a00e1257942f'),
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:20:07.562',1,1,'http://localhost:4200/setting/mgDashboard','GDP Of China',1,'GDP Of China',1,1,323,'06871c16-810d-4a29-8b03-a730bc3e6593'),
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:20:47.765',1,1,'http://localhost:4200/setting/mgDashboard','Insurance Customer KPI',1,'Insurance Customer KPI',1,1,323,'0d306f5f-298a-435a-9a20-42ec6b1ed2c2'),
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:21:00.783',1,1,'http://localhost:4200/setting/mgDashboard','OPEC Oil Production',1,'OPEC Oil Production',1,1,323,'2effd7bb-bc5a-4ebf-9fb9-16b9ecb89351'),
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:25:48.463',1,0,'http://localhost:4200/setting/mgDashboard','Sales Perfomance',1,'Sales Perfomance',1,1,316,'7609bc1d-8713-4ac1-bb2c-b708cd311698');
+INSERT INTO public.dashboard_setting (date_created,date_updated,status,board_type,dashboard_url,description,iframe,"name",created_by_id,updated_by_id,group_type,"uuid") VALUES
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:26:07.66',1,1,'http://localhost:4200/setting/mgDashboard','Sales By Month',1,'Sales By Month',1,1,316,'5bb7b6c1-dda3-4185-85da-780b657b63d9'),
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:26:18.766',1,1,'http://localhost:4200/setting/mgDashboard','Summary',1,'Summary',1,1,316,'c513b26d-ff52-4ab1-8406-6ed37050c351'),
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:26:35.826',1,0,'http://localhost:4200/setting/mgDashboard','Vehicle Production',1,'Vehicle Production',1,1,316,'09848b35-fbd7-454d-8ab6-29fdf9bb8f31'),
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:26:59.684',1,0,'http://localhost:4200/setting/mgDashboard','Site Statistics',1,'Site Statistics',1,1,316,'ebd7462e-4d3b-4f36-b3da-4d3311ff6e0d'),
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:27:05.274',1,0,'http://localhost:4200/setting/mgDashboard','Sales Overview',1,'Sales Overview',1,1,316,'92808d08-ea1c-4d5d-b2bd-66f53eba55db'),
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:27:13.867',1,1,'http://localhost:4200/setting/mgDashboard','Sales By Companies',1,'Sales By Companies',1,1,316,'9ffea29f-2119-4ea6-87f8-a684c5b31c6b'),
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:27:19.596',1,0,'http://localhost:4200/setting/mgDashboard','Data Filtering using Buttons',1,'Data Filtering using Buttons',1,1,316,'a131570a-a4d8-4602-8538-8061c2463175'),
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:39:00.489',1,0,'http://localhost:4200/setting/mgDashboard','SaaS KPI',1,'SaaS KPI',1,1,404,'f205f600-682f-41db-bcdc-8a3969dd6e5e'),
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:39:13.38',1,1,'http://localhost:4200/setting/mgDashboard','SaaS Metrics',1,'SaaS Metrics',1,1,404,'df1dbcbf-7e8e-4d6e-908f-86b30fef04a7'),
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:39:25.456',1,1,'http://localhost:4200/setting/mgDashboard','Support KPI',1,'Support KPI',1,1,404,'24cb4073-18dc-42b4-973f-bf5beea61d3f');
+INSERT INTO public.dashboard_setting (date_created,date_updated,status,board_type,dashboard_url,description,iframe,"name",created_by_id,updated_by_id,group_type,"uuid") VALUES
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:39:49.658',1,0,'http://localhost:4200/setting/mgDashboard','Global Internet Usage',1,'Global Internet Usage',1,1,404,'7e079912-ecd3-4c28-980a-f2b115b61ce4'),
+	 ('2024-05-11 00:16:41.063','2024-07-18 13:57:36.047',1,0,'http://localhost:4200/setting/mgDashboard','Population By State',1,'Population By State',1,1,404,'49f93b95-6a13-4193-bdda-1cac10b868b8'),
+	 ('2024-07-19 22:05:59.623','2024-07-19 22:06:16.254',1,2,'http://localhost:4200/setting/mgDashboard','ETL Database Process',0,'ETL Database Process',1,1,114,'ff7d4172-751b-4a09-b70c-b2b6febc31fa'),
+	 ('2024-07-19 22:11:58.455','2024-07-19 22:14:59.084',1,2,'http://localhost:4200/setting/mgDashboard','PAK Wheel Car Data',0,'PAK Wheel Car Data',1,1,114,'d3790105-3613-4018-823d-8ecf2a613c71'),
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:22:00.059',1,0,'http://localhost:4200/setting/mgDashboard','Application Revenue Statistics',1,'Application Revenue Statistics',1,1,323,'0ee00e80-0522-417f-b753-d966ecdebfdc'),
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:22:15.259',1,0,'http://localhost:4200/setting/mgDashboard','Game Sales',1,'Game Sales',1,1,323,'9a51d338-1a05-4de5-9402-dd80edef93a4'),
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:22:59.055',1,0,'http://localhost:4200/setting/mgDashboard','Fast Food Lunch',1,'Fast Food Lunch',1,1,315,'89b723e6-ca79-41a9-a11c-6a86809aa3a4'),
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:23:15.716',1,0,'http://localhost:4200/setting/mgDashboard','Opec',1,'Opec',1,1,315,'3d63924e-bb74-405a-8e89-8cc0066118ad'),
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:23:29.186',1,1,'http://localhost:4200/setting/mgDashboard','Nascar',1,'Nascar',1,1,315,'0f71d300-d217-4f2d-a86f-65897c349cdc'),
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:24:25.348',1,1,'http://localhost:4200/setting/mgDashboard','Fitness And Health Stats',1,'Fitness And Health Stats',1,1,315,'22b2df6b-1d49-44fc-8915-8ead7995aea8');
+INSERT INTO public.dashboard_setting (date_created,date_updated,status,board_type,dashboard_url,description,iframe,"name",created_by_id,updated_by_id,group_type,"uuid") VALUES
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:24:39.23',1,0,'http://localhost:4200/setting/mgDashboard','Manufacturing',1,'Manufacturing',1,1,315,'61d3c17f-0d98-41fa-891a-51230fde8f12'),
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:24:51.582',1,0,'http://localhost:4200/setting/mgDashboard','Christmas',1,'Christmas',1,1,315,'9337260d-7a0b-48b9-ab22-5000a6e47ee4'),
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:25:07.761',1,0,'http://localhost:4200/setting/mgDashboard','Financial',1,'Financial',1,1,315,'4709c427-9808-4f20-8fb0-df328fa6edce'),
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:25:19.605',1,1,'http://localhost:4200/setting/mgDashboard','Products',1,'Products',1,1,315,'c287c40b-4977-48ce-99c3-c2bdc81cd1b2'),
+	 ('2024-05-11 00:16:41.063','2024-05-30 17:25:33.189',1,0,'http://localhost:4200/setting/mgDashboard','Sales Statistics',1,'Sales Statistics',1,1,316,'4ae225ee-f68f-4b09-864f-f5daf4b4ce43'),
+	 ('2024-07-19 22:10:34.583','2024-07-19 22:15:04.94',1,2,'http://localhost:4200/setting/mgDashboard','Loop Test',0,'Loop Test',1,1,114,'f64209a7-eb96-460c-a527-3edf89144e40'),
+	 ('2024-07-19 22:09:18.693','2024-07-19 22:15:11.99',1,2,'http://localhost:4200/setting/mgDashboard','Traffic Radar Data Process',0,'Traffic Radar Data Process',1,1,114,'3b3198eb-b458-490f-98bb-07dc5fc82a3e'),
+	 ('2024-07-19 22:11:17.659','2024-07-21 23:34:08.422',1,2,'http://localhost:4200/setting/mgDashboard','Daraz Store Data',0,'Daraz Store Data',1,1,114,'d31cde43-7692-409d-8a4d-754f2319762f'),
+	 ('2024-07-19 22:11:37.876','2024-07-21 23:34:17.074',1,2,'http://localhost:4200/setting/mgDashboard','Amazon Store Data',0,'Amazon Store Data',1,1,114,'648e2008-6f4b-4c87-9b05-f6c414613230');

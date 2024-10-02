@@ -1,0 +1,6 @@
+INSERT INTO public.event_bridge (date_created,date_updated,status,bridge_type,bridge_url,description,"name",created_by_id,updated_by_id,credential_id,http_method,"uuid") VALUES
+	 ('2024-08-29 19:20:44.628','2024-08-29 19:20:44.628',1,0,'http://localhost:4200/setting/mgEventBridge','Job Logs WebHook [Request Receive]','JOB LOGS WEBHOOK [RECEIVE] 1231',23810,23810,36,2,'5de7ae33-5b1f-4ae5-82df-8fd3b8ff9e98'),
+	 ('2024-07-01 12:27:29.419','2024-07-17 10:21:37.498',1,2,'http://localhost:4200/setting/mgEventBridge','Report Data API Url','REPORT DATA TYPE URL',1,1,28,2,'331bcfdc-fd7d-4d80-8569-c5d5f1e79027'),
+	 ('2024-05-30 14:59:13.892','2024-07-13 13:24:18.261',1,1,'http://localhost:4200/setting/mgEventBridge','Job Status WebHook [Receive]','JOB STATUS WEBHOOK [RECEIVE]',1,1,16,2,'6fd99106-4063-4cc1-8a45-99874b5f50c1'),
+	 ('2024-07-01 12:28:46.896','2024-07-17 10:21:31.096',1,2,'http://localhost:4200/setting/mgEventBridge','Report Download Type API Url','REPORT DOWNLOAD TYPE URL',1,1,28,2,'dde7ccaf-e4db-4824-88cf-44034d40b6e1'),
+	 ('2024-05-30 15:00:03.682','2024-07-13 13:24:11.356',1,1,'http://localhost:4200/setting/mgEventBridge','Job Logs WebHook [Request Receive]','JOB LOGS WEBHOOK [RECEIVE]',1,1,16,2,'f7287cb5-293f-4d72-8547-2eb0f8fbbb94');
