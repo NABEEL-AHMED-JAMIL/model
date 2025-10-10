@@ -1,9 +1,10 @@
 package com.barco.model.dto.response;
 
-import com.barco.model.util.lookup.GLookup;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
+
+import java.util.Map;
 
 /**
  * @author Nabeel Ahmed
@@ -16,8 +17,9 @@ public class OrganizationResponse extends BaseEntity {
     private String address;
     private String email;
     private String phone;
-    private String logoUrl;
+    private AppUserResponse owner;
     private ETLCountryResponse country;
+    private Map<String, Object> orgStatistic;
 
     public OrganizationResponse() {
     }
@@ -54,12 +56,12 @@ public class OrganizationResponse extends BaseEntity {
         this.phone = phone;
     }
 
-    public String getLogoUrl() {
-        return logoUrl;
+    public AppUserResponse getOwner() {
+        return owner;
     }
 
-    public void setLogoUrl(String logoUrl) {
-        this.logoUrl = logoUrl;
+    public void setOwner(AppUserResponse owner) {
+        this.owner = owner;
     }
 
     public ETLCountryResponse getCountry() {
@@ -68,6 +70,14 @@ public class OrganizationResponse extends BaseEntity {
 
     public void setCountry(ETLCountryResponse country) {
         this.country = country;
+    }
+
+    public Map<String, Object> getOrgStatistic() {
+        return orgStatistic;
+    }
+
+    public void setOrgStatistic(Map<String, Object> orgStatistic) {
+        this.orgStatistic = orgStatistic;
     }
 
     @Override

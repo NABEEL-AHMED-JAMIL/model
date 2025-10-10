@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * @author Nabeel Ahmed
@@ -26,12 +27,12 @@ public class Organization extends BaseEntity {
         nullable = false)
     private String phone;
 
-    @Column(name = "logo_url")
-    private String logoUrl;
-
     @ManyToOne
     @JoinColumn(name = "country_id")
     private ETLCountry country;
+
+    @OneToMany(mappedBy = "organization")  // or @ManyToOne depending on your model
+    private List<AppUser> appUser;
 
     public Organization() {
     }
@@ -60,20 +61,20 @@ public class Organization extends BaseEntity {
         this.phone = phone;
     }
 
-    public String getLogoUrl() {
-        return logoUrl;
-    }
-
-    public void setLogoUrl(String logoUrl) {
-        this.logoUrl = logoUrl;
-    }
-
     public ETLCountry getCountry() {
         return country;
     }
 
     public void setCountry(ETLCountry country) {
         this.country = country;
+    }
+
+    public List<AppUser> getAppUser() {
+        return appUser;
+    }
+
+    public void setAppUser(List<AppUser> appUser) {
+        this.appUser = appUser;
     }
 
     @Override

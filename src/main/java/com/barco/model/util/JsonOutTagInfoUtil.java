@@ -32,7 +32,6 @@ public class JsonOutTagInfoUtil {
                 String tagKey = tagInfoRequest.getTagKey();
                 String tagParent = tagInfoRequest.getTagParent();
                 String tagValue = tagInfoRequest.getTagValue();
-
                 if (tagParent != null && !tagParent.isEmpty()) {
                     addJsonElement(jsonMap, tagParent, tagKey, tagValue);
                 } else {

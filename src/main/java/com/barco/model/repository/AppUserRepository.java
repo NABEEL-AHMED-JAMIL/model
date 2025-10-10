@@ -42,6 +42,8 @@ public interface AppUserRepository extends CrudRepository<AppUser, Long> {
 
     public Optional<AppUser> findByUuidAndStatusNot(String uuid, APPLICATION_STATUS status);
 
+    public Optional<AppUser> findByUuidAndOrgAccountAndStatusNot(String uuid, Boolean orgAccount, APPLICATION_STATUS status);
+
     @Query(value = FIND_ALL_BY_DATE_CREATED_BETWEEN_AND_STATUS_NOT)
     public List<AppUser> findAllByDateCreatedBetweenAndStatusNotOrderByDateCreatedDesc(Date startDate, Date endDate, APPLICATION_STATUS status);
 
