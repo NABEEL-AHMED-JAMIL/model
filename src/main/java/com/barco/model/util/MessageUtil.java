@@ -254,7 +254,6 @@ public interface MessageUtil {
     String QUERY_INQUIRY_DESCRIPTION_MISSING = "Query inquiry description missing.";
     String QUERY_INQUIRY_QUERY_MISSING = "Query inquiry query missing.";
     String QUERY_INQUIRY_NOT_FOUND = "Query inquiry not found.";
-
     // error message
     String SQL_GRAMMAR_EXCEPTION = "Query not valid.";
 

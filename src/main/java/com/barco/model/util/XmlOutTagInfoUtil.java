@@ -41,17 +41,14 @@ public class XmlOutTagInfoUtil {
         DocumentBuilder builder = factory.newDocumentBuilder();
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         String xml = null;
-
         if (xmlMakerRequest.getXmlTagsInfo() != null) {
             Document xmlDoc = builder.newDocument();
             boolean isParent = true;
-
             for (TagInfoRequest tagInfoRequest : xmlMakerRequest.getXmlTagsInfo()) {
                 String tagKey = tagInfoRequest.getTagKey();
                 String tagParent = tagInfoRequest.getTagParent();
                 String tagValue = tagInfoRequest.getTagValue();
                 Element child;
-
                 if (isParent) {
                     child = xmlDoc.createElementNS(BLANK, tagKey);
                     addTagValue(xmlDoc, child, tagValue);
@@ -83,7 +80,6 @@ public class XmlOutTagInfoUtil {
                     }
                 }
             }
-
             Transformer transformer = transformerFactory.newTransformer();
             transformer.setOutputProperty(OutputKeys.ENCODING, UTF8);
             transformer.setOutputProperty(OutputKeys.INDENT, YES);
@@ -94,7 +90,6 @@ public class XmlOutTagInfoUtil {
             transformer.transform(source, result);
             xml = result.getWriter().toString();
         }
-
         logger.info("Process For Xml Create End");
         return xml;
     }
