@@ -6,11 +6,11 @@ import com.google.gson.Gson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
- * @author Nabeel Ahmed
+ * Utility class to create JSON from ConfigurationMakerRequest
+ * Supports deep nested structures and arrays
  */
 @Component
 public class JsonOutTagInfoUtil {
@@ -20,9 +20,7 @@ public class JsonOutTagInfoUtil {
     private final Gson gson = new Gson();
 
     /**
-     * Method to make JSON from the request
-     * @param jsonMakerRequest
-     * @return String
+     * Create JSON string from ConfigurationMakerRequest
      */
     public String makeJson(ConfigurationMakerRequest jsonMakerRequest) {
         logger.info("Process for JSON Create Start");
@@ -45,13 +43,39 @@ public class JsonOutTagInfoUtil {
         return json;
     }
 
+    /**
+     * Add element to JSON map at deep path
+     * Supports arrays if multiple objects share same parent
+     */
     @SuppressWarnings("unchecked")
-    private void addJsonElement(Map<String, Object> jsonMap, String parentKey, String key, String value) {
-        if (!jsonMap.containsKey(parentKey)) {
-            jsonMap.put(parentKey, new HashMap<String, Object>());
+    private void addJsonElement(Map<String, Object> jsonMap, String parentKeyPath, String key, String value) {
+        String[] pathParts = parentKeyPath.split("\\.");
+        Map<String, Object> currentMap = jsonMap;
+        for (int i = 0; i < pathParts.length; i++) {
+            String part = pathParts[i];
+            if (i == pathParts.length - 1) {
+                Object existing = currentMap.get(part);
+                if (existing == null) {
+                    Map<String, Object> newMap = new HashMap<>();
+                    newMap.put(key, value != null ? value : "");
+                    currentMap.put(part, newMap);
+                } else if (existing instanceof Map) {
+                    ((Map<String, Object>) existing).put(key, value != null ? value : "");
+                } else if (existing instanceof List) {
+                    Map<String, Object> newMap = new HashMap<>();
+                    newMap.put(key, value != null ? value : "");
+                    ((List<Object>) existing).add(newMap);
+                }
+            } else {
+                currentMap.putIfAbsent(part, new HashMap<String, Object>());
+                Object next = currentMap.get(part);
+                if (!(next instanceof Map)) {
+                    next = new HashMap<String, Object>();
+                    currentMap.put(part, next);
+                }
+                currentMap = (Map<String, Object>) next;
+            }
         }
-        Map<String, Object> parentMap = (Map<String, Object>) jsonMap.get(parentKey);
-        parentMap.put(key, value != null ? value : "");
     }
 
     @Override

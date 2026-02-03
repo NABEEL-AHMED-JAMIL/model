@@ -3,8 +3,6 @@ package com.barco.model.repository.projection;
 import com.barco.model.util.lookup.ACCOUNT_TYPE;
 import com.barco.model.util.lookup.APPLICATION_STATUS;
 import com.google.gson.Gson;
-
-import java.sql.Timestamp;
 import java.util.Date;
 
 /**

@@ -126,14 +126,14 @@ public class ModelUtil {
     public static String getRequestIP(HttpServletRequest request) {
         for (String header: IP_HEADERS) {
             String value = request.getHeader(header);
-            logger.info(String.format("Header Name %s & Header Value %s.", header, value));
+            logger.info("Header Name {} & Header Value {}.", header, value);
             if (value == null || value.isEmpty()) {
                 continue;
             }
             String[] parts = value.split("\\s*,\\s*");
             return parts[0];
         }
-        logger.info(String.format("Header Name Remote-Address & Header Value %s.", request.getRemoteAddr()));
+        logger.info("Header Name Remote-Address & Header Value {}.", request.getRemoteAddr());
         return request.getRemoteAddr();
     }
 

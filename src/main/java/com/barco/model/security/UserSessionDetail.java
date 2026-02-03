@@ -11,7 +11,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
-import java.util.List;
 import java.util.stream.Collectors;
 
 /**
@@ -36,12 +35,22 @@ public class UserSessionDetail implements UserDetails {
     private ACCOUNT_TYPE accountType;
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserSessionDetail(String username, String email, String password,
-        Collection<? extends GrantedAuthority> authorities) {
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.authorities = authorities;
+    public UserSessionDetail(AppUser appUser) {
+        this.id = appUser.getId();
+        this.uuid = appUser.getUuid();
+        this.firstName = appUser.getFirstName();
+        this.lastName = appUser.getLastName();
+        this.ipAddress = appUser.getIpAddress();
+        this.orgAccount = appUser.getOrgAccount();
+        this.profileImage = appUser.getImg();
+        this.accountType = appUser.getAccountType();
+        this.organization = appUser.getOrganization();
+        this.username = appUser.getUsername();
+        this.email = appUser.getEmail();
+        this.password = appUser.getPassword();
+        this.authorities = appUser.getAppUserRoles().stream()
+            .filter(role -> role.getStatus().equals(APPLICATION_STATUS.ACTIVE))
+            .map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
     }
 
     /**
@@ -50,19 +59,7 @@ public class UserSessionDetail implements UserDetails {
      * @return UserDetailsImpl
      * */
     public static UserSessionDetail build(AppUser appUser) {
-        List<GrantedAuthority> authorities = appUser.getAppUserRoles().stream()
-           .filter(role -> role.getStatus().equals(APPLICATION_STATUS.ACTIVE))
-           .map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
-        UserSessionDetail userSessionDetail = new UserSessionDetail(appUser.getUsername(), appUser.getEmail(), appUser.getPassword(), authorities);
-        userSessionDetail.setId(appUser.getId());
-        userSessionDetail.setUuid(appUser.getUuid());
-        userSessionDetail.setFirstName(appUser.getFirstName());
-        userSessionDetail.setLastName(appUser.getLastName());
-        userSessionDetail.setIpAddress(appUser.getIpAddress());
-        userSessionDetail.setOrgAccount(appUser.getOrgAccount());
-        userSessionDetail.setProfileImage(appUser.getImg());
-        userSessionDetail.setAccountType(appUser.getAccountType());
-        userSessionDetail.setOrganization(appUser.getOrganization());
+        UserSessionDetail userSessionDetail = new UserSessionDetail(appUser);
         // if profile not active so we allow the user to open the api session but not allow to view the ui
         if (appUser.getProfile().getStatus().equals(APPLICATION_STATUS.ACTIVE)) {
             userSessionDetail.setProfile(appUser.getProfile());

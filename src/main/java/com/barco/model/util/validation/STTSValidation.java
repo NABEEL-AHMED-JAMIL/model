@@ -16,8 +16,7 @@ public class STTSValidation {
     private String sectionName;
     private String description;
 
-    public STTSValidation() {
-    }
+    public STTSValidation() {}
 
     public Integer getRowCounter() {
         return rowCounter;

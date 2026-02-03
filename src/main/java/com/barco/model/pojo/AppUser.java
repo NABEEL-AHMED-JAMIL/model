@@ -53,14 +53,15 @@ public class AppUser extends BaseEntity {
         inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> appUserRoles = new HashSet<>();
 
-    // AppUserProfileAccess & AppUserRoleAccess for ui access
-    // for admin and super admin for create the user from application
+    // Access control lists used by the UI to manage profile- and role-based permissions.
+    // Populated and checked when administrators (admin or super-admin) create or manage users.
     @OneToMany(mappedBy = "appUser", fetch = FetchType.LAZY)
     private List<AppUserProfileAccess> profilePermissionsAccesses;
 
     @OneToMany(mappedBy = "appUser", fetch = FetchType.LAZY)
     private List<AppUserRoleAccess> appUserRoleAccesses;
 
+    // AppUserEventBridge and AppUserEnv need to review this design later.
     @OneToMany(mappedBy = "appUser", fetch = FetchType.LAZY)
     private List<AppUserEnv> appUserEnvs;
 

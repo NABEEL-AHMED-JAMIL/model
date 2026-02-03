@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -27,16 +28,14 @@
 		</developer>
 	</developers>
 
+	<name>model</name>
 	<groupId>com.barco</groupId>
 	<artifactId>model</artifactId>
-	<version>9.18.2024</version>
-	<name>model</name>
+	<version>9.18.2025</version>
 	<description>Barco Crone Model</description>
 
 	<properties>
 		<java.version>11</java.version>
-		<postgresql.version>42.2.5</postgresql.version>
-		<disruptor.version>3.4.2</disruptor.version>
 		<jpa.version>2.1.8.RELEASE</jpa.version>
 	</properties>
 
@@ -55,13 +54,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-			<version>${jpa.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.eclipse.persistence</groupId>
-			<artifactId>eclipselink</artifactId>
-			<version>2.6.2</version>
 		</dependency>
 
 		<dependency>
@@ -93,6 +85,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+
     </dependencies>
 
 	<build>
