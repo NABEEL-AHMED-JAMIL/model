@@ -4,8 +4,7 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.UUID;
 import javax.persistence.*;
-import com.barco.model.pojo.aoe.AppUser;
-import com.barco.model.util.lookup.APPLICATION_STATUS;
+import com.barco.model.lookup.APPLICATION_STATUS;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
@@ -35,16 +34,16 @@ public class BaseEntity implements Serializable {
     @Column(name = "date_updated")
     private Timestamp dateUpdated;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "created_by_id")
-    private AppUser createdBy;
+    private EtlAccount createdBy;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "updated_by_id")
-    private AppUser updatedBy;
+    private EtlAccount updatedBy;
 
-    @Column(name = "status")
     @Enumerated(EnumType.ORDINAL)
+    @Column(name = "status", nullable = false)
     private APPLICATION_STATUS status;
 
     public BaseEntity() {}
@@ -93,19 +92,19 @@ public class BaseEntity implements Serializable {
         this.dateUpdated = dateUpdated;
     }
 
-    public AppUser getCreatedBy() {
+    public EtlAccount getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(AppUser createdBy) {
+    public void setCreatedBy(EtlAccount createdBy) {
         this.createdBy = createdBy;
     }
 
-    public AppUser getUpdatedBy() {
+    public EtlAccount getUpdatedBy() {
         return updatedBy;
     }
 
-    public void setUpdatedBy(AppUser updatedBy) {
+    public void setUpdatedBy(EtlAccount updatedBy) {
         this.updatedBy = updatedBy;
     }
 

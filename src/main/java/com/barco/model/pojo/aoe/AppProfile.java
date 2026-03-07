@@ -1,19 +1,16 @@
 package com.barco.model.pojo.aoe;
 
+import com.barco.model.pojo.NamedTokenDetail;
 import com.barco.model.pojo.BaseEntity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
-import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
  * @author Nabeel Ahmed
- * ORG.ROLE.PROFILE
- * CHASE.ADMIN.PROFILE
- * CHASE.SUPER_ADMIN.PROFILE
- * CHASE.USER.PROFILE
  */
 @Entity
 @Table(name = "app_profile")
@@ -21,37 +18,22 @@ import javax.persistence.Table;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AppProfile extends BaseEntity {
 
-    @Column(name = "name", unique = true, nullable = false)
-    private String name;
-
-    @Column(name = "description")
-    private String description;
+    @Embedded
+    private NamedTokenDetail tokenDetail;
 
     public AppProfile() {}
 
-    public AppProfile(String name, String description) {
-        this.name = name;
-        this.description = description;
+    public NamedTokenDetail getTokenDetail() {
+        return tokenDetail;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public void setTokenDetail(NamedTokenDetail tokenDetail) {
+        this.tokenDetail = tokenDetail;
     }
 
     @Override
     public String toString() {
         return new Gson().toJson(this);
     }
+
 }

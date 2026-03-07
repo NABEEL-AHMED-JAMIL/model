@@ -1,6 +1,7 @@
 package com.barco.model.pojo.aoe;
 
 import com.barco.model.pojo.BaseEntity;
+import com.barco.model.pojo.cse.AppCountry;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
@@ -14,10 +15,6 @@ import javax.persistence.*;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Organization extends BaseEntity {
-
-    // this can be considered the client
-    @Column(name = "org_token", nullable = false)
-    private String orgToken;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -33,6 +30,10 @@ public class Organization extends BaseEntity {
 
     @Column(name = "address", nullable = false)
     private String address;
+
+    @ManyToOne
+    @JoinColumn(name = "country_id", nullable = false)
+    private AppCountry country;
 
     public Organization() {}
 
@@ -76,8 +77,17 @@ public class Organization extends BaseEntity {
         this.imgUrl = imgUrl;
     }
 
+    public AppCountry getCountry() {
+        return country;
+    }
+
+    public void setCountry(AppCountry country) {
+        this.country = country;
+    }
+
     @Override
     public String toString() {
         return new Gson().toJson(this);
     }
+
 }

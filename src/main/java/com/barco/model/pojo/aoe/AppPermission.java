@@ -1,8 +1,8 @@
 package com.barco.model.pojo.aoe;
 
+import com.barco.model.pojo.NamedTokenDetail;
 import com.barco.model.pojo.BaseEntity;
-import com.barco.model.util.lookup.PERMISSION_SCOPE;
-import com.barco.model.util.lookup.PERMISSION_TYPE;
+import com.barco.model.lookup.PERMISSION_TYPE;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
@@ -17,46 +17,32 @@ import javax.persistence.*;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AppPermission extends BaseEntity {
 
-    @Column(name = "name", unique = true, nullable = false)
-    private String name;
+    @Embedded
+    private NamedTokenDetail tokenDetail;
 
-    @Column(name = "description")
-    private String description;
-
-    @Column(name = "permission_type", nullable = false)
     @Enumerated(EnumType.ORDINAL)
+    @Column(name = "permission_type", nullable = false)
     private PERMISSION_TYPE permissionType;
 
-    @Column(name = "permission_scope", nullable = false)
-    private PERMISSION_SCOPE permissionScope;
+    /**
+     * Route permissions use for page access control,
+     * Event permissions use for event access control and
+     * Role permissions use for role access control.
+     * Route page: LookupData with parent_lookup_id = 1
+     * Event permission: Edit, View, Delete, Create etc. LookupData with parent_lookup_id = 2
+     * */
+    @ManyToOne
+    @JoinColumn(name = "parent_lookup_id")
+    private AppPermission parentPermission;
 
     public AppPermission() {}
 
-    public AppPermission(String name, String description) {
-        this.name = name;
-        this.description = description;
+    public NamedTokenDetail getTokenDetail() {
+        return tokenDetail;
     }
 
-    public AppPermission(String name, String description, PERMISSION_TYPE permissionType) {
-        this.name = name;
-        this.description = description;
-        this.permissionType = permissionType;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public void setTokenDetail(NamedTokenDetail tokenDetail) {
+        this.tokenDetail = tokenDetail;
     }
 
     public PERMISSION_TYPE getPermissionType() {
@@ -67,16 +53,17 @@ public class AppPermission extends BaseEntity {
         this.permissionType = permissionType;
     }
 
-    public PERMISSION_SCOPE getPermissionScope() {
-        return permissionScope;
+    public AppPermission getParentPermission() {
+        return parentPermission;
     }
 
-    public void setPermissionScope(PERMISSION_SCOPE permissionScope) {
-        this.permissionScope = permissionScope;
+    public void setParentPermission(AppPermission parentPermission) {
+        this.parentPermission = parentPermission;
     }
 
     @Override
     public String toString() {
         return new Gson().toJson(this);
     }
+
 }

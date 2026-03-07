@@ -87,4 +87,5 @@ public class AppUser extends BaseEntity {
     public String toString() {
         return new Gson().toJson(this);
     }
+
 }

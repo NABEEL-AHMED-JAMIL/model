@@ -13,7 +13,7 @@
 
 	<licenses>
 		<license>
-			<name>New Barco License</name>
+			<name>New ETL License</name>
 			<url>https://github.com/NABEEL-AHMED-JAMIL</url>
 			<distribution>repo</distribution>
 		</license>
@@ -23,7 +23,7 @@
 		<developer>
 			<name>NABEEL AHMED JAMIL</name>
 			<email>nabeel.amd93@gmail.com</email>
-			<organization>Barco</organization>
+			<organization>ETL</organization>
 			<organizationUrl>https://github.com/NABEEL-AHMED-JAMIL</organizationUrl>
 		</developer>
 	</developers>
@@ -31,8 +31,8 @@
 	<name>model</name>
 	<groupId>com.barco</groupId>
 	<artifactId>model</artifactId>
-	<version>9.18.2025</version>
-	<description>Barco Crone Model</description>
+	<version>3.1.2026</version>
+	<description>ETL Crone Model</description>
 
 	<properties>
 		<java.version>11</java.version>
@@ -48,7 +48,7 @@
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
 		<dependency>
@@ -102,7 +102,7 @@
 						<phase>package</phase>
 						<configuration>
 							<!--to be imported on other projects-->
-							<classifier>barco-model</classifier>
+							<classifier>etl-model</classifier>
 						</configuration>
 					</execution>
 				</executions>
@@ -110,6 +110,18 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<release>${java.version}</release>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

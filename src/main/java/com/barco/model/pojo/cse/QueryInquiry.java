@@ -1,27 +1,35 @@
-package com.barco.model.pojo.aoe;
+package com.barco.model.pojo.cse;
 
 import com.barco.model.pojo.NamedTokenDetail;
 import com.barco.model.pojo.BaseEntity;
+import com.barco.model.pojo.aoe.Organization;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * @author Nabeel Ahmed
  */
 @Entity
-@Table(name = "app_role")
+@Table(name = "query_inquiry")
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class AppRole extends BaseEntity {
+public class QueryInquiry extends BaseEntity {
 
     @Embedded
     private NamedTokenDetail tokenDetail;
 
-    public AppRole() {}
+    @Column(name = "query", nullable = false, columnDefinition = "text")
+    private String query;
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "org_id")
+    protected Organization organization;
+
+    public QueryInquiry() {}
 
     public NamedTokenDetail getTokenDetail() {
         return tokenDetail;
@@ -29,6 +37,22 @@ public class AppRole extends BaseEntity {
 
     public void setTokenDetail(NamedTokenDetail tokenDetail) {
         this.tokenDetail = tokenDetail;
+    }
+
+    public String getQuery() {
+        return query;
+    }
+
+    public void setQuery(String query) {
+        this.query = query;
+    }
+
+    public Organization getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
     }
 
     @Override
