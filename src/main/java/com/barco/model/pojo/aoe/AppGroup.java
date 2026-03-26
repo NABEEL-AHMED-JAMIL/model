@@ -1,8 +1,8 @@
 package com.barco.model.pojo.aoe;
 
-import com.barco.model.pojo.NamedTokenDetail;
+import com.barco.model.lookup.GROUP_TYPE;
 import com.barco.model.pojo.BaseEntity;
-import com.barco.model.lookup.PERMISSION_TYPE;
+import com.barco.model.pojo.NamedTokenDetail;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
@@ -12,19 +12,23 @@ import javax.persistence.*;
  * @author Nabeel Ahmed
  */
 @Entity
-@Table(name = "app_permission")
+@Table(name = "app_group")
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class AppPermission extends BaseEntity {
+public class AppGroup extends BaseEntity {
 
     @Embedded
     private NamedTokenDetail tokenDetail;
 
     @Enumerated(EnumType.ORDINAL)
-    @Column(name = "permission_type", nullable = false)
-    private PERMISSION_TYPE permissionType;
+    @Column(name = "group_type", nullable = false)
+    private GROUP_TYPE groupType;
 
-    public AppPermission() {}
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "org_id", nullable = false)
+    private Organization organization;
+
+    public AppGroup() {}
 
     public NamedTokenDetail getTokenDetail() {
         return tokenDetail;
@@ -34,17 +38,26 @@ public class AppPermission extends BaseEntity {
         this.tokenDetail = tokenDetail;
     }
 
-    public PERMISSION_TYPE getPermissionType() {
-        return permissionType;
+    public GROUP_TYPE getGroupType() {
+        return groupType;
     }
 
-    public void setPermissionType(PERMISSION_TYPE permissionType) {
-        this.permissionType = permissionType;
+    public void setGroupType(GROUP_TYPE groupType) {
+        this.groupType = groupType;
+    }
+
+    public Organization getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
     }
 
     @Override
     public String toString() {
         return new Gson().toJson(this);
     }
+
 
 }
