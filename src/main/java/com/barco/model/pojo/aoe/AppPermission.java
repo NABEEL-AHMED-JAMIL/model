@@ -3,6 +3,7 @@ package com.barco.model.pojo.aoe;
 import com.barco.model.pojo.NamedTokenDetail;
 import com.barco.model.pojo.BaseEntity;
 import com.barco.model.lookup.PERMISSION_TYPE;
+import com.barco.model.pojo.cse.LookupData;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
@@ -17,6 +18,11 @@ import javax.persistence.*;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AppPermission extends BaseEntity {
 
+    // Default -> System
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    protected LookupData category;
+
     @Embedded
     private NamedTokenDetail tokenDetail;
 
@@ -25,6 +31,14 @@ public class AppPermission extends BaseEntity {
     private PERMISSION_TYPE permissionType;
 
     public AppPermission() {}
+
+    public LookupData getCategory() {
+        return category;
+    }
+
+    public void setCategory(LookupData category) {
+        this.category = category;
+    }
 
     public NamedTokenDetail getTokenDetail() {
         return tokenDetail;

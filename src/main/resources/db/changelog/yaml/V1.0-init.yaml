@@ -1,0 +1,16 @@
+databaseChangeLog:
+    - changeSet:
+        id: 1
+        author: nabeel.amd93
+        comment: Create shed lock table
+        changes:
+            - sqlFile:
+                label: ShedLock
+                description: Shed-lock for database scheduler locking
+                path: ../changelog-sets/V1.0-init/V1__creating_shedlock_schema.sql
+                relativeToChangelogFile: true
+                splitStatements: true
+        rollback:
+            - sqlFile:
+                path: ../changelog-sets/V1.0-init/R__drop_shedlock_schema.sql
+                relativeToChangelogFile: true
