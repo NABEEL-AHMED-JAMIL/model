@@ -1,6 +1,5 @@
 package com.barco.model.pojo.cse;
 
-import com.barco.model.pojo.NamedTokenDetail;
 import com.barco.model.pojo.BaseEntity;
 import com.barco.model.pojo.aoe.Organization;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -17,9 +16,6 @@ import javax.persistence.*;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AppExcelSheet extends BaseEntity {
 
-    @Embedded
-    private NamedTokenDetail tokenDetail;
-
     @Column(name = "sheet_name", nullable = false)
     private String sheetName;
 
@@ -27,19 +23,17 @@ public class AppExcelSheet extends BaseEntity {
     @Column(name = "columns", nullable = false)
     private String columns;
 
+    @Column(name = "description", nullable = false)
+    private String description;
+
+    @Column(name = "is_system", nullable = false)
+    private Boolean isSystem = false;
+
     @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "org_id")
+    @JoinColumn(name = "org_id", nullable = false)
     protected Organization organization;
 
     public AppExcelSheet() {}
-
-    public NamedTokenDetail getTokenDetail() {
-        return tokenDetail;
-    }
-
-    public void setTokenDetail(NamedTokenDetail tokenDetail) {
-        this.tokenDetail = tokenDetail;
-    }
 
     public String getSheetName() {
         return sheetName;
@@ -55,6 +49,22 @@ public class AppExcelSheet extends BaseEntity {
 
     public void setColumns(String columns) {
         this.columns = columns;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Boolean getIsSystem() {
+        return isSystem;
+    }
+
+    public void setIsSystem(Boolean isSystem) {
+        this.isSystem = isSystem;
     }
 
     public Organization getOrganization() {

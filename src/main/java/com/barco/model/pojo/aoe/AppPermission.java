@@ -2,7 +2,6 @@ package com.barco.model.pojo.aoe;
 
 import com.barco.model.pojo.NamedTokenDetail;
 import com.barco.model.pojo.BaseEntity;
-import com.barco.model.lookup.PERMISSION_TYPE;
 import com.barco.model.pojo.cse.LookupData;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -18,17 +17,13 @@ import javax.persistence.*;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AppPermission extends BaseEntity {
 
-    // Default -> System
+    // Default -> System, [list of categories will be maintained in lookup_data table with type = PERMISSION_CATEGORY]
     @ManyToOne
     @JoinColumn(name = "category_id")
     protected LookupData category;
 
     @Embedded
     private NamedTokenDetail tokenDetail;
-
-    @Enumerated(EnumType.ORDINAL)
-    @Column(name = "permission_type", nullable = false)
-    private PERMISSION_TYPE permissionType;
 
     public AppPermission() {}
 
@@ -46,14 +41,6 @@ public class AppPermission extends BaseEntity {
 
     public void setTokenDetail(NamedTokenDetail tokenDetail) {
         this.tokenDetail = tokenDetail;
-    }
-
-    public PERMISSION_TYPE getPermissionType() {
-        return permissionType;
-    }
-
-    public void setPermissionType(PERMISSION_TYPE permissionType) {
-        this.permissionType = permissionType;
     }
 
     @Override

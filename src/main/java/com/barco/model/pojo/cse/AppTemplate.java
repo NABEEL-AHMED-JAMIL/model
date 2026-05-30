@@ -21,12 +21,13 @@ import javax.persistence.*;
 public class AppTemplate extends BaseEntity {
 
     @Embedded
-    private NamedTokenDetail tokenDetail;
+    private NamedTokenDetail namedTokenDetail;
 
     @Column(name = "title", nullable = false)
     private String title;
 
-    @Column(name = "content", columnDefinition = "text", nullable = false)
+    @Column(name = "content", columnDefinition = "text",
+        nullable = false)
     private String content;
 
     @Enumerated(EnumType.ORDINAL)
@@ -42,12 +43,12 @@ public class AppTemplate extends BaseEntity {
 
     public AppTemplate() {}
 
-    public NamedTokenDetail getTokenDetail() {
-        return tokenDetail;
+    public NamedTokenDetail getNamedTokenDetail() {
+        return namedTokenDetail;
     }
 
-    public void setTokenDetail(NamedTokenDetail tokenDetail) {
-        this.tokenDetail = tokenDetail;
+    public void setNamedTokenDetail(NamedTokenDetail namedTokenDetail) {
+        this.namedTokenDetail = namedTokenDetail;
     }
 
     public String getTitle() {

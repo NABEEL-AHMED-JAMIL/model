@@ -5,9 +5,8 @@ import com.barco.model.pojo.BaseEntity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+
+import javax.persistence.*;
 
 /**
  * @author Nabeel Ahmed
@@ -19,16 +18,28 @@ import javax.persistence.Table;
 public class AppProfile extends BaseEntity {
 
     @Embedded
-    private NamedTokenDetail tokenDetail;
+    private NamedTokenDetail namedTokenDetail;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "role_id", nullable = false, unique = true)
+    private AppRole role;
 
     public AppProfile() {}
 
-    public NamedTokenDetail getTokenDetail() {
-        return tokenDetail;
+    public NamedTokenDetail getNamedTokenDetail() {
+        return namedTokenDetail;
     }
 
-    public void setTokenDetail(NamedTokenDetail tokenDetail) {
-        this.tokenDetail = tokenDetail;
+    public void setNamedTokenDetail(NamedTokenDetail namedTokenDetail) {
+        this.namedTokenDetail = namedTokenDetail;
+    }
+
+    public AppRole getRole() {
+        return role;
+    }
+
+    public void setRole(AppRole role) {
+        this.role = role;
     }
 
     @Override

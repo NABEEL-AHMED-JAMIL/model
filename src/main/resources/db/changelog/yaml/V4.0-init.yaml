@@ -1,0 +1,12 @@
+databaseChangeLog:
+    - changeSet:
+        id: 4
+        author: nabeel.amd93
+        comment: Insert app permission data
+        changes:
+            - sqlFile:
+                label: App Permission Data
+                description: AppPermission table initialization with default system permissions
+                path: ../changelog-sets/V4.0-init/V4__insert_app_profile_data.sql
+                relativeToChangelogFile: true
+                splitStatements: true

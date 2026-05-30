@@ -1,0 +1,12 @@
+databaseChangeLog:
+    - changeSet:
+        id: 3
+        author: nabeel.amd93
+        comment: Insert app role
+        changes:
+            - sqlFile:
+                label: App Role Data
+                description: AppRole table initialization with default system roles
+                path: ../changelog-sets/V3.0-init/V3__insert_app_role_data.sql
+                relativeToChangelogFile: true
+                splitStatements: true

@@ -1,0 +1,12 @@
+databaseChangeLog:
+    - changeSet:
+        id: 4
+        author: nabeel.amd93
+        comment: Insert organization data
+        changes:
+            - sqlFile:
+                label: Organization Data
+                description: Organization table initialization with default data
+                path: ../changelog-sets/V5.0-init/V5__insert_organization_data.sql
+                relativeToChangelogFile: true
+                splitStatements: true

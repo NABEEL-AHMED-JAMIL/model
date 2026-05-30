@@ -34,12 +34,14 @@ public class OrganizationJwtKey extends BaseEntity {
 
     // AES-encrypted private key (store as TEXT/CLOB)
     @Lob
-    @Column(name = "private_key", columnDefinition = "BYTEA", nullable = false)
+    @Column(name = "private_key",
+        columnDefinition = "BYTEA", nullable = false)
     private byte[] privateKey;
 
     // PEM or Base64 encoded (store as TEXT/CLOB)
     @Lob
-    @Column(name = "public_key", columnDefinition = "BYTEA", nullable = false)
+    @Column(name = "public_key",
+        columnDefinition = "BYTEA", nullable = false)
     private byte[] publicKey;
 
     public OrganizationJwtKey() {}
@@ -82,7 +84,6 @@ public class OrganizationJwtKey extends BaseEntity {
         copy.setId(this.getId());
         copy.setOrganization(this.getOrganization());
         copy.setKeyId(this.getKeyId());
-        copy.setPublicKey(this.getPublicKey());
         return new Gson().toJson(copy);
     }
 

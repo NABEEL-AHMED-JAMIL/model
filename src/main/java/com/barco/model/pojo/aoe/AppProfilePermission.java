@@ -13,11 +13,7 @@ import javax.persistence.*;
 @Table(name = "app_profile_permission")
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class  AppProfilePermission extends BaseEntity {
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "org_id", nullable = false)
-    private Organization organization;
+public class AppProfilePermission extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "profile_id", nullable = false)
@@ -28,22 +24,14 @@ public class  AppProfilePermission extends BaseEntity {
     private AppPermission permission;
 
     // This field is used when permission is event for screen, we want to hide the action from UI.
-    @Column(name = "hided", nullable = false)
-    private boolean hided = false;
+    @Column(name = "hidden", nullable = false)
+    private boolean hidden = false;
 
     // This field is used when permission is event for screen, we want to disable the action from UI.
     @Column(name = "disabled", nullable = false)
     private boolean disabled = false;
 
     public AppProfilePermission() {}
-
-    public Organization getOrganization() {
-        return organization;
-    }
-
-    public void setOrganization(Organization organization) {
-        this.organization = organization;
-    }
 
     public AppProfile getProfile() {
         return profile;
@@ -61,12 +49,12 @@ public class  AppProfilePermission extends BaseEntity {
         this.permission = permission;
     }
 
-    public boolean isHided() {
-        return hided;
+    public boolean isHidden() {
+        return hidden;
     }
 
-    public void setHided(boolean hided) {
-        this.hided = hided;
+    public void setHidden(boolean hidden) {
+        this.hidden = hidden;
     }
 
     public boolean isDisabled() {

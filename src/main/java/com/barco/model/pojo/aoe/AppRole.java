@@ -19,16 +19,16 @@ import javax.persistence.Table;
 public class AppRole extends BaseEntity {
 
     @Embedded
-    private NamedTokenDetail tokenDetail;
+    private NamedTokenDetail namedTokenDetail;
 
     public AppRole() {}
 
-    public NamedTokenDetail getTokenDetail() {
-        return tokenDetail;
+    public NamedTokenDetail getNamedTokenDetail() {
+        return namedTokenDetail;
     }
 
-    public void setTokenDetail(NamedTokenDetail tokenDetail) {
-        this.tokenDetail = tokenDetail;
+    public void setNamedTokenDetail(NamedTokenDetail namedTokenDetail) {
+        this.namedTokenDetail = namedTokenDetail;
     }
 
     @Override

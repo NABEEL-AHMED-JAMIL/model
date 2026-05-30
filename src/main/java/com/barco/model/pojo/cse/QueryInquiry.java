@@ -20,9 +20,10 @@ import javax.persistence.*;
 public class QueryInquiry extends BaseEntity {
 
     @Embedded
-    private NamedTokenDetail tokenDetail;
+    private NamedTokenDetail namedTokenDetail;
 
-    @Column(name = "query", nullable = false, columnDefinition = "text")
+    @Column(name = "query",
+        columnDefinition = "text", nullable = false)
     private String query;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
@@ -31,12 +32,12 @@ public class QueryInquiry extends BaseEntity {
 
     public QueryInquiry() {}
 
-    public NamedTokenDetail getTokenDetail() {
-        return tokenDetail;
+    public NamedTokenDetail getNamedTokenDetail() {
+        return namedTokenDetail;
     }
 
-    public void setTokenDetail(NamedTokenDetail tokenDetail) {
-        this.tokenDetail = tokenDetail;
+    public void setNamedTokenDetail(NamedTokenDetail namedTokenDetail) {
+        this.namedTokenDetail = namedTokenDetail;
     }
 
     public String getQuery() {

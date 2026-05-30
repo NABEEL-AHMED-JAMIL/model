@@ -23,18 +23,18 @@ public interface OrganizationJwtKeyRepository extends CrudRepository<Organizatio
     @Query("SELECT o.keyId AS keyId, o.privateKey AS privateKey, o.publicKey AS publicKey " +
            "FROM OrganizationJwtKey o " +
            "WHERE o.keyId = :keyId AND o.status = :status")
-    Optional<OrganizationKeyProjection> findByKeyIdAndStatus(String keyId, APPLICATION_STATUS status);
+    Optional<OrganizationKeyProjection> findByKeyIdAndStatus(@Param("keyId") String keyId, @Param("status") APPLICATION_STATUS status);
 
     @Query("SELECT o.keyId AS keyId, o.privateKey AS privateKey, o.publicKey AS publicKey " +
            "FROM OrganizationJwtKey o " +
            "WHERE o.organization.id = :orgId AND o.status = :status")
-    Optional<OrganizationKeyProjection> findProjectedByOrganizationIdAndStatus(@Param("orgId") Long orgId, @Param("status") APPLICATION_STATUS status);
+    Optional<OrganizationKeyProjection> findKeyByOrganizationIdAndStatus(@Param("orgId") Long orgId, @Param("status") APPLICATION_STATUS status);
 
-    // New: fetch all active projected keys for warmup
+    // New: fetch all active keys for warmup
     @Query("SELECT o.keyId AS keyId, o.privateKey AS privateKey, o.publicKey AS publicKey " +
            "FROM OrganizationJwtKey o " +
            "WHERE o.status = :status")
-    List<OrganizationKeyProjection> findAllProjectedByStatus(@Param("status") APPLICATION_STATUS status);
+    List<OrganizationKeyProjection> findAllKeysByStatus(@Param("status") APPLICATION_STATUS status);
 
     // Update keyId, privateKey and publicKey by entity id
     @Modifying

@@ -7,6 +7,6 @@ databaseChangeLog:
             - sqlFile:
                 label: App Country
                 description: App Country table store the country code detail and name
-                path: ../changelog-sets/V2.0-init/V2__insert_app_country_schema.sql
+                path: ../changelog-sets/V2.0-init/V2__insert_app_country_data.sql
                 relativeToChangelogFile: true
                 splitStatements: true

@@ -1,6 +1,8 @@
 package com.barco.model.pojo;
 
+import com.barco.model.lookup.GENDER;
 import com.barco.model.pojo.aoe.*;
+import com.barco.model.pojo.cse.AppCountry;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
@@ -32,15 +34,18 @@ public class EtlAccount extends BaseEntity {
     @Column(name = "ip_address", nullable = false)
     private String ipAddress;
 
+    @ManyToOne
+    @JoinColumn(name = "country_id", nullable = false)
+    private AppCountry country;
+
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "gender", nullable = false)
+    private GENDER gender;
+
     // Active profile for the account will fetch the detail from 'EtlAccountPrivileges' current profile and its permission.
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "profile_id", nullable = false)
     private AppProfile appProfile;
-
-    // Active role for the account will fetch the detail from 'EtlAccountRole' current role and its permission.
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "role_id", nullable = false)
-    private AppRole appRole;
 
     public EtlAccount() {}
 
@@ -84,20 +89,28 @@ public class EtlAccount extends BaseEntity {
         this.ipAddress = ipAddress;
     }
 
+    public AppCountry getCountry() {
+        return country;
+    }
+
+    public void setCountry(AppCountry country) {
+        this.country = country;
+    }
+
+    public GENDER getGender() {
+        return gender;
+    }
+
+    public void setGender(GENDER gender) {
+        this.gender = gender;
+    }
+
     public AppProfile getAppProfile() {
         return appProfile;
     }
 
     public void setAppProfile(AppProfile appProfile) {
         this.appProfile = appProfile;
-    }
-
-    public AppRole getAppRole() {
-        return appRole;
-    }
-
-    public void setAppRole(AppRole appRole) {
-        this.appRole = appRole;
     }
 
     @Override

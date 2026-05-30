@@ -18,7 +18,7 @@ import javax.persistence.*;
 public class AppGroup extends BaseEntity {
 
     @Embedded
-    private NamedTokenDetail tokenDetail;
+    private NamedTokenDetail namedTokenDetail;
 
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "group_type", nullable = false)
@@ -30,12 +30,12 @@ public class AppGroup extends BaseEntity {
 
     public AppGroup() {}
 
-    public NamedTokenDetail getTokenDetail() {
-        return tokenDetail;
+    public NamedTokenDetail getNamedTokenDetail() {
+        return namedTokenDetail;
     }
 
-    public void setTokenDetail(NamedTokenDetail tokenDetail) {
-        this.tokenDetail = tokenDetail;
+    public void setNamedTokenDetail(NamedTokenDetail namedTokenDetail) {
+        this.namedTokenDetail = namedTokenDetail;
     }
 
     public GROUP_TYPE getGroupType() {

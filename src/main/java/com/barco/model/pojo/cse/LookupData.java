@@ -24,7 +24,8 @@ public class LookupData extends BaseEntity {
     @Column(name = "lookup_code")
     private String lookupCode;
 
-    @Column(name = "lookup_value", columnDefinition = "text")
+    @Column(name = "lookup_value",
+        columnDefinition = "text", nullable = false)
     private String lookupValue;
 
     @Column(name = "sort_order", nullable = false)
