@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
+
     <!-- log folder from application.properties -->
     <property name="LOG_FOLDER" value="${DATA_LOGS_PATH:-./logs}"/>
     <!-- main log file -->
     <property name="HOME_LOG" value="${LOG_FOLDER}/model.log"/>
+
     <!-- Console Appender -->
     <appender name="CONSOLE-ROLLING" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>

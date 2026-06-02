@@ -27,9 +27,9 @@ INSERT INTO app_role (
 (NOW(), NOW(), 1, gen_random_uuid(), 'Provides customer-level access within the organization portal.', 'Organization Customer', 'ROLE_ORG_CUSTOMER'),
 (NOW(), NOW(), 1, gen_random_uuid(), 'Provides limited guest access within the organization.', 'Organization Guest', 'ROLE_ORG_GUEST'),
 
--- Portal Roles
-(NOW(), NOW(), 1, gen_random_uuid(), 'Provides full root-level access to HR portal including system configuration, user management, and global settings.', 'ROLE_HR_PORTAL_ROOT_ACCOUNT', 'ROLE_HR_PORTAL_ROOT_ACCOUNT'),
-(NOW(), NOW(), 1, gen_random_uuid(), 'Provides full administrative control over HR portal including roles, users, workflows, and configurations.', 'ROLE_HR_PORTAL_SUPER_ADMIN', 'ROLE_HR_PORTAL_SUPER_ADMIN'),
-(NOW(), NOW(), 1, gen_random_uuid(), 'Provides administrative access to manage HR portal users, roles, and operational activities.', 'ROLE_HR_PORTAL_ADMIN', 'ROLE_HR_PORTAL_ADMIN'),
-(NOW(), NOW(), 1, gen_random_uuid(), 'Provides standard user access to HR portal features such as profile management and basic services.', 'ROLE_HR_PORTAL_USER', 'ROLE_HR_PORTAL_USER'),
-(NOW(), NOW(), 1, gen_random_uuid(), 'Provides candidate-level access for job applications, profile submission, and recruitment tracking.', 'ROLE_HR_PORTAL_CANDIDATE', 'ROLE_HR_PORTAL_CANDIDATE');
+-- HR Portal Roles
+(NOW(), NOW(), 1, gen_random_uuid(), 'Provides full root-level access to HR portal including system configuration, user management, and global settings.', 'HR Portal Root Account', 'ROLE_HR_PORTAL_ROOT_ACCOUNT'),
+(NOW(), NOW(), 1, gen_random_uuid(), 'Provides full administrative control over HR portal including roles, users, workflows, and configurations.', 'HR Portal Super Admin', 'ROLE_HR_PORTAL_SUPER_ADMIN'),
+(NOW(), NOW(), 1, gen_random_uuid(), 'Provides administrative access to manage HR portal users, roles, and operational activities.', 'HR Portal Admin', 'ROLE_HR_PORTAL_ADMIN'),
+(NOW(), NOW(), 1, gen_random_uuid(), 'Provides standard user access to HR portal features such as profile management and basic services.', 'HR Portal User', 'ROLE_HR_PORTAL_USER'),
+(NOW(), NOW(), 1, gen_random_uuid(), 'Provides candidate-level access for job applications, profile submission, and recruitment tracking.', 'HR Portal Candidate', 'ROLE_HR_PORTAL_CANDIDATE');

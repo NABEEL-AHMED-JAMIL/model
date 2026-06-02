@@ -1,11 +1,13 @@
 databaseChangeLog:
-    - include:
+    - exlude:
         file: db/changelog/yaml/V1.0-init.yaml
-    - include:
+    - exlude:
         file: db/changelog/yaml/V2.0-init.yaml
-    - include:
+    - exlude:
         file: db/changelog/yaml/V3.0-init.yaml
-    - include:
+    - exlude:
         file: db/changelog/yaml/V4.0-init.yaml
-    - include:
+    - exlude:
         file: db/changelog/yaml/V5.0-init.yaml
+    - exlude:
+        file: db/changelog/yaml/V6.0-init.yaml

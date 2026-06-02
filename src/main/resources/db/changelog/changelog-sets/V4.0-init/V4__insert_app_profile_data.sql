@@ -56,37 +56,37 @@ VALUES
 -- ================= ORG =================
 (NOW(), NOW(), 1, gen_random_uuid(),
  'Profile for organization root account with full access.',
- 'Org Root Account Profile',
+ 'Organization Root Account Profile',
  'ORG_ROOT_ACCOUNT_PROFILE',
  (SELECT id FROM app_role WHERE token = 'ROLE_ORG_ROOT_ACCOUNT' AND status = 1)),
 
 (NOW(), NOW(), 1, gen_random_uuid(),
  'Profile for organization super admin with full control.',
- 'Org Super Admin Profile',
+ 'Organization Super Admin Profile',
  'ORG_SUPER_ADMIN_PROFILE',
  (SELECT id FROM app_role WHERE token = 'ROLE_ORG_SUPER_ADMIN' AND status = 1)),
 
 (NOW(), NOW(), 1, gen_random_uuid(),
  'Profile for organization admin managing users and operations.',
- 'Org Admin Profile',
+ 'Organization Admin Profile',
  'ORG_ADMIN_PROFILE',
  (SELECT id FROM app_role WHERE token = 'ROLE_ORG_ADMIN' AND status = 1)),
 
 (NOW(), NOW(), 1, gen_random_uuid(),
  'Profile for organization user with standard access.',
- 'Org User Profile',
+ 'Organization User Profile',
  'ORG_USER_PROFILE',
  (SELECT id FROM app_role WHERE token = 'ROLE_ORG_USER' AND status = 1)),
 
 (NOW(), NOW(), 1, gen_random_uuid(),
  'Profile for organization customer access.',
- 'Org Customer Profile',
+ 'Organization Customer Profile',
  'ORG_CUSTOMER_PROFILE',
  (SELECT id FROM app_role WHERE token = 'ROLE_ORG_CUSTOMER' AND status = 1)),
 
 (NOW(), NOW(), 1, gen_random_uuid(),
  'Profile for organization guest with limited access.',
- 'Org Guest Profile',
+ 'Organization Guest Profile',
  'ORG_GUEST_PROFILE',
  (SELECT id FROM app_role WHERE token = 'ROLE_ORG_GUEST' AND status = 1)),
 

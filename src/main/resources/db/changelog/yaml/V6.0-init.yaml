@@ -1,0 +1,13 @@
+databaseChangeLog:
+    - changeSet:
+        id: 5
+        author: nabeel.amd93
+        comment: Add show_on_register_page column to app_profile table
+        changes:
+            - sqlFile:
+                label: Add Show On Register Page Column
+                description: Add boolean column to app_profile table to control profile visibility on registration page
+                path: ../changelog-sets/V6.0-init/V6__add_show_on_register_page_to_app_profile.sql
+                relativeToChangelogFile: true
+                splitStatements: true
+

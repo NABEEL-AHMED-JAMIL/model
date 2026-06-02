@@ -32,16 +32,12 @@ public class OrganizationJwtKey extends BaseEntity {
     @JoinColumn(name = "org_id", nullable = false)
     private Organization organization;
 
-    // AES-encrypted private key (store as TEXT/CLOB)
-    @Lob
     @Column(name = "private_key",
-        columnDefinition = "BYTEA", nullable = false)
+        columnDefinition = "bytea", nullable = false)
     private byte[] privateKey;
 
-    // PEM or Base64 encoded (store as TEXT/CLOB)
-    @Lob
     @Column(name = "public_key",
-        columnDefinition = "BYTEA", nullable = false)
+        columnDefinition = "bytea", nullable = false)
     private byte[] publicKey;
 
     public OrganizationJwtKey() {}

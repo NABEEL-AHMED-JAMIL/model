@@ -24,6 +24,10 @@ public class AppProfile extends BaseEntity {
     @JoinColumn(name = "role_id", nullable = false, unique = true)
     private AppRole role;
 
+    @Column(name = "show_on_register_page",
+        nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
+    private Boolean showOnRegisterPage = false;
+
     public AppProfile() {}
 
     public NamedTokenDetail getNamedTokenDetail() {
@@ -40,6 +44,14 @@ public class AppProfile extends BaseEntity {
 
     public void setRole(AppRole role) {
         this.role = role;
+    }
+
+    public Boolean getShowOnRegisterPage() {
+        return showOnRegisterPage;
+    }
+
+    public void setShowOnRegisterPage(Boolean showOnRegisterPage) {
+        this.showOnRegisterPage = showOnRegisterPage;
     }
 
     @Override
